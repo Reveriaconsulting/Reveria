@@ -16,13 +16,14 @@ Looper MIDI simple (boucles par familles : Rythme, Basse, Nappes, Mélodie), pil
 Lancer : `python3 -m http.server 8765` dans `logiciel/`, puis `http://localhost:8765`.
 
 ## Application Mac / Windows (`application/`, Electron)
-`main.js` (fenêtre, menu, adresse interne `app://boucles/`, droits MIDI/SysEx), `package.json`, `installer-mac.sh`.
+`main.js` (fenêtre, menu, adresse interne `app://boucles/`, droits MIDI/SysEx), `package.json`, `installer-mac.sh`, icônes dans `build/`.
 Installer : `npm install` puis `./installer-mac.sh` (Mac) ou `npm run assembler-windows` (PC).
 
 ## Application iPhone (`iphone/`, Xcode)
-`RevLoop/RevLoopApp.swift` (vue web, pont MIDI CoreMIDI, son, sauvegarde dans Fichiers), `RevLoop/Info.plist`.
+Projet `RevLoop.xcodeproj`, `RevLoop/RevLoopApp.swift` (vue web, pont MIDI CoreMIDI, son, sauvegarde dans Fichiers), `RevLoop/Info.plist`, icône dans `RevLoop/Assets.xcassets`.
 
-## Manque encore
-- `logiciel/sons/<instrument>/` : les fichiers son eux-mêmes (le catalogue `sons/instruments.json` est présent : 61 instruments, 941 fichiers). Ils se recréent avec les scripts de `logiciel/outils/` (dans l'ordre : `telecharger_sons.py`, `telecharger_lot2.py`, `telecharger_lot3.py`)
-- `application/build/` (icônes `icon.icns`, `icon.png`, `icone-source.html`)
-- `iphone/RevLoop.xcodeproj` et `iphone/RevLoop/Assets.xcassets`
+## Sons (`logiciel/sons/`)
+61 instruments, 941 fichiers (94 Mo), tous référencés dans `instruments.json`. Ils peuvent aussi être recréés avec les scripts de `logiciel/outils/`, dans l'ordre : `telecharger_sons.py`, `telecharger_lot2.py`, `telecharger_lot3.py`.
+
+## Compositions (`Reza compo/`)
+Sessions `.boucles`, à ouvrir avec Fichier › Ouvrir.
