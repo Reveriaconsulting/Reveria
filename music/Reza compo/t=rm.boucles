@@ -1,0 +1,324 @@
+{
+ "version": 2,
+ "reference": 0,
+ "decalageReference": 0,
+ "familleActive": 3,
+ "familles": [
+  {
+   "volume": 127,
+   "selection": 0,
+   "arp": false,
+   "boucles": [
+    {
+     "reglages": {
+      "filtre": 79,
+      "reverb": 0,
+      "chorus": 0,
+      "delay": 0,
+      "saturation": 0,
+      "grain": 0,
+      "attaque": 0,
+      "mouvement": 0,
+      "volume": 127
+     },
+     "instrument": "batterie-acoustique",
+     "transpo": 0,
+     "vitesse": 1,
+     "muet": false,
+     "enregistrement": null
+    },
+    {
+     "reglages": {
+      "filtre": 127,
+      "reverb": 127,
+      "chorus": 0,
+      "delay": 0,
+      "saturation": 27,
+      "grain": 0,
+      "attaque": 0,
+      "mouvement": 0,
+      "volume": 127
+     },
+     "instrument": "batterie-acoustique",
+     "transpo": 0,
+     "vitesse": 1,
+     "muet": false,
+     "enregistrement": null
+    },
+    {
+     "reglages": {
+      "filtre": 127,
+      "reverb": 0,
+      "chorus": 0,
+      "delay": 0,
+      "saturation": 0,
+      "grain": 0,
+      "attaque": 0,
+      "mouvement": 0,
+      "volume": 100
+     },
+     "instrument": null,
+     "transpo": 0,
+     "vitesse": 1,
+     "muet": false,
+     "enregistrement": null
+    },
+    {
+     "reglages": {
+      "filtre": 127,
+      "reverb": 0,
+      "chorus": 0,
+      "delay": 0,
+      "saturation": 0,
+      "grain": 0,
+      "attaque": 0,
+      "mouvement": 0,
+      "volume": 100
+     },
+     "instrument": null,
+     "transpo": 0,
+     "vitesse": 1,
+     "muet": false,
+     "enregistrement": null
+    }
+   ]
+  },
+  {
+   "volume": 127,
+   "selection": 0,
+   "arp": false,
+   "boucles": [
+    {
+     "reglages": {
+      "filtre": 127,
+      "reverb": 88,
+      "chorus": 32,
+      "delay": 8,
+      "saturation": 0,
+      "grain": 0,
+      "attaque": 37,
+      "mouvement": 68,
+      "volume": 100
+     },
+     "instrument": null,
+     "transpo": 0,
+     "vitesse": 1,
+     "muet": false,
+     "enregistrement": null
+    },
+    {
+     "reglages": {
+      "filtre": 127,
+      "reverb": 0,
+      "chorus": 0,
+      "delay": 0,
+      "saturation": 0,
+      "grain": 0,
+      "attaque": 0,
+      "mouvement": 0,
+      "volume": 100
+     },
+     "instrument": null,
+     "transpo": 0,
+     "vitesse": 1,
+     "muet": false,
+     "enregistrement": null
+    },
+    {
+     "reglages": {
+      "filtre": 127,
+      "reverb": 0,
+      "chorus": 0,
+      "delay": 0,
+      "saturation": 0,
+      "grain": 0,
+      "attaque": 0,
+      "mouvement": 0,
+      "volume": 100
+     },
+     "instrument": null,
+     "transpo": 0,
+     "vitesse": 1,
+     "muet": false,
+     "enregistrement": null
+    },
+    {
+     "reglages": {
+      "filtre": 127,
+      "reverb": 0,
+      "chorus": 0,
+      "delay": 0,
+      "saturation": 0,
+      "grain": 0,
+      "attaque": 0,
+      "mouvement": 0,
+      "volume": 100
+     },
+     "instrument": null,
+     "transpo": 0,
+     "vitesse": 1,
+     "muet": false,
+     "enregistrement": null
+    }
+   ]
+  },
+  {
+   "volume": 127,
+   "selection": 0,
+   "arp": false,
+   "boucles": [
+    {
+     "reglages": {
+      "filtre": 127,
+      "reverb": 0,
+      "chorus": 0,
+      "delay": 0,
+      "saturation": 0,
+      "grain": 0,
+      "attaque": 0,
+      "mouvement": 0,
+      "volume": 31
+     },
+     "instrument": "orgue",
+     "transpo": 0,
+     "vitesse": 1,
+     "muet": false,
+     "enregistrement": null
+    },
+    {
+     "reglages": {
+      "filtre": 127,
+      "reverb": 0,
+      "chorus": 0,
+      "delay": 0,
+      "saturation": 0,
+      "grain": 0,
+      "attaque": 0,
+      "mouvement": 0,
+      "volume": 100
+     },
+     "instrument": null,
+     "transpo": 0,
+     "vitesse": 1,
+     "muet": false,
+     "enregistrement": null
+    },
+    {
+     "reglages": {
+      "filtre": 127,
+      "reverb": 0,
+      "chorus": 0,
+      "delay": 0,
+      "saturation": 0,
+      "grain": 0,
+      "attaque": 0,
+      "mouvement": 0,
+      "volume": 100
+     },
+     "instrument": null,
+     "transpo": 0,
+     "vitesse": 1,
+     "muet": false,
+     "enregistrement": null
+    },
+    {
+     "reglages": {
+      "filtre": 127,
+      "reverb": 0,
+      "chorus": 0,
+      "delay": 0,
+      "saturation": 0,
+      "grain": 0,
+      "attaque": 0,
+      "mouvement": 0,
+      "volume": 100
+     },
+     "instrument": null,
+     "transpo": 0,
+     "vitesse": 1,
+     "muet": false,
+     "enregistrement": null
+    }
+   ]
+  },
+  {
+   "volume": 127,
+   "selection": 0,
+   "arp": false,
+   "boucles": [
+    {
+     "reglages": {
+      "filtre": 55,
+      "reverb": 102,
+      "chorus": 115,
+      "delay": 71,
+      "saturation": 25,
+      "grain": 11,
+      "attaque": 31,
+      "mouvement": 19,
+      "volume": 69
+     },
+     "instrument": null,
+     "transpo": 0,
+     "vitesse": 1,
+     "muet": false,
+     "enregistrement": null
+    },
+    {
+     "reglages": {
+      "filtre": 127,
+      "reverb": 0,
+      "chorus": 0,
+      "delay": 0,
+      "saturation": 0,
+      "grain": 0,
+      "attaque": 0,
+      "mouvement": 0,
+      "volume": 100
+     },
+     "instrument": null,
+     "transpo": 0,
+     "vitesse": 1,
+     "muet": false,
+     "enregistrement": null
+    },
+    {
+     "reglages": {
+      "filtre": 127,
+      "reverb": 0,
+      "chorus": 0,
+      "delay": 0,
+      "saturation": 0,
+      "grain": 0,
+      "attaque": 0,
+      "mouvement": 0,
+      "volume": 100
+     },
+     "instrument": null,
+     "transpo": 0,
+     "vitesse": 1,
+     "muet": false,
+     "enregistrement": null
+    },
+    {
+     "reglages": {
+      "filtre": 127,
+      "reverb": 0,
+      "chorus": 0,
+      "delay": 0,
+      "saturation": 0,
+      "grain": 0,
+      "attaque": 0,
+      "mouvement": 0,
+      "volume": 100
+     },
+     "instrument": null,
+     "transpo": 0,
+     "vitesse": 1,
+     "muet": false,
+     "enregistrement": null
+    }
+   ]
+  }
+ ]
+}
