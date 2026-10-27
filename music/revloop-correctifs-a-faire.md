@@ -11,7 +11,7 @@ Objectif : élargir le public au-delà du MiniLab 3, puis valider l'intérêt av
 ### Priorité 0 — Clavier et pads à l'écran (jouer sans clavier MIDI)
 Constat (27/10/2026) : l'app ne permet pas de jouer au toucher et n'a aucun clavier à l'écran. Sans clavier MIDI branché, elle est inutilisable. Conséquences : refus probable à la validation Apple (le testeur n'a pas de MiniLab 3, voir section 6), public limité aux possesseurs d'un clavier MIDI, impossible pour un spectateur de TikTok/YouTube d'essayer l'app.
 - [ ] Clavier à l'écran : 2 octaves minimum, boutons de changement d'octave, défilement ou zoom
-- [ ] Pads à l'écran (8 pads) pour la batterie et le lancement des boucles
+- [x] Pads à l'écran (8 pads) pour la batterie et le lancement des boucles (fait le 27/10/2026, `tactile.js`, à valider sur iPhone)
 - [ ] Knobs et faders tactiles pour les réglages de base (volume par famille, filtre, réverbération, tempo)
 - [ ] Même écran de jeu que l'on utilise le tactile ou un clavier MIDI : le clavier physique prend le relais dès qu'il est détecté
 - [ ] Jeu multi-touch : plusieurs notes en même temps (accords)

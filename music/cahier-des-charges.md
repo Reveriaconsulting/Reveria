@@ -109,7 +109,8 @@ Disposé **comme le MiniLab** (d'après la photo) : menus en haut, onglets des f
 - Tout tient sans défilement et s'adapte : grand écran, iPhone en portrait (pads en 2 rangées de 4) et en paysage.
 - ✅ **Lifting du 2026-10-26** (demande : plus lisible, effets, fond Reveria) : textes plus grands, **nom de l'instrument en gros** sur chaque pad et sur l'écran (avec ♪), panneaux en verre dépoli, lueurs aux couleurs des familles (lecture vert, rec rouge qui pulse, action active), logo Reveria dans le titre. **Fond animé** (`fond.js`) : les nœuds bleus et gris du logo Reveria dérivent et se relient par des courbes ; le fond s'anime à chaque temps de la mesure et lance une onde de la couleur de la famille à chaque touche jouée. Vérifié sur grand écran, iPhone portrait et paysage.
 - ✅ **Formes maison** (validées le 2026-10-26, demande : « moins générique ») : pads comme de vraies touches en caoutchouc (épaisseur, s'enfoncent à l'appui, **LED d'état** en haut, numéro « PAD 01 »), familles en **4 nœuds reliés par une chaîne** comme le logo, boutons à **coins biseautés**, potards à **capuchon et aiguille**, faders avec un **curseur**, écran à lignes façon LCD, chiffres en police « machine », bouton Démarrer en **sphère Reveria** avec une orbite.
-- Au clic : changer de famille, sélectionner une boucle, choisir l'instrument (bouton sous chaque pad de boucle).
+- Au clic : changer de famille, choisir l'instrument (bouton sous chaque pad de boucle, qui sélectionne aussi la boucle sans changer son état).
+- 🟡 **Pads tactiles** (ajoutés le 2026-10-27, fichier `tactile.js`, à valider sur iPhone) : toucher ou cliquer un pad de l'écran fait exactement comme le pad du MiniLab (prêt, rec, lecture, arrêt, appui long, actions 5-8), plusieurs doigts à la fois. Avant, un clic sur un pad de boucle la sélectionnait seulement.
 - Jauge de mesure : avance seulement quand au moins une boucle joue.
 - Menus : Fichier (Nouvelle session, Ouvrir, Sauvegarder, Sauvegarder sous, Options, Quitter), Édition (effacer une boucle ou une famille, Réglages des pads), Affichage (plein écran, taille du texte), Aide. Bouton **💾 Sauvegarder** en haut à droite.
 
@@ -178,6 +179,7 @@ Audio réel (guitare, voix — idée : brancher sa vraie guitare par le Valeton 
 | `logiciel/arpege.js` | Arpégiateur |
 | `logiciel/synthes.js` | Sons fabriqués en code (synthwave, ambient, arcade) |
 | `logiciel/fond.js` | Fond d'écran animé : les nœuds Reveria |
+| `logiciel/tactile.js` | Jouer au toucher : les pads de l'écran |
 | `logiciel/sons/` | Les 61 instruments enregistrés (93 Mo) + `instruments.json` |
 | `logiciel/outils/` | Téléchargement des sons (lots 1, 2, 3), vérification des hauteurs |
 | `minilab3-mapping.md` | Carte MIDI mesurée du MiniLab 3 |
