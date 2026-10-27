@@ -1,0 +1,58 @@
+{
+  "name": "revloop",
+  "productName": "RevLoop",
+  "version": "1.0.0",
+  "description": "Boucles MIDI en direct avec l'Arturia MiniLab 3",
+  "author": "Reveria Consulting",
+  "main": "main.js",
+  "private": true,
+  "scripts": {
+    "demarrer": "electron .",
+    "assembler-mac": "electron-builder --mac dir",
+    "assembler-windows": "electron-builder --win nsis",
+    "installer-mac": "./installer-mac.sh"
+  },
+  "devDependencies": {
+    "electron": "^37.10.3",
+    "electron-builder": "^26.18.0"
+  },
+  "allowScripts": {
+    "electron@37.10.3": true
+  },
+  "build": {
+    "appId": "fr.reveria-consulting.revloop",
+    "productName": "RevLoop",
+    "copyright": "Reveria Consulting",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "main.js",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "../logiciel",
+        "to": "logiciel",
+        "filter": [
+          "**/*",
+          "!outils/**",
+          "!**/*.py",
+          "!**/.DS_Store"
+        ]
+      }
+    ],
+    "electronDist": "node_modules/electron/dist",
+    "mac": {
+      "target": "dir",
+      "icon": "build/icon.icns",
+      "category": "public.app-category.music",
+      "identity": null
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "build/icon.png"
+    }
+  }
+}

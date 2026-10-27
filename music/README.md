@@ -15,4 +15,14 @@ Looper MIDI simple (boucles par familles : Rythme, Basse, Nappes, Mélodie), pil
 ## Code (`logiciel/`)
 Lancer : `python3 -m http.server 8765` dans `logiciel/`, puis `http://localhost:8765`.
 
-Manquent encore pour un logiciel complet : `logiciel/sons/` (instruments + `instruments.json`), `logiciel/outils/`, `application/` (Electron), `iphone/` (Xcode).
+## Application Mac / Windows (`application/`, Electron)
+`main.js` (fenêtre, menu, adresse interne `app://boucles/`, droits MIDI/SysEx), `package.json`, `installer-mac.sh`.
+Installer : `npm install` puis `./installer-mac.sh` (Mac) ou `npm run assembler-windows` (PC).
+
+## Application iPhone (`iphone/`, Xcode)
+`RevLoop/RevLoopApp.swift` (vue web, pont MIDI CoreMIDI, son, sauvegarde dans Fichiers), `RevLoop/Info.plist`.
+
+## Manque encore
+- `logiciel/sons/` (instruments + `instruments.json`) et `logiciel/outils/`
+- `application/build/` (icônes `icon.icns`, `icon.png`, `icone-source.html`)
+- `iphone/RevLoop.xcodeproj` et `iphone/RevLoop/Assets.xcassets`
