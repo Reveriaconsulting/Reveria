@@ -1,0 +1,469 @@
+{
+ "version": 2,
+ "reference": 10.141333333333336,
+ "decalageReference": 0,
+ "familleActive": 3,
+ "familles": [
+  {
+   "volume": 127,
+   "selection": 0,
+   "boucles": [
+    {
+     "reglages": {
+      "filtre": 72,
+      "reverb": 49,
+      "chorus": 15,
+      "delay": 0,
+      "saturation": 27,
+      "grain": 43,
+      "attaque": 117,
+      "mouvement": 45,
+      "volume": 127
+     },
+     "enregistrement": {
+      "notes": [
+       {
+        "quand": 0,
+        "duree": 0.16266666666666652,
+        "note": 60,
+        "velocite": 127
+       },
+       {
+        "quand": 0.7626666666666608,
+        "duree": 0.06399999999999295,
+        "note": 60,
+        "velocite": 99
+       },
+       {
+        "quand": 0.9199999999999875,
+        "duree": 0.0800000000000125,
+        "note": 60,
+        "velocite": 99
+       },
+       {
+        "quand": 1.365333333333325,
+        "duree": 0.18666666666666742,
+        "note": 60,
+        "velocite": 109
+       },
+       {
+        "quand": 2.362666666666655,
+        "duree": 0.17600000000001614,
+        "note": 60,
+        "velocite": 98
+       },
+       {
+        "quand": 3.346666666666664,
+        "duree": 0.06399999999999295,
+        "note": 60,
+        "velocite": 96
+       },
+       {
+        "quand": 3.5039999999999907,
+        "duree": 0.07200000000000273,
+        "note": 60,
+        "velocite": 96
+       },
+       {
+        "quand": 3.9626666666666495,
+        "duree": 0.15733333333335509,
+        "note": 60,
+        "velocite": 122
+       },
+       {
+        "quand": 4.960000000000008,
+        "duree": 0.11733333333333462,
+        "note": 60,
+        "velocite": 103
+       },
+       {
+        "quand": 5.893333333333317,
+        "duree": 0.06400000000002137,
+        "note": 60,
+        "velocite": 99
+       },
+       {
+        "quand": 6.053333333333342,
+        "duree": 0.07466666666664423,
+        "note": 60,
+        "velocite": 96
+       },
+       {
+        "quand": 6.503999999999991,
+        "duree": 0.12266666666667447,
+        "note": 60,
+        "velocite": 100
+       },
+       {
+        "quand": 7.4879999999999995,
+        "duree": 0.12266666666667447,
+        "note": 60,
+        "velocite": 110
+       },
+       {
+        "quand": 8.314666666666653,
+        "duree": 0.06400000000002137,
+        "note": 60,
+        "velocite": 98
+       },
+       {
+        "quand": 8.469333333333338,
+        "duree": 0.07466666666664423,
+        "note": 60,
+        "velocite": 95
+       },
+       {
+        "quand": 8.912000000000006,
+        "duree": 0.11733333333333462,
+        "note": 60,
+        "velocite": 116
+       }
+      ],
+      "duree": 10.141333333333336,
+      "decalage": 192.99200000000002
+     }
+    },
+    {
+     "reglages": {
+      "filtre": 80,
+      "reverb": 0,
+      "chorus": 0,
+      "delay": 0,
+      "saturation": 0,
+      "grain": 0,
+      "attaque": 0,
+      "mouvement": 0,
+      "volume": 100
+     },
+     "enregistrement": null
+    },
+    {
+     "reglages": {
+      "filtre": 80,
+      "reverb": 0,
+      "chorus": 0,
+      "delay": 0,
+      "saturation": 0,
+      "grain": 0,
+      "attaque": 0,
+      "mouvement": 0,
+      "volume": 100
+     },
+     "enregistrement": null
+    },
+    {
+     "reglages": {
+      "filtre": 80,
+      "reverb": 0,
+      "chorus": 0,
+      "delay": 0,
+      "saturation": 0,
+      "grain": 0,
+      "attaque": 0,
+      "mouvement": 0,
+      "volume": 100
+     },
+     "enregistrement": null
+    }
+   ]
+  },
+  {
+   "volume": 127,
+   "selection": 0,
+   "boucles": [
+    {
+     "reglages": {
+      "filtre": 26,
+      "reverb": 54,
+      "chorus": 54,
+      "delay": 0,
+      "saturation": 13,
+      "grain": 16,
+      "attaque": 0,
+      "mouvement": 0,
+      "volume": 127
+     },
+     "enregistrement": {
+      "notes": [
+       {
+        "quand": 0,
+        "duree": 9.70933333333329,
+        "note": 41,
+        "velocite": 84
+       }
+      ],
+      "duree": 10.141333333333336,
+      "decalage": 273.8906666666667
+     }
+    },
+    {
+     "reglages": {
+      "filtre": 80,
+      "reverb": 0,
+      "chorus": 0,
+      "delay": 0,
+      "saturation": 0,
+      "grain": 0,
+      "attaque": 0,
+      "mouvement": 0,
+      "volume": 100
+     },
+     "enregistrement": null
+    },
+    {
+     "reglages": {
+      "filtre": 80,
+      "reverb": 0,
+      "chorus": 0,
+      "delay": 0,
+      "saturation": 0,
+      "grain": 0,
+      "attaque": 0,
+      "mouvement": 0,
+      "volume": 100
+     },
+     "enregistrement": null
+    },
+    {
+     "reglages": {
+      "filtre": 80,
+      "reverb": 0,
+      "chorus": 0,
+      "delay": 0,
+      "saturation": 0,
+      "grain": 0,
+      "attaque": 0,
+      "mouvement": 0,
+      "volume": 100
+     },
+     "enregistrement": null
+    }
+   ]
+  },
+  {
+   "volume": 100,
+   "selection": 0,
+   "boucles": [
+    {
+     "reglages": {
+      "filtre": 86,
+      "reverb": 127,
+      "chorus": 85,
+      "delay": 26,
+      "saturation": 2,
+      "grain": 18,
+      "attaque": 21,
+      "mouvement": 0,
+      "volume": 100
+     },
+     "enregistrement": {
+      "notes": [
+       {
+        "quand": 0.026666666666670835,
+        "duree": 2.1440000000000055,
+        "note": 60,
+        "velocite": 77
+       },
+       {
+        "quand": 0.02933333333334076,
+        "duree": 2.152000000000001,
+        "note": 57,
+        "velocite": 64
+       },
+       {
+        "quand": 0.0346666666666664,
+        "duree": 2.160000000000011,
+        "note": 53,
+        "velocite": 69
+       },
+       {
+        "quand": 0,
+        "duree": 2.2133333333333383,
+        "note": 67,
+        "velocite": 94
+       },
+       {
+        "quand": 2.5733333333333377,
+        "duree": 2.146666666666661,
+        "note": 60,
+        "velocite": 94
+       },
+       {
+        "quand": 2.5706666666666678,
+        "duree": 2.1706666666666763,
+        "note": 57,
+        "velocite": 70
+       },
+       {
+        "quand": 2.584000000000003,
+        "duree": 2.1839999999999975,
+        "note": 52,
+        "velocite": 53
+       },
+       {
+        "quand": 2.565333333333342,
+        "duree": 2.2293333333333294,
+        "note": 65,
+        "velocite": 94
+       },
+       {
+        "quand": 5.184000000000012,
+        "duree": 2.085333333333324,
+        "note": 57,
+        "velocite": 74
+       },
+       {
+        "quand": 5.176000000000002,
+        "duree": 2.112000000000009,
+        "note": 53,
+        "velocite": 72
+       },
+       {
+        "quand": 5.202666666666673,
+        "duree": 2.1146666666666647,
+        "note": 50,
+        "velocite": 51
+       },
+       {
+        "quand": 5.194666666666677,
+        "duree": 2.2506666666666604,
+        "note": 64,
+        "velocite": 85
+       },
+       {
+        "quand": 7.765333333333345,
+        "duree": 1.9199999999999875,
+        "note": 52,
+        "velocite": 63
+       },
+       {
+        "quand": 7.7733333333333405,
+        "duree": 1.9386666666666628,
+        "note": 55,
+        "velocite": 63
+       },
+       {
+        "quand": 7.74933333333334,
+        "duree": 1.9706666666666592,
+        "note": 62,
+        "velocite": 66
+       },
+       {
+        "quand": 7.744,
+        "duree": 1.978666666666669,
+        "note": 48,
+        "velocite": 56
+       }
+      ],
+      "duree": 10.141333333333336,
+      "decalage": 0
+     }
+    },
+    {
+     "reglages": {
+      "filtre": 80,
+      "reverb": 0,
+      "chorus": 0,
+      "delay": 0,
+      "saturation": 0,
+      "grain": 0,
+      "attaque": 0,
+      "mouvement": 0,
+      "volume": 100
+     },
+     "enregistrement": null
+    },
+    {
+     "reglages": {
+      "filtre": 80,
+      "reverb": 0,
+      "chorus": 0,
+      "delay": 0,
+      "saturation": 0,
+      "grain": 0,
+      "attaque": 0,
+      "mouvement": 0,
+      "volume": 100
+     },
+     "enregistrement": null
+    },
+    {
+     "reglages": {
+      "filtre": 80,
+      "reverb": 0,
+      "chorus": 0,
+      "delay": 0,
+      "saturation": 0,
+      "grain": 0,
+      "attaque": 0,
+      "mouvement": 0,
+      "volume": 100
+     },
+     "enregistrement": null
+    }
+   ]
+  },
+  {
+   "volume": 100,
+   "selection": 0,
+   "boucles": [
+    {
+     "reglages": {
+      "filtre": 28,
+      "reverb": 57,
+      "chorus": 9,
+      "delay": 0,
+      "saturation": 0,
+      "grain": 0,
+      "attaque": 0,
+      "mouvement": 0,
+      "volume": 127
+     },
+     "enregistrement": null
+    },
+    {
+     "reglages": {
+      "filtre": 80,
+      "reverb": 0,
+      "chorus": 0,
+      "delay": 0,
+      "saturation": 0,
+      "grain": 0,
+      "attaque": 0,
+      "mouvement": 0,
+      "volume": 100
+     },
+     "enregistrement": null
+    },
+    {
+     "reglages": {
+      "filtre": 80,
+      "reverb": 0,
+      "chorus": 0,
+      "delay": 0,
+      "saturation": 0,
+      "grain": 0,
+      "attaque": 0,
+      "mouvement": 0,
+      "volume": 100
+     },
+     "enregistrement": null
+    },
+    {
+     "reglages": {
+      "filtre": 80,
+      "reverb": 0,
+      "chorus": 0,
+      "delay": 0,
+      "saturation": 0,
+      "grain": 0,
+      "attaque": 0,
+      "mouvement": 0,
+      "volume": 100
+     },
+     "enregistrement": null
+    }
+   ]
+  }
+ ]
+}
