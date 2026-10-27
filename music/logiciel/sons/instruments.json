@@ -1,0 +1,6726 @@
+[
+ {
+  "id": "piano",
+  "nom": "Piano à queue",
+  "categorie": "Claviers",
+  "regions": [
+   {
+    "fichier": "piano/23.ogg",
+    "cle": 23,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/27.ogg",
+    "cle": 27,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/29.ogg",
+    "cle": 29,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/31.ogg",
+    "cle": 31,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/33.ogg",
+    "cle": 33,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/35.ogg",
+    "cle": 35,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/37.ogg",
+    "cle": 37,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/38.ogg",
+    "cle": 38,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/40.ogg",
+    "cle": 40,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/41.ogg",
+    "cle": 41,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/43.ogg",
+    "cle": 43,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/45.ogg",
+    "cle": 45,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/47.ogg",
+    "cle": 47,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/48.ogg",
+    "cle": 48,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/50.ogg",
+    "cle": 50,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/52.ogg",
+    "cle": 52,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/53.ogg",
+    "cle": 53,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/55.ogg",
+    "cle": 55,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/56.ogg",
+    "cle": 56,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/57.ogg",
+    "cle": 57,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/58.ogg",
+    "cle": 58,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/59.ogg",
+    "cle": 59,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/60.ogg",
+    "cle": 60,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/62.ogg",
+    "cle": 62,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/64.ogg",
+    "cle": 64,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/65.ogg",
+    "cle": 65,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/67.ogg",
+    "cle": 67,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/69.ogg",
+    "cle": 69,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/71.ogg",
+    "cle": 71,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/72.ogg",
+    "cle": 72,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/74.ogg",
+    "cle": 74,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/76.ogg",
+    "cle": 76,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/77.ogg",
+    "cle": 77,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/79.ogg",
+    "cle": 79,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/80.ogg",
+    "cle": 80,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/81.ogg",
+    "cle": 81,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/82.ogg",
+    "cle": 82,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/83.ogg",
+    "cle": 83,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/85.ogg",
+    "cle": 85,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/86.ogg",
+    "cle": 86,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/87.ogg",
+    "cle": 87,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/88.ogg",
+    "cle": 88,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/89.ogg",
+    "cle": 89,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/90.ogg",
+    "cle": 90,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/91.ogg",
+    "cle": 91,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/92.ogg",
+    "cle": 92,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/93.ogg",
+    "cle": 93,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/94.ogg",
+    "cle": 94,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/95.ogg",
+    "cle": 95,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/96.ogg",
+    "cle": 96,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/97.ogg",
+    "cle": 97,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/98.ogg",
+    "cle": 98,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/99.ogg",
+    "cle": 99,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/100.ogg",
+    "cle": 100,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/101.ogg",
+    "cle": 101,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/102.ogg",
+    "cle": 102,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/103.ogg",
+    "cle": 103,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/104.ogg",
+    "cle": 104,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/105.ogg",
+    "cle": 105,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/106.ogg",
+    "cle": 106,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/107.ogg",
+    "cle": 107,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "piano/108.ogg",
+    "cle": 108,
+    "volume": 0,
+    "debut": 0
+   }
+  ]
+ },
+ {
+  "id": "clavecin",
+  "nom": "Clavecin",
+  "categorie": "Claviers",
+  "regions": [
+   {
+    "fichier": "clavecin/26.ogg",
+    "cle": 26,
+    "volume": 4.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "clavecin/32.ogg",
+    "cle": 32,
+    "volume": 0.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "clavecin/34.ogg",
+    "cle": 34,
+    "volume": -1.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "clavecin/36.ogg",
+    "cle": 36,
+    "volume": 2.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "clavecin/38.ogg",
+    "cle": 38,
+    "volume": 3.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "clavecin/40.ogg",
+    "cle": 40,
+    "volume": 0.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "clavecin/42.ogg",
+    "cle": 42,
+    "volume": 2.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "clavecin/44.ogg",
+    "cle": 44,
+    "volume": 1.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "clavecin/46.ogg",
+    "cle": 46,
+    "volume": 0.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "clavecin/48.ogg",
+    "cle": 48,
+    "volume": 1.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "clavecin/50.ogg",
+    "cle": 50,
+    "volume": 1.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "clavecin/52.ogg",
+    "cle": 52,
+    "volume": -2.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "clavecin/54.ogg",
+    "cle": 54,
+    "volume": -1.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "clavecin/56.ogg",
+    "cle": 56,
+    "volume": -2.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "clavecin/58.ogg",
+    "cle": 58,
+    "volume": -2.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "clavecin/60.ogg",
+    "cle": 60,
+    "volume": 1.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "clavecin/62.ogg",
+    "cle": 62,
+    "volume": -1.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "clavecin/64.ogg",
+    "cle": 64,
+    "volume": 0.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "clavecin/66.ogg",
+    "cle": 66,
+    "volume": -1.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "clavecin/68.ogg",
+    "cle": 68,
+    "volume": -1.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "clavecin/70.ogg",
+    "cle": 70,
+    "volume": 0.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "clavecin/72.ogg",
+    "cle": 72,
+    "volume": 4.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "clavecin/74.ogg",
+    "cle": 74,
+    "volume": 1.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "clavecin/76.ogg",
+    "cle": 76,
+    "volume": -1.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "clavecin/78.ogg",
+    "cle": 78,
+    "volume": 0.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "clavecin/80.ogg",
+    "cle": 80,
+    "volume": -3.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "clavecin/82.ogg",
+    "cle": 82,
+    "volume": 0.0,
+    "debut": 0.0,
+    "accord": 0.0
+   }
+  ]
+ },
+ {
+  "id": "orgue",
+  "nom": "Orgue d’église",
+  "categorie": "Claviers",
+  "regions": [
+   {
+    "fichier": "orgue/36.ogg",
+    "cle": 36,
+    "volume": 27.0,
+    "debut": 0.031,
+    "accord": 6.0
+   },
+   {
+    "fichier": "orgue/39.ogg",
+    "cle": 39,
+    "volume": 25.0,
+    "debut": 0.0,
+    "accord": -1.0
+   },
+   {
+    "fichier": "orgue/42.ogg",
+    "cle": 42,
+    "volume": 27.0,
+    "debut": 0.0349,
+    "accord": -15.0
+   },
+   {
+    "fichier": "orgue/45.ogg",
+    "cle": 45,
+    "volume": 21.0,
+    "debut": 0.0779,
+    "accord": 0.0
+   },
+   {
+    "fichier": "orgue/48.ogg",
+    "cle": 48,
+    "volume": 18.0,
+    "debut": 0.0475,
+    "accord": 0.0
+   },
+   {
+    "fichier": "orgue/51.ogg",
+    "cle": 51,
+    "volume": 23.0,
+    "debut": 0.0841,
+    "accord": -2.0
+   },
+   {
+    "fichier": "orgue/54.ogg",
+    "cle": 54,
+    "volume": 19.0,
+    "debut": 0.0503,
+    "accord": -5.0
+   },
+   {
+    "fichier": "orgue/57.ogg",
+    "cle": 57,
+    "volume": 24.0,
+    "debut": 0.0397,
+    "accord": -3.0
+   },
+   {
+    "fichier": "orgue/60.ogg",
+    "cle": 60,
+    "volume": 22.0,
+    "debut": 0.0425,
+    "accord": -2.0
+   },
+   {
+    "fichier": "orgue/63.ogg",
+    "cle": 63,
+    "volume": 19.0,
+    "debut": 0.0694,
+    "accord": 0.0
+   },
+   {
+    "fichier": "orgue/66.ogg",
+    "cle": 66,
+    "volume": 19.0,
+    "debut": 0.0236,
+    "accord": 0.0
+   },
+   {
+    "fichier": "orgue/69.ogg",
+    "cle": 69,
+    "volume": 21.0,
+    "debut": 0.0435,
+    "accord": 2.0
+   },
+   {
+    "fichier": "orgue/72.ogg",
+    "cle": 72,
+    "volume": 24.0,
+    "debut": 0.037,
+    "accord": 3.0
+   },
+   {
+    "fichier": "orgue/75.ogg",
+    "cle": 75,
+    "volume": 19.0,
+    "debut": 0.0541,
+    "accord": 2.0
+   },
+   {
+    "fichier": "orgue/78.ogg",
+    "cle": 78,
+    "volume": 20.0,
+    "debut": 0.0369,
+    "accord": 1.0
+   },
+   {
+    "fichier": "orgue/81.ogg",
+    "cle": 81,
+    "volume": 19.0,
+    "debut": 0.0424,
+    "accord": 0.0
+   },
+   {
+    "fichier": "orgue/84.ogg",
+    "cle": 84,
+    "volume": 16.0,
+    "debut": 0.0448,
+    "accord": 0.0
+   },
+   {
+    "fichier": "orgue/87.ogg",
+    "cle": 87,
+    "volume": 22.0,
+    "debut": 0.0375,
+    "accord": 8.0
+   },
+   {
+    "fichier": "orgue/90.ogg",
+    "cle": 90,
+    "volume": 18.0,
+    "debut": 0.043,
+    "accord": 3.0
+   },
+   {
+    "fichier": "orgue/93.ogg",
+    "cle": 93,
+    "volume": 20.0,
+    "debut": 0.0477,
+    "accord": 2.0
+   }
+  ]
+ },
+ {
+  "id": "piano-fm",
+  "nom": "Piano FM 80s",
+  "categorie": "Synthwave",
+  "regions": [
+   {
+    "fichier": "piano-fm/24.ogg",
+    "cle": 12,
+    "volume": 11.0,
+    "debut": 0.0,
+    "accord": -2.0
+   },
+   {
+    "fichier": "piano-fm/28.ogg",
+    "cle": 16,
+    "volume": 11.0,
+    "debut": 0.0,
+    "accord": -2.0
+   },
+   {
+    "fichier": "piano-fm/32.ogg",
+    "cle": 20,
+    "volume": 10.0,
+    "debut": 0.0,
+    "accord": -2.0
+   },
+   {
+    "fichier": "piano-fm/36.ogg",
+    "cle": 24,
+    "volume": 10.0,
+    "debut": 0.0,
+    "accord": -1.0
+   },
+   {
+    "fichier": "piano-fm/40.ogg",
+    "cle": 28,
+    "volume": 11.0,
+    "debut": 0.0,
+    "accord": -2.0
+   },
+   {
+    "fichier": "piano-fm/44.ogg",
+    "cle": 32,
+    "volume": 11.0,
+    "debut": 0.0,
+    "accord": -1.0
+   },
+   {
+    "fichier": "piano-fm/48.ogg",
+    "cle": 36,
+    "volume": 11.0,
+    "debut": 0.0,
+    "accord": -1.0
+   },
+   {
+    "fichier": "piano-fm/52.ogg",
+    "cle": 40,
+    "volume": 11.0,
+    "debut": 0.0,
+    "accord": -1.0
+   },
+   {
+    "fichier": "piano-fm/56.ogg",
+    "cle": 44,
+    "volume": 11.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "piano-fm/60.ogg",
+    "cle": 48,
+    "volume": 11.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "piano-fm/64.ogg",
+    "cle": 52,
+    "volume": 11.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "piano-fm/68.ogg",
+    "cle": 56,
+    "volume": 11.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "piano-fm/72.ogg",
+    "cle": 60,
+    "volume": 11.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "piano-fm/76.ogg",
+    "cle": 64,
+    "volume": 11.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "piano-fm/80.ogg",
+    "cle": 68,
+    "volume": 11.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "piano-fm/84.ogg",
+    "cle": 72,
+    "volume": 11.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "piano-fm/88.ogg",
+    "cle": 76,
+    "volume": 11.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "piano-fm/92.ogg",
+    "cle": 80,
+    "volume": 11.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "piano-fm/96.ogg",
+    "cle": 84,
+    "volume": 11.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "piano-fm/100.ogg",
+    "cle": 88,
+    "volume": 11.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "piano-fm/104.ogg",
+    "cle": 92,
+    "volume": 11.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "piano-fm/108.ogg",
+    "cle": 96,
+    "volume": 11.0,
+    "debut": 0.0,
+    "accord": -1.0
+   }
+  ]
+ },
+ {
+  "id": "clavisynth",
+  "nom": "Clavisynth 80s",
+  "categorie": "Synthwave",
+  "regions": [
+   {
+    "fichier": "clavisynth/24.ogg",
+    "cle": 36,
+    "volume": 12.0,
+    "debut": 0.0,
+    "accord": -1.0
+   },
+   {
+    "fichier": "clavisynth/28.ogg",
+    "cle": 40,
+    "volume": 12.0,
+    "debut": 0.0056,
+    "accord": -1.0
+   },
+   {
+    "fichier": "clavisynth/32.ogg",
+    "cle": 44,
+    "volume": 13.0,
+    "debut": 0.0,
+    "accord": -1.0
+   },
+   {
+    "fichier": "clavisynth/36.ogg",
+    "cle": 48,
+    "volume": 13.0,
+    "debut": 0.0,
+    "accord": -1.0
+   },
+   {
+    "fichier": "clavisynth/40.ogg",
+    "cle": 52,
+    "volume": 13.0,
+    "debut": 0.0,
+    "accord": -2.0
+   },
+   {
+    "fichier": "clavisynth/44.ogg",
+    "cle": 56,
+    "volume": 12.0,
+    "debut": 0.0,
+    "accord": -1.0
+   },
+   {
+    "fichier": "clavisynth/48.ogg",
+    "cle": 60,
+    "volume": 13.0,
+    "debut": 0.0,
+    "accord": -1.0
+   },
+   {
+    "fichier": "clavisynth/52.ogg",
+    "cle": 64,
+    "volume": 13.0,
+    "debut": 0.0,
+    "accord": -2.0
+   },
+   {
+    "fichier": "clavisynth/56.ogg",
+    "cle": 68,
+    "volume": 13.0,
+    "debut": 0.0,
+    "accord": -1.0
+   },
+   {
+    "fichier": "clavisynth/60.ogg",
+    "cle": 72,
+    "volume": 13.0,
+    "debut": 0.0,
+    "accord": -1.0
+   },
+   {
+    "fichier": "clavisynth/64.ogg",
+    "cle": 76,
+    "volume": 13.0,
+    "debut": 0.0,
+    "accord": -1.0
+   },
+   {
+    "fichier": "clavisynth/68.ogg",
+    "cle": 80,
+    "volume": 13.0,
+    "debut": 0.0,
+    "accord": -1.0
+   },
+   {
+    "fichier": "clavisynth/72.ogg",
+    "cle": 84,
+    "volume": 12.0,
+    "debut": 0.0,
+    "accord": -1.0
+   },
+   {
+    "fichier": "clavisynth/76.ogg",
+    "cle": 88,
+    "volume": 13.0,
+    "debut": 0.0,
+    "accord": -1.0
+   },
+   {
+    "fichier": "clavisynth/80.ogg",
+    "cle": 92,
+    "volume": 13.0,
+    "debut": 0.0,
+    "accord": -1.0
+   },
+   {
+    "fichier": "clavisynth/84.ogg",
+    "cle": 96,
+    "volume": 13.0,
+    "debut": 0.0,
+    "accord": -1.0
+   },
+   {
+    "fichier": "clavisynth/88.ogg",
+    "cle": 100,
+    "volume": 13.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "clavisynth/92.ogg",
+    "cle": 104,
+    "volume": 12.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "clavisynth/96.ogg",
+    "cle": 108,
+    "volume": 14.0,
+    "debut": 0.0,
+    "accord": -1.0
+   }
+  ]
+ },
+ {
+  "id": "saxophone",
+  "nom": "Saxophone ténor",
+  "categorie": "Vents",
+  "regions": [
+   {
+    "fichier": "saxophone/46.ogg",
+    "cle": 46,
+    "volume": 13.0,
+    "debut": 0.0,
+    "accord": 6.0
+   },
+   {
+    "fichier": "saxophone/48.ogg",
+    "cle": 48,
+    "volume": 17.0,
+    "debut": 0.0003,
+    "accord": 0.0
+   },
+   {
+    "fichier": "saxophone/50.ogg",
+    "cle": 50,
+    "volume": 17.0,
+    "debut": 0.001,
+    "accord": -2.0
+   },
+   {
+    "fichier": "saxophone/52.ogg",
+    "cle": 52,
+    "volume": 12.0,
+    "debut": 0.0885,
+    "accord": 0.0
+   },
+   {
+    "fichier": "saxophone/54.ogg",
+    "cle": 54,
+    "volume": 14.0,
+    "debut": 0.0,
+    "accord": 3.0
+   },
+   {
+    "fichier": "saxophone/58.ogg",
+    "cle": 58,
+    "volume": 22.0,
+    "debut": 0.0431,
+    "accord": 4.0
+   },
+   {
+    "fichier": "saxophone/60.ogg",
+    "cle": 60,
+    "volume": 22.0,
+    "debut": 0.0,
+    "accord": 1.0
+   },
+   {
+    "fichier": "saxophone/62.ogg",
+    "cle": 62,
+    "volume": 21.0,
+    "debut": 0.0,
+    "accord": -2.0
+   },
+   {
+    "fichier": "saxophone/64.ogg",
+    "cle": 64,
+    "volume": 18.0,
+    "debut": 0.0,
+    "accord": -1.0
+   },
+   {
+    "fichier": "saxophone/66.ogg",
+    "cle": 66,
+    "volume": 17.0,
+    "debut": 0.0186,
+    "accord": 7.0
+   },
+   {
+    "fichier": "saxophone/70.ogg",
+    "cle": 70,
+    "volume": 14.0,
+    "debut": 0.0239,
+    "accord": 4.0
+   },
+   {
+    "fichier": "saxophone/72.ogg",
+    "cle": 72,
+    "volume": 15.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "saxophone/74.ogg",
+    "cle": 74,
+    "volume": 20.0,
+    "debut": 0.0064,
+    "accord": -4.0
+   },
+   {
+    "fichier": "saxophone/76.ogg",
+    "cle": 76,
+    "volume": 14.0,
+    "debut": 0.0,
+    "accord": 1.0
+   },
+   {
+    "fichier": "saxophone/79.ogg",
+    "cle": 79,
+    "volume": 13.0,
+    "debut": 0.0026,
+    "accord": 3.0
+   },
+   {
+    "fichier": "saxophone/80.ogg",
+    "cle": 80,
+    "volume": 19.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "saxophone/82.ogg",
+    "cle": 82,
+    "volume": 16.0,
+    "debut": 0.0,
+    "accord": 3.0
+   },
+   {
+    "fichier": "saxophone/84.ogg",
+    "cle": 84,
+    "volume": 18.0,
+    "debut": 0.0,
+    "accord": -2.0
+   }
+  ]
+ },
+ {
+  "id": "ocarina",
+  "nom": "Ocarina",
+  "categorie": "Vents",
+  "regions": [
+   {
+    "fichier": "ocarina/69.ogg",
+    "cle": 69,
+    "volume": 2.0,
+    "debut": 0.0,
+    "accord": -3.0
+   },
+   {
+    "fichier": "ocarina/71.ogg",
+    "cle": 71,
+    "volume": -1.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "ocarina/73.ogg",
+    "cle": 73,
+    "volume": -1.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "ocarina/74.ogg",
+    "cle": 74,
+    "volume": 2.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "ocarina/76.ogg",
+    "cle": 76,
+    "volume": 3.0,
+    "debut": 0.0,
+    "accord": 1.0
+   },
+   {
+    "fichier": "ocarina/78.ogg",
+    "cle": 78,
+    "volume": -2.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "ocarina/80.ogg",
+    "cle": 80,
+    "volume": -1.0,
+    "debut": 0.0,
+    "accord": -2.0
+   },
+   {
+    "fichier": "ocarina/81.ogg",
+    "cle": 81,
+    "volume": 0.0,
+    "debut": 0.0,
+    "accord": -1.0
+   },
+   {
+    "fichier": "ocarina/82.ogg",
+    "cle": 82,
+    "volume": 0.0,
+    "debut": 0.0,
+    "accord": -4.0
+   },
+   {
+    "fichier": "ocarina/84.ogg",
+    "cle": 84,
+    "volume": 5.0,
+    "debut": 0.0,
+    "accord": -3.0
+   }
+  ]
+ },
+ {
+  "id": "contrebasse",
+  "nom": "Contrebasse (pizz.)",
+  "categorie": "Cordes",
+  "regions": [
+   {
+    "fichier": "contrebasse/24.ogg",
+    "cle": 24,
+    "volume": 0.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "contrebasse/27.ogg",
+    "cle": 27,
+    "volume": 0.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "contrebasse/31.ogg",
+    "cle": 31,
+    "volume": 0.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "contrebasse/34.ogg",
+    "cle": 34,
+    "volume": 0.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "contrebasse/38.ogg",
+    "cle": 38,
+    "volume": 0.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "contrebasse/41.ogg",
+    "cle": 41,
+    "volume": 0.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "contrebasse/45.ogg",
+    "cle": 45,
+    "volume": 0.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "contrebasse/48.ogg",
+    "cle": 48,
+    "volume": 0.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "contrebasse/52.ogg",
+    "cle": 52,
+    "volume": 0.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "contrebasse/55.ogg",
+    "cle": 55,
+    "volume": 0.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "contrebasse/57.ogg",
+    "cle": 57,
+    "volume": 0.0,
+    "debut": 0.0,
+    "accord": 0.0
+   }
+  ]
+ },
+ {
+  "id": "harpe",
+  "nom": "Harpe",
+  "categorie": "Cordes",
+  "regions": [
+   {
+    "fichier": "harpe/28.ogg",
+    "cle": 28,
+    "volume": 11.0,
+    "debut": 0.0103,
+    "accord": 22.0
+   },
+   {
+    "fichier": "harpe/31.ogg",
+    "cle": 31,
+    "volume": 33.0,
+    "debut": 0.0,
+    "accord": 22.0
+   },
+   {
+    "fichier": "harpe/35.ogg",
+    "cle": 35,
+    "volume": 21.0,
+    "debut": 0.0095,
+    "accord": 14.0
+   },
+   {
+    "fichier": "harpe/38.ogg",
+    "cle": 38,
+    "volume": 18.0,
+    "debut": 0.0281,
+    "accord": 5.0
+   },
+   {
+    "fichier": "harpe/41.ogg",
+    "cle": 41,
+    "volume": 24.0,
+    "debut": 0.012,
+    "accord": 7.0
+   },
+   {
+    "fichier": "harpe/45.ogg",
+    "cle": 45,
+    "volume": 16.0,
+    "debut": 0.0,
+    "accord": 2.0
+   },
+   {
+    "fichier": "harpe/48.ogg",
+    "cle": 48,
+    "volume": 19.0,
+    "debut": 0.0,
+    "accord": 1.0
+   },
+   {
+    "fichier": "harpe/52.ogg",
+    "cle": 52,
+    "volume": 19.0,
+    "debut": 0.0456,
+    "accord": 2.0
+   },
+   {
+    "fichier": "harpe/55.ogg",
+    "cle": 55,
+    "volume": 14.0,
+    "debut": 0.0636,
+    "accord": 1.0
+   },
+   {
+    "fichier": "harpe/59.ogg",
+    "cle": 59,
+    "volume": 13.0,
+    "debut": 0.0304,
+    "accord": 8.0
+   },
+   {
+    "fichier": "harpe/62.ogg",
+    "cle": 62,
+    "volume": 15.0,
+    "debut": 0.0217,
+    "accord": 7.0
+   },
+   {
+    "fichier": "harpe/65.ogg",
+    "cle": 65,
+    "volume": 14.0,
+    "debut": 0.0103,
+    "accord": 1.0
+   },
+   {
+    "fichier": "harpe/69.ogg",
+    "cle": 69,
+    "volume": 15.0,
+    "debut": 0.017,
+    "accord": 19.0
+   },
+   {
+    "fichier": "harpe/72.ogg",
+    "cle": 72,
+    "volume": 13.0,
+    "debut": 0.0216,
+    "accord": 12.0
+   },
+   {
+    "fichier": "harpe/76.ogg",
+    "cle": 76,
+    "volume": 9.0,
+    "debut": 0.0209,
+    "accord": 11.0
+   },
+   {
+    "fichier": "harpe/79.ogg",
+    "cle": 79,
+    "volume": 13.0,
+    "debut": 0.0174,
+    "accord": 10.0
+   },
+   {
+    "fichier": "harpe/83.ogg",
+    "cle": 83,
+    "volume": 10.0,
+    "debut": 0.0179,
+    "accord": 5.0
+   },
+   {
+    "fichier": "harpe/86.ogg",
+    "cle": 86,
+    "volume": 14.0,
+    "debut": 0.0168,
+    "accord": 5.0
+   },
+   {
+    "fichier": "harpe/89.ogg",
+    "cle": 89,
+    "volume": 16.0,
+    "debut": 0.0062,
+    "accord": 11.0
+   },
+   {
+    "fichier": "harpe/93.ogg",
+    "cle": 93,
+    "volume": 16.0,
+    "debut": 0.0268,
+    "accord": 17.0
+   },
+   {
+    "fichier": "harpe/95.ogg",
+    "cle": 95,
+    "volume": 17.0,
+    "debut": 0.0149,
+    "accord": 0.0
+   },
+   {
+    "fichier": "harpe/98.ogg",
+    "cle": 98,
+    "volume": 33.0,
+    "debut": 0.0039,
+    "accord": -4.0
+   },
+   {
+    "fichier": "harpe/101.ogg",
+    "cle": 101,
+    "volume": 29.0,
+    "debut": 0.0081,
+    "accord": 3.0
+   }
+  ]
+ },
+ {
+  "id": "vibraphone",
+  "nom": "Vibraphone",
+  "categorie": "Percussions mélodiques",
+  "regions": [
+   {
+    "fichier": "vibraphone/53.ogg",
+    "cle": 53,
+    "volume": 3.0,
+    "debut": 0.0026,
+    "accord": 0.0
+   },
+   {
+    "fichier": "vibraphone/57.ogg",
+    "cle": 57,
+    "volume": 7.0,
+    "debut": 0.0026,
+    "accord": 0.0
+   },
+   {
+    "fichier": "vibraphone/60.ogg",
+    "cle": 60,
+    "volume": 11.0,
+    "debut": 0.0029,
+    "accord": 0.0
+   },
+   {
+    "fichier": "vibraphone/64.ogg",
+    "cle": 64,
+    "volume": 2.0,
+    "debut": 0.0027,
+    "accord": 0.0
+   },
+   {
+    "fichier": "vibraphone/67.ogg",
+    "cle": 67,
+    "volume": 7.0,
+    "debut": 0.0028,
+    "accord": 0.0
+   },
+   {
+    "fichier": "vibraphone/71.ogg",
+    "cle": 71,
+    "volume": 6.0,
+    "debut": 0.0026,
+    "accord": 0.0
+   },
+   {
+    "fichier": "vibraphone/74.ogg",
+    "cle": 74,
+    "volume": 2.0,
+    "debut": 0.0027,
+    "accord": 0.0
+   },
+   {
+    "fichier": "vibraphone/77.ogg",
+    "cle": 77,
+    "volume": 6.0,
+    "debut": 0.0027,
+    "accord": 0.0
+   },
+   {
+    "fichier": "vibraphone/81.ogg",
+    "cle": 81,
+    "volume": 5.0,
+    "debut": 0.0024,
+    "accord": 0.0
+   },
+   {
+    "fichier": "vibraphone/84.ogg",
+    "cle": 84,
+    "volume": 3.0,
+    "debut": 0.0023,
+    "accord": 0.0
+   }
+  ]
+ },
+ {
+  "id": "marimba",
+  "nom": "Marimba",
+  "categorie": "Percussions mélodiques",
+  "regions": [
+   {
+    "fichier": "marimba/41.ogg",
+    "cle": 41,
+    "volume": 23.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "marimba/48.ogg",
+    "cle": 48,
+    "volume": 25.0,
+    "debut": 0.001,
+    "accord": 0.0
+   },
+   {
+    "fichier": "marimba/55.ogg",
+    "cle": 55,
+    "volume": 27.0,
+    "debut": 0.0013,
+    "accord": 0.0
+   },
+   {
+    "fichier": "marimba/59.ogg",
+    "cle": 59,
+    "volume": 27.0,
+    "debut": 0.0026,
+    "accord": 0.0
+   },
+   {
+    "fichier": "marimba/65.ogg",
+    "cle": 65,
+    "volume": 25.0,
+    "debut": 0.0042,
+    "accord": 0.0
+   },
+   {
+    "fichier": "marimba/72.ogg",
+    "cle": 72,
+    "volume": 24.0,
+    "debut": 0.002,
+    "accord": 0.0
+   },
+   {
+    "fichier": "marimba/79.ogg",
+    "cle": 79,
+    "volume": 28.0,
+    "debut": 0.0011,
+    "accord": 0.0
+   },
+   {
+    "fichier": "marimba/83.ogg",
+    "cle": 83,
+    "volume": 23.0,
+    "debut": 0.0007,
+    "accord": 0.0
+   },
+   {
+    "fichier": "marimba/89.ogg",
+    "cle": 89,
+    "volume": 37.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "marimba/96.ogg",
+    "cle": 96,
+    "volume": 39.0,
+    "debut": 0.0,
+    "accord": 0.0
+   }
+  ]
+ },
+ {
+  "id": "glockenspiel",
+  "nom": "Glockenspiel",
+  "categorie": "Percussions mélodiques",
+  "regions": [
+   {
+    "fichier": "glockenspiel/67.ogg",
+    "cle": 79,
+    "volume": 19.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "glockenspiel/72.ogg",
+    "cle": 84,
+    "volume": 18.0,
+    "debut": 0.0024,
+    "accord": 0.0
+   },
+   {
+    "fichier": "glockenspiel/79.ogg",
+    "cle": 91,
+    "volume": 19.0,
+    "debut": 0.0023,
+    "accord": 0.0
+   },
+   {
+    "fichier": "glockenspiel/84.ogg",
+    "cle": 96,
+    "volume": 26.0,
+    "debut": 0.0023,
+    "accord": 0.0
+   },
+   {
+    "fichier": "glockenspiel/91.ogg",
+    "cle": 103,
+    "volume": 27.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "glockenspiel/92.ogg",
+    "cle": 104,
+    "volume": 15.0,
+    "debut": 0.0211,
+    "accord": 0.0
+   },
+   {
+    "fichier": "glockenspiel/96.ogg",
+    "cle": 108,
+    "volume": 26.0,
+    "debut": 0.0023,
+    "accord": 0.0
+   }
+  ]
+ },
+ {
+  "id": "kalimba",
+  "nom": "Kalimba",
+  "categorie": "Percussions mélodiques",
+  "regions": [
+   {
+    "fichier": "kalimba/43.ogg",
+    "cle": 43,
+    "volume": -3.0,
+    "debut": 0.0871,
+    "accord": -9.0
+   },
+   {
+    "fichier": "kalimba/44.ogg",
+    "cle": 44,
+    "volume": 0.0,
+    "debut": 0.0637,
+    "accord": 0.0
+   },
+   {
+    "fichier": "kalimba/47.ogg",
+    "cle": 47,
+    "volume": 6.0,
+    "debut": 0.0862,
+    "accord": 78.0
+   },
+   {
+    "fichier": "kalimba/49.ogg",
+    "cle": 49,
+    "volume": 0.0,
+    "debut": 0.1034,
+    "accord": 24.0
+   },
+   {
+    "fichier": "kalimba/51.ogg",
+    "cle": 51,
+    "volume": 0.0,
+    "debut": 0.0732,
+    "accord": -38.0
+   },
+   {
+    "fichier": "kalimba/53.ogg",
+    "cle": 53,
+    "volume": 2.0,
+    "debut": 0.1034,
+    "accord": -41.0
+   },
+   {
+    "fichier": "kalimba/55.ogg",
+    "cle": 55,
+    "volume": 4.0,
+    "debut": 0.1058,
+    "accord": -45.0
+   },
+   {
+    "fichier": "kalimba/58.ogg",
+    "cle": 58,
+    "volume": -1.0,
+    "debut": 0.1058,
+    "accord": -54.0
+   },
+   {
+    "fichier": "kalimba/61.ogg",
+    "cle": 61,
+    "volume": -2.0,
+    "debut": 0.0826,
+    "accord": 43.0
+   },
+   {
+    "fichier": "kalimba/63.ogg",
+    "cle": 63,
+    "volume": -1.0,
+    "debut": 0.1061,
+    "accord": -49.0
+   },
+   {
+    "fichier": "kalimba/65.ogg",
+    "cle": 65,
+    "volume": 3.0,
+    "debut": 0.1058,
+    "accord": -39.0
+   },
+   {
+    "fichier": "kalimba/67.ogg",
+    "cle": 67,
+    "volume": -4.0,
+    "debut": 0.1063,
+    "accord": -16.0
+   },
+   {
+    "fichier": "kalimba/70.ogg",
+    "cle": 70,
+    "volume": 9.0,
+    "debut": 0.1054,
+    "accord": -38.0
+   },
+   {
+    "fichier": "kalimba/73.ogg",
+    "cle": 73,
+    "volume": 5.0,
+    "debut": 0.0996,
+    "accord": 0.0
+   },
+   {
+    "fichier": "kalimba/74.ogg",
+    "cle": 74,
+    "volume": 0.0,
+    "debut": 0.1023,
+    "accord": -18.0
+   },
+   {
+    "fichier": "kalimba/75.ogg",
+    "cle": 75,
+    "volume": -5.0,
+    "debut": 0.1036,
+    "accord": -30.0
+   },
+   {
+    "fichier": "kalimba/77.ogg",
+    "cle": 77,
+    "volume": 0.0,
+    "debut": 0.1056,
+    "accord": -34.0
+   },
+   {
+    "fichier": "kalimba/79.ogg",
+    "cle": 79,
+    "volume": 2.0,
+    "debut": 0.1054,
+    "accord": 0.0
+   },
+   {
+    "fichier": "kalimba/82.ogg",
+    "cle": 82,
+    "volume": 4.0,
+    "debut": 0.1055,
+    "accord": -40.0
+   },
+   {
+    "fichier": "kalimba/83.ogg",
+    "cle": 83,
+    "volume": -2.0,
+    "debut": 0.1051,
+    "accord": 47.0
+   },
+   {
+    "fichier": "kalimba/85.ogg",
+    "cle": 85,
+    "volume": 0.0,
+    "debut": 0.1051,
+    "accord": -57.0
+   },
+   {
+    "fichier": "kalimba/88.ogg",
+    "cle": 88,
+    "volume": 3.0,
+    "debut": 0.1052,
+    "accord": 0.0
+   },
+   {
+    "fichier": "kalimba/90.ogg",
+    "cle": 90,
+    "volume": 0.0,
+    "debut": 0.1037,
+    "accord": 0.0
+   },
+   {
+    "fichier": "kalimba/92.ogg",
+    "cle": 92,
+    "volume": -3.0,
+    "debut": 0.1052,
+    "accord": -11.0
+   }
+  ]
+ },
+ {
+  "id": "cloches",
+  "nom": "Cloches tubulaires",
+  "categorie": "Percussions mélodiques",
+  "regions": [
+   {
+    "fichier": "cloches/60.ogg",
+    "cle": 60,
+    "volume": 8.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "cloches/62.ogg",
+    "cle": 62,
+    "volume": 5.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "cloches/64.ogg",
+    "cle": 64,
+    "volume": 6.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "cloches/65.ogg",
+    "cle": 65,
+    "volume": 3.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "cloches/67.ogg",
+    "cle": 67,
+    "volume": 7.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "cloches/69.ogg",
+    "cle": 69,
+    "volume": 5.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "cloches/71.ogg",
+    "cle": 71,
+    "volume": 7.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "cloches/72.ogg",
+    "cle": 72,
+    "volume": 6.0,
+    "debut": 0.0618,
+    "accord": 0.0
+   },
+   {
+    "fichier": "cloches/74.ogg",
+    "cle": 74,
+    "volume": 1.0,
+    "debut": 0.0,
+    "accord": 0.0
+   },
+   {
+    "fichier": "cloches/76.ogg",
+    "cle": 76,
+    "volume": 7.0,
+    "debut": 0.0,
+    "accord": 0.0
+   }
+  ]
+ },
+ {
+  "id": "flute",
+  "nom": "Flûte",
+  "categorie": "Vents",
+  "regions": [
+   {
+    "fichier": "flute/60.m4a",
+    "cle": 60,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "flute/64.m4a",
+    "cle": 64,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "flute/69.m4a",
+    "cle": 69,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "flute/72.m4a",
+    "cle": 72,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "flute/76.m4a",
+    "cle": 76,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "flute/81.m4a",
+    "cle": 81,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "flute/84.m4a",
+    "cle": 84,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "flute/88.m4a",
+    "cle": 88,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "flute/93.m4a",
+    "cle": 93,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "flute/96.m4a",
+    "cle": 96,
+    "volume": 0,
+    "debut": 0
+   }
+  ]
+ },
+ {
+  "id": "clarinette",
+  "nom": "Clarinette",
+  "categorie": "Vents",
+  "regions": [
+   {
+    "fichier": "clarinette/50.m4a",
+    "cle": 50,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "clarinette/53.m4a",
+    "cle": 53,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "clarinette/58.m4a",
+    "cle": 58,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "clarinette/62.m4a",
+    "cle": 62,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "clarinette/65.m4a",
+    "cle": 65,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "clarinette/70.m4a",
+    "cle": 70,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "clarinette/74.m4a",
+    "cle": 74,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "clarinette/77.m4a",
+    "cle": 77,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "clarinette/82.m4a",
+    "cle": 82,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "clarinette/86.m4a",
+    "cle": 86,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "clarinette/90.m4a",
+    "cle": 90,
+    "volume": 0,
+    "debut": 0
+   }
+  ]
+ },
+ {
+  "id": "violons",
+  "nom": "Violons",
+  "categorie": "Cordes",
+  "regions": [
+   {
+    "fichier": "violons/55.m4a",
+    "cle": 55,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "violons/57.m4a",
+    "cle": 57,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "violons/59.m4a",
+    "cle": 59,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "violons/62.m4a",
+    "cle": 62,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "violons/66.m4a",
+    "cle": 66,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "violons/69.m4a",
+    "cle": 69,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "violons/72.m4a",
+    "cle": 72,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "violons/76.m4a",
+    "cle": 76,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "violons/79.m4a",
+    "cle": 79,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "violons/83.m4a",
+    "cle": 83,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "violons/86.m4a",
+    "cle": 86,
+    "volume": 0,
+    "debut": 0
+   }
+  ]
+ },
+ {
+  "id": "violoncelles",
+  "nom": "Violoncelles",
+  "categorie": "Cordes",
+  "regions": [
+   {
+    "fichier": "violoncelles/36.m4a",
+    "cle": 36,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "violoncelles/40.m4a",
+    "cle": 40,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "violoncelles/43.m4a",
+    "cle": 43,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "violoncelles/47.m4a",
+    "cle": 47,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "violoncelles/50.m4a",
+    "cle": 50,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "violoncelles/53.m4a",
+    "cle": 53,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "violoncelles/57.m4a",
+    "cle": 57,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "violoncelles/60.m4a",
+    "cle": 60,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "violoncelles/64.m4a",
+    "cle": 64,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "violoncelles/67.m4a",
+    "cle": 67,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "violoncelles/71.m4a",
+    "cle": 71,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "violoncelles/74.m4a",
+    "cle": 74,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "violoncelles/77.m4a",
+    "cle": 77,
+    "volume": 0,
+    "debut": 0
+   }
+  ]
+ },
+ {
+  "id": "trompette",
+  "nom": "Trompette",
+  "categorie": "Cuivres",
+  "regions": [
+   {
+    "fichier": "trompette/53.m4a",
+    "cle": 53,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "trompette/57.m4a",
+    "cle": 57,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "trompette/60.m4a",
+    "cle": 60,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "trompette/63.m4a",
+    "cle": 63,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "trompette/67.m4a",
+    "cle": 67,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "trompette/70.m4a",
+    "cle": 70,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "trompette/74.m4a",
+    "cle": 74,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "trompette/77.m4a",
+    "cle": 77,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "trompette/81.m4a",
+    "cle": 81,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "trompette/84.m4a",
+    "cle": 84,
+    "volume": 0,
+    "debut": 0
+   }
+  ]
+ },
+ {
+  "id": "cor",
+  "nom": "Cor",
+  "categorie": "Cuivres",
+  "regions": [
+   {
+    "fichier": "cor/33.m4a",
+    "cle": 33,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "cor/36.m4a",
+    "cle": 36,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "cor/39.m4a",
+    "cle": 39,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "cor/43.m4a",
+    "cle": 43,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "cor/46.m4a",
+    "cle": 46,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "cor/50.m4a",
+    "cle": 50,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "cor/53.m4a",
+    "cle": 53,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "cor/57.m4a",
+    "cle": 57,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "cor/60.m4a",
+    "cle": 60,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "cor/74.m4a",
+    "cle": 74,
+    "volume": 0,
+    "debut": 0
+   },
+   {
+    "fichier": "cor/77.m4a",
+    "cle": 77,
+    "volume": 0,
+    "debut": 0
+   }
+  ]
+ },
+ {
+  "id": "guitare-classique",
+  "nom": "Guitare classique",
+  "categorie": "Guitares",
+  "regions": [
+   {
+    "fichier": "guitare-classique/31.m4a",
+    "cle": 31,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "guitare-classique/32.m4a",
+    "cle": 32,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "guitare-classique/33.m4a",
+    "cle": 33,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "guitare-classique/34.m4a",
+    "cle": 34,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "guitare-classique/35.m4a",
+    "cle": 35,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "guitare-classique/36.m4a",
+    "cle": 36,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "guitare-classique/37.m4a",
+    "cle": 37,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "guitare-classique/38.m4a",
+    "cle": 38,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "guitare-classique/39.m4a",
+    "cle": 39,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "guitare-classique/40.m4a",
+    "cle": 40,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "guitare-classique/41.m4a",
+    "cle": 41,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "guitare-classique/43.m4a",
+    "cle": 43,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "guitare-classique/45.m4a",
+    "cle": 45,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "guitare-classique/47.m4a",
+    "cle": 47,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "guitare-classique/48.m4a",
+    "cle": 48,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "guitare-classique/50.m4a",
+    "cle": 50,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "guitare-classique/52.m4a",
+    "cle": 52,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "guitare-classique/53.m4a",
+    "cle": 53,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "guitare-classique/54.m4a",
+    "cle": 54,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "guitare-classique/55.m4a",
+    "cle": 55,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "guitare-classique/56.m4a",
+    "cle": 56,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "guitare-classique/57.m4a",
+    "cle": 57,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "guitare-classique/58.m4a",
+    "cle": 58,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "guitare-classique/59.m4a",
+    "cle": 59,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "guitare-classique/60.m4a",
+    "cle": 60,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "guitare-classique/61.m4a",
+    "cle": 61,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "guitare-classique/62.m4a",
+    "cle": 62,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "guitare-classique/63.m4a",
+    "cle": 63,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "guitare-classique/64.m4a",
+    "cle": 64,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "guitare-classique/65.m4a",
+    "cle": 65,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "guitare-classique/66.m4a",
+    "cle": 66,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "guitare-classique/67.m4a",
+    "cle": 67,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "guitare-classique/69.m4a",
+    "cle": 69,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "guitare-classique/70.m4a",
+    "cle": 70,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "guitare-classique/71.m4a",
+    "cle": 71,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "guitare-classique/72.m4a",
+    "cle": 72,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "guitare-classique/73.m4a",
+    "cle": 73,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "guitare-classique/74.m4a",
+    "cle": 74,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "guitare-classique/75.m4a",
+    "cle": 75,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "guitare-classique/76.m4a",
+    "cle": 76,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "guitare-classique/77.m4a",
+    "cle": 77,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "guitare-classique/78.m4a",
+    "cle": 78,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "guitare-classique/79.m4a",
+    "cle": 79,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "guitare-classique/80.m4a",
+    "cle": 80,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "guitare-classique/81.m4a",
+    "cle": 81,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "guitare-classique/82.m4a",
+    "cle": 82,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "guitare-classique/83.m4a",
+    "cle": 83,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "guitare-classique/84.m4a",
+    "cle": 84,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   }
+  ]
+ },
+ {
+  "id": "ukulele",
+  "nom": "Ukulélé",
+  "categorie": "Guitares",
+  "regions": [
+   {
+    "fichier": "ukulele/60.m4a",
+    "cle": 60,
+    "debut": 0,
+    "accord": 5.0,
+    "volume": 0.0
+   },
+   {
+    "fichier": "ukulele/62.m4a",
+    "cle": 62,
+    "debut": 0,
+    "accord": 8.0,
+    "volume": 0.0
+   },
+   {
+    "fichier": "ukulele/64.m4a",
+    "cle": 64,
+    "debut": 0,
+    "accord": 2.0,
+    "volume": 0.0
+   },
+   {
+    "fichier": "ukulele/66.m4a",
+    "cle": 66,
+    "debut": 0,
+    "accord": 11.0,
+    "volume": 0.0
+   },
+   {
+    "fichier": "ukulele/67.m4a",
+    "cle": 67,
+    "debut": 0,
+    "accord": 1.0,
+    "volume": 0.0
+   },
+   {
+    "fichier": "ukulele/69.m4a",
+    "cle": 69,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": 0.0
+   },
+   {
+    "fichier": "ukulele/71.m4a",
+    "cle": 71,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": 0.0
+   },
+   {
+    "fichier": "ukulele/73.m4a",
+    "cle": 73,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": 0.0
+   },
+   {
+    "fichier": "ukulele/75.m4a",
+    "cle": 75,
+    "debut": 0,
+    "accord": -3.0,
+    "volume": 0.0
+   },
+   {
+    "fichier": "ukulele/77.m4a",
+    "cle": 77,
+    "debut": 0,
+    "accord": -4.0,
+    "volume": 0.0
+   },
+   {
+    "fichier": "ukulele/79.m4a",
+    "cle": 79,
+    "debut": 0,
+    "accord": -6.0,
+    "volume": 0.0
+   },
+   {
+    "fichier": "ukulele/81.m4a",
+    "cle": 81,
+    "debut": 0,
+    "accord": -8.0,
+    "volume": 0.0
+   },
+   {
+    "fichier": "ukulele/84.m4a",
+    "cle": 84,
+    "debut": 0,
+    "accord": -4.0,
+    "volume": 0.0
+   }
+  ]
+ },
+ {
+  "id": "basse-doigts",
+  "nom": "Basse électrique (doigts)",
+  "categorie": "Basses",
+  "regions": [
+   {
+    "fichier": "basse-doigts/28.m4a",
+    "cle": 28,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "basse-doigts/29.m4a",
+    "cle": 29,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "basse-doigts/30.m4a",
+    "cle": 30,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "basse-doigts/31.m4a",
+    "cle": 31,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "basse-doigts/32.m4a",
+    "cle": 32,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "basse-doigts/33.m4a",
+    "cle": 33,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "basse-doigts/34.m4a",
+    "cle": 34,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "basse-doigts/35.m4a",
+    "cle": 35,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "basse-doigts/36.m4a",
+    "cle": 36,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "basse-doigts/37.m4a",
+    "cle": 37,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "basse-doigts/38.m4a",
+    "cle": 38,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "basse-doigts/39.m4a",
+    "cle": 39,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   }
+  ]
+ },
+ {
+  "id": "basse-mediator",
+  "nom": "Basse électrique (médiator)",
+  "categorie": "Basses",
+  "regions": [
+   {
+    "fichier": "basse-mediator/28.m4a",
+    "cle": 28,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "basse-mediator/29.m4a",
+    "cle": 29,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "basse-mediator/30.m4a",
+    "cle": 30,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "basse-mediator/31.m4a",
+    "cle": 31,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "basse-mediator/32.m4a",
+    "cle": 32,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "basse-mediator/33.m4a",
+    "cle": 33,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "basse-mediator/34.m4a",
+    "cle": 34,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "basse-mediator/35.m4a",
+    "cle": 35,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "basse-mediator/36.m4a",
+    "cle": 36,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "basse-mediator/37.m4a",
+    "cle": 37,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "basse-mediator/38.m4a",
+    "cle": 38,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "basse-mediator/39.m4a",
+    "cle": 39,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "basse-mediator/40.m4a",
+    "cle": 40,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   }
+  ]
+ },
+ {
+  "id": "basse-lately",
+  "nom": "Basse « Lately » TX81Z",
+  "categorie": "Synthwave",
+  "regions": [
+   {
+    "fichier": "basse-lately/24.m4a",
+    "cle": 12,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -2.7
+   },
+   {
+    "fichier": "basse-lately/30.m4a",
+    "cle": 18,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -2.7
+   },
+   {
+    "fichier": "basse-lately/36.m4a",
+    "cle": 24,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -2.7
+   },
+   {
+    "fichier": "basse-lately/42.m4a",
+    "cle": 30,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -2.7
+   },
+   {
+    "fichier": "basse-lately/48.m4a",
+    "cle": 36,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -2.7
+   },
+   {
+    "fichier": "basse-lately/54.m4a",
+    "cle": 42,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -2.7
+   },
+   {
+    "fichier": "basse-lately/60.m4a",
+    "cle": 48,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -2.7
+   },
+   {
+    "fichier": "basse-lately/66.m4a",
+    "cle": 54,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -2.7
+   },
+   {
+    "fichier": "basse-lately/72.m4a",
+    "cle": 60,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -2.7
+   },
+   {
+    "fichier": "basse-lately/78.m4a",
+    "cle": 66,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -2.7
+   },
+   {
+    "fichier": "basse-lately/84.m4a",
+    "cle": 72,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -2.7
+   }
+  ]
+ },
+ {
+  "id": "basse-dx7",
+  "nom": "Basse DX7",
+  "categorie": "Synthwave",
+  "regions": [
+   {
+    "fichier": "basse-dx7/36.m4a",
+    "cle": 24,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "basse-dx7/42.m4a",
+    "cle": 30,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "basse-dx7/48.m4a",
+    "cle": 36,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "basse-dx7/54.m4a",
+    "cle": 42,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "basse-dx7/60.m4a",
+    "cle": 48,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "basse-dx7/66.m4a",
+    "cle": 54,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "basse-dx7/72.m4a",
+    "cle": 60,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "basse-dx7/78.m4a",
+    "cle": 66,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "basse-dx7/84.m4a",
+    "cle": 72,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   }
+  ]
+ },
+ {
+  "id": "piano-droit",
+  "nom": "Piano droit",
+  "categorie": "Claviers",
+  "regions": [
+   {
+    "fichier": "piano-droit/24.m4a",
+    "cle": 24,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "piano-droit/30.m4a",
+    "cle": 30,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "piano-droit/35.m4a",
+    "cle": 35,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "piano-droit/39.m4a",
+    "cle": 39,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "piano-droit/42.m4a",
+    "cle": 42,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "piano-droit/47.m4a",
+    "cle": 47,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "piano-droit/51.m4a",
+    "cle": 51,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "piano-droit/54.m4a",
+    "cle": 54,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "piano-droit/57.m4a",
+    "cle": 57,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "piano-droit/60.m4a",
+    "cle": 60,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "piano-droit/63.m4a",
+    "cle": 63,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "piano-droit/66.m4a",
+    "cle": 66,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "piano-droit/69.m4a",
+    "cle": 69,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "piano-droit/72.m4a",
+    "cle": 72,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "piano-droit/75.m4a",
+    "cle": 75,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "piano-droit/78.m4a",
+    "cle": 78,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "piano-droit/81.m4a",
+    "cle": 81,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "piano-droit/84.m4a",
+    "cle": 84,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "piano-droit/87.m4a",
+    "cle": 87,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "piano-droit/90.m4a",
+    "cle": 90,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "piano-droit/93.m4a",
+    "cle": 93,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "piano-droit/96.m4a",
+    "cle": 96,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "piano-droit/99.m4a",
+    "cle": 99,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "piano-droit/102.m4a",
+    "cle": 102,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "piano-droit/105.m4a",
+    "cle": 105,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   },
+   {
+    "fichier": "piano-droit/107.m4a",
+    "cle": 107,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -3.0
+   }
+  ]
+ },
+ {
+  "id": "violon-solo",
+  "nom": "Violon solo",
+  "categorie": "Cordes",
+  "regions": [
+   {
+    "fichier": "violon-solo/67.m4a",
+    "cle": 55,
+    "debut": 0,
+    "volume": 15.1
+   },
+   {
+    "fichier": "violon-solo/69.m4a",
+    "cle": 57,
+    "debut": 0,
+    "volume": 15.1
+   },
+   {
+    "fichier": "violon-solo/72.m4a",
+    "cle": 60,
+    "debut": 0,
+    "volume": 15.1
+   },
+   {
+    "fichier": "violon-solo/76.m4a",
+    "cle": 64,
+    "debut": 0,
+    "volume": 15.1
+   },
+   {
+    "fichier": "violon-solo/79.m4a",
+    "cle": 67,
+    "debut": 0,
+    "volume": 15.1
+   },
+   {
+    "fichier": "violon-solo/81.m4a",
+    "cle": 69,
+    "debut": 0,
+    "volume": 15.1
+   },
+   {
+    "fichier": "violon-solo/84.m4a",
+    "cle": 72,
+    "debut": 0,
+    "volume": 15.1
+   },
+   {
+    "fichier": "violon-solo/88.m4a",
+    "cle": 76,
+    "debut": 0,
+    "volume": 15.1
+   },
+   {
+    "fichier": "violon-solo/91.m4a",
+    "cle": 79,
+    "debut": 0,
+    "volume": 15.1
+   },
+   {
+    "fichier": "violon-solo/93.m4a",
+    "cle": 81,
+    "debut": 0,
+    "volume": 15.1
+   },
+   {
+    "fichier": "violon-solo/96.m4a",
+    "cle": 84,
+    "debut": 0,
+    "volume": 15.1
+   },
+   {
+    "fichier": "violon-solo/100.m4a",
+    "cle": 88,
+    "debut": 0,
+    "volume": 15.1
+   },
+   {
+    "fichier": "violon-solo/103.m4a",
+    "cle": 91,
+    "debut": 0,
+    "volume": 15.1
+   },
+   {
+    "fichier": "violon-solo/105.m4a",
+    "cle": 93,
+    "debut": 0,
+    "volume": 15.1
+   },
+   {
+    "fichier": "violon-solo/108.m4a",
+    "cle": 96,
+    "debut": 0,
+    "volume": 15.1
+   }
+  ]
+ },
+ {
+  "id": "altos",
+  "nom": "Altos",
+  "categorie": "Cordes",
+  "regions": [
+   {
+    "fichier": "altos/48.m4a",
+    "cle": 48,
+    "debut": 0,
+    "volume": 2.9
+   },
+   {
+    "fichier": "altos/50.m4a",
+    "cle": 50,
+    "debut": 0,
+    "volume": 2.9
+   },
+   {
+    "fichier": "altos/52.m4a",
+    "cle": 52,
+    "debut": 0,
+    "volume": 2.9
+   },
+   {
+    "fichier": "altos/55.m4a",
+    "cle": 55,
+    "debut": 0,
+    "volume": 2.9
+   },
+   {
+    "fichier": "altos/59.m4a",
+    "cle": 59,
+    "debut": 0,
+    "volume": 2.9
+   },
+   {
+    "fichier": "altos/62.m4a",
+    "cle": 62,
+    "debut": 0,
+    "volume": 2.9
+   },
+   {
+    "fichier": "altos/65.m4a",
+    "cle": 65,
+    "debut": 0,
+    "volume": 2.9
+   },
+   {
+    "fichier": "altos/69.m4a",
+    "cle": 69,
+    "debut": 0,
+    "volume": 2.9
+   },
+   {
+    "fichier": "altos/72.m4a",
+    "cle": 72,
+    "debut": 0,
+    "volume": 2.9
+   },
+   {
+    "fichier": "altos/76.m4a",
+    "cle": 76,
+    "debut": 0,
+    "volume": 2.9
+   },
+   {
+    "fichier": "altos/79.m4a",
+    "cle": 79,
+    "debut": 0,
+    "volume": 2.9
+   },
+   {
+    "fichier": "altos/83.m4a",
+    "cle": 83,
+    "debut": 0,
+    "volume": 2.9
+   },
+   {
+    "fichier": "altos/86.m4a",
+    "cle": 86,
+    "debut": 0,
+    "volume": 2.9
+   }
+  ]
+ },
+ {
+  "id": "violons-pizz",
+  "nom": "Violons pizzicato",
+  "categorie": "Cordes",
+  "regions": [
+   {
+    "fichier": "violons-pizz/55.m4a",
+    "cle": 55,
+    "debut": 0,
+    "volume": 1.9
+   },
+   {
+    "fichier": "violons-pizz/57.m4a",
+    "cle": 57,
+    "debut": 0,
+    "volume": 1.9
+   },
+   {
+    "fichier": "violons-pizz/59.m4a",
+    "cle": 59,
+    "debut": 0,
+    "volume": 1.9
+   },
+   {
+    "fichier": "violons-pizz/62.m4a",
+    "cle": 62,
+    "debut": 0,
+    "volume": 1.9
+   },
+   {
+    "fichier": "violons-pizz/66.m4a",
+    "cle": 66,
+    "debut": 0,
+    "volume": 1.9
+   },
+   {
+    "fichier": "violons-pizz/69.m4a",
+    "cle": 69,
+    "debut": 0,
+    "volume": 1.9
+   },
+   {
+    "fichier": "violons-pizz/72.m4a",
+    "cle": 72,
+    "debut": 0,
+    "volume": 1.9
+   },
+   {
+    "fichier": "violons-pizz/76.m4a",
+    "cle": 76,
+    "debut": 0,
+    "volume": 1.9
+   },
+   {
+    "fichier": "violons-pizz/79.m4a",
+    "cle": 79,
+    "debut": 0,
+    "volume": 1.9
+   },
+   {
+    "fichier": "violons-pizz/83.m4a",
+    "cle": 83,
+    "debut": 0,
+    "volume": 1.9
+   },
+   {
+    "fichier": "violons-pizz/86.m4a",
+    "cle": 86,
+    "debut": 0,
+    "volume": 1.9
+   }
+  ]
+ },
+ {
+  "id": "violons-tremolo",
+  "nom": "Violons trémolo",
+  "categorie": "Cordes",
+  "regions": [
+   {
+    "fichier": "violons-tremolo/55.m4a",
+    "cle": 55,
+    "debut": 0,
+    "volume": -2.0
+   },
+   {
+    "fichier": "violons-tremolo/57.m4a",
+    "cle": 57,
+    "debut": 0,
+    "volume": -2.0
+   },
+   {
+    "fichier": "violons-tremolo/59.m4a",
+    "cle": 59,
+    "debut": 0,
+    "volume": -2.0
+   },
+   {
+    "fichier": "violons-tremolo/62.m4a",
+    "cle": 62,
+    "debut": 0,
+    "volume": -2.0
+   },
+   {
+    "fichier": "violons-tremolo/66.m4a",
+    "cle": 66,
+    "debut": 0,
+    "volume": -2.0
+   },
+   {
+    "fichier": "violons-tremolo/69.m4a",
+    "cle": 69,
+    "debut": 0,
+    "volume": -2.0
+   },
+   {
+    "fichier": "violons-tremolo/72.m4a",
+    "cle": 72,
+    "debut": 0,
+    "volume": -2.0
+   },
+   {
+    "fichier": "violons-tremolo/76.m4a",
+    "cle": 76,
+    "debut": 0,
+    "volume": -2.0
+   },
+   {
+    "fichier": "violons-tremolo/79.m4a",
+    "cle": 79,
+    "debut": 0,
+    "volume": -2.0
+   },
+   {
+    "fichier": "violons-tremolo/83.m4a",
+    "cle": 83,
+    "debut": 0,
+    "volume": -2.0
+   },
+   {
+    "fichier": "violons-tremolo/86.m4a",
+    "cle": 86,
+    "debut": 0,
+    "volume": -2.0
+   }
+  ]
+ },
+ {
+  "id": "hautbois",
+  "nom": "Hautbois",
+  "categorie": "Vents",
+  "regions": [
+   {
+    "fichier": "hautbois/58.m4a",
+    "cle": 58,
+    "debut": 0,
+    "volume": 11.0
+   },
+   {
+    "fichier": "hautbois/62.m4a",
+    "cle": 62,
+    "debut": 0,
+    "volume": 11.0
+   },
+   {
+    "fichier": "hautbois/65.m4a",
+    "cle": 65,
+    "debut": 0,
+    "volume": 11.0
+   },
+   {
+    "fichier": "hautbois/70.m4a",
+    "cle": 70,
+    "debut": 0,
+    "volume": 11.0
+   },
+   {
+    "fichier": "hautbois/74.m4a",
+    "cle": 74,
+    "debut": 0,
+    "volume": 11.0
+   },
+   {
+    "fichier": "hautbois/77.m4a",
+    "cle": 77,
+    "debut": 0,
+    "volume": 11.0
+   },
+   {
+    "fichier": "hautbois/82.m4a",
+    "cle": 82,
+    "debut": 0,
+    "volume": 11.0
+   },
+   {
+    "fichier": "hautbois/86.m4a",
+    "cle": 86,
+    "debut": 0,
+    "volume": 11.0
+   },
+   {
+    "fichier": "hautbois/89.m4a",
+    "cle": 89,
+    "debut": 0,
+    "volume": 11.0
+   }
+  ]
+ },
+ {
+  "id": "basson",
+  "nom": "Basson",
+  "categorie": "Vents",
+  "regions": [
+   {
+    "fichier": "basson/43.m4a",
+    "cle": 43,
+    "debut": 0,
+    "volume": 4.7
+   },
+   {
+    "fichier": "basson/45.m4a",
+    "cle": 45,
+    "debut": 0,
+    "volume": 4.7
+   },
+   {
+    "fichier": "basson/48.m4a",
+    "cle": 48,
+    "debut": 0,
+    "volume": 4.7
+   },
+   {
+    "fichier": "basson/55.m4a",
+    "cle": 55,
+    "debut": 0,
+    "volume": 4.7
+   },
+   {
+    "fichier": "basson/57.m4a",
+    "cle": 57,
+    "debut": 0,
+    "volume": 4.7
+   },
+   {
+    "fichier": "basson/60.m4a",
+    "cle": 60,
+    "debut": 0,
+    "volume": 4.7
+   },
+   {
+    "fichier": "basson/64.m4a",
+    "cle": 64,
+    "debut": 0,
+    "volume": 4.7
+   },
+   {
+    "fichier": "basson/67.m4a",
+    "cle": 67,
+    "debut": 0,
+    "volume": 4.7
+   },
+   {
+    "fichier": "basson/69.m4a",
+    "cle": 69,
+    "debut": 0,
+    "volume": 4.7
+   },
+   {
+    "fichier": "basson/72.m4a",
+    "cle": 72,
+    "debut": 0,
+    "volume": 4.7
+   }
+  ]
+ },
+ {
+  "id": "piccolo",
+  "nom": "Piccolo",
+  "categorie": "Vents",
+  "regions": [
+   {
+    "fichier": "piccolo/79.m4a",
+    "cle": 79,
+    "debut": 0,
+    "volume": 10.4
+   },
+   {
+    "fichier": "piccolo/84.m4a",
+    "cle": 84,
+    "debut": 0,
+    "volume": 10.4
+   },
+   {
+    "fichier": "piccolo/91.m4a",
+    "cle": 91,
+    "debut": 0,
+    "volume": 10.4
+   },
+   {
+    "fichier": "piccolo/96.m4a",
+    "cle": 96,
+    "debut": 0,
+    "volume": 10.4
+   },
+   {
+    "fichier": "piccolo/103.m4a",
+    "cle": 103,
+    "debut": 0,
+    "volume": 10.4
+   }
+  ]
+ },
+ {
+  "id": "trombone",
+  "nom": "Trombone",
+  "categorie": "Cuivres",
+  "regions": [
+   {
+    "fichier": "trombone/41.m4a",
+    "cle": 41,
+    "debut": 0,
+    "volume": 10.1
+   },
+   {
+    "fichier": "trombone/44.m4a",
+    "cle": 44,
+    "debut": 0,
+    "volume": 10.1
+   },
+   {
+    "fichier": "trombone/46.m4a",
+    "cle": 46,
+    "debut": 0,
+    "volume": 10.1
+   },
+   {
+    "fichier": "trombone/48.m4a",
+    "cle": 48,
+    "debut": 0,
+    "volume": 10.1
+   },
+   {
+    "fichier": "trombone/51.m4a",
+    "cle": 51,
+    "debut": 0,
+    "volume": 10.1
+   },
+   {
+    "fichier": "trombone/53.m4a",
+    "cle": 53,
+    "debut": 0,
+    "volume": 10.1
+   },
+   {
+    "fichier": "trombone/56.m4a",
+    "cle": 56,
+    "debut": 0,
+    "volume": 10.1
+   },
+   {
+    "fichier": "trombone/58.m4a",
+    "cle": 58,
+    "debut": 0,
+    "volume": 10.1
+   },
+   {
+    "fichier": "trombone/60.m4a",
+    "cle": 60,
+    "debut": 0,
+    "volume": 10.1
+   },
+   {
+    "fichier": "trombone/62.m4a",
+    "cle": 62,
+    "debut": 0,
+    "volume": 10.1
+   },
+   {
+    "fichier": "trombone/63.m4a",
+    "cle": 63,
+    "debut": 0,
+    "volume": 10.1
+   }
+  ]
+ },
+ {
+  "id": "tuba",
+  "nom": "Tuba",
+  "categorie": "Cuivres",
+  "regions": [
+   {
+    "fichier": "tuba/29.m4a",
+    "cle": 29,
+    "debut": 0,
+    "volume": 12.5
+   },
+   {
+    "fichier": "tuba/34.m4a",
+    "cle": 34,
+    "debut": 0,
+    "volume": 12.5
+   },
+   {
+    "fichier": "tuba/39.m4a",
+    "cle": 39,
+    "debut": 0,
+    "volume": 12.5
+   },
+   {
+    "fichier": "tuba/41.m4a",
+    "cle": 41,
+    "debut": 0,
+    "volume": 12.5
+   },
+   {
+    "fichier": "tuba/46.m4a",
+    "cle": 46,
+    "debut": 0,
+    "volume": 12.5
+   },
+   {
+    "fichier": "tuba/50.m4a",
+    "cle": 50,
+    "debut": 0,
+    "volume": 12.5
+   },
+   {
+    "fichier": "tuba/53.m4a",
+    "cle": 53,
+    "debut": 0,
+    "volume": 12.5
+   },
+   {
+    "fichier": "tuba/58.m4a",
+    "cle": 58,
+    "debut": 0,
+    "volume": 12.5
+   },
+   {
+    "fichier": "tuba/62.m4a",
+    "cle": 62,
+    "debut": 0,
+    "volume": 12.5
+   }
+  ]
+ },
+ {
+  "id": "trompette-bouchee",
+  "nom": "Trompette bouchée",
+  "categorie": "Cuivres",
+  "regions": [
+   {
+    "fichier": "trompette-bouchee/58.m4a",
+    "cle": 58,
+    "debut": 0,
+    "volume": 4.4
+   },
+   {
+    "fichier": "trompette-bouchee/60.m4a",
+    "cle": 60,
+    "debut": 0,
+    "volume": 4.4
+   },
+   {
+    "fichier": "trompette-bouchee/62.m4a",
+    "cle": 62,
+    "debut": 0,
+    "volume": 4.4
+   },
+   {
+    "fichier": "trompette-bouchee/67.m4a",
+    "cle": 67,
+    "debut": 0,
+    "volume": 4.4
+   },
+   {
+    "fichier": "trompette-bouchee/70.m4a",
+    "cle": 70,
+    "debut": 0,
+    "volume": 4.4
+   },
+   {
+    "fichier": "trompette-bouchee/74.m4a",
+    "cle": 74,
+    "debut": 0,
+    "volume": 4.4
+   },
+   {
+    "fichier": "trompette-bouchee/77.m4a",
+    "cle": 77,
+    "debut": 0,
+    "volume": 4.4
+   },
+   {
+    "fichier": "trompette-bouchee/81.m4a",
+    "cle": 81,
+    "debut": 0,
+    "volume": 4.4
+   }
+  ]
+ },
+ {
+  "id": "piano-steinway",
+  "nom": "Piano Steinway B",
+  "categorie": "Claviers",
+  "regions": [
+   {
+    "fichier": "piano-steinway/22.m4a",
+    "cle": 22,
+    "debut": 0,
+    "volume": -2.3
+   },
+   {
+    "fichier": "piano-steinway/24.m4a",
+    "cle": 24,
+    "debut": 0,
+    "volume": -2.3
+   },
+   {
+    "fichier": "piano-steinway/26.m4a",
+    "cle": 26,
+    "debut": 0,
+    "volume": -2.3
+   },
+   {
+    "fichier": "piano-steinway/28.m4a",
+    "cle": 28,
+    "debut": 0,
+    "volume": -2.3
+   },
+   {
+    "fichier": "piano-steinway/30.m4a",
+    "cle": 30,
+    "debut": 0,
+    "volume": -2.3
+   },
+   {
+    "fichier": "piano-steinway/32.m4a",
+    "cle": 32,
+    "debut": 0,
+    "volume": -2.3
+   },
+   {
+    "fichier": "piano-steinway/34.m4a",
+    "cle": 34,
+    "debut": 0,
+    "volume": -2.3
+   },
+   {
+    "fichier": "piano-steinway/36.m4a",
+    "cle": 36,
+    "debut": 0,
+    "volume": -2.3
+   },
+   {
+    "fichier": "piano-steinway/38.m4a",
+    "cle": 38,
+    "debut": 0,
+    "volume": -2.3
+   },
+   {
+    "fichier": "piano-steinway/40.m4a",
+    "cle": 40,
+    "debut": 0,
+    "volume": -2.3
+   },
+   {
+    "fichier": "piano-steinway/42.m4a",
+    "cle": 42,
+    "debut": 0,
+    "volume": -2.3
+   },
+   {
+    "fichier": "piano-steinway/44.m4a",
+    "cle": 44,
+    "debut": 0,
+    "volume": -2.3
+   },
+   {
+    "fichier": "piano-steinway/46.m4a",
+    "cle": 46,
+    "debut": 0,
+    "volume": -2.3
+   },
+   {
+    "fichier": "piano-steinway/48.m4a",
+    "cle": 48,
+    "debut": 0,
+    "volume": -2.3
+   },
+   {
+    "fichier": "piano-steinway/50.m4a",
+    "cle": 50,
+    "debut": 0,
+    "volume": -2.3
+   },
+   {
+    "fichier": "piano-steinway/52.m4a",
+    "cle": 52,
+    "debut": 0,
+    "volume": -2.3
+   },
+   {
+    "fichier": "piano-steinway/54.m4a",
+    "cle": 54,
+    "debut": 0,
+    "volume": -2.3
+   },
+   {
+    "fichier": "piano-steinway/56.m4a",
+    "cle": 56,
+    "debut": 0,
+    "volume": -2.3
+   },
+   {
+    "fichier": "piano-steinway/58.m4a",
+    "cle": 58,
+    "debut": 0,
+    "volume": -2.3
+   },
+   {
+    "fichier": "piano-steinway/60.m4a",
+    "cle": 60,
+    "debut": 0,
+    "volume": -2.3
+   },
+   {
+    "fichier": "piano-steinway/62.m4a",
+    "cle": 62,
+    "debut": 0,
+    "volume": -2.3
+   },
+   {
+    "fichier": "piano-steinway/64.m4a",
+    "cle": 64,
+    "debut": 0,
+    "volume": -2.3
+   },
+   {
+    "fichier": "piano-steinway/66.m4a",
+    "cle": 66,
+    "debut": 0,
+    "volume": -2.3
+   },
+   {
+    "fichier": "piano-steinway/68.m4a",
+    "cle": 68,
+    "debut": 0,
+    "volume": -2.3
+   },
+   {
+    "fichier": "piano-steinway/70.m4a",
+    "cle": 70,
+    "debut": 0,
+    "volume": -2.3
+   },
+   {
+    "fichier": "piano-steinway/72.m4a",
+    "cle": 72,
+    "debut": 0,
+    "volume": -2.3
+   },
+   {
+    "fichier": "piano-steinway/74.m4a",
+    "cle": 74,
+    "debut": 0,
+    "volume": -2.3
+   },
+   {
+    "fichier": "piano-steinway/76.m4a",
+    "cle": 76,
+    "debut": 0,
+    "volume": -2.3
+   },
+   {
+    "fichier": "piano-steinway/78.m4a",
+    "cle": 78,
+    "debut": 0,
+    "volume": -2.3
+   },
+   {
+    "fichier": "piano-steinway/80.m4a",
+    "cle": 80,
+    "debut": 0,
+    "volume": -2.3
+   },
+   {
+    "fichier": "piano-steinway/82.m4a",
+    "cle": 82,
+    "debut": 0,
+    "volume": -2.3
+   },
+   {
+    "fichier": "piano-steinway/84.m4a",
+    "cle": 84,
+    "debut": 0,
+    "volume": -2.3
+   },
+   {
+    "fichier": "piano-steinway/86.m4a",
+    "cle": 86,
+    "debut": 0,
+    "volume": -2.3
+   },
+   {
+    "fichier": "piano-steinway/88.m4a",
+    "cle": 88,
+    "debut": 0,
+    "volume": -2.3
+   },
+   {
+    "fichier": "piano-steinway/90.m4a",
+    "cle": 90,
+    "debut": 0,
+    "volume": -2.3
+   },
+   {
+    "fichier": "piano-steinway/92.m4a",
+    "cle": 92,
+    "debut": 0,
+    "volume": -2.3
+   },
+   {
+    "fichier": "piano-steinway/94.m4a",
+    "cle": 94,
+    "debut": 0,
+    "volume": -2.3
+   },
+   {
+    "fichier": "piano-steinway/96.m4a",
+    "cle": 96,
+    "debut": 0,
+    "volume": -2.3
+   },
+   {
+    "fichier": "piano-steinway/98.m4a",
+    "cle": 98,
+    "debut": 0,
+    "volume": -2.3
+   },
+   {
+    "fichier": "piano-steinway/100.m4a",
+    "cle": 100,
+    "debut": 0,
+    "volume": -2.3
+   },
+   {
+    "fichier": "piano-steinway/102.m4a",
+    "cle": 102,
+    "debut": 0,
+    "volume": -2.3
+   },
+   {
+    "fichier": "piano-steinway/104.m4a",
+    "cle": 104,
+    "debut": 0,
+    "volume": -2.3
+   }
+  ]
+ },
+ {
+  "id": "harmonica",
+  "nom": "Harmonica",
+  "categorie": "Vents",
+  "regions": [
+   {
+    "fichier": "harmonica/48.m4a",
+    "cle": 60,
+    "debut": 0,
+    "volume": 3.8
+   },
+   {
+    "fichier": "harmonica/52.m4a",
+    "cle": 64,
+    "debut": 0,
+    "volume": 3.8
+   },
+   {
+    "fichier": "harmonica/60.m4a",
+    "cle": 72,
+    "debut": 0,
+    "volume": 3.8
+   },
+   {
+    "fichier": "harmonica/64.m4a",
+    "cle": 76,
+    "debut": 0,
+    "volume": 3.8
+   },
+   {
+    "fichier": "harmonica/67.m4a",
+    "cle": 79,
+    "debut": 0,
+    "volume": 3.8
+   },
+   {
+    "fichier": "harmonica/72.m4a",
+    "cle": 84,
+    "debut": 0,
+    "volume": 3.8
+   },
+   {
+    "fichier": "harmonica/76.m4a",
+    "cle": 88,
+    "debut": 0,
+    "volume": 3.8
+   },
+   {
+    "fichier": "harmonica/79.m4a",
+    "cle": 91,
+    "debut": 0,
+    "volume": 3.8
+   },
+   {
+    "fichier": "harmonica/84.m4a",
+    "cle": 96,
+    "debut": 0,
+    "volume": 3.8
+   }
+  ]
+ },
+ {
+  "id": "flute-a-bec",
+  "nom": "Flûte à bec",
+  "categorie": "Vents",
+  "regions": [
+   {
+    "fichier": "flute-a-bec/53.m4a",
+    "cle": 65,
+    "debut": 0,
+    "volume": 13.4
+   },
+   {
+    "fichier": "flute-a-bec/56.m4a",
+    "cle": 68,
+    "debut": 0,
+    "volume": 13.4
+   },
+   {
+    "fichier": "flute-a-bec/58.m4a",
+    "cle": 70,
+    "debut": 0,
+    "volume": 13.4
+   },
+   {
+    "fichier": "flute-a-bec/60.m4a",
+    "cle": 72,
+    "debut": 0,
+    "volume": 13.4
+   },
+   {
+    "fichier": "flute-a-bec/62.m4a",
+    "cle": 74,
+    "debut": 0,
+    "volume": 13.4
+   },
+   {
+    "fichier": "flute-a-bec/64.m4a",
+    "cle": 76,
+    "debut": 0,
+    "volume": 13.4
+   },
+   {
+    "fichier": "flute-a-bec/66.m4a",
+    "cle": 78,
+    "debut": 0,
+    "volume": 13.4
+   },
+   {
+    "fichier": "flute-a-bec/68.m4a",
+    "cle": 80,
+    "debut": 0,
+    "volume": 13.4
+   },
+   {
+    "fichier": "flute-a-bec/70.m4a",
+    "cle": 82,
+    "debut": 0,
+    "volume": 13.4
+   },
+   {
+    "fichier": "flute-a-bec/72.m4a",
+    "cle": 84,
+    "debut": 0,
+    "volume": 13.4
+   },
+   {
+    "fichier": "flute-a-bec/74.m4a",
+    "cle": 86,
+    "debut": 0,
+    "volume": 13.4
+   },
+   {
+    "fichier": "flute-a-bec/76.m4a",
+    "cle": 88,
+    "debut": 0,
+    "volume": 13.4
+   }
+  ]
+ },
+ {
+  "id": "batterie-acoustique",
+  "nom": "Batterie acoustique",
+  "categorie": "Batteries",
+  "regions": [
+   {
+    "fichier": "batterie-acoustique/0.m4a",
+    "cle": 0,
+    "debut": 0,
+    "hauteur": 0,
+    "volume": -2.2
+   },
+   {
+    "fichier": "batterie-acoustique/1.m4a",
+    "cle": 1,
+    "debut": 0,
+    "hauteur": 0,
+    "volume": -2.2
+   },
+   {
+    "fichier": "batterie-acoustique/2.m4a",
+    "cle": 2,
+    "debut": 0,
+    "hauteur": 0,
+    "volume": -2.2
+   },
+   {
+    "fichier": "batterie-acoustique/3.m4a",
+    "cle": 3,
+    "debut": 0,
+    "hauteur": 0,
+    "volume": -2.2
+   },
+   {
+    "fichier": "batterie-acoustique/4.m4a",
+    "cle": 4,
+    "debut": 0,
+    "hauteur": 0,
+    "volume": -2.2
+   },
+   {
+    "fichier": "batterie-acoustique/5.m4a",
+    "cle": 5,
+    "debut": 0,
+    "hauteur": 0,
+    "volume": -2.2
+   },
+   {
+    "fichier": "batterie-acoustique/6.m4a",
+    "cle": 6,
+    "debut": 0,
+    "hauteur": 0,
+    "volume": -2.2
+   },
+   {
+    "fichier": "batterie-acoustique/7.m4a",
+    "cle": 7,
+    "debut": 0,
+    "hauteur": -3,
+    "volume": -2.2
+   },
+   {
+    "fichier": "batterie-acoustique/8.m4a",
+    "cle": 8,
+    "debut": 0,
+    "hauteur": 0,
+    "volume": -2.2
+   },
+   {
+    "fichier": "batterie-acoustique/9.m4a",
+    "cle": 9,
+    "debut": 0,
+    "hauteur": 0,
+    "volume": -2.2
+   },
+   {
+    "fichier": "batterie-acoustique/10.m4a",
+    "cle": 10,
+    "debut": 0,
+    "hauteur": 0,
+    "volume": -2.2
+   },
+   {
+    "fichier": "batterie-acoustique/11.m4a",
+    "cle": 11,
+    "debut": 0,
+    "hauteur": 0,
+    "volume": -2.2
+   }
+  ],
+  "kit": true
+ },
+ {
+  "id": "percussions",
+  "nom": "Percussions du monde",
+  "categorie": "Batteries",
+  "regions": [
+   {
+    "fichier": "percussions/0.m4a",
+    "cle": 0,
+    "debut": 0,
+    "hauteur": 0,
+    "volume": -2.8
+   },
+   {
+    "fichier": "percussions/1.m4a",
+    "cle": 1,
+    "debut": 0,
+    "hauteur": 0,
+    "volume": -2.8
+   },
+   {
+    "fichier": "percussions/2.m4a",
+    "cle": 2,
+    "debut": 0,
+    "hauteur": 0,
+    "volume": -2.8
+   },
+   {
+    "fichier": "percussions/3.m4a",
+    "cle": 3,
+    "debut": 0,
+    "hauteur": 0,
+    "volume": -2.8
+   },
+   {
+    "fichier": "percussions/4.m4a",
+    "cle": 4,
+    "debut": 0,
+    "hauteur": 0,
+    "volume": -2.8
+   },
+   {
+    "fichier": "percussions/5.m4a",
+    "cle": 5,
+    "debut": 0,
+    "hauteur": 0,
+    "volume": -2.8
+   },
+   {
+    "fichier": "percussions/6.m4a",
+    "cle": 6,
+    "debut": 0,
+    "hauteur": 0,
+    "volume": -2.8
+   },
+   {
+    "fichier": "percussions/7.m4a",
+    "cle": 7,
+    "debut": 0,
+    "hauteur": 0,
+    "volume": -2.8
+   },
+   {
+    "fichier": "percussions/8.m4a",
+    "cle": 8,
+    "debut": 0,
+    "hauteur": 0,
+    "volume": -2.8
+   },
+   {
+    "fichier": "percussions/9.m4a",
+    "cle": 9,
+    "debut": 0,
+    "hauteur": 0,
+    "volume": -2.8
+   },
+   {
+    "fichier": "percussions/10.m4a",
+    "cle": 10,
+    "debut": 0,
+    "hauteur": 0,
+    "volume": -2.8
+   },
+   {
+    "fichier": "percussions/11.m4a",
+    "cle": 11,
+    "debut": 0,
+    "hauteur": 0,
+    "volume": -2.8
+   }
+  ],
+  "kit": true
+ },
+ {
+  "id": "nappe-choeur",
+  "nom": "Nappe chœur",
+  "categorie": "Synthwave",
+  "regions": [
+   {
+    "fichier": "nappe-choeur/36.m4a",
+    "cle": 36,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.7
+   },
+   {
+    "fichier": "nappe-choeur/42.m4a",
+    "cle": 42,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.7
+   },
+   {
+    "fichier": "nappe-choeur/48.m4a",
+    "cle": 48,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.7
+   },
+   {
+    "fichier": "nappe-choeur/54.m4a",
+    "cle": 54,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.7
+   },
+   {
+    "fichier": "nappe-choeur/60.m4a",
+    "cle": 60,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.7
+   },
+   {
+    "fichier": "nappe-choeur/66.m4a",
+    "cle": 66,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.7
+   },
+   {
+    "fichier": "nappe-choeur/72.m4a",
+    "cle": 72,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.7
+   },
+   {
+    "fichier": "nappe-choeur/78.m4a",
+    "cle": 78,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.7
+   },
+   {
+    "fichier": "nappe-choeur/84.m4a",
+    "cle": 84,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.7
+   },
+   {
+    "fichier": "nappe-choeur/90.m4a",
+    "cle": 90,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.7
+   },
+   {
+    "fichier": "nappe-choeur/96.m4a",
+    "cle": 96,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.7
+   },
+   {
+    "fichier": "nappe-choeur/102.m4a",
+    "cle": 102,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.7
+   }
+  ]
+ },
+ {
+  "id": "nappe-sweep",
+  "nom": "Nappe balayée",
+  "categorie": "Synthwave",
+  "regions": [
+   {
+    "fichier": "nappe-sweep/36.m4a",
+    "cle": 36,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.7
+   },
+   {
+    "fichier": "nappe-sweep/40.m4a",
+    "cle": 40,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.7
+   },
+   {
+    "fichier": "nappe-sweep/44.m4a",
+    "cle": 44,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.7
+   },
+   {
+    "fichier": "nappe-sweep/48.m4a",
+    "cle": 48,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.7
+   },
+   {
+    "fichier": "nappe-sweep/52.m4a",
+    "cle": 52,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.7
+   },
+   {
+    "fichier": "nappe-sweep/56.m4a",
+    "cle": 56,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.7
+   },
+   {
+    "fichier": "nappe-sweep/60.m4a",
+    "cle": 60,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.7
+   },
+   {
+    "fichier": "nappe-sweep/64.m4a",
+    "cle": 64,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.7
+   },
+   {
+    "fichier": "nappe-sweep/68.m4a",
+    "cle": 68,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.7
+   },
+   {
+    "fichier": "nappe-sweep/72.m4a",
+    "cle": 72,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.7
+   },
+   {
+    "fichier": "nappe-sweep/76.m4a",
+    "cle": 76,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.7
+   },
+   {
+    "fichier": "nappe-sweep/80.m4a",
+    "cle": 80,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.7
+   },
+   {
+    "fichier": "nappe-sweep/84.m4a",
+    "cle": 84,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.7
+   }
+  ]
+ },
+ {
+  "id": "nappe-new-age",
+  "nom": "Nappe New Age",
+  "categorie": "Ambient",
+  "regions": [
+   {
+    "fichier": "nappe-new-age/36.m4a",
+    "cle": 36,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -4.8
+   },
+   {
+    "fichier": "nappe-new-age/40.m4a",
+    "cle": 40,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -4.8
+   },
+   {
+    "fichier": "nappe-new-age/44.m4a",
+    "cle": 44,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -4.8
+   },
+   {
+    "fichier": "nappe-new-age/48.m4a",
+    "cle": 48,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -4.8
+   },
+   {
+    "fichier": "nappe-new-age/52.m4a",
+    "cle": 52,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -4.8
+   },
+   {
+    "fichier": "nappe-new-age/56.m4a",
+    "cle": 56,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -4.8
+   },
+   {
+    "fichier": "nappe-new-age/60.m4a",
+    "cle": 60,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -4.8
+   },
+   {
+    "fichier": "nappe-new-age/64.m4a",
+    "cle": 64,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -4.8
+   },
+   {
+    "fichier": "nappe-new-age/68.m4a",
+    "cle": 68,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -4.8
+   },
+   {
+    "fichier": "nappe-new-age/72.m4a",
+    "cle": 72,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -4.8
+   },
+   {
+    "fichier": "nappe-new-age/76.m4a",
+    "cle": 76,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -4.8
+   },
+   {
+    "fichier": "nappe-new-age/80.m4a",
+    "cle": 80,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -4.8
+   },
+   {
+    "fichier": "nappe-new-age/84.m4a",
+    "cle": 84,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -4.8
+   },
+   {
+    "fichier": "nappe-new-age/88.m4a",
+    "cle": 88,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -4.8
+   },
+   {
+    "fichier": "nappe-new-age/92.m4a",
+    "cle": 92,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -4.8
+   },
+   {
+    "fichier": "nappe-new-age/96.m4a",
+    "cle": 96,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -4.8
+   }
+  ]
+ },
+ {
+  "id": "nappe-archet",
+  "nom": "Nappe à l’archet",
+  "categorie": "Ambient",
+  "regions": [
+   {
+    "fichier": "nappe-archet/36.m4a",
+    "cle": 36,
+    "debut": 0,
+    "accord": 1.0,
+    "volume": -5.7
+   },
+   {
+    "fichier": "nappe-archet/40.m4a",
+    "cle": 40,
+    "debut": 0,
+    "accord": -7.0,
+    "volume": -5.7
+   },
+   {
+    "fichier": "nappe-archet/44.m4a",
+    "cle": 44,
+    "debut": 0,
+    "accord": -26.0,
+    "volume": -5.7
+   },
+   {
+    "fichier": "nappe-archet/48.m4a",
+    "cle": 48,
+    "debut": 0,
+    "accord": 1.0,
+    "volume": -5.7
+   },
+   {
+    "fichier": "nappe-archet/52.m4a",
+    "cle": 52,
+    "debut": 0,
+    "accord": -3.0,
+    "volume": -5.7
+   },
+   {
+    "fichier": "nappe-archet/56.m4a",
+    "cle": 56,
+    "debut": 0,
+    "accord": -3.0,
+    "volume": -5.7
+   },
+   {
+    "fichier": "nappe-archet/60.m4a",
+    "cle": 60,
+    "debut": 0,
+    "accord": -7.0,
+    "volume": -5.7
+   },
+   {
+    "fichier": "nappe-archet/64.m4a",
+    "cle": 64,
+    "debut": 0,
+    "accord": -5.0,
+    "volume": -5.7
+   },
+   {
+    "fichier": "nappe-archet/68.m4a",
+    "cle": 68,
+    "debut": 0,
+    "accord": -5.0,
+    "volume": -5.7
+   },
+   {
+    "fichier": "nappe-archet/72.m4a",
+    "cle": 72,
+    "debut": 0,
+    "accord": -3.0,
+    "volume": -5.7
+   },
+   {
+    "fichier": "nappe-archet/76.m4a",
+    "cle": 76,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -5.7
+   },
+   {
+    "fichier": "nappe-archet/80.m4a",
+    "cle": 80,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -5.7
+   },
+   {
+    "fichier": "nappe-archet/84.m4a",
+    "cle": 84,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -5.7
+   },
+   {
+    "fichier": "nappe-archet/88.m4a",
+    "cle": 88,
+    "debut": 0,
+    "accord": -4.0,
+    "volume": -5.7
+   },
+   {
+    "fichier": "nappe-archet/92.m4a",
+    "cle": 92,
+    "debut": 0,
+    "accord": 2.0,
+    "volume": -5.7
+   },
+   {
+    "fichier": "nappe-archet/96.m4a",
+    "cle": 96,
+    "debut": 0,
+    "accord": -9.0,
+    "volume": -5.7
+   }
+  ]
+ },
+ {
+  "id": "cordes-synthe-1",
+  "nom": "Cordes synthé 1",
+  "categorie": "Synthwave",
+  "regions": [
+   {
+    "fichier": "cordes-synthe-1/30.m4a",
+    "cle": 30,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.9
+   },
+   {
+    "fichier": "cordes-synthe-1/36.m4a",
+    "cle": 36,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.9
+   },
+   {
+    "fichier": "cordes-synthe-1/42.m4a",
+    "cle": 42,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.9
+   },
+   {
+    "fichier": "cordes-synthe-1/48.m4a",
+    "cle": 48,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.9
+   },
+   {
+    "fichier": "cordes-synthe-1/54.m4a",
+    "cle": 54,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.9
+   },
+   {
+    "fichier": "cordes-synthe-1/60.m4a",
+    "cle": 60,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.9
+   },
+   {
+    "fichier": "cordes-synthe-1/66.m4a",
+    "cle": 66,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.9
+   },
+   {
+    "fichier": "cordes-synthe-1/72.m4a",
+    "cle": 72,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.9
+   },
+   {
+    "fichier": "cordes-synthe-1/78.m4a",
+    "cle": 78,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.9
+   },
+   {
+    "fichier": "cordes-synthe-1/84.m4a",
+    "cle": 84,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.9
+   },
+   {
+    "fichier": "cordes-synthe-1/90.m4a",
+    "cle": 90,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.9
+   },
+   {
+    "fichier": "cordes-synthe-1/96.m4a",
+    "cle": 96,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.9
+   }
+  ]
+ },
+ {
+  "id": "cordes-synthe-2",
+  "nom": "Cordes synthé 2",
+  "categorie": "Synthwave",
+  "regions": [
+   {
+    "fichier": "cordes-synthe-2/28.m4a",
+    "cle": 28,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -6.5
+   },
+   {
+    "fichier": "cordes-synthe-2/32.m4a",
+    "cle": 32,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -6.5
+   },
+   {
+    "fichier": "cordes-synthe-2/36.m4a",
+    "cle": 36,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -6.5
+   },
+   {
+    "fichier": "cordes-synthe-2/40.m4a",
+    "cle": 40,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -6.5
+   },
+   {
+    "fichier": "cordes-synthe-2/44.m4a",
+    "cle": 44,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -6.5
+   },
+   {
+    "fichier": "cordes-synthe-2/48.m4a",
+    "cle": 48,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -6.5
+   },
+   {
+    "fichier": "cordes-synthe-2/52.m4a",
+    "cle": 52,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -6.5
+   },
+   {
+    "fichier": "cordes-synthe-2/56.m4a",
+    "cle": 56,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -6.5
+   },
+   {
+    "fichier": "cordes-synthe-2/60.m4a",
+    "cle": 60,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -6.5
+   },
+   {
+    "fichier": "cordes-synthe-2/64.m4a",
+    "cle": 64,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -6.5
+   },
+   {
+    "fichier": "cordes-synthe-2/68.m4a",
+    "cle": 68,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -6.5
+   },
+   {
+    "fichier": "cordes-synthe-2/72.m4a",
+    "cle": 72,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -6.5
+   },
+   {
+    "fichier": "cordes-synthe-2/76.m4a",
+    "cle": 76,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -6.5
+   },
+   {
+    "fichier": "cordes-synthe-2/80.m4a",
+    "cle": 80,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -6.5
+   },
+   {
+    "fichier": "cordes-synthe-2/84.m4a",
+    "cle": 84,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -6.5
+   },
+   {
+    "fichier": "cordes-synthe-2/88.m4a",
+    "cle": 88,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -6.5
+   },
+   {
+    "fichier": "cordes-synthe-2/92.m4a",
+    "cle": 92,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -6.5
+   },
+   {
+    "fichier": "cordes-synthe-2/96.m4a",
+    "cle": 96,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -6.5
+   }
+  ]
+ },
+ {
+  "id": "cuivres-synthe-1",
+  "nom": "Cuivres synthé 1",
+  "categorie": "Synthwave",
+  "regions": [
+   {
+    "fichier": "cuivres-synthe-1/30.m4a",
+    "cle": 30,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -10.1
+   },
+   {
+    "fichier": "cuivres-synthe-1/36.m4a",
+    "cle": 36,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -10.1
+   },
+   {
+    "fichier": "cuivres-synthe-1/42.m4a",
+    "cle": 42,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -10.1
+   },
+   {
+    "fichier": "cuivres-synthe-1/48.m4a",
+    "cle": 48,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -10.1
+   },
+   {
+    "fichier": "cuivres-synthe-1/54.m4a",
+    "cle": 54,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -10.1
+   },
+   {
+    "fichier": "cuivres-synthe-1/60.m4a",
+    "cle": 60,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -10.1
+   },
+   {
+    "fichier": "cuivres-synthe-1/66.m4a",
+    "cle": 66,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -10.1
+   },
+   {
+    "fichier": "cuivres-synthe-1/72.m4a",
+    "cle": 72,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -10.1
+   },
+   {
+    "fichier": "cuivres-synthe-1/78.m4a",
+    "cle": 78,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -10.1
+   },
+   {
+    "fichier": "cuivres-synthe-1/84.m4a",
+    "cle": 84,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -10.1
+   },
+   {
+    "fichier": "cuivres-synthe-1/90.m4a",
+    "cle": 90,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -10.1
+   },
+   {
+    "fichier": "cuivres-synthe-1/96.m4a",
+    "cle": 96,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -10.1
+   }
+  ]
+ },
+ {
+  "id": "cuivres-synthe-2",
+  "nom": "Cuivres synthé 2",
+  "categorie": "Synthwave",
+  "regions": [
+   {
+    "fichier": "cuivres-synthe-2/42.m4a",
+    "cle": 42,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -8.2
+   },
+   {
+    "fichier": "cuivres-synthe-2/48.m4a",
+    "cle": 48,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -8.2
+   },
+   {
+    "fichier": "cuivres-synthe-2/54.m4a",
+    "cle": 54,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -8.2
+   },
+   {
+    "fichier": "cuivres-synthe-2/60.m4a",
+    "cle": 60,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -8.2
+   },
+   {
+    "fichier": "cuivres-synthe-2/66.m4a",
+    "cle": 66,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -8.2
+   },
+   {
+    "fichier": "cuivres-synthe-2/72.m4a",
+    "cle": 72,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -8.2
+   },
+   {
+    "fichier": "cuivres-synthe-2/78.m4a",
+    "cle": 78,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -8.2
+   },
+   {
+    "fichier": "cuivres-synthe-2/84.m4a",
+    "cle": 84,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -8.2
+   },
+   {
+    "fichier": "cuivres-synthe-2/90.m4a",
+    "cle": 90,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -8.2
+   },
+   {
+    "fichier": "cuivres-synthe-2/96.m4a",
+    "cle": 96,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -8.2
+   }
+  ]
+ },
+ {
+  "id": "ambiance-film",
+  "nom": "Ambiance bande originale",
+  "categorie": "Ambient",
+  "regions": [
+   {
+    "fichier": "ambiance-film/36.m4a",
+    "cle": 36,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -6.1
+   },
+   {
+    "fichier": "ambiance-film/40.m4a",
+    "cle": 40,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -6.1
+   },
+   {
+    "fichier": "ambiance-film/44.m4a",
+    "cle": 44,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -6.1
+   },
+   {
+    "fichier": "ambiance-film/48.m4a",
+    "cle": 48,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -6.1
+   },
+   {
+    "fichier": "ambiance-film/52.m4a",
+    "cle": 52,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -6.1
+   },
+   {
+    "fichier": "ambiance-film/56.m4a",
+    "cle": 56,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -6.1
+   },
+   {
+    "fichier": "ambiance-film/60.m4a",
+    "cle": 60,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -6.1
+   },
+   {
+    "fichier": "ambiance-film/64.m4a",
+    "cle": 64,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -6.1
+   },
+   {
+    "fichier": "ambiance-film/68.m4a",
+    "cle": 68,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -6.1
+   },
+   {
+    "fichier": "ambiance-film/72.m4a",
+    "cle": 72,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -6.1
+   },
+   {
+    "fichier": "ambiance-film/76.m4a",
+    "cle": 76,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -6.1
+   },
+   {
+    "fichier": "ambiance-film/80.m4a",
+    "cle": 80,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -6.1
+   },
+   {
+    "fichier": "ambiance-film/84.m4a",
+    "cle": 84,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -6.1
+   },
+   {
+    "fichier": "ambiance-film/88.m4a",
+    "cle": 88,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -6.1
+   },
+   {
+    "fichier": "ambiance-film/92.m4a",
+    "cle": 92,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -6.1
+   }
+  ]
+ },
+ {
+  "id": "ambiance-scifi",
+  "nom": "Ambiance science-fiction",
+  "categorie": "Ambient",
+  "regions": [
+   {
+    "fichier": "ambiance-scifi/36.m4a",
+    "cle": 36,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.2
+   },
+   {
+    "fichier": "ambiance-scifi/39.m4a",
+    "cle": 39,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.2
+   },
+   {
+    "fichier": "ambiance-scifi/42.m4a",
+    "cle": 42,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.2
+   },
+   {
+    "fichier": "ambiance-scifi/45.m4a",
+    "cle": 45,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.2
+   },
+   {
+    "fichier": "ambiance-scifi/48.m4a",
+    "cle": 48,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.2
+   },
+   {
+    "fichier": "ambiance-scifi/51.m4a",
+    "cle": 51,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.2
+   },
+   {
+    "fichier": "ambiance-scifi/54.m4a",
+    "cle": 54,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.2
+   },
+   {
+    "fichier": "ambiance-scifi/57.m4a",
+    "cle": 57,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.2
+   },
+   {
+    "fichier": "ambiance-scifi/60.m4a",
+    "cle": 60,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.2
+   },
+   {
+    "fichier": "ambiance-scifi/63.m4a",
+    "cle": 63,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.2
+   },
+   {
+    "fichier": "ambiance-scifi/66.m4a",
+    "cle": 66,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.2
+   },
+   {
+    "fichier": "ambiance-scifi/69.m4a",
+    "cle": 69,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.2
+   },
+   {
+    "fichier": "ambiance-scifi/72.m4a",
+    "cle": 72,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.2
+   },
+   {
+    "fichier": "ambiance-scifi/75.m4a",
+    "cle": 75,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.2
+   },
+   {
+    "fichier": "ambiance-scifi/78.m4a",
+    "cle": 78,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.2
+   },
+   {
+    "fichier": "ambiance-scifi/81.m4a",
+    "cle": 81,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.2
+   },
+   {
+    "fichier": "ambiance-scifi/84.m4a",
+    "cle": 84,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.2
+   },
+   {
+    "fichier": "ambiance-scifi/87.m4a",
+    "cle": 87,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.2
+   },
+   {
+    "fichier": "ambiance-scifi/90.m4a",
+    "cle": 90,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.2
+   },
+   {
+    "fichier": "ambiance-scifi/93.m4a",
+    "cle": 93,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.2
+   },
+   {
+    "fichier": "ambiance-scifi/96.m4a",
+    "cle": 96,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.2
+   }
+  ]
+ },
+ {
+  "id": "ambiance-gobelins",
+  "nom": "Ambiance « gobelins »",
+  "categorie": "Ambient",
+  "regions": [
+   {
+    "fichier": "ambiance-gobelins/36.m4a",
+    "cle": 36,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.7
+   },
+   {
+    "fichier": "ambiance-gobelins/40.m4a",
+    "cle": 40,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.7
+   },
+   {
+    "fichier": "ambiance-gobelins/44.m4a",
+    "cle": 44,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.7
+   },
+   {
+    "fichier": "ambiance-gobelins/48.m4a",
+    "cle": 48,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.7
+   },
+   {
+    "fichier": "ambiance-gobelins/52.m4a",
+    "cle": 52,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.7
+   },
+   {
+    "fichier": "ambiance-gobelins/56.m4a",
+    "cle": 56,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.7
+   },
+   {
+    "fichier": "ambiance-gobelins/60.m4a",
+    "cle": 60,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.7
+   },
+   {
+    "fichier": "ambiance-gobelins/64.m4a",
+    "cle": 64,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.7
+   },
+   {
+    "fichier": "ambiance-gobelins/68.m4a",
+    "cle": 68,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.7
+   },
+   {
+    "fichier": "ambiance-gobelins/72.m4a",
+    "cle": 72,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.7
+   },
+   {
+    "fichier": "ambiance-gobelins/76.m4a",
+    "cle": 76,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.7
+   },
+   {
+    "fichier": "ambiance-gobelins/80.m4a",
+    "cle": 80,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.7
+   },
+   {
+    "fichier": "ambiance-gobelins/84.m4a",
+    "cle": 84,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.7
+   },
+   {
+    "fichier": "ambiance-gobelins/88.m4a",
+    "cle": 88,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.7
+   },
+   {
+    "fichier": "ambiance-gobelins/92.m4a",
+    "cle": 92,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.7
+   },
+   {
+    "fichier": "ambiance-gobelins/96.m4a",
+    "cle": 96,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.7
+   },
+   {
+    "fichier": "ambiance-gobelins/100.m4a",
+    "cle": 100,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.7
+   },
+   {
+    "fichier": "ambiance-gobelins/104.m4a",
+    "cle": 104,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.7
+   }
+  ]
+ },
+ {
+  "id": "lead-carre",
+  "nom": "Lead carré",
+  "categorie": "Synthwave",
+  "regions": [
+   {
+    "fichier": "lead-carre/28.m4a",
+    "cle": 28,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -10.3
+   },
+   {
+    "fichier": "lead-carre/32.m4a",
+    "cle": 32,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -10.3
+   },
+   {
+    "fichier": "lead-carre/36.m4a",
+    "cle": 36,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -10.3
+   },
+   {
+    "fichier": "lead-carre/40.m4a",
+    "cle": 40,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -10.3
+   },
+   {
+    "fichier": "lead-carre/44.m4a",
+    "cle": 44,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -10.3
+   },
+   {
+    "fichier": "lead-carre/48.m4a",
+    "cle": 48,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -10.3
+   },
+   {
+    "fichier": "lead-carre/52.m4a",
+    "cle": 52,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -10.3
+   },
+   {
+    "fichier": "lead-carre/56.m4a",
+    "cle": 56,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -10.3
+   },
+   {
+    "fichier": "lead-carre/60.m4a",
+    "cle": 60,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -10.3
+   },
+   {
+    "fichier": "lead-carre/64.m4a",
+    "cle": 64,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -10.3
+   },
+   {
+    "fichier": "lead-carre/68.m4a",
+    "cle": 68,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -10.3
+   },
+   {
+    "fichier": "lead-carre/72.m4a",
+    "cle": 72,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -10.3
+   },
+   {
+    "fichier": "lead-carre/76.m4a",
+    "cle": 76,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -10.3
+   },
+   {
+    "fichier": "lead-carre/80.m4a",
+    "cle": 80,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -10.3
+   },
+   {
+    "fichier": "lead-carre/84.m4a",
+    "cle": 84,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -10.3
+   },
+   {
+    "fichier": "lead-carre/88.m4a",
+    "cle": 88,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -10.3
+   },
+   {
+    "fichier": "lead-carre/92.m4a",
+    "cle": 92,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -10.3
+   },
+   {
+    "fichier": "lead-carre/96.m4a",
+    "cle": 96,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -10.3
+   },
+   {
+    "fichier": "lead-carre/100.m4a",
+    "cle": 100,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -10.3
+   }
+  ]
+ },
+ {
+  "id": "lead-calliope",
+  "nom": "Lead calliope",
+  "categorie": "Synthwave",
+  "regions": [
+   {
+    "fichier": "lead-calliope/36.m4a",
+    "cle": 36,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -13.0
+   },
+   {
+    "fichier": "lead-calliope/40.m4a",
+    "cle": 40,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -13.0
+   },
+   {
+    "fichier": "lead-calliope/44.m4a",
+    "cle": 44,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -13.0
+   },
+   {
+    "fichier": "lead-calliope/48.m4a",
+    "cle": 48,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -13.0
+   },
+   {
+    "fichier": "lead-calliope/52.m4a",
+    "cle": 52,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -13.0
+   },
+   {
+    "fichier": "lead-calliope/56.m4a",
+    "cle": 56,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -13.0
+   },
+   {
+    "fichier": "lead-calliope/60.m4a",
+    "cle": 60,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -13.0
+   },
+   {
+    "fichier": "lead-calliope/64.m4a",
+    "cle": 64,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -13.0
+   },
+   {
+    "fichier": "lead-calliope/68.m4a",
+    "cle": 68,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -13.0
+   },
+   {
+    "fichier": "lead-calliope/72.m4a",
+    "cle": 72,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -13.0
+   },
+   {
+    "fichier": "lead-calliope/76.m4a",
+    "cle": 76,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -13.0
+   },
+   {
+    "fichier": "lead-calliope/80.m4a",
+    "cle": 80,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -13.0
+   },
+   {
+    "fichier": "lead-calliope/84.m4a",
+    "cle": 84,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -13.0
+   },
+   {
+    "fichier": "lead-calliope/88.m4a",
+    "cle": 88,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -13.0
+   },
+   {
+    "fichier": "lead-calliope/92.m4a",
+    "cle": 92,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -13.0
+   },
+   {
+    "fichier": "lead-calliope/96.m4a",
+    "cle": 96,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -13.0
+   }
+  ]
+ },
+ {
+  "id": "lead-quintes",
+  "nom": "Lead en quintes",
+  "categorie": "Synthwave",
+  "regions": [
+   {
+    "fichier": "lead-quintes/40.m4a",
+    "cle": 40,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.0
+   },
+   {
+    "fichier": "lead-quintes/44.m4a",
+    "cle": 44,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.0
+   },
+   {
+    "fichier": "lead-quintes/48.m4a",
+    "cle": 48,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.0
+   },
+   {
+    "fichier": "lead-quintes/52.m4a",
+    "cle": 52,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.0
+   },
+   {
+    "fichier": "lead-quintes/56.m4a",
+    "cle": 56,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.0
+   },
+   {
+    "fichier": "lead-quintes/60.m4a",
+    "cle": 60,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.0
+   },
+   {
+    "fichier": "lead-quintes/64.m4a",
+    "cle": 64,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.0
+   },
+   {
+    "fichier": "lead-quintes/68.m4a",
+    "cle": 68,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.0
+   },
+   {
+    "fichier": "lead-quintes/72.m4a",
+    "cle": 72,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.0
+   },
+   {
+    "fichier": "lead-quintes/76.m4a",
+    "cle": 76,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.0
+   },
+   {
+    "fichier": "lead-quintes/80.m4a",
+    "cle": 80,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.0
+   },
+   {
+    "fichier": "lead-quintes/84.m4a",
+    "cle": 84,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.0
+   },
+   {
+    "fichier": "lead-quintes/88.m4a",
+    "cle": 88,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.0
+   },
+   {
+    "fichier": "lead-quintes/92.m4a",
+    "cle": 92,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.0
+   },
+   {
+    "fichier": "lead-quintes/96.m4a",
+    "cle": 96,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -7.0
+   }
+  ]
+ },
+ {
+  "id": "lead-basse",
+  "nom": "Lead basse + lead",
+  "categorie": "Synthwave",
+  "regions": [
+   {
+    "fichier": "lead-basse/29.m4a",
+    "cle": 29,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -9.1
+   },
+   {
+    "fichier": "lead-basse/36.m4a",
+    "cle": 36,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -9.1
+   },
+   {
+    "fichier": "lead-basse/40.m4a",
+    "cle": 40,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -9.1
+   },
+   {
+    "fichier": "lead-basse/44.m4a",
+    "cle": 44,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -9.1
+   },
+   {
+    "fichier": "lead-basse/48.m4a",
+    "cle": 48,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -9.1
+   },
+   {
+    "fichier": "lead-basse/52.m4a",
+    "cle": 52,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -9.1
+   },
+   {
+    "fichier": "lead-basse/56.m4a",
+    "cle": 56,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -9.1
+   },
+   {
+    "fichier": "lead-basse/60.m4a",
+    "cle": 60,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -9.1
+   },
+   {
+    "fichier": "lead-basse/64.m4a",
+    "cle": 64,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -9.1
+   },
+   {
+    "fichier": "lead-basse/68.m4a",
+    "cle": 68,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -9.1
+   },
+   {
+    "fichier": "lead-basse/72.m4a",
+    "cle": 72,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -9.1
+   },
+   {
+    "fichier": "lead-basse/76.m4a",
+    "cle": 76,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -9.1
+   },
+   {
+    "fichier": "lead-basse/80.m4a",
+    "cle": 80,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -9.1
+   },
+   {
+    "fichier": "lead-basse/84.m4a",
+    "cle": 84,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -9.1
+   },
+   {
+    "fichier": "lead-basse/88.m4a",
+    "cle": 88,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -9.1
+   },
+   {
+    "fichier": "lead-basse/92.m4a",
+    "cle": 92,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -9.1
+   },
+   {
+    "fichier": "lead-basse/96.m4a",
+    "cle": 96,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -9.1
+   },
+   {
+    "fichier": "lead-basse/104.m4a",
+    "cle": 104,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -9.1
+   }
+  ]
+ },
+ {
+  "id": "cristal",
+  "nom": "Cristal",
+  "categorie": "Ambient",
+  "regions": [
+   {
+    "fichier": "cristal/36.m4a",
+    "cle": 36,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -13.7
+   },
+   {
+    "fichier": "cristal/42.m4a",
+    "cle": 42,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -13.7
+   },
+   {
+    "fichier": "cristal/48.m4a",
+    "cle": 48,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -13.7
+   },
+   {
+    "fichier": "cristal/54.m4a",
+    "cle": 54,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -13.7
+   },
+   {
+    "fichier": "cristal/60.m4a",
+    "cle": 60,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -13.7
+   },
+   {
+    "fichier": "cristal/66.m4a",
+    "cle": 66,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -13.7
+   },
+   {
+    "fichier": "cristal/72.m4a",
+    "cle": 72,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -13.7
+   },
+   {
+    "fichier": "cristal/78.m4a",
+    "cle": 78,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -13.7
+   },
+   {
+    "fichier": "cristal/84.m4a",
+    "cle": 84,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -13.7
+   },
+   {
+    "fichier": "cristal/90.m4a",
+    "cle": 90,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -13.7
+   },
+   {
+    "fichier": "cristal/96.m4a",
+    "cle": 96,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -13.7
+   }
+  ]
+ },
+ {
+  "id": "piano-dx7",
+  "nom": "Piano DX7 « E. Piano 1 »",
+  "categorie": "Synthwave",
+  "regions": [
+   {
+    "fichier": "piano-dx7/30.m4a",
+    "cle": 30,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -5.7
+   },
+   {
+    "fichier": "piano-dx7/36.m4a",
+    "cle": 36,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -5.7
+   },
+   {
+    "fichier": "piano-dx7/42.m4a",
+    "cle": 42,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -5.7
+   },
+   {
+    "fichier": "piano-dx7/48.m4a",
+    "cle": 48,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -5.7
+   },
+   {
+    "fichier": "piano-dx7/54.m4a",
+    "cle": 54,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -5.7
+   },
+   {
+    "fichier": "piano-dx7/60.m4a",
+    "cle": 60,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -5.7
+   },
+   {
+    "fichier": "piano-dx7/66.m4a",
+    "cle": 66,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -5.7
+   },
+   {
+    "fichier": "piano-dx7/72.m4a",
+    "cle": 72,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -5.7
+   },
+   {
+    "fichier": "piano-dx7/78.m4a",
+    "cle": 78,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -5.7
+   },
+   {
+    "fichier": "piano-dx7/84.m4a",
+    "cle": 84,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -5.7
+   },
+   {
+    "fichier": "piano-dx7/90.m4a",
+    "cle": 90,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -5.7
+   },
+   {
+    "fichier": "piano-dx7/96.m4a",
+    "cle": 96,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -5.7
+   }
+  ]
+ },
+ {
+  "id": "basse-synthe-1",
+  "nom": "Basse synthé 1",
+  "categorie": "Synthwave",
+  "regions": [
+   {
+    "fichier": "basse-synthe-1/28.m4a",
+    "cle": 28,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -4.3
+   },
+   {
+    "fichier": "basse-synthe-1/32.m4a",
+    "cle": 32,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -4.3
+   },
+   {
+    "fichier": "basse-synthe-1/36.m4a",
+    "cle": 36,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -4.3
+   },
+   {
+    "fichier": "basse-synthe-1/40.m4a",
+    "cle": 40,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -4.3
+   },
+   {
+    "fichier": "basse-synthe-1/44.m4a",
+    "cle": 44,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -4.3
+   },
+   {
+    "fichier": "basse-synthe-1/48.m4a",
+    "cle": 48,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -4.3
+   },
+   {
+    "fichier": "basse-synthe-1/52.m4a",
+    "cle": 52,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -4.3
+   },
+   {
+    "fichier": "basse-synthe-1/56.m4a",
+    "cle": 56,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -4.3
+   },
+   {
+    "fichier": "basse-synthe-1/60.m4a",
+    "cle": 60,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -4.3
+   },
+   {
+    "fichier": "basse-synthe-1/64.m4a",
+    "cle": 64,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -4.3
+   },
+   {
+    "fichier": "basse-synthe-1/68.m4a",
+    "cle": 68,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -4.3
+   },
+   {
+    "fichier": "basse-synthe-1/72.m4a",
+    "cle": 72,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -4.3
+   },
+   {
+    "fichier": "basse-synthe-1/76.m4a",
+    "cle": 76,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -4.3
+   },
+   {
+    "fichier": "basse-synthe-1/80.m4a",
+    "cle": 80,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -4.3
+   },
+   {
+    "fichier": "basse-synthe-1/84.m4a",
+    "cle": 84,
+    "debut": 0,
+    "accord": -0.0,
+    "volume": -4.3
+   }
+  ]
+ },
+ {
+  "id": "batterie-electronique",
+  "nom": "Batterie électronique",
+  "categorie": "Batteries",
+  "regions": [
+   {
+    "fichier": "batterie-electronique/0.m4a",
+    "cle": 0,
+    "debut": 0,
+    "hauteur": 0,
+    "volume": -7.0
+   },
+   {
+    "fichier": "batterie-electronique/1.m4a",
+    "cle": 1,
+    "debut": 0,
+    "hauteur": 0,
+    "volume": -7.0
+   },
+   {
+    "fichier": "batterie-electronique/2.m4a",
+    "cle": 2,
+    "debut": 0,
+    "hauteur": 0,
+    "volume": -7.0
+   },
+   {
+    "fichier": "batterie-electronique/3.m4a",
+    "cle": 3,
+    "debut": 0,
+    "hauteur": 0,
+    "volume": -7.0
+   },
+   {
+    "fichier": "batterie-electronique/4.m4a",
+    "cle": 4,
+    "debut": 0,
+    "hauteur": 0,
+    "volume": -7.0
+   },
+   {
+    "fichier": "batterie-electronique/5.m4a",
+    "cle": 5,
+    "debut": 0,
+    "hauteur": 0,
+    "volume": -7.0
+   },
+   {
+    "fichier": "batterie-electronique/6.m4a",
+    "cle": 6,
+    "debut": 0,
+    "hauteur": 0,
+    "volume": -7.0
+   },
+   {
+    "fichier": "batterie-electronique/7.m4a",
+    "cle": 7,
+    "debut": 0,
+    "hauteur": 0,
+    "volume": -7.0
+   },
+   {
+    "fichier": "batterie-electronique/8.m4a",
+    "cle": 8,
+    "debut": 0,
+    "hauteur": 0,
+    "volume": -7.0
+   },
+   {
+    "fichier": "batterie-electronique/9.m4a",
+    "cle": 9,
+    "debut": 0,
+    "hauteur": 0,
+    "volume": -7.0
+   },
+   {
+    "fichier": "batterie-electronique/10.m4a",
+    "cle": 10,
+    "debut": 0,
+    "hauteur": 0,
+    "volume": -7.0
+   },
+   {
+    "fichier": "batterie-electronique/11.m4a",
+    "cle": 11,
+    "debut": 0,
+    "hauteur": 0,
+    "volume": -7.0
+   }
+  ],
+  "kit": true
+ }
+]

@@ -23,6 +23,6 @@ Installer : `npm install` puis `./installer-mac.sh` (Mac) ou `npm run assembler-
 `RevLoop/RevLoopApp.swift` (vue web, pont MIDI CoreMIDI, son, sauvegarde dans Fichiers), `RevLoop/Info.plist`.
 
 ## Manque encore
-- `logiciel/sons/` (instruments + `instruments.json`) et `logiciel/outils/`
+- `logiciel/sons/<instrument>/` : les fichiers son eux-mêmes (le catalogue `sons/instruments.json` est présent : 61 instruments, 941 fichiers). Ils se recréent avec les scripts de `logiciel/outils/` (dans l'ordre : `telecharger_sons.py`, `telecharger_lot2.py`, `telecharger_lot3.py`)
 - `application/build/` (icônes `icon.icns`, `icon.png`, `icone-source.html`)
 - `iphone/RevLoop.xcodeproj` et `iphone/RevLoop/Assets.xcassets`
