@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>RevLoop</title>
+  <style>
+    /* =====================================================================
+       L'écran reproduit le MiniLab. Tout tient dans la fenêtre, sans défiler,
+       du grand écran à l'iPhone (portrait ou paysage). Les tailles sont en
+       « rem » : elles suivent la taille de la fenêtre et le menu Affichage.
+       Style « nuit Reveria » : fond bleu nuit animé de nœuds (fond.js),
+       panneaux en verre dépoli, lueurs aux couleurs des familles.
+       ===================================================================== */
+    :root {
+      --fond: #060a12; --verre: rgba(14, 21, 34, 0.66); --verre-2: rgba(26, 36, 54, 0.78); --bord: rgba(130, 170, 230, 0.16);
+      --texte: #f1f5fb; --texte-2: #b3bfd2; --texte-3: #8390a6;
+      --reveria: #3b7dbf; --reveria-clair: #8fc3f5;
+      --lecture: #22c55e; --rec: #ef4444; --pret: #f59e0b; --jaune: #facc15;
+      --ombre: 0 12px 40px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      --mono: 'SF Mono', ui-monospace, Menlo, Consolas, monospace;
+      /* coins biseautés, la signature des boutons (une coupe en haut à droite, une en bas à gauche) */
+      --biseau: polygon(0 0, calc(100% - 0.7rem) 0, 100% 0.7rem, 100% 100%, 0.7rem 100%, 0 calc(100% - 0.7rem));
+    }
+    html { font-size: calc(clamp(12px, 0.6vw + 0.72vh, 21px) * var(--echelle, 1)); }
+    html, body { height: 100%; margin: 0; overflow: hidden; }
+    body { color: var(--texte); font-family: 'Avenir Next', Avenir, 'Segoe UI Variable Display', 'Segoe UI', system-ui, sans-serif;
+           background: radial-gradient(ellipse at 15% 0%, #14284a 0%, transparent 55%),
+                       radial-gradient(ellipse at 90% 110%, #2a1748 0%, transparent 50%), var(--fond);
+           display: grid; grid-template-rows: auto minmax(0, 1fr); -webkit-tap-highlight-color: transparent; }
+    #fond-noeuds { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+    #barre-menus, #app { position: relative; z-index: 1; }
+    button { font-family: inherit; color: inherit; }
+    .verre { background: var(--verre); border: 1px solid var(--bord); box-shadow: var(--ombre);
+             backdrop-filter: blur(14px) saturate(140%); -webkit-backdrop-filter: blur(14px) saturate(140%); }
+
+    /* --- Barre de menus --- */
+    #barre-menus { display: flex; gap: 2px; background: rgba(8, 12, 20, 0.7); border-bottom: 1px solid var(--bord);
+                   backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+                   padding: 0 0.8rem; padding-top: env(safe-area-inset-top); font-size: 1rem; user-select: none; z-index: 10; }
+    #bouton-sauver { margin: 0.3rem 0 0.3rem auto; font-size: 0.85rem; font-weight: 700; padding: 0.35rem 1.2rem;
+                     text-transform: uppercase; letter-spacing: 0.1em; white-space: nowrap; cursor: pointer; border: none; color: #fff;
+                     background: linear-gradient(135deg, #4a8fd1, #2a5f94); clip-path: var(--biseau); transition: filter 0.15s; }
+    #bouton-sauver:hover { filter: brightness(1.25); }
+    .titre-menu { position: relative; padding: 0.5rem 0.85rem; cursor: default; border-radius: 6px; }
+    .titre-menu:hover, .titre-menu.ouvert { background: rgba(255, 255, 255, 0.07); }
+    .liste-menu { display: none; position: absolute; top: 100%; left: 0; min-width: 18rem; background: rgba(18, 26, 42, 0.95);
+                  border: 1px solid var(--bord); border-radius: 10px; padding: 5px; box-shadow: 0 14px 40px #000a; z-index: 20;
+                  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+    .titre-menu.ouvert .liste-menu { display: block; }
+    .element-menu { display: flex; justify-content: space-between; gap: 1.5rem; padding: 0.5rem 0.7rem; border-radius: 6px; }
+    .element-menu:hover { background: var(--reveria); }
+    .element-menu.grise { color: var(--texte-3); }
+    .element-menu.grise:hover { background: none; }
+    .raccourci { color: var(--texte-2); }
+    .liste-menu hr { border: none; border-top: 1px solid var(--bord); margin: 4px 6px; }
+
+    /* --- Application : zones empilées qui se partagent la hauteur --- */
+    #app { display: grid; min-height: 0; gap: 0.85rem; padding: 0.9rem 1.3rem;
+           padding-bottom: calc(0.6rem + env(safe-area-inset-bottom));
+           grid-template-rows: auto auto auto minmax(0, 1fr) auto; }
+
+    /* En-tête : logo + titre + familles */
+    #tete { display: flex; align-items: center; gap: 1rem; min-width: 0; }
+    #tete h1 { display: flex; align-items: center; gap: 0.6rem; margin: 0; font-size: 1.45rem; font-weight: 700; white-space: nowrap;
+               overflow: hidden; text-overflow: ellipsis; font-family: Georgia, 'Times New Roman', serif; letter-spacing: 0.01em; }
+    #tete h1 svg { width: 3rem; height: 3rem; flex: none; filter: drop-shadow(0 0 8px rgba(74, 143, 209, 0.6)); }
+    #nom-session::before { content: '· '; }
+    #nom-session { color: var(--texte-2); font-weight: 400; font-family: system-ui, -apple-system, sans-serif; font-size: 1.05rem; }
+    #familles { position: relative; display: flex; gap: 1.6rem; margin-left: auto; }
+    #familles::before { content: ''; position: absolute; left: 1.2rem; right: 1.2rem; top: calc(0.2rem + 0.8rem); height: 2px;
+                        background: linear-gradient(90deg, #f97316, #3b82f6, #a855f7, #14b8a6); opacity: 0.45; }
+    .onglet { position: relative; display: flex; flex-direction: column; align-items: center; gap: 0.25rem; padding: 0.2rem 0.3rem;
+              border: none; background: none; font-size: 0.95rem; font-weight: 600; color: var(--texte-2); cursor: pointer; }
+    .onglet::before { content: ''; width: 1.6rem; height: 1.6rem; border-radius: 50%; transform: scale(0.62);
+                      background: radial-gradient(circle at 35% 30%, color-mix(in srgb, var(--c) 35%, #fff), var(--c) 45%, color-mix(in srgb, var(--c) 55%, #000));
+                      box-shadow: 0 0 0 3px var(--fond); transition: transform 0.2s, box-shadow 0.2s; }
+    .onglet:hover::before { transform: scale(0.8); }
+    .onglet.actif { color: #fff; font-weight: 800; }
+    .onglet.actif::before { transform: scale(1); box-shadow: 0 0 0 3px var(--fond), 0 0 22px var(--c); }
+    .pastille { position: absolute; top: -0.2rem; right: -0.3rem; font-size: 0.7rem; font-family: var(--mono); color: #fff;
+                background: var(--lecture); border-radius: 999px; padding: 0 0.35rem; box-shadow: 0 0 8px var(--lecture); }
+    #badge-mode { background: linear-gradient(135deg, #8b5cf6, #6d28d9); color: #fff; padding: 0.35rem 1rem; clip-path: var(--biseau);
+                  font-size: 0.85rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; white-space: nowrap;
+                  animation: respire 1.6s ease-in-out infinite; }
+    #badge-mode[hidden] { display: none; }
+    @keyframes respire { 50% { filter: brightness(1.35); } }
+
+    /* Jauge de mesure */
+    .mesure-entete { display: flex; justify-content: space-between; font-size: 0.92rem; color: var(--texte-2); margin-bottom: 0.35rem; }
+    #mesure-info { font-family: var(--mono); font-size: 0.85rem; }
+    #mesure-rec { color: var(--rec); margin-left: 8px; font-weight: 700; animation: clignote 1s steps(2) infinite; }
+    #mesure-piste { position: relative; display: flex; height: 0.9rem; border-radius: 999px; overflow: hidden;
+                    background: rgba(255, 255, 255, 0.06); border: 1px solid var(--bord); }
+    #mesure-piste .quart { flex: 1; border-right: 2px solid rgba(6, 10, 18, 0.8); position: relative; z-index: 1; }
+    #mesure-piste .quart:last-of-type { border-right: none; }
+    #mesure-piste .quart.actif { background: #ffffff14; }
+    #mesure-remplissage { position: absolute; inset: 0 auto 0 0; width: 0;
+                          background: linear-gradient(90deg, var(--reveria), #22d3ee, #a855f7); box-shadow: 0 0 14px #22d3ee99; }
+    #mesure-piste.eclair { box-shadow: 0 0 0 2px #fff8, 0 0 20px #8fc3f5; }
+    #mesure-piste.attente #mesure-remplissage { width: 100% !important; opacity: 0.55;
+                          background: repeating-linear-gradient(45deg, #ef444477 0 10px, #0000 10px 20px);
+                          animation: defile 1s linear infinite; }
+    @keyframes defile { to { background-position: 28px 0; } }
+    @keyframes clignote { 50% { opacity: 0; } }
+
+    /* --- Les 8 pads --- */
+    #pads { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)) 0.2rem repeat(4, minmax(0, 1fr)); gap: 0.8rem; min-height: 0; align-items: center; align-self: center; }
+    #pads .pad { aspect-ratio: 1 / 1.3; max-height: 44vh; }     /* de grands pads, rangés comme sur le clavier */
+    #pads .pad:nth-child(5) { grid-column: 6; }               /* espace entre boucles et actions, comme sur le clavier */
+    .pad { --led: rgba(255, 255, 255, 0.08); --halo: transparent; --epaisseur: 6px;
+           position: relative; border-radius: 7px; padding: 1.15rem 0.8rem 0.8rem; min-height: 0; overflow: hidden;
+           display: flex; flex-direction: column; gap: 0.3rem; border: 1px solid #000;
+           background: linear-gradient(180deg, #1c2636, #0f1520);
+           box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), inset 0 -3px 0 rgba(0, 0, 0, 0.45),
+                       0 var(--epaisseur) 0 #04070b, 0 10px 26px rgba(0, 0, 0, 0.55), 0 0 26px var(--halo);
+           transition: transform 0.08s, box-shadow 0.2s, background 0.2s; }
+    .pad:active { transform: translateY(4px); --epaisseur: 2px; }
+    .pad::before { content: ''; position: absolute; top: 0.45rem; left: 0.8rem; right: 0.8rem; height: 4px; border-radius: 2px;
+                   background: var(--led); box-shadow: 0 0 10px var(--led); }
+    .pad::after { content: ''; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+                  background: radial-gradient(ellipse at 30% 0%, rgba(255, 255, 255, 0.07), transparent 60%); }
+    .pad .num { font-family: var(--mono); font-size: 0.8rem; color: var(--texte-3); letter-spacing: 0.1em; }
+    /* Boucles : la couleur dit l'état */
+    .pad.boucle { cursor: pointer; }
+    .pad.boucle:hover { background: linear-gradient(180deg, #223047, #121a27); }
+    .pad.boucle .etat { font-size: 1.6rem; font-weight: 800; letter-spacing: 0.01em; }
+    .pad.boucle .duree { font-size: 1.1rem; font-weight: 600; color: var(--texte-2); }
+    /* Le nom de l'instrument : grand et lisible, en bas du pad */
+    .pad.boucle .instrument { margin-top: auto; width: 100%; text-align: left; font-size: 1.12rem; font-weight: 700; line-height: 1.2;
+                              color: #fff; padding: 0.5rem 0.6rem 0.5rem 0.7rem; cursor: pointer; position: relative; z-index: 1;
+                              display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+                              background: rgba(0, 0, 0, 0.5); border: none; border-left: 3px solid var(--reveria-clair);
+                              clip-path: polygon(0 0, calc(100% - 0.6rem) 0, 100% 0.6rem, 100% 100%, 0 100%); }
+    .pad.boucle .instrument::before { content: '♪ '; color: var(--reveria-clair); }
+    .pad.boucle .instrument:hover { background: rgba(59, 125, 191, 0.45); }
+    .pad.etat-vide { background: linear-gradient(180deg, #141b27, #0b1018); }
+    .pad.etat-vide .etat { color: var(--texte-3); }
+    .pad.etat-pret { --led: #fff; animation: pret 0.7s steps(2) infinite; }
+    .pad.etat-pret .etat { color: #fff; }
+    @keyframes pret { 50% { --led: rgba(255, 255, 255, 0.08); } }
+    .pad.etat-enregistrement { --led: var(--rec); --halo: #ef444466; background: linear-gradient(180deg, #3a1a22, #1a0d12); }
+    .pad.etat-enregistrement .etat { color: #ff6b6b; text-shadow: 0 0 12px #ef4444; }
+    .pad.etat-lecture { --led: var(--c); --halo: color-mix(in srgb, var(--c) 30%, transparent);
+                         background: linear-gradient(180deg, color-mix(in srgb, var(--c) 28%, #1c2636), color-mix(in srgb, var(--c) 10%, #0f1520)); }
+    .pad.etat-lecture .etat { color: color-mix(in srgb, var(--c) 70%, #fff); text-shadow: 0 0 12px var(--c); }
+    .pad.etat-arret { --led: color-mix(in srgb, var(--c) 35%, transparent); }
+    .pad.etat-arret .etat { color: var(--texte-2); }
+    .pad.selection { outline: 2px solid var(--jaune); outline-offset: 4px; }
+    .pad .avance { position: absolute; left: 0; right: 0; bottom: 0; height: 5px; z-index: 2; }
+    .pad .avance span { display: block; height: 100%; width: 0; background: var(--c, var(--lecture)); box-shadow: 0 0 10px var(--c, var(--lecture)); }
+    /* Actions : la couleur de la famille */
+    .pad.action { --led: color-mix(in srgb, var(--c) 55%, transparent);
+                  background: linear-gradient(180deg, color-mix(in srgb, var(--c) 30%, #1c2636), color-mix(in srgb, var(--c) 12%, #0f1520)); }
+    .pad.action .nom { font-size: 1.3rem; font-weight: 800; margin-top: auto; line-height: 1.2; }
+    .pad.action .sorte { font-family: var(--mono); font-size: 0.75rem; color: var(--texte-2); text-transform: uppercase; letter-spacing: 0.1em; }
+    .pad.action.active { --led: #fff; --halo: color-mix(in srgb, var(--c) 80%, transparent); --epaisseur: 2px; transform: translateY(4px);
+                         background: linear-gradient(180deg, color-mix(in srgb, var(--c) 90%, #fff), var(--c)); color: #fff; }
+    .pad.action.active .sorte { color: #fffd; }
+    #pads.mode-huit .pad.action { border-color: #8b5cf6; }
+
+    /* --- Rangée du haut, comme le MiniLab : bande · écran · potards · faders --- */
+    #console { display: grid; grid-template-columns: auto minmax(13rem, 18rem) minmax(0, 1fr) auto; gap: 1.3rem;
+               align-items: stretch; border-radius: 10px; padding: 1rem 1.2rem; }
+    /* Bande tactile = volume de la boucle sélectionnée */
+    #bande { width: 1.6rem; border-radius: 4px; background: rgba(255, 255, 255, 0.06); border: 1px solid var(--bord);
+             position: relative; overflow: hidden; }
+    #bande .niveau { position: absolute; left: 0; right: 0; bottom: 0; background: linear-gradient(0deg, #16a34a, #4ade80);
+                     box-shadow: 0 0 14px #22c55e; }
+    /* L'écran : ce que le MiniLab afficherait */
+    #ecran { background: repeating-linear-gradient(0deg, rgba(143, 195, 245, 0.035) 0 1px, transparent 1px 3px), linear-gradient(180deg, #0b1424, #04070d);
+             border: 1px solid rgba(143, 195, 245, 0.25); border-radius: 6px;
+             padding: 0.8rem 1rem; display: flex; flex-direction: column; justify-content: center; gap: 0.3rem; min-width: 0;
+             box-shadow: inset 0 0 24px rgba(59, 125, 191, 0.22), 0 0 18px rgba(59, 125, 191, 0.15); }
+    #ecran .famille { font-size: 1.7rem; font-weight: 800; text-shadow: 0 0 14px currentColor; }
+    #ecran .ligne { font-size: 1rem; color: var(--texte-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    #ecran .ligne b { color: var(--texte); }
+    #ecran .instru { font-size: 1.25rem; font-weight: 700; color: #fff; line-height: 1.2; overflow: hidden;
+                     display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+    #ecran .instru::before { content: '♪ '; color: var(--reveria-clair); }
+    #ecran .mode { font-size: 0.9rem; color: #c4b5fd; font-weight: 700; }
+    /* Les 8 potards, en 2 rangées de 4 */
+    #potards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: repeat(2, auto);
+               gap: 0.5rem 0.8rem; align-content: center; }
+    .potard { display: flex; flex-direction: column; align-items: center; min-width: 0; }
+    .cadran { position: relative; width: min(5.2rem, 100%); aspect-ratio: 1; }
+    .cadran svg { width: 100%; height: 100%; overflow: visible; }
+    .cadran path { fill: none; stroke-width: 6; stroke-linecap: round; }
+    .cadran .fond { stroke: rgba(255, 255, 255, 0.08); }
+    .cadran .plein { stroke: var(--c, #f59e0b); filter: drop-shadow(0 0 4px var(--c, #f59e0b)); }
+    .cadran .capuchon { fill: #1e2a3c; stroke: rgba(255, 255, 255, 0.14); stroke-width: 1; filter: drop-shadow(0 3px 3px #000a); }
+    .cadran .aiguille { stroke: #fff; stroke-width: 3; stroke-linecap: round; }
+    .cadran .n { position: absolute; top: -0.1rem; left: -0.1rem; font-family: var(--mono); font-size: 0.75rem; color: var(--texte-3); }
+    .potard .nom { font-size: 0.75rem; font-weight: 700; color: var(--texte-2); white-space: nowrap; margin-top: 0.15rem;
+                   text-transform: uppercase; letter-spacing: 0.1em; }
+    .potard .valeur { font-family: var(--mono); font-size: 0.95rem; font-weight: 600; white-space: nowrap; }
+    /* Les 4 faders, à droite */
+    #faders { display: flex; gap: 0.8rem; align-items: stretch; }
+    .fader { display: flex; flex-direction: column; align-items: center; gap: 0.35rem; }
+    .fader .rail { flex: 1; width: 1.9rem; border-radius: 4px; background: rgba(255, 255, 255, 0.06); border: 1px solid var(--bord);
+                   position: relative; overflow: hidden; min-height: 4rem; }
+    .fader .niveau { position: absolute; left: 0; right: 0; bottom: 0; opacity: 0.85; }
+    .fader .niveau::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 0.6rem; border-radius: 2px;
+                             background: linear-gradient(180deg, #f4f6fa, #8e98a8); box-shadow: 0 2px 4px #000a; }
+    .fader span { font-family: var(--mono); font-size: 0.8rem; color: var(--texte-2); white-space: nowrap; }
+
+    /* Ligne d'état */
+    #ligne-etat { display: flex; gap: 1rem; font-size: 0.9rem; color: var(--texte-2); min-width: 0; }
+    #etat { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    #note { color: #22d3ee; font-weight: 700; text-shadow: 0 0 10px #22d3ee88; }
+
+    /* Bouton Démarrer, au centre tant que le son n'est pas lancé */
+    #demarrer { position: fixed; inset: 0; margin: auto; width: 11rem; height: 11rem; font-size: 1.3rem; font-weight: 800; z-index: 30;
+                border-radius: 50%; border: none; color: #fff; cursor: pointer; letter-spacing: 0.04em;
+                background: radial-gradient(circle at 35% 30%, #9ccbf7, #4a8fd1 45%, #1d4670);
+                box-shadow: 0 0 60px rgba(74, 143, 209, 0.6), inset 0 -10px 24px rgba(0, 0, 0, 0.35);
+                animation: appel 2.4s ease-in-out infinite; }
+    #demarrer::before { content: ''; position: absolute; inset: -1.3rem; border-radius: 50%;
+                        border: 2px dashed rgba(143, 195, 245, 0.55); animation: orbite 14s linear infinite; }
+    @keyframes appel { 50% { box-shadow: 0 0 90px rgba(143, 195, 245, 0.85), inset 0 -10px 24px rgba(0, 0, 0, 0.35); } }
+    @keyframes orbite { to { transform: rotate(360deg); } }
+    #demarrer[hidden] { display: none; }
+
+    /* --- Téléphone en portrait (ou fenêtre étroite) : les zones s'empilent --- */
+    @media (max-aspect-ratio: 1/1), (max-width: 700px) {
+      html { font-size: calc(clamp(12px, 2.4vw, 17px) * var(--echelle, 1)); }
+      #app { padding: 0.7rem; gap: 0.7rem; }
+      #tete { flex-wrap: wrap; gap: 0.5rem; }
+      #tete h1 { font-size: 1.25rem; }
+      #tete h1 svg { width: 2rem; height: 2rem; }
+      #familles { margin-left: 0; width: 100%; justify-content: space-between; gap: 0.5rem; }
+      .onglet { flex: 1; font-size: 0.9rem; }
+      #pads { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem 0.55rem; }
+      #bouton-sauver { letter-spacing: 0.03em; padding: 0.35rem 0.8rem; }
+      #pads .pad { aspect-ratio: 1 / 1; max-height: 22vh; padding: 0.55rem; }
+      #pads .pad:nth-child(5) { grid-column: auto; }
+      .pad.boucle .etat { font-size: 1.2rem; }
+      .pad.boucle .instrument { font-size: 0.95rem; padding: 0.35rem 0.45rem; }
+      .pad.action .nom { font-size: 1.05rem; }
+      #console { grid-template-columns: auto minmax(0, 1fr) auto; grid-template-areas: "bande ecran faders" "potards potards potards";
+                 gap: 0.7rem; padding: 0.7rem; }
+      #bande { grid-area: bande; }
+      #ecran { grid-area: ecran; }
+      #faders { grid-area: faders; height: 6.5rem; }
+      #potards { grid-area: potards; }
+      .cadran { width: min(3.6rem, 100%); }
+    }
+    /* Téléphone en paysage : peu de hauteur, on serre */
+    @media (max-height: 500px) and (min-aspect-ratio: 1/1) {
+      #app { gap: 0.45rem; padding: 0.5rem 0.8rem; }
+      #tete h1 svg { width: 1.8rem; height: 1.8rem; }
+      #pads { align-self: stretch; padding: 4px 0; }
+      .mesure-entete { display: none; }
+      #pads .pad { aspect-ratio: auto; height: 100%; max-height: none; padding: 0.45rem; }
+      .pad.boucle .etat { font-size: 1.1rem; }
+      .pad.boucle .instrument { font-size: 0.9rem; padding: 0.25rem 0.4rem; display: block; white-space: nowrap; text-overflow: ellipsis; }
+      .cadran { width: min(2.6rem, 100%); }
+      #console { padding: 0.45rem 0.7rem; gap: 0.7rem; grid-template-columns: auto minmax(9rem, 12rem) minmax(0, 1fr) auto; }
+      #potards { grid-template-columns: repeat(8, minmax(0, 1fr)); }
+      #ecran .famille { font-size: 1.1rem; }
+      #ecran .instru { font-size: 1rem; display: block; white-space: nowrap; text-overflow: ellipsis; }
+      #ligne-etat { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+    }
+
+    /* --- Fenêtres de dialogue --- */
+    #dialogue { background: rgba(16, 24, 40, 0.94); color: var(--texte); border: 1px solid var(--bord); border-radius: 16px;
+                padding: 1.3rem 1.6rem; min-width: min(26rem, 85vw); max-width: 92vw; max-height: 85vh; overflow: auto; font-size: 1.05rem;
+                box-shadow: 0 20px 60px #000c, 0 0 30px rgba(59, 125, 191, 0.25);
+                backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); }
+    #dialogue::backdrop { background: rgba(2, 5, 10, 0.6); backdrop-filter: blur(3px); }
+    #dialogue h2 { margin-top: 0; font-family: Georgia, 'Times New Roman', serif; }
+    #dialogue label { display: block; margin: 0.9rem 0; }
+    #dialogue input[type=range] { display: block; width: 100%; margin-top: 6px; accent-color: var(--reveria-clair); }
+    #dialogue td { padding: 5px 14px 5px 0; vertical-align: top; }
+    #dialogue td:first-child { color: #fbbf24; white-space: nowrap; }
+    #dialogue h3 { margin: 1rem 0 0.5rem; font-size: 0.9rem; color: var(--reveria-clair); text-transform: uppercase; letter-spacing: 0.08em; }
+    .grille-instruments { display: grid; grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr)); gap: 8px; }
+    .grille-instruments button { text-align: left; font-size: 1.05rem; font-weight: 600; background: rgba(255, 255, 255, 0.05);
+                                 border: none; border-left: 3px solid var(--reveria); clip-path: polygon(0 0, calc(100% - 0.6rem) 0, 100% 0.6rem, 100% 100%, 0 100%);
+                                 cursor: pointer; padding: 0.6rem 0.8rem;
+                                 transition: background 0.15s, transform 0.12s; }
+    .grille-instruments button:hover { background: var(--reveria); transform: translateY(-1px); }
+    .grille-instruments button.actuel { border-left-color: #fbbf24; color: #fbbf24; background: rgba(251, 191, 36, 0.12); }
+    #dialogue .note { color: var(--texte-2); font-size: 0.9rem; }
+    .ligne-reglage-pad { display: flex; align-items: center; gap: 8px; margin: 6px 0; flex-wrap: wrap; }
+    .ligne-reglage-pad span { min-width: 12rem; color: #fbbf24; }
+    #dialogue select { font-size: 1rem; padding: 4px 6px; border-radius: 6px; background: #0d1626; color: var(--texte); border: 1px solid var(--bord); }
+    #dialogue .boutons { display: flex; justify-content: flex-end; gap: 8px; margin-top: 1rem; }
+    #dialogue .boutons button { font-size: 0.9rem; font-weight: 700; padding: 0.5rem 1.3rem; border: none; clip-path: var(--biseau);
+                       text-transform: uppercase; letter-spacing: 0.08em; background: rgba(143, 195, 245, 0.16); cursor: pointer; }
+    #dialogue .boutons button:hover { background: var(--reveria); }
+  </style>
+</head>
+<body>
+  <nav id="barre-menus"></nav>
+  <dialog id="dialogue"></dialog>
+
+  <!-- Chrome n'autorise le son qu'après un clic de l'utilisateur -->
+  <button id="demarrer">▶ Démarrer</button>
+
+  <main id="app">
+    <header id="tete">
+      <h1><svg viewBox="200 196 624 624" aria-hidden="true"><defs>
+        <radialGradient id="rl-b" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#9CCBF7"/><stop offset=".45" stop-color="#4A8FD1"/><stop offset="1" stop-color="#2A5F94"/></radialGradient>
+        <radialGradient id="rl-g" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#BFD0E2"/><stop offset=".45" stop-color="#7F95AD"/><stop offset="1" stop-color="#4A5C70"/></radialGradient>
+        <radialGradient id="rl-h" cx="35%" cy="28%" r="78%"><stop offset="0" stop-color="#7d93ad"/><stop offset=".4" stop-color="#3d5068"/><stop offset="1" stop-color="#1f2d3d"/></radialGradient>
+        <radialGradient id="rl-v" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#e3c4ff"/><stop offset=".45" stop-color="#a855f7"/><stop offset="1" stop-color="#6b21a8"/></radialGradient></defs>
+        <!-- le logo RevLoop : les nœuds Reveria forment une boucle qui tourne, une double croche au centre -->
+        <g fill="none" stroke-linecap="round" stroke-width="24"><path d="M512,240 A272,272 0 0 1 747.6,376 A272,272 0 0 1 747.6,648" stroke="#4A8FD1"/>
+        <path d="M747.6,648 A272,272 0 0 1 512,784" stroke="#7F95AD"/><path d="M512,784 A272,272 0 0 1 276.4,648 A272,272 0 0 1 276.4,376" stroke="#3B7DBF"/>
+        <path d="M276.4,376 A272,272 0 0 1 440,250" stroke="#4A8FD1" stroke-dasharray="2 36"/></g>
+        <path d="M430,208 L490,240 L430,274 Z" fill="#9CCBF7"/>
+        <circle cx="747.6" cy="376" r="40" fill="url(#rl-b)"/><circle cx="747.6" cy="648" r="36" fill="url(#rl-g)"/><circle cx="512" cy="784" r="44" fill="url(#rl-b)"/>
+        <circle cx="276.4" cy="648" r="34" fill="url(#rl-b)"/><circle cx="276.4" cy="376" r="38" fill="url(#rl-g)"/><circle cx="512" cy="240" r="50" fill="url(#rl-v)"/>
+        <g stroke="#dbe9f8" stroke-linecap="round" fill="none"><line x1="490" y1="600" x2="490" y2="400" stroke-width="20"/><line x1="634" y1="572" x2="634" y2="372" stroke-width="20"/>
+        <path d="M490,402 L634,374" stroke-width="44"/><path d="M490,456 L634,428" stroke-width="28"/></g>
+        <ellipse cx="450" cy="610" rx="56" ry="45" fill="url(#rl-h)" transform="rotate(-20 450 610)"/><ellipse cx="594" cy="582" rx="56" ry="45" fill="url(#rl-b)" transform="rotate(-20 594 582)"/></svg>RevLoop <span id="nom-session"></span></h1>
+      <span id="badge-mode" hidden>Mode 8 actions</span>
+      <div id="familles"></div>
+    </header>
+
+    <!-- La jauge de mesure : 4 quarts et un remplissage -->
+    <section id="mesure">
+      <div class="mesure-entete">
+        <span>Mesure <span id="mesure-rec" hidden>● REC</span></span>
+        <span id="mesure-info"></span>
+      </div>
+      <div id="mesure-piste">
+        <div class="quart"></div><div class="quart"></div><div class="quart"></div><div class="quart"></div>
+        <div id="mesure-remplissage"></div>
+      </div>
+    </section>
+
+    <!-- La rangée du haut, disposée comme le MiniLab (de gauche à droite) :
+         bande tactile (volume de la boucle) · écran · 8 potards en 2 rangées · 4 faders -->
+    <section id="console" class="verre">
+      <div id="bande" title="Volume de la boucle sélectionnée (bande tactile droite)"></div>
+      <div id="ecran"></div>
+      <div id="potards"></div>
+      <div id="faders"></div>
+    </section>
+
+    <!-- … et les 8 pads en dessous, sur une rangée -->
+    <section id="pads"></section>
+
+    <footer id="ligne-etat">
+      <span id="etat">Cliquez sur « Démarrer ».</span>
+      <span id="note"></span>
+    </footer>
+  </main>
+
+  <!-- Le moteur (son, boucles, MiniLab), les actions des pads, l'écran, puis la barre de menus -->
+  <!-- Chaque script est chargé avec un numéro unique (?v=…) : sans cela, Chrome peut garder
+       une ANCIENNE version en mémoire et ignorer nos modifications, même après un rechargement. -->
+  <script>
+    const version = Date.now();
+    for (const nom of ['moteur', 'synthes', 'actions', 'arpege', 'interface', 'menus', 'mesure', 'minilab', 'fond']) {
+      document.write('<script src="' + nom + '.js?v=' + version + '"><\/script>');
+    }
+  </script>
+</body>
+</html>
