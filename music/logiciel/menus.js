@@ -49,6 +49,9 @@ const MENUS = [
     { libelle: 'Guide…', action: () => ouvrirGuide() },
     { libelle: 'Jouer au doigt', action: aideTactile },
     { libelle: 'Commandes du MiniLab', action: aideMiniLab },
+    '-',
+    { libelle: 'Confidentialité', action: () => ouvrirTexteLegal('confidentialite') },
+    { libelle: 'Conditions d’utilisation', action: () => ouvrirTexteLegal('conditions') },
     { libelle: 'À propos de RevLoop', action: aPropos },
   ]},
 ];
@@ -409,6 +412,27 @@ function aideMiniLab() {
     '<tr><td>Potards 5 à 8 (bas)</td><td>Saturation · Grain · Attaque · Mouvement</td></tr>' +
     '<tr><td>Rythme</td><td>Do = grosse caisse, Ré = caisse claire, Mi / Fa = charleston</td></tr>' +
     '</table>');
+}
+
+// Les pages légales (dossier legal/) sont les mêmes que celles publiées en ligne pour Apple :
+// on en reprend le contenu dans une fenêtre. Les liens deviennent du texte simple (dans l'app
+// iPhone, un lien ouvrirait la page à la place de RevLoop), sauf le lien d'une page à l'autre.
+async function ouvrirTexteLegal(nom) {
+  try {
+    const page = new DOMParser().parseFromString(await (await fetch('legal/' + nom + '.html')).text(), 'text/html');
+    const contenu = page.querySelector('main');
+    const titre = contenu.querySelector('h1').textContent;
+    contenu.querySelector('h1').remove();
+    contenu.querySelectorAll('a').forEach(lien => {
+      const autre = (lien.getAttribute('href') || '').match(/^(confidentialite|conditions)\.html$/);
+      if (autre) { lien.href = '#'; lien.setAttribute('onclick', "ouvrirTexteLegal('" + autre[1] + "'); return false"); }
+      else lien.replaceWith(lien.textContent);
+    });
+    montrerDialogue(titre, '<div class="texte-legal">' + contenu.innerHTML + '</div>');
+    dialogue.scrollTop = 0;              // on commence en haut du texte
+  } catch (e) {
+    informer('Texte introuvable : ' + e.message);
+  }
 }
 
 function aPropos() {

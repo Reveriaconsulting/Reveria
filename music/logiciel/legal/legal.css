@@ -1,0 +1,17 @@
+/* Pages légales de RevLoop : lisibles seules sur le web (publiées en ligne pour Apple),
+   et reprises dans l'application (Aide › Confidentialité, Aide › Conditions d'utilisation) */
+:root { --fond: #f7f8fb; --texte: #1b2433; --texte-2: #4b5668; --bord: #d9dfe8; --accent: #2a5f94; --encart: #eaf1f9; }
+@media (prefers-color-scheme: dark) {
+  :root { --fond: #060a12; --texte: #f1f5fb; --texte-2: #b3bfd2; --bord: rgba(130, 170, 230, 0.2); --accent: #8fc3f5; --encart: rgba(59, 125, 191, 0.15); }
+}
+body { margin: 0; background: var(--fond); color: var(--texte); font: 16px/1.55 system-ui, -apple-system, 'Segoe UI', sans-serif; }
+main { max-width: 46rem; margin: 0 auto; padding: 2rem 16px 3rem; }
+h1 { font-family: Georgia, 'Times New Roman', serif; font-size: 1.8rem; line-height: 1.2; margin: 0 0 0.3rem; }
+h2 { font-size: 1.1rem; margin: 1.8rem 0 0.5rem; color: var(--accent); }
+.date { color: var(--texte-2); margin: 0 0 1.5rem; }
+.resume { background: var(--encart); border-left: 4px solid var(--accent); border-radius: 0 10px 10px 0; padding: 0.2rem 1.2rem 0.6rem; }
+.resume h2 { margin-top: 0.8rem; }
+a { color: var(--accent); }
+table { width: 100%; border-collapse: collapse; font-size: 0.95rem; display: block; overflow-x: auto; }
+th, td { text-align: left; vertical-align: top; padding: 0.5rem 0.7rem 0.5rem 0; border-bottom: 1px solid var(--bord); }
+th { color: var(--texte-2); font-weight: 600; }

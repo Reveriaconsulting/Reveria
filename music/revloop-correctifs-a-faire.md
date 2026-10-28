@@ -72,8 +72,8 @@ Point de vigilance : tant que les textes sont écrits en dur, tout changement de
 
 ### Droits et juridique
 - [x] Origine de tous les sons de l'app vérifiée le 28/10/2026 : voir registre-origine-des-sons.md et le dossier licences-sons/ (tout en CC0 ou domaine public, ou créé par le code). Noms de marques retirés des noms affichés. Reste à surveiller : la preuve du piano à queue
-- [ ] Conditions d'utilisation : l'utilisateur est responsable des fichiers qu'il importe
-- [ ] Politique de confidentialité (URL obligatoire pour Apple), précisant si les enregistrements restent sur l'appareil
+- [x] Conditions d'utilisation rédigées le 28/10/2026 (logiciel/legal/conditions.html, aussi dans Aide › Conditions d'utilisation). Adresse et SIRET complétés ; faire relire si besoin
+- [x] Politique de confidentialité rédigée le 28/10/2026 (logiciel/legal/confidentialite.html, aussi dans Aide › Confidentialité). Adresse et SIRET complétés. En ligne le 28/10/2026 : https://reveria-consulting.fr/revloop/confidentialite/ (et /revloop/conditions/), non indexées (adresse publique pour App Store Connect)
 - [ ] Vérifier le nom : recherche « RevLoop » dans l'App Store, sur l'INPI (classes 9 et 41) et la disponibilité des pseudos TikTok, YouTube, Instagram
 - [ ] Activité déclarée : confirmer avec l'expert-comptable/URSSAF le rattachement des revenus de l'app à Reveria Consulting
 - [ ] Clause d'exclusivité ou d'activité annexe du contrat de travail
@@ -139,7 +139,7 @@ Source principale : App Review Guidelines d'Apple (developer.apple.com/app-store
 - [x] App jouable sans clavier MIDI (priorité 0, validée sur iPhone 11 le 28/10/2026)
 - [x] Testée sur un vrai appareil, sans plantage (iPhone 11, 28/10/2026)
 - [x] Texte d'autorisation du micro clair, demande faite au bon moment (au clic sur « Enregistrer »)
-- [ ] Politique de confidentialité en ligne, liée dans App Store Connect et dans l'app
+- [x] Politique de confidentialité en ligne (https://reveria-consulting.fr/revloop/confidentialite/) et dans l'app (Aide › Confidentialité). Reste : coller l'adresse dans App Store Connect
 - [x] Preuve d'origine de tous les sons (registre-origine-des-sons.md, licences-sons/)
 - [ ] Nom, icône et captures sans marque tierce et fidèles à l'app
 - [ ] Questionnaire d'âge et « confidentialité de l'app » remplis honnêtement

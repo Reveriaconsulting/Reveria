@@ -378,6 +378,16 @@
     .ligne-reglage-pad { display: flex; align-items: center; gap: 8px; margin: 6px 0; flex-wrap: wrap; }
     .ligne-reglage-pad span { min-width: 12rem; color: #fbbf24; }
     #dialogue select { font-size: 1rem; padding: 4px 6px; border-radius: 6px; background: #0d1626; color: var(--texte); border: 1px solid var(--bord); }
+    /* Aide › Confidentialité et Conditions d'utilisation (menus.js, textes du dossier legal/) */
+    .texte-legal { max-width: 44rem; line-height: 1.5; }
+    .texte-legal .date { color: var(--texte-2); margin-top: 0; }
+    .texte-legal h2 { font-size: 1rem; color: var(--reveria-clair); margin: 1.2rem 0 0.4rem; }
+    .texte-legal .resume { background: rgba(59, 125, 191, 0.15); border-left: 3px solid var(--reveria-clair); padding: 0.1rem 1rem 0.4rem; border-radius: 0 8px 8px 0; }
+    .texte-legal table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    .texte-legal th, .texte-legal td { text-align: left; vertical-align: top; padding: 0.4rem 0.6rem 0.4rem 0; border-bottom: 1px solid var(--bord); color: var(--texte); }
+    .texte-legal th { color: var(--texte-2); }
+    #dialogue .texte-legal td:first-child { white-space: normal; color: var(--texte); }
+    .texte-legal a { color: var(--reveria-clair); }
     /* Le guide de démarrage (guide.js) : une bulle et un anneau qui montre où agir */
     #bulle-guide { position: fixed; z-index: 50; width: min(21rem, calc(100vw - 16px)); padding: 0.9rem 1rem 0.8rem;
                    background: rgba(16, 24, 40, 0.96); border: 1px solid var(--reveria-clair); border-radius: 12px;
