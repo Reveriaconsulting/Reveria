@@ -990,7 +990,7 @@ function relacherPad(numero) {
   delete padEnAction[numero];
 }
 
-// --- Messages du MiniLab --------------------------------------------------
+// --- Messages du MiniLab (et des gestes à l'écran, qui imitent les mêmes messages : tactile.js) ---
 function recevoir(message) {
   const [statut, data1, data2] = message.data;
   const type = statut & 0xF0;            // le type de message (note, potard…)
@@ -1008,10 +1008,12 @@ function recevoir(message) {
     plierNotes((data2 << 7) | data1);
   } else if (type === 0x90 && data2 > 0) {      // touche appuyée
     jouer(data1, data2);
+    allumerTouche(data1, true);          // la touche du clavier à l'écran s'allume aussi (tactile.js)
     document.getElementById('note').textContent = 'Note ' + data1;
     ondeFond(COULEURS_ECRAN[familleActive]);   // une onde dans le fond d'écran (fond.js)
   } else if (type === 0x80 || (type === 0x90 && data2 === 0)) { // touche relâchée
     arreter(data1);
+    allumerTouche(data1, false);
   } else if (type === 0xB0) {            // un potard, un fader ou le bouton central
     if (POTARDS[data1]) tournerPotard(data1, data2);
     else if (data1 === BANDE_DROITE) toucherBandeVolume(data2);
@@ -1090,26 +1092,37 @@ async function demarrer() {
     } catch (e) {
       midi = await navigator.requestMIDIAccess();
     }
-    const noms = [];
-    for (const entree of midi.inputs.values()) {
-      if (entree.name.includes('MIDI')) { // le port principal du MiniLab
-        entree.onmidimessage = recevoir;
-        noms.push(entree.name);
-      }
-    }
-    if (midi.sysexEnabled) {
-      // Le port principal du MiniLab (« Minilab3 MIDI » sur Mac ; le nom peut varier un peu sur iPhone)
-      const sorties = [...midi.outputs.values()];
-      sortieMiniLab = sorties.find(s => s.name.includes('Minilab3 MIDI'))
-        || sorties.find(s => /minilab/i.test(s.name) && /midi/i.test(s.name) && !/din|mcu/i.test(s.name))
-        || null;
-    }
-    etat.textContent = noms.length
-      ? 'Connecté à : ' + noms.join(', ') + '. Jouez une touche !' + infoSession
-      : 'Aucun clavier MIDI trouvé. Le MiniLab est-il branché ?' + infoSession;
+    accesMIDI = midi;
+    midi.onstatechange = () => brancherClaviers('');
+    brancherClaviers(infoSession);
   } catch (e) {
-    etat.textContent = 'Accès MIDI refusé : ' + e.message;
+    etat.textContent = 'Accès MIDI refusé : ' + e.message.replace(/\.$/, '') + '. Jouez sur le clavier à l’écran.' + infoSession;
   }
+}
+
+// Branche les claviers MIDI : au démarrage, puis chaque fois qu'un clavier est branché ou débranché.
+// Sans clavier, on joue à l'écran ; dès qu'un clavier arrive, il prend le relais (tactile.js).
+let accesMIDI = null;
+function brancherClaviers(infoSession) {
+  const branche = p => p.state !== 'disconnected';
+  const noms = [];
+  for (const entree of accesMIDI.inputs.values()) {
+    if (branche(entree) && entree.name.includes('MIDI')) { // le port principal du MiniLab
+      entree.onmidimessage = recevoir;
+      noms.push(entree.name);
+    }
+  }
+  if (accesMIDI.sysexEnabled) {
+    // Le port principal du MiniLab (« Minilab3 MIDI » sur Mac ; le nom peut varier un peu sur iPhone)
+    const sorties = [...accesMIDI.outputs.values()].filter(branche);
+    sortieMiniLab = sorties.find(s => s.name.includes('Minilab3 MIDI'))
+      || sorties.find(s => /minilab/i.test(s.name) && /midi/i.test(s.name) && !/din|mcu/i.test(s.name))
+      || null;
+  }
+  modeTactile(noms.length === 0);
+  document.getElementById('etat').textContent = noms.length
+    ? 'Connecté à : ' + noms.join(', ') + '. Jouez une touche !' + infoSession
+    : 'Jouez sur le clavier et les pads de l’écran, ou branchez un clavier MIDI.' + infoSession;
 }
 
 document.getElementById('demarrer').onclick = demarrer;

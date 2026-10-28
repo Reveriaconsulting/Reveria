@@ -136,7 +136,7 @@ final class PontMIDI: NSObject, WKScriptMessageHandler {
     static let scriptDeLaPage = """
     (() => {
       const entrees = new Map(), sorties = new Map();
-      let attente = null;
+      let attente = null, acces = null;
       // un paquet USB peut contenir plusieurs messages : on les sépare
       const longueur = s => s >= 0xF0 ? ({ 0xF1: 2, 0xF2: 3, 0xF3: 2 }[s] || 1) : ((s & 0xF0) === 0xC0 || (s & 0xF0) === 0xD0 ? 2 : 3);
       function decouper(octets) {
@@ -149,17 +149,33 @@ final class PontMIDI: NSObject, WKScriptMessageHandler {
         return messages;
       }
       window.__revloopMIDI = {
+        // La liste complète des ports, envoyée au démarrage et à chaque clavier branché ou débranché :
+        // les ports disparus sont retirés, et la page est prévenue (onstatechange), comme dans Chrome.
         ports(liste) {
+          let change = false;
+          for (const carte of [entrees, sorties]) {
+            for (const [id, port] of carte) {
+              if (liste.some(p => p.id === id && p.type === port.type)) continue;
+              port.state = 'disconnected';
+              carte.delete(id);
+              change = true;
+            }
+          }
           for (const p of liste) {
             const carte = p.type === 'input' ? entrees : sorties;
             if (carte.has(p.id)) continue;
+            change = true;
             const port = { id: p.id, name: p.name, type: p.type, state: 'connected', onmidimessage: null, ecouteurs: [],
               addEventListener(t, f) { if (t === 'midimessage') this.ecouteurs.push(f); },
               removeEventListener(t, f) { this.ecouteurs = this.ecouteurs.filter(g => g !== f); },
               send(donnees) { window.webkit.messageHandlers.midi.postMessage({ type: 'envoyer', id: p.id, octets: Array.from(donnees) }); } };
             carte.set(p.id, port);
           }
-          if (attente) { attente({ inputs: entrees, outputs: sorties, sysexEnabled: true, onstatechange: null }); attente = null; }
+          if (attente) {
+            acces = acces || { inputs: entrees, outputs: sorties, sysexEnabled: true, onstatechange: null };
+            attente(acces);
+            attente = null;
+          } else if (change && acces && acces.onstatechange) acces.onstatechange({});
         },
         recevoir(id, octets) {
           const port = entrees.get(id);

@@ -1,9 +1,9 @@
 // =============================================================================
 //  RevLoop — l'écran : une copie du MiniLab
 // =============================================================================
-// Le MiniLab reste l'instrument : on joue toujours avec lui. L'écran sert à VOIR
-// ce qui se passe (comme un tableau de bord) et à faire quelques choix au clic :
-// la famille, la boucle sélectionnée, l'instrument d'une boucle.
+// L'écran montre ce qui se passe (comme un tableau de bord) et permet quelques choix au clic :
+// la famille, la boucle sélectionnée, l'instrument d'une boucle. Sans clavier MIDI, on joue
+// aussi sur ses pads, potards et faders, et sur le clavier à l'écran (tactile.js).
 //
 //   en-tête  : titre + les 4 familles en onglets de couleur
 //   mesure   : la jauge (voir mesure.js)

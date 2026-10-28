@@ -37,6 +37,7 @@ const MENUS = [
   ]},
   { titre: 'Affichage', elements: [
     { libelle: 'Plein écran', raccourci: '⌃⌘F', action: basculerPleinEcran },
+    { libelle: 'Clavier à l’écran', action: () => montrerClavier(!clavierVisible()), coche: () => clavierVisible() },
     '-',
     { libelle: 'Texte petit', action: () => changerTaille(0.85), coche: () => options.tailleTexte === 0.85 },
     { libelle: 'Texte normal', action: () => changerTaille(1), coche: () => options.tailleTexte === 1 },

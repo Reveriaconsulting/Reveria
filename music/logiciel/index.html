@@ -59,6 +59,7 @@
     #app { display: grid; min-height: 0; gap: 0.85rem; padding: 0.9rem 1.3rem;
            padding-bottom: calc(0.6rem + env(safe-area-inset-bottom));
            grid-template-rows: auto auto auto minmax(0, 1fr) auto; }
+    body.avec-clavier #app { grid-template-rows: auto auto auto minmax(0, 1fr) auto auto; }
 
     /* En-tête : logo + titre + familles */
     #tete { display: flex; align-items: center; gap: 1rem; min-width: 0; }
@@ -204,6 +205,29 @@
                              background: linear-gradient(180deg, #f4f6fa, #8e98a8); box-shadow: 0 2px 4px #000a; }
     .fader span { font-family: var(--mono); font-size: 0.8rem; color: var(--texte-2); white-space: nowrap; }
 
+    /* --- Le clavier à l'écran (tactile.js) : 2 octaves, comme le MiniLab --- */
+    #clavier { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 0.8rem; border-radius: 10px; padding: 0.7rem 0.9rem;
+               height: 9.5rem; user-select: none; -webkit-user-select: none; }
+    #clavier[hidden] { display: none; }
+    #octaves { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.4rem; }
+    #octaves button { width: 3.4rem; padding: 0.45rem 0; border: none; font-weight: 800; font-size: 0.95rem; cursor: pointer;
+                      background: rgba(143, 195, 245, 0.16); clip-path: var(--biseau); touch-action: manipulation; }
+    #octaves button:disabled { opacity: 0.3; cursor: default; }
+    #octave-nom { font-family: var(--mono); font-size: 0.72rem; color: var(--texte-2); white-space: nowrap; }
+    #touches { position: relative; display: flex; touch-action: none; min-width: 0; }
+    .touche, #pads, #potards, #faders, #bande { touch-action: none; -webkit-touch-callout: none; }
+    .touche.blanche { flex: 1; position: relative; margin: 0 1px; border-radius: 0 0 6px 6px; border: 1px solid #000;
+                      background: linear-gradient(180deg, #c9d2df, #f4f6fa 12%, #e6eaf1);
+                      box-shadow: inset 0 -5px 0 #b3bccb, 0 3px 0 #04070b; display: flex; align-items: flex-end; justify-content: center; }
+    .touche.blanche span { font-family: var(--mono); font-size: 0.7rem; color: #4b5668; margin-bottom: 0.45rem; pointer-events: none; }
+    .touche.noire { position: absolute; top: 0; z-index: 2; width: 4.2%; height: 60%; transform: translateX(-50%);
+                    border-radius: 0 0 4px 4px; border: 1px solid #000;
+                    background: linear-gradient(180deg, #05080d, #1f2836 85%, #3a4556);
+                    box-shadow: inset 0 -4px 0 #0b1018, 0 3px 4px #000a; }
+    .touche.blanche.enfoncee { background: linear-gradient(180deg, #c9d2df, color-mix(in srgb, var(--c) 45%, #fff));
+                               box-shadow: inset 0 -2px 0 #b3bccb, 0 1px 0 #04070b, 0 0 18px var(--c); transform: translateY(2px); }
+    .touche.noire.enfoncee { background: linear-gradient(180deg, #05080d, var(--c)); box-shadow: 0 0 16px var(--c); }
+
     /* Ligne d'état */
     #ligne-etat { display: flex; gap: 1rem; font-size: 0.9rem; color: var(--texte-2); min-width: 0; }
     #etat { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -244,6 +268,8 @@
       #faders { grid-area: faders; height: 6.5rem; }
       #potards { grid-area: potards; }
       .cadran { width: min(3.6rem, 100%); }
+      #clavier { height: 8rem; padding: 0.5rem; gap: 0.5rem; }
+      #octaves button { width: 2.6rem; }
     }
     /* Téléphone en paysage : peu de hauteur, on serre */
     @media (max-height: 500px) and (min-aspect-ratio: 1/1) {
@@ -260,6 +286,10 @@
       #ecran .famille { font-size: 1.1rem; }
       #ecran .instru { font-size: 1rem; display: block; white-space: nowrap; text-overflow: ellipsis; }
       #ligne-etat { display: none; }
+      body.avec-clavier #app { grid-template-rows: auto auto auto minmax(0, 1fr) auto; }
+      #clavier { height: 30vh; padding: 0.35rem 0.6rem; }
+      #octaves { gap: 0.25rem; }
+      #octaves button { padding: 0.25rem 0; }
     }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation: none !important; transition: none !important; }
@@ -346,18 +376,28 @@
     <!-- … et les 8 pads en dessous, sur une rangée -->
     <section id="pads"></section>
 
+    <!-- Le clavier à l'écran : on joue au doigt quand aucun clavier MIDI n'est branché -->
+    <section id="clavier" class="verre">
+      <div id="octaves">
+        <button id="octave-plus" title="Une octave plus haut">Oct +</button>
+        <span id="octave-nom"></span>
+        <button id="octave-moins" title="Une octave plus bas">Oct −</button>
+      </div>
+      <div id="touches"></div>
+    </section>
+
     <footer id="ligne-etat">
       <span id="etat">Cliquez sur « Démarrer ».</span>
       <span id="note"></span>
     </footer>
   </main>
 
-  <!-- Le moteur (son, boucles, MiniLab), les actions des pads, l'écran, puis la barre de menus -->
+  <!-- Le moteur (son, boucles, MiniLab), les actions des pads, l'écran, la barre de menus, puis le jeu au doigt -->
   <!-- Chaque script est chargé avec un numéro unique (?v=…) : sans cela, Chrome peut garder
        une ANCIENNE version en mémoire et ignorer nos modifications, même après un rechargement. -->
   <script>
     const version = Date.now();
-    for (const nom of ['moteur', 'synthes', 'actions', 'arpege', 'interface', 'menus', 'mesure', 'minilab', 'fond']) {
+    for (const nom of ['moteur', 'synthes', 'actions', 'arpege', 'interface', 'menus', 'mesure', 'minilab', 'tactile', 'fond']) {
       document.write('<script src="' + nom + '.js?v=' + version + '"><\/script>');
     }
   </script>

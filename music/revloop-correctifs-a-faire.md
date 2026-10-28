@@ -1,6 +1,6 @@
 # RevLoop — Correctifs et évolutions à faire
 
-Dernière mise à jour : 27/10/2026 (ajouts : guide interactif MiniLab 3, clavier à l'écran en priorité 0, règles de validation Apple)
+Dernière mise à jour : 28/10/2026 (priorité 0 en grande partie faite : clavier, pads, potards et faders à l'écran)
 
 ## 1. Contexte
 RevLoop est une app de boucles et d'instruments (rythme, mélodie, basse, nappes) jouée avec un clavier MIDI (Arturia MiniLab 3), sur iPhone, Mac et PC.
@@ -10,15 +10,15 @@ Objectif : élargir le public au-delà du MiniLab 3, puis valider l'intérêt av
 
 ### Priorité 0 — Clavier et pads à l'écran (jouer sans clavier MIDI)
 Constat (27/10/2026) : l'app ne permet pas de jouer au toucher et n'a aucun clavier à l'écran. Sans clavier MIDI branché, elle est inutilisable. Conséquences : refus probable à la validation Apple (le testeur n'a pas de MiniLab 3, voir section 6), public limité aux possesseurs d'un clavier MIDI, impossible pour un spectateur de TikTok/YouTube d'essayer l'app.
-- [ ] Clavier à l'écran : 2 octaves minimum, boutons de changement d'octave, défilement ou zoom
-- [ ] Pads à l'écran (8 pads) pour la batterie et le lancement des boucles
-- [ ] Knobs et faders tactiles pour les réglages de base (volume par famille, filtre, réverbération, tempo)
-- [ ] Même écran de jeu que l'on utilise le tactile ou un clavier MIDI : le clavier physique prend le relais dès qu'il est détecté
-- [ ] Jeu multi-touch : plusieurs notes en même temps (accords)
-- [ ] Sensibilité à la vitesse (vélocité) simulée, par exemple selon la position du doigt sur la touche, ou volume fixe réglable
-- [ ] Faible latence : le son part dès l'appui (objectif sous 20 ms)
+- [x] Clavier à l'écran : 2 octaves minimum, boutons de changement d'octave (fait le 28/10/2026 ; défilement ou zoom pas faits)
+- [x] Pads à l'écran (8 pads) pour la batterie et le lancement des boucles (fait le 28/10/2026)
+- [x] Knobs et faders tactiles pour les réglages de base : volume par famille et par boucle, 8 potards (fait le 28/10/2026 ; pas de réglage de tempo, l'app n'en a pas : la 1re boucle donne la mesure)
+- [x] Même écran de jeu que l'on utilise le tactile ou un clavier MIDI : le clavier physique prend le relais dès qu'il est détecté, même branché en cours de jeu (fait le 28/10/2026, testé en simulation, pas encore avec le vrai MiniLab sur iPhone)
+- [x] Jeu multi-touch : plusieurs notes en même temps (accords), et glisser d'une touche à l'autre (fait le 28/10/2026)
+- [x] Sensibilité à la vitesse (vélocité) simulée selon la position du doigt sur la touche : bas = fort (fait le 28/10/2026)
+- [ ] Faible latence : le son part dès l'appui (objectif sous 20 ms). Le son part dès l'appui du doigt ; mesuré environ 21 ms sur Mac dans Chrome, à mesurer sur un vrai iPhone
 - [ ] Le guide (priorité 3) affiche l'écran tactile quand aucun clavier n'est branché, et le schéma du MiniLab 3 quand il est détecté
-- [ ] Textes de l'app : ne plus supposer qu'un MiniLab 3 est branché
+- [ ] Textes de l'app : ne plus supposer qu'un MiniLab 3 est branché (fait pour la ligne d'état ; reste l'aide et les astuces)
 Critère de validation : sur un iPhone sans aucun accessoire, on peut choisir un instrument, jouer une mélodie et des pads, et enregistrer une boucle.
 
 ### Priorité 1 — Mapping des touches
