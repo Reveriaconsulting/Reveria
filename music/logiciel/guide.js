@@ -8,6 +8,8 @@
 // Le chapitre « Premiers pas » s'ouvre tout seul à la toute première ouverture de RevLoop.
 // Dans une fenêtre (Sampleur, Clavier MIDI…), la bulle se range en haut de la fenêtre et la
 // cible est soulignée en jaune (une fenêtre passe toujours au-dessus du reste de la page).
+// Avec un MiniLab 3 branché (profil d'origine), la bulle montre un petit schéma du clavier où la
+// commande à utiliser est allumée (« minilab » dans l'étape : la liste des commandes à allumer).
 
 let guide = null;                      // { chapitre, etapes, etape, memo } pendant un chapitre
 
@@ -31,9 +33,11 @@ const CHAPITRES = [
         : 'Jouez quelques notes sur votre clavier MIDI.',
       debut: m => { m.notes = notesJouees; },
       faite: m => notesJouees - m.notes >= 4,
+      minilab: () => ['touches'],
     },
     {
       cible: m => el('pads').children[m.pad],
+      minilab: m => ['pad' + (m.pad + 1)],
       texte: m => toucherOuFrapper() + ' le <b>pad ' + (m.pad + 1) + '</b> : il passe en « Prêt » et attend votre première note pour enregistrer une boucle.',
       debut: m => {
         m.famille = familleActive;
@@ -47,6 +51,7 @@ const CHAPITRES = [
       texte: m => 'Jouez une petite mélodie : l’enregistrement démarre à la première note. Quand vous avez fini, ' +
         toucherOuFrapper().toLowerCase() + ' de nouveau le <b>pad ' + (m.pad + 1) + '</b>.',
       faite: m => familles[m.famille].boucles[m.pad].etat === 'lecture',
+      minilab: m => ['touches', 'pad' + (m.pad + 1)],
     },
     {
       cible: () => el('familles'),
@@ -90,16 +95,20 @@ const CHAPITRES = [
       texte: () => modeTactileActif
         ? 'Les flèches <b>‹ ›</b> à côté de « Pad » choisissent la boucle à régler, sans la lancer ni la couper. Essayez.'
         : 'Shift + clic du bouton central choisit la boucle à régler, sans la lancer ni la couper. Essayez.',
+      minilab: () => ['shift', 'centre'],
       debut: m => { m.selection = familles[familleActive].selection; },
       faite: m => familles[familleActive].selection !== m.selection,
     },
     {
       cible: () => el('pads').children[familles[familleActive].selection]?.querySelector('.instrument'),
-      texte: () => 'Touchez le <b>nom de l’instrument</b> de la boucle (cadre jaune), puis choisissez-en un autre dans la liste.',
+      texte: () => modeTactileActif
+        ? 'Touchez le <b>nom de l’instrument</b> de la boucle (cadre jaune), puis choisissez-en un autre dans la liste.'
+        : 'Tenez <b>Shift</b> et tournez le bouton central : l’instrument de la boucle change (ou cliquez son nom à l’écran).',
+      minilab: () => ['shift', 'centre'],
       debut: m => { m.instrument = instrumentDe(familles[familleActive], boucleChoisie()); },
       faite: m => instrumentDe(familles[familleActive], boucleChoisie()) !== m.instrument,
     },
-    { cible: () => el('pads'), texte: () => 'Une boucle qui tourne : ' + toucherOuFrapper().toLowerCase() + ' son pad pour la <b>couper</b>, encore une fois pour la <b>relancer</b>, calée sur les autres.' },
+    { cible: () => el('pads'), minilab: () => ['pad1', 'pad2', 'pad3', 'pad4'], texte: () => 'Une boucle qui tourne : ' + toucherOuFrapper().toLowerCase() + ' son pad pour la <b>couper</b>, encore une fois pour la <b>relancer</b>, calée sur les autres.' },
     { cible: () => el('pads'), texte: () => 'Le bouton <b>✕</b> d’un pad efface sa boucle (ou annule l’enregistrement). Tenir un pad ' + options.appuiLong + ' s l’efface et réenregistre tout de suite.' },
     { cible: () => el('mesure'), texte: () => 'La <b>première boucle</b> fixe la mesure : les suivantes se calent dessus. La jauge montre où en est la mesure.' },
   ] },
@@ -107,19 +116,26 @@ const CHAPITRES = [
   { titre: 'Les réglages', resume: 'Potards, volumes des familles, volume d’une boucle', etapes: [
     {
       cible: () => el('potards'),
-      texte: () => 'Les 8 <b>potards</b> règlent la boucle sélectionnée (filtre, réverb, chorus…). Glissez-en un vers le haut ou le bas.',
+      texte: () => 'Les 8 <b>potards</b> règlent la boucle sélectionnée (filtre, réverb, chorus…). ' +
+        (modeTactileActif ? 'Glissez-en un vers le haut ou le bas.' : 'Tournez-en un.'),
+      minilab: () => [1, 2, 3, 4, 5, 6, 7, 8].map(i => 'potard' + i),
       debut: m => { m.reglages = JSON.stringify(boucleChoisie().reglages); },
       faite: m => JSON.stringify(boucleChoisie().reglages) !== m.reglages,
     },
     {
       cible: () => el('faders'),
-      texte: () => 'Les 4 <b>faders</b> règlent le volume de chaque famille. Posez le doigt sur l’un d’eux à la hauteur voulue.',
+      texte: () => 'Les 4 <b>faders</b> règlent le volume de chaque famille. ' +
+        (modeTactileActif ? 'Posez le doigt sur l’un d’eux à la hauteur voulue.' : 'Montez ou descendez-en un.'),
+      minilab: () => ['fader1', 'fader2', 'fader3', 'fader4'],
       debut: m => { m.volumes = familles.map(f => f.volume).join(); },
       faite: m => familles.map(f => f.volume).join() !== m.volumes,
     },
     {
       cible: () => el('bande'),
-      texte: () => 'La bande verte, à gauche, règle le volume de la seule boucle sélectionnée.',
+      texte: () => modeTactileActif
+        ? 'La bande verte, à gauche, règle le volume de la seule boucle sélectionnée.'
+        : 'La bande tactile de droite du MiniLab règle le volume de la seule boucle sélectionnée.',
+      minilab: () => ['bandeD'],
       debut: m => { m.volume = boucleChoisie().reglages.volume; },
       faite: m => boucleChoisie().reglages.volume !== m.volume,
     },
@@ -127,17 +143,19 @@ const CHAPITRES = [
   ] },
 
   { titre: '8 actions et arpège', resume: 'Les pads d’action, l’arpégiateur', etapes: [
-    { cible: () => el('pads'), texte: () => 'Les pads 5 à 8 sont des <b>actions</b> de la famille : octave, vitesse, écho, notes…' },
+    { cible: () => el('pads'), minilab: () => ['pad5', 'pad6', 'pad7', 'pad8'], texte: () => 'Les pads 5 à 8 sont des <b>actions</b> de la famille : octave, vitesse, écho, notes…' },
     {
       cible: () => modeTactileActif ? el('bouton-huit') : null,
       texte: () => modeTactileActif ? 'Touchez <b>8 actions</b> : les 8 pads deviennent des actions.' : 'Cliquez le bouton central : les 8 pads deviennent des actions.',
       faite: () => modeHuitActions,
+      minilab: () => ['centre'],
     },
     { cible: () => el('pads'), texte: () => 'En mode 8 actions, Basse, Nappes et Mélodie ont un pad <b>Arpège</b> : tenez un accord, il est joué note par note, en rythme.' },
     {
       cible: () => modeTactileActif ? el('bouton-huit') : null,
       texte: () => modeTactileActif ? 'Touchez <b>← Boucles</b> pour revenir.' : 'Cliquez de nouveau le bouton central pour revenir.',
       faite: () => !modeHuitActions,
+      minilab: () => ['centre'],
     },
     { cible: () => el('barre-menus'), texte: () => 'Choisir l’action de chaque pad : <b>Édition › Réglages des pads</b>. Régler l’arpège : <b>Édition › Arpégiateur</b>.' },
   ] },
@@ -172,6 +190,30 @@ const CHAPITRES = [
     { cible: () => null, texte: () => 'Les sons du sampleur restent sur l’appareil : ouverte sur un autre appareil, une boucle qui les utilise reprend l’instrument de sa famille.' },
   ] },
 ];
+
+// --- Le schéma du MiniLab 3 ---------------------------------------------------------
+// Vu de dessus, simplifié : bandes tactiles, écran et bouton central, Shift, 8 potards, 4 faders,
+// 8 pads, 25 touches. Les commandes de la liste « allumees » brillent en jaune.
+function miniLabBranche() {
+  return !modeTactileActif && clavierBranches().some(p => profilDuPort(p.name).integre);
+}
+
+function schemaMiniLab(allumees) {
+  const on = nom => allumees.includes(nom) ? ' class="allume"' : '';
+  let svg = '<svg class="schema-minilab" viewBox="0 0 300 124" aria-label="Schéma du MiniLab 3">' +
+    '<rect x="1" y="1" width="298" height="122" rx="8" class="corps"/>' +
+    '<rect x="8" y="10" width="7" height="50" rx="3"' + on('bandeG') + '/><rect x="19" y="10" width="7" height="50" rx="3"' + on('bandeD') + '/>' +
+    '<rect x="34" y="10" width="38" height="20" rx="2" class="ecran"/>' +
+    '<circle cx="86" cy="20" r="9"' + on('centre') + '/>' +
+    '<rect x="34" y="36" width="22" height="10" rx="2"' + on('shift') + '/><text x="45" y="43.5">Shift</text>';
+  for (let i = 0; i < 8; i++) svg += '<circle cx="' + (112 + (i % 4) * 18) + '" cy="' + (i < 4 ? 15 : 35) + '" r="6"' + on('potard' + (i + 1)) + '/>';
+  for (let i = 0; i < 4; i++) svg += '<rect x="' + (196 + i * 22) + '" y="8" width="10" height="44" rx="2"' + on('fader' + (i + 1)) + '/>';
+  for (let i = 0; i < 8; i++) svg += '<rect x="' + (34 + i * 33) + '" y="56" width="28" height="14" rx="3"' + on('pad' + (i + 1)) + '/>';
+  svg += '<g' + on('touches') + '>';
+  for (let i = 0; i < 15; i++) svg += '<rect x="' + (8 + i * 19) + '" y="78" width="18" height="40" rx="1" class="blanche"/>';
+  for (let i = 0; i < 14; i++) if ([0, 1, 3, 4, 5].includes(i % 7)) svg += '<rect x="' + (20 + i * 19) + '" y="78" width="12" height="24" rx="1" class="noire"/>';
+  return svg + '</g></svg>';
+}
 
 // --- Le choix du chapitre (Aide › Guide…) -------------------------------------------
 function ouvrirGuide() {
@@ -222,7 +264,8 @@ function etapeSuivante() {
   const etape = etapeActuelle();
   const bulle = guide.bulle;
   bulle.querySelector('.etape').textContent = CHAPITRES[guide.chapitre].titre + ' · ' + (guide.etape + 1) + ' / ' + guide.etapes.length;
-  bulle.querySelector('p').innerHTML = etape.texte(guide.memo);
+  bulle.querySelector('p').innerHTML = etape.texte(guide.memo) +
+    (etape.minilab && miniLabBranche() ? schemaMiniLab(etape.minilab(guide.memo)) : '');
   const bouton = nom => bulle.querySelector('#guide-' + nom);
   bouton('suivant').hidden = !!etape.faite || derniere();
   bouton('quitter').hidden = derniere();

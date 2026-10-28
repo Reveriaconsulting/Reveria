@@ -389,6 +389,16 @@
     #bulle-guide button { font-size: 0.85rem; font-weight: 700; padding: 0.4rem 0.9rem; border: none; border-radius: 6px; cursor: pointer;
                           background: rgba(143, 195, 245, 0.16); touch-action: manipulation; }
     #bulle-guide button[hidden] { display: none; }
+    /* le schéma du MiniLab dans la bulle du guide : la commande à utiliser brille en jaune */
+    .schema-minilab { display: block; width: 100%; margin-top: 0.6rem; }
+    .schema-minilab .corps { fill: #1b2230; stroke: rgba(255, 255, 255, 0.15); }
+    .schema-minilab rect, .schema-minilab circle { fill: #3a4558; stroke: #0b0f16; stroke-width: 0.8; }
+    .schema-minilab .ecran { fill: #0b1424; stroke: rgba(143, 195, 245, 0.4); }
+    .schema-minilab .blanche { fill: #e6eaf1; }
+    .schema-minilab .noire { fill: #10151d; }
+    .schema-minilab text { font-size: 6px; fill: #b3bfd2; text-anchor: middle; font-family: var(--mono); pointer-events: none; }
+    .schema-minilab .allume, .schema-minilab .allume .blanche { fill: var(--jaune); filter: drop-shadow(0 0 3px var(--jaune)); }
+    .schema-minilab .allume .noire { fill: #7a5d00; }
     #bulle-guide.dans-fenetre { position: sticky; top: 0; width: auto; margin: -0.3rem -0.6rem 0.8rem; transition: none; }
     .cible-guide { outline: 3px solid var(--jaune) !important; outline-offset: 3px; box-shadow: 0 0 18px var(--jaune) !important; }
     .chapitres-guide { display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: 8px; }

@@ -9,9 +9,12 @@
 //   note d'origine  : la touche où le son est joué tel quel ; « Détecter » la trouve toute seule
 //   boucle          : le son tient tant que la touche est enfoncée : le début est joué une fois,
 //                     puis la partie du milieu se répète, raccordée en fondu (sans « clic » ni à-coup)
+//   garder la durée : loin de la note d'origine, le son n'est pas accéléré ni ralenti (ce qui le
+//                     rendait court et « robot ») : il est rejoué par petits grains qui se chevauchent,
+//                     chacun à la bonne hauteur, au rythme normal (« étirement temporel »)
 //
-// Les sons sont gardés sur l'appareil (IndexedDB) ; une session .boucles ne contient que leur
-// nom : ouverte sur un autre appareil, la boucle reprend l'instrument de sa famille.
+// Les sons sont gardés sur l'appareil (IndexedDB). Un fichier .boucles sauvegardé contient aussi
+// les sons perso qu'utilisent ses boucles : ouvert sur un autre appareil, ils y sont ajoutés.
 
 const DUREE_MAXI_ENREGISTREMENT = 20;  // secondes
 const SEUIL_SILENCE = 0.02;            // en dessous, l'échantillon est considéré comme du silence
@@ -44,7 +47,8 @@ async function operationBase(mode, action) {
 }
 
 const rangerSon = son => operationBase('readwrite', magasin => magasin.put({
-  id: son.id, nom: son.nom, taux: son.taux, donnees: son.donnees, racine: son.racine, debut: son.debut, fin: son.fin, boucle: son.boucle,
+  id: son.id, nom: son.nom, taux: son.taux, donnees: son.donnees, racine: son.racine, debut: son.debut, fin: son.fin,
+  boucle: son.boucle, garderDuree: son.garderDuree,
 }));
 const oublierSon = id => operationBase('readwrite', magasin => magasin.delete(id));
 
@@ -87,7 +91,9 @@ function tamponTenu(son) {
 }
 
 // Une note jouée avec un son perso : lu plus vite ou plus lentement selon l'écart à la note d'origine
+// (ou, en gardant la durée, par grains : voixEnGrains)
 function voixDuSon(son, note, vel, quand, sortie, attaque) {
+  if (son.garderDuree !== false && note !== son.racine) return voixEnGrains(son, note, vel, quand, sortie, attaque);
   const volume = audio.createGain();
   volume.gain.value = 0;
   volume.connect(sortie);
@@ -113,6 +119,92 @@ function voixDuSon(son, note, vel, quand, sortie, attaque) {
     lecteur.stop(voix.fin);
   }
   return voix;
+}
+
+// Étirement temporel : toutes les 30 ms, un grain de 120 ms est lu à la bonne hauteur (plus vite ou
+// plus lentement), dans une fenêtre en cloche (Hann) ; la position dans le son, elle, avance au
+// rythme normal. Quatre grains se chevauchent toujours, et chacun part d'un point légèrement
+// décalé au hasard : les raccords ne s'entendent pas et le son ne « hache » pas.
+// Avec « Tenir », la lecture tourne dans la partie du milieu tant que la touche est enfoncée.
+const GRAIN = 0.12, PAS_GRAIN = 0.03, FLOU_GRAIN = 0.008;
+// la cloche de Hann, à moitié de hauteur : quatre cloches qui se chevauchent font un volume constant
+const CLOCHE = Float32Array.from({ length: 64 }, (_, i) => 0.25 * (1 - Math.cos(2 * Math.PI * i / 63)));
+function voixEnGrains(son, note, vel, quand, sortie, attaque) {
+  const volume = audio.createGain();
+  volume.gain.value = 0;
+  volume.connect(sortie);
+  volume.gain.setValueAtTime(0, quand);
+  volume.gain.linearRampToValueAtTime(vel / 127 * 0.9, quand + Math.max(0.005, attaque));
+  const rapport = Math.pow(2, (note - son.racine) / 12);
+  const reprise = son.debut + (son.fin - son.debut) * 0.35, bout = son.debut + (son.fin - son.debut) * 0.85;
+  // les grains ne sont pas dans « sources » : ils s'arrêtent seuls, et relacherVoix (moteur.js) baisse le volume
+  const voix = { volume, sources: [], relache: 0.08 };
+  let t = quand, position = son.debut;
+  const planifier = () => {
+    const horizon = audio.currentTime + 0.15;
+    while (t < horizon) {
+      const fini = voix.fin !== undefined ? t >= voix.fin : !son.boucle && position > son.fin - PAS_GRAIN;   // sans « Tenir » : jusqu'à la fin du morceau gardé
+      if (fini) { clearInterval(minuteur); return; }
+      const fenetre = audio.createGain();
+      fenetre.gain.value = 0;
+      fenetre.gain.setValueCurveAtTime(CLOCHE, t, GRAIN);
+      fenetre.connect(volume);
+      const grain = audio.createBufferSource();
+      grain.buffer = son.tampon;
+      grain.playbackRate.value = rapport;
+      grain.detune.value = courbure;   // le vibrato en cours (moteur.js) s'applique aux nouveaux grains
+      grain.connect(fenetre);
+      grain.start(t, Math.max(0, position + (Math.random() * 2 - 1) * FLOU_GRAIN));
+      grain.stop(t + GRAIN);
+      position += PAS_GRAIN;
+      if (son.boucle && position > bout) position = reprise + (position - bout);
+      t += PAS_GRAIN;
+    }
+  };
+  const minuteur = setInterval(planifier, 30);
+  planifier();
+  return voix;
+}
+
+// --- Les sons dans les fichiers de session ------------------------------------------
+// Un son voyage en PCM 16 bits, écrit en base64 (texte), à côté de ses réglages
+function sonEnTexte(son) {
+  const entiers = new Int16Array(son.donnees.length);
+  for (let i = 0; i < entiers.length; i++) entiers[i] = Math.max(-1, Math.min(1, son.donnees[i])) * 32767;
+  const octets = new Uint8Array(entiers.buffer);
+  let binaire = '';
+  for (let i = 0; i < octets.length; i += 0x8000) binaire += String.fromCharCode.apply(null, octets.subarray(i, i + 0x8000));
+  const { id, nom, taux, racine, debut, fin, boucle, garderDuree } = son;
+  return { id, nom, taux, racine, debut, fin, boucle, garderDuree, pcm16: btoa(binaire) };
+}
+
+function texteEnSon(texte) {
+  const binaire = atob(texte.pcm16);
+  const octets = new Uint8Array(binaire.length);
+  for (let i = 0; i < binaire.length; i++) octets[i] = binaire.charCodeAt(i);
+  const entiers = new Int16Array(octets.buffer);
+  const donnees = new Float32Array(entiers.length);
+  for (let i = 0; i < entiers.length; i++) donnees[i] = entiers[i] / 32767;
+  const { pcm16, ...reglages } = texte;
+  return { ...reglages, donnees };
+}
+
+// Sauvegarde dans un fichier : on joint les sons perso qu'utilisent les boucles (menus.js)
+function ajouterSonsALaSession(session) {
+  const ids = new Set(session.familles.flatMap(f => f.boucles.map(b => b.instrument)).filter(id => id && id.startsWith('mon-son-')));
+  const sons = sonsPerso.filter(i => ids.has(i.id)).map(i => sonEnTexte(i.son));
+  if (sons.length) session.sons = sons;
+  return session;
+}
+
+// Ouverture d'un fichier : ses sons perso absents de l'appareil y sont ajoutés (appliquerSession, moteur.js)
+function importerSonsDeSession(sons) {
+  for (const texte of sons || []) {
+    if (sonsPerso.some(i => i.id === texte.id)) continue;
+    const son = texteEnSon(texte);
+    inscrireSon(son);
+    rangerSon(son).catch(e => console.warn(e));
+  }
 }
 
 // Au démarrage (appelé par demarrer, moteur.js) : les sons rangés redeviennent des instruments
@@ -159,7 +251,7 @@ function detecterNote(son) {
 async function creerSon(donnees, taux, nom) {
   const [debut, fin] = bornesUtiles(donnees, taux);
   // boucle par défaut : comme les autres instruments, le son tient tant que la touche est enfoncée
-  const son = { id: 'mon-son-' + Date.now(), nom, taux, donnees, debut, fin, boucle: true, racine: 60 };
+  const son = { id: 'mon-son-' + Date.now(), nom, taux, donnees, debut, fin, boucle: true, garderDuree: true, racine: 60 };
   son.racine = detecterNote(son) ?? 60;
   inscrireSon(son);
   sonEdite = son.id;
@@ -311,6 +403,8 @@ function afficherSampleur() {
       '<button id="son-detecter">Détecter</button></div>' +
       '<label class="case"><input type="checkbox" id="son-boucle"' + (son.boucle ? ' checked' : '') + '> ' +
       'Tenir : le son dure tant que la touche est enfoncée (décochez pour un son joué une seule fois, comme une percussion)</label>' +
+      '<label class="case"><input type="checkbox" id="son-duree"' + (son.garderDuree !== false ? ' checked' : '') + '> ' +
+      'Garder la durée : loin de la note d’origine, le son reste naturel au lieu d’accélérer (« robot »)</label>' +
       '<div class="ligne-reglage-pad"><button id="son-ecouter">▶ Écouter</button>' +
       '<button id="son-utiliser">Utiliser pour la boucle sélectionnée</button>' +
       '<button id="son-supprimer">Supprimer ce son</button></div>' +
@@ -363,6 +457,7 @@ function afficherSampleur() {
     afficherSampleur();
   });
   document.getElementById('son-boucle').onchange = e => { son.boucle = e.target.checked; son.tenu = null; rangerPlusTard(son); };
+  document.getElementById('son-duree').onchange = e => { son.garderDuree = e.target.checked; rangerPlusTard(son); };
   sur('son-ecouter', () => ecouter(son));
   sur('son-utiliser', () => { choisirInstrument(son.id); informer('« ' + son.nom + ' » joue maintenant sur la boucle ' + boucleSelectionnee().numero + '.'); });
   let confirmation = false;

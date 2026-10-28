@@ -19,7 +19,7 @@ Constat (27/10/2026) : l'app ne permet pas de jouer au toucher et n'a aucun clav
 - [x] Validé sur Mac et sur iPhone 11 le 28/10/2026 : clavier, accords, boucle enregistrée au doigt, bouton ✕ pour annuler ou effacer une boucle, plus de menu « Copier » ni de loupe sur un appui long
 - [x] MiniLab 3 sur l'iPhone validé le 28/10/2026 : branché, il prend le relais (le clavier à l'écran se range) ; débranché puis rebranché pendant le jeu, tout suit sans redémarrer
 - [x] Faible latence : le son part dès l'appui du doigt. Mesuré environ 21 ms sur Mac dans Chrome ; aucun retard ressenti sur iPhone (jugé suffisant le 28/10/2026, pas de mesure chiffrée)
-- [ ] Le guide adapte ses textes au tactile ou au clavier MIDI (fait) ; reste : le schéma du MiniLab 3 quand il est détecté
+- [x] Le guide adapte ses textes au tactile ou au clavier MIDI, et montre un schéma du MiniLab 3 (commande à utiliser en jaune) quand il est branché
 - [x] Textes de l'app : ne plus supposer qu'un MiniLab 3 est branché (fait et validé le 28/10/2026 : aide « Jouer au doigt », astuces du MiniLab affichées seulement s'il est branché, pages Arpégiateur, Réglages des pads et À propos)
 - [x] Équivalents tactiles du bouton central du MiniLab (validé sur iPhone le 28/10/2026) : bouton « 8 actions » (donc l'Arpège), flèches ‹ › pour choisir la boucle à régler sans la frapper
 - [x] Bande tactile du MiniLab réglée comme le vibrato au doigt (±½ demi-ton, validé le 28/10/2026)
@@ -27,10 +27,10 @@ Constat (27/10/2026) : l'app ne permet pas de jouer au toucher et n'a aucun clav
 Critère de validation : sur un iPhone sans aucun accessoire, on peut choisir un instrument, jouer une mélodie et des pads, et enregistrer une boucle.
 
 ### Priorité 1 — Mapping des touches
-- [x] Permettre à l'utilisateur d'assigner chaque touche, pad, knob et fader à une fonction (Édition › Clavier MIDI…, bouton « Apprendre » ; validé sur Mac avec le MiniLab le 28/10/2026). Pas encore : assigner un instrument à une commande
+- [x] Permettre à l'utilisateur d'assigner chaque touche, pad, knob et fader à une fonction (Édition › Clavier MIDI…, bouton « Apprendre » ; validé sur Mac avec le MiniLab le 28/10/2026). Raccourcis d'instrument : une commande donne un instrument choisi à la boucle sélectionnée
 - [x] Compatibilité avec n'importe quel clavier MIDI : tous les claviers sont écoutés, profil « Générique » d'office (testé en simulation ; à tester avec un vrai autre clavier)
 - [x] Profil prêt à l'emploi pour le MiniLab 3 (« MiniLab 3 (d'origine) », choisi d'office)
-- [x] Sauvegarde et chargement de plusieurs configurations (profils perso gardés dans l'app, un profil par clavier). Pas encore : export / import en fichier
+- [x] Sauvegarde et chargement de plusieurs configurations (profils perso gardés dans l'app, un profil par clavier), export / import en fichier
 - [x] Séparation claire pads (drums) / touches (mélodie) : une commande assignée ne joue jamais de note
 
 ### Priorité 2 — Sampleur (import et enregistrement audio)
@@ -40,9 +40,9 @@ Critère de validation : sur un iPhone sans aucun accessoire, on peut choisir un
 - [x] Découpe (début / fin) du son (silences retirés d'office)
 - [x] Le son dure tant que la touche est enfoncée (case « Tenir », cochée d'office : le milieu se répète en fondu)
 - [x] Jouer le son sur tout le clavier (changement de hauteur ; loin de la note d'origine, la voix sonne « robot », d'où l'étirement temporel prévu plus tard)
-- [ ] Plus tard : étirement temporel pour garder la durée du son
+- [x] Étirement temporel (« Garder la durée », coché d'office) : grains de 120 ms superposés ; naturel à ±5 notes, plus « voix de canard » au-delà (limite connue)
 - [x] Autorisation micro iOS/macOS avec un texte explicatif clair (demandée seulement au clic sur « Enregistrer »)
-- [ ] Les sons perso restent sur l'appareil : une session .boucles ouverte ailleurs ne les contient pas
+- [x] Les sons perso utilisés sont joints au fichier .boucles sauvegardé, et ajoutés à l'appareil qui l'ouvre
 
 ### Priorité 3 — Assistant guide
 - [x] Version 1 : guide pas à pas intégré (Aide › Guide…), validé le 28/10/2026 : 8 chapitres (premiers pas, jeu au doigt, boucles, réglages, 8 actions et arpège, sampleur, autre clavier MIDI, sessions) ; « Premiers pas » s'ouvre tout seul à la 1re ouverture
@@ -137,8 +137,8 @@ Source principale : App Review Guidelines d'Apple (developer.apple.com/app-store
 
 ### Checklist avant soumission
 - [x] App jouable sans clavier MIDI (priorité 0, validée sur iPhone 11 le 28/10/2026)
-- [ ] Testée sur un vrai appareil, sans plantage
-- [ ] Texte d'autorisation du micro clair, demande faite au bon moment
+- [x] Testée sur un vrai appareil, sans plantage (iPhone 11, 28/10/2026)
+- [x] Texte d'autorisation du micro clair, demande faite au bon moment (au clic sur « Enregistrer »)
 - [ ] Politique de confidentialité en ligne, liée dans App Store Connect et dans l'app
 - [ ] Preuve d'origine de tous les sons
 - [ ] Nom, icône et captures sans marque tierce et fidèles à l'app

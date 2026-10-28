@@ -11,6 +11,9 @@
 //                    on clique sur Apprendre, puis on bouge la commande sur le clavier.
 // Une commande assignée à une fonction ne joue jamais de note : pads et touches ne se chevauchent pas.
 // Toutes les touches non assignées jouent des notes.
+// Raccourcis d'instrument : une commande peut aussi donner directement un instrument choisi à
+// la boucle sélectionnée (profil.raccourcis : fonction → id de l'instrument).
+// Un profil perso s'exporte en fichier (.revloop-profil.json) et s'importe sur un autre appareil.
 //
 // Une commande : { t: 'note' | 'cc' | 'bend', c: canal (0 à 15, ou −1 = tous), n: numéro }
 // Les profils perso sont gardés avec les préférences (options.profils), ainsi que le profil
@@ -29,6 +32,7 @@ const FONCTIONS_MAPPING = [
       ['boucleSuivante', 'Boucle suivante (bouton)'],
       ['huitActions', 'Mode 8 actions (bouton)'],
   ] },
+  { groupe: 'Raccourcis d’instrument (boucle sélectionnée)', liste: [1, 2, 3, 4].map(i => ['raccourci' + i, 'Raccourci ' + i]) },
 ];
 
 const PROFIL_GENERIQUE = { id: 'generique', nom: 'Générique (tout clavier)', fige: true, controles: [
@@ -96,7 +100,7 @@ function traiterSelonProfil(message) {
   const profil = profilDuPort(message.target.name);
   if (profil.integre) return false;
   const controle = profil.controles.find(k => memeCommande(k, commande));
-  if (controle) executer(controle.fonction, data, commande);
+  if (controle) executer(controle.fonction, data, commande, profil);
   else if (commande.t === 'note') {
     if ((data[0] & 0xF0) === 0x90 && data[2] > 0) jouerTouche(data[1], data[2]);
     else relacherTouche(data[1]);
@@ -114,7 +118,7 @@ function sensDe(cle, valeur) {
   return valeur > avant ? 1 : -1;
 }
 
-function executer(fonction, data, commande) {
+function executer(fonction, data, commande, profil) {
   const valeur = commande.t === 'bend' ? (data[2] << 7) | data[1] : data[2];
   const v = commande.t === 'bend' ? valeur >> 7 : valeur;     // ramené de 0 à 127
   const appui = commande.t === 'note' ? (data[0] & 0xF0) === 0x90 && v > 0 : v > 0;
@@ -147,6 +151,9 @@ function executer(fonction, data, commande) {
     selectionnerBoucleSuivante();
   } else if (appui && fonction === 'huitActions') {
     basculerHuitActions();
+  } else if (appui && fonction.startsWith('raccourci')) {
+    const id = profil.raccourcis && profil.raccourcis[fonction];
+    if (id && existe(id)) choisirInstrument(id);
   }
 }
 
@@ -193,6 +200,8 @@ function afficherMapping() {
   html += '<h3>Profil</h3><div class="ligne-reglage-pad">' +
     '<select id="profil-edite">' + choixProfils(profil.id) + '</select>' +
     '<button id="profil-nouveau">Nouveau (copie)</button>' +
+    '<button id="profil-importer">Importer…</button>' +
+    (profil.fige ? '' : '<button id="profil-exporter">Exporter</button>') +
     (profil.fige ? '' : '<button id="profil-supprimer">' + (suppressionDemandee ? 'Confirmer la suppression' : 'Supprimer') + '</button>') +
     '</div>' +
     (profil.fige ? '' : '<label>Nom <input id="profil-nom" value="' + echapper(profil.nom) + '"></label>');
@@ -207,7 +216,12 @@ function afficherMapping() {
     liste.map(([fonction, libelle]) => {
       const k = profil.controles.find(x => x.fonction === fonction);
       const enAttente = apprentissage && apprentissage.fonction === fonction;
-      return '<tr' + (enAttente ? ' class="attente"' : '') + '><td>' + libelle + '</td><td>' +
+      const instrument = fonction.startsWith('raccourci')
+        ? '<br><select data-raccourci="' + fonction + '"' + (profil.fige ? ' disabled' : '') + '><option value="">— instrument —</option>' +
+          tousLesInstruments().map(i => '<option value="' + i.id + '"' + ((profil.raccourcis || {})[fonction] === i.id ? ' selected' : '') + '>' +
+            echapper(i.nom) + '</option>').join('') + '</select>'
+        : '';
+      return '<tr' + (enAttente ? ' class="attente"' : '') + '><td>' + libelle + instrument + '</td><td>' +
         (enAttente ? 'Bougez la commande sur votre clavier…' : k ? texteCommande(k) : '<span class="vide">—</span>') + '</td><td>' +
         (profil.fige ? '' : '<button data-apprendre="' + fonction + '">' + (enAttente ? 'Annuler' : 'Apprendre') + '</button>' +
           (k ? ' <button data-effacer="' + fonction + '" title="Retirer cette commande">✕</button>' : '')) +
@@ -230,7 +244,7 @@ function afficherMapping() {
   };
   document.getElementById('profil-nouveau').onclick = () => {
     const copie = { id: 'p' + Date.now(), nom: 'Mon clavier ' + (options.profils.length + 1),
-      controles: JSON.parse(JSON.stringify(profil.controles)) };
+      controles: JSON.parse(JSON.stringify(profil.controles)), raccourcis: { ...(profil.raccourcis || {}) } };
     options.profils.push(copie);
     sauvegarderOptions();
     profilEditeId = copie.id;
@@ -255,6 +269,19 @@ function afficherMapping() {
     sauvegarderOptions();
     afficherMapping();
   };
+  zone.querySelectorAll('[data-raccourci]').forEach(choix => choix.onchange = () => {
+    profil.raccourcis = { ...(profil.raccourcis || {}), [choix.dataset.raccourci]: choix.value };
+    sauvegarderOptions();
+  });
+  const exporter = document.getElementById('profil-exporter');
+  if (exporter) exporter.onclick = () => exporterProfil(profil);
+  document.getElementById('profil-importer').onclick = () => {
+    const champ = document.createElement('input');
+    champ.type = 'file';
+    champ.accept = '.json,application/json';
+    champ.onchange = () => champ.files[0] && importerProfil(champ.files[0]);
+    champ.click();
+  };
   zone.querySelectorAll('[data-apprendre]').forEach(b => b.onclick = () => {
     const fonction = b.dataset.apprendre;
     apprentissage = apprentissage && apprentissage.fonction === fonction ? null : { fonction };
@@ -265,6 +292,32 @@ function afficherMapping() {
     sauvegarderOptions();
     afficherMapping();
   });
+}
+
+// --- Exporter / importer un profil ----------------------------------------------------
+// Même chemin qu'une session (menus.js) : sur iPhone, l'application propose « Enregistrer dans Fichiers »
+function exporterProfil(profil) {
+  const contenu = { type: 'revloop-profil', version: 1, nom: profil.nom, controles: profil.controles, raccourcis: profil.raccourcis || {} };
+  const lien = document.createElement('a');
+  lien.href = URL.createObjectURL(new Blob([JSON.stringify(contenu, null, 1)], { type: 'application/json' }));
+  lien.download = profil.nom.replace(/[\\/:*?"<>|]/g, '-') + '.revloop-profil.json';
+  lien.click();
+}
+
+async function importerProfil(fichier) {
+  let contenu;
+  try { contenu = JSON.parse(await fichier.text()); } catch (e) { contenu = null; }
+  if (!contenu || contenu.type !== 'revloop-profil' || !Array.isArray(contenu.controles)) {
+    informer('Ce fichier n’est pas un profil de clavier RevLoop.');
+    return;
+  }
+  const profil = { id: 'p' + Date.now(), nom: String(contenu.nom || 'Profil importé').slice(0, 40),
+    controles: contenu.controles, raccourcis: contenu.raccourcis || {} };
+  options.profils.push(profil);
+  sauvegarderOptions();
+  profilEditeId = profil.id;
+  afficherMapping();
+  informer('Profil « ' + profil.nom + ' » importé.');
 }
 
 // La commande bougée devient celle de la fonction attendue, et quitte toute autre fonction

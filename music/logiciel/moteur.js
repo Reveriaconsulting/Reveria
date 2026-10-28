@@ -431,6 +431,7 @@ function convertirVersion1(session) {
 function appliquerSession(session) {
   if (session && session.version === 1) session = convertirVersion1(session);
   if (!session || session.version !== 2) throw new Error('Ce fichier n’est pas une session RevLoop.');
+  importerSonsDeSession(session.sons);   // les sons perso joints au fichier (sampleur.js), avant les boucles qui s'en servent
 
   reference = session.reference;
   familleActive = session.familleActive;

@@ -255,7 +255,7 @@ async function sauvegarderSous() {
 
 function telecharger() {
   const lien = document.createElement('a');
-  lien.href = URL.createObjectURL(new Blob([JSON.stringify(construireSession())], { type: 'application/json' }));
+  lien.href = URL.createObjectURL(new Blob([JSON.stringify(ajouterSonsALaSession(construireSession()))], { type: 'application/json' }));
   lien.download = nomFichier + '.boucles';
   lien.click();
   // sur iPhone, l'application propose « Enregistrer dans Fichiers » : c'est vous qui choisissez où
@@ -277,7 +277,7 @@ function sauvegardeImpossible(e) {
 
 async function ecrire(poignee) {
   const flux = await poignee.createWritable();
-  await flux.write(JSON.stringify(construireSession(), null, 1));
+  await flux.write(JSON.stringify(ajouterSonsALaSession(construireSession()), null, 1));
   await flux.close();
   informer('Sauvegardé dans « ' + poignee.name + ' ».');
 }
