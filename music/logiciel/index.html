@@ -369,6 +369,20 @@
     .ligne-reglage-pad { display: flex; align-items: center; gap: 8px; margin: 6px 0; flex-wrap: wrap; }
     .ligne-reglage-pad span { min-width: 12rem; color: #fbbf24; }
     #dialogue select { font-size: 1rem; padding: 4px 6px; border-radius: 6px; background: #0d1626; color: var(--texte); border: 1px solid var(--bord); }
+    /* Édition › Clavier MIDI… (mapping.js) */
+    #mapping .ligne-reglage-pad button, .table-mapping button { font-size: 0.85rem; font-weight: 700; padding: 0.35rem 0.8rem; border: none;
+                       border-radius: 6px; background: rgba(143, 195, 245, 0.16); cursor: pointer; white-space: nowrap; }
+    #mapping .ligne-reglage-pad button:hover, .table-mapping button:hover { background: var(--reveria); }
+    #mapping input { font-size: 1rem; padding: 4px 6px; border-radius: 6px; background: #0d1626; color: var(--texte);
+                     border: 1px solid var(--bord); margin-left: 0.5rem; }
+    .table-mapping { width: 100%; border-collapse: collapse; }
+    .table-mapping td { padding: 5px 10px 5px 0; vertical-align: middle; }
+    .table-mapping td:first-child { color: #fbbf24; }
+    .table-mapping td:nth-child(2) { font-family: var(--mono); font-size: 0.85rem; color: var(--texte-2); }
+    .table-mapping td:last-child { text-align: right; white-space: nowrap; }
+    .table-mapping .vide { color: var(--texte-3); }
+    .table-mapping tr.attente td { background: rgba(250, 204, 21, 0.12); }
+    .table-mapping tr.attente td:nth-child(2) { color: var(--jaune); animation: clignote 1s steps(2) infinite; }
     #dialogue .boutons { display: flex; justify-content: flex-end; gap: 8px; margin-top: 1rem; }
     #dialogue .boutons button { font-size: 0.9rem; font-weight: 700; padding: 0.5rem 1.3rem; border: none; clip-path: var(--biseau);
                        text-transform: uppercase; letter-spacing: 0.08em; background: rgba(143, 195, 245, 0.16); cursor: pointer; }
@@ -449,7 +463,7 @@
        une ANCIENNE version en mémoire et ignorer nos modifications, même après un rechargement. -->
   <script>
     const version = Date.now();
-    for (const nom of ['moteur', 'synthes', 'actions', 'arpege', 'interface', 'menus', 'mesure', 'minilab', 'tactile', 'fond']) {
+    for (const nom of ['moteur', 'synthes', 'actions', 'arpege', 'interface', 'menus', 'mesure', 'minilab', 'tactile', 'mapping', 'fond']) {
       document.write('<script src="' + nom + '.js?v=' + version + '"><\/script>');
     }
   </script>

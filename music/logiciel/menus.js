@@ -33,6 +33,7 @@ const MENUS = [
     { libelle: 'Effacer toute la famille', action: effacerFamille },
     '-',
     { libelle: 'Réglages des pads…', action: ouvrirReglagesPads },
+    { libelle: 'Clavier MIDI…', action: () => ouvrirMapping() },
     { libelle: 'Arpégiateur…', action: ouvrirReglagesArpege },
   ]},
   { titre: 'Affichage', elements: [
@@ -400,7 +401,7 @@ function aideMiniLab() {
     '<tr><td>Arpège</td><td>Action de pad (pad 4 en mode 8 actions) : tenez un accord, il est joué en rythme. Touches tenues + bouton central tourné = vitesse. Réglages : Édition › Arpégiateur</td></tr>' +
     '<tr><td>À éviter</td><td>Shift + pad 1 (arpégiateur du clavier, pas calé sur les boucles) et Shift + pad 3 (change le mode du clavier)</td></tr>' +
     '<tr><td>Faders 1 à 4</td><td>Volume de chaque famille</td></tr>' +
-    '<tr><td>Bande tactile gauche</td><td>Vibrato : plie la hauteur des notes jouées (±2 demi-tons), revient au relâchement. Enregistré dans la boucle avec les notes</td></tr>' +
+    '<tr><td>Bande tactile gauche</td><td>Vibrato : fait onduler les notes jouées (±½ demi-ton, comme une corde), revient au relâchement. Enregistré dans la boucle avec les notes</td></tr>' +
     '<tr><td>Bande tactile droite</td><td>Volume de la boucle sélectionnée</td></tr>' +
     '<tr><td>Potards 1 à 4 (haut)</td><td>Filtre · Réverb · Chorus · Delay</td></tr>' +
     '<tr><td>Potards 5 à 8 (bas)</td><td>Saturation · Grain · Attaque · Mouvement</td></tr>' +

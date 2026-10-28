@@ -728,9 +728,10 @@ function arreter(note) {
 
 // --- Vibrato : la bande tactile de gauche plie la hauteur des notes jouées ---------
 // Le MiniLab envoie un « pitch bend » : 8192 au repos (doigt levé), de 0 à 16383 en glissant.
-// On décale de ±2 demi-tons (200 centièmes) toutes les notes jouées en direct, arpège compris.
+// On décale de ±½ demi-ton (50 centièmes, comme le vibrato au doigt de tactile.js : l'ondulation
+// d'une corde) toutes les notes jouées en direct, arpège compris.
 // Pendant un enregistrement, le geste est gardé dans la boucle et rejoué avec ses notes.
-const COURBURE_MAXI = 200;           // en centièmes de demi-ton
+const COURBURE_MAXI = 50;            // en centièmes de demi-ton
 let courbure = 0;
 const voixEnDirect = new Set();
 
@@ -990,8 +991,24 @@ function relacherPad(numero) {
   delete padEnAction[numero];
 }
 
+// Une touche jouée ou relâchée : MiniLab, autre clavier MIDI (mapping.js) ou clavier à l'écran
+function jouerTouche(note, velocite) {
+  jouer(note, velocite);
+  allumerTouche(note, true);             // la touche du clavier à l'écran s'allume aussi (tactile.js)
+  document.getElementById('note').textContent = 'Note ' + note;
+  ondeFond(COULEURS_ECRAN[familleActive]);   // une onde dans le fond d'écran (fond.js)
+}
+
+function relacherTouche(note) {
+  arreter(note);
+  allumerTouche(note, false);
+}
+
 // --- Messages du MiniLab (et des gestes à l'écran, qui imitent les mêmes messages : tactile.js) ---
+// Un autre clavier, ou un MiniLab réglé sur un autre profil, passe par mapping.js ;
+// le profil d'origine du MiniLab 3 est traité ici.
 function recevoir(message) {
+  if (message.target && traiterSelonProfil(message)) return;
   const [statut, data1, data2] = message.data;
   const type = statut & 0xF0;            // le type de message (note, potard…)
   const canal = statut & 0x0F;           // le canal (pads = 9)
@@ -1007,13 +1024,9 @@ function recevoir(message) {
   if (type === 0xE0) {                   // bande tactile de gauche : vibrato
     plierNotes((data2 << 7) | data1);
   } else if (type === 0x90 && data2 > 0) {      // touche appuyée
-    jouer(data1, data2);
-    allumerTouche(data1, true);          // la touche du clavier à l'écran s'allume aussi (tactile.js)
-    document.getElementById('note').textContent = 'Note ' + data1;
-    ondeFond(COULEURS_ECRAN[familleActive]);   // une onde dans le fond d'écran (fond.js)
+    jouerTouche(data1, data2);
   } else if (type === 0x80 || (type === 0x90 && data2 === 0)) { // touche relâchée
-    arreter(data1);
-    allumerTouche(data1, false);
+    relacherTouche(data1);
   } else if (type === 0xB0) {            // un potard, un fader ou le bouton central
     if (POTARDS[data1]) tournerPotard(data1, data2);
     else if (data1 === BANDE_DROITE) toucherBandeVolume(data2);
@@ -1107,9 +1120,9 @@ function brancherClaviers(infoSession) {
   const branche = p => p.state !== 'disconnected';
   const noms = [];
   for (const entree of accesMIDI.inputs.values()) {
-    if (branche(entree) && entree.name.includes('MIDI')) { // le port principal du MiniLab
+    if (branche(entree) && portAEcouter(entree)) {        // tous les claviers (mapping.js)
       entree.onmidimessage = recevoir;
-      noms.push(entree.name);
+      noms.push(entree.name + ' (' + profilDuPort(entree.name).nom + ')');
     }
   }
   if (accesMIDI.sysexEnabled) {
@@ -1120,6 +1133,7 @@ function brancherClaviers(infoSession) {
       || null;
   }
   modeTactile(noms.length === 0);
+  if (document.getElementById('mapping')) afficherMapping();   // Édition › Clavier MIDI… ouvert : la liste des claviers suit
   document.getElementById('etat').textContent = noms.length
     ? 'Connecté à : ' + noms.join(', ') + '. Jouez une touche !' + infoSession
     : 'Jouez sur le clavier et les pads de l’écran, ou branchez un clavier MIDI.' + infoSession;

@@ -12,8 +12,8 @@
 //              à la fois (accords), on peut glisser d'une touche à l'autre
 //   vibrato  : un doigt IMMOBILE un instant (au début du geste ou après un glissando) verrouille sa
 //              touche, et le doigt fait onduler la note à gauche ou à droite, comme une corde
-//              qu'on fait vibrer (±½ demi-ton, doux et lissé ; la bande du MiniLab, elle, va à ±2
-//              demi-tons). Un doigt qui bouge fait un glissando ; s'il part loin pendant le vibrato
+//              qu'on fait vibrer (±½ demi-ton, doux et lissé, comme la bande tactile du MiniLab).
+//              Un doigt qui bouge fait un glissando ; s'il part loin pendant le vibrato
 //              (sur la touche voisine), le vibrato s'arrête et la note suit le doigt :
 //              Do → glisser → Fa, s'arrêter (vibrato) → glisser → Sol, d'un seul geste.
 //              Pendant le vibrato, la touche apparaît en grand (×3,5) au-dessus du clavier, bordée

@@ -22,15 +22,16 @@ Constat (27/10/2026) : l'app ne permet pas de jouer au toucher et n'a aucun clav
 - [ ] Le guide (priorité 3) affiche l'écran tactile quand aucun clavier n'est branché, et le schéma du MiniLab 3 quand il est détecté
 - [x] Textes de l'app : ne plus supposer qu'un MiniLab 3 est branché (fait et validé le 28/10/2026 : aide « Jouer au doigt », astuces du MiniLab affichées seulement s'il est branché, pages Arpégiateur, Réglages des pads et À propos)
 - [x] Équivalents tactiles du bouton central du MiniLab (validé sur iPhone le 28/10/2026) : bouton « 8 actions » (donc l'Arpège), flèches ‹ › pour choisir la boucle à régler sans la frapper
+- [x] Bande tactile du MiniLab réglée comme le vibrato au doigt (±½ demi-ton, validé le 28/10/2026)
 - [x] Vibrato au doigt (validé sur iPhone le 28/10/2026) : doigt immobile un instant = vibrato doux (±½ demi-ton, lissé, comme une corde), touche agrandie et dentée avec une corde qui vibre ; doigt qui part vers la touche voisine = glissando ; les deux s'enchaînent d'un seul geste (Do → Fa en vibrato → Sol)
 Critère de validation : sur un iPhone sans aucun accessoire, on peut choisir un instrument, jouer une mélodie et des pads, et enregistrer une boucle.
 
 ### Priorité 1 — Mapping des touches
-- [ ] Permettre à l'utilisateur d'assigner chaque touche, pad, knob et fader à une fonction ou un instrument
-- [ ] Compatibilité avec n'importe quel clavier MIDI (pas seulement le MiniLab 3)
-- [ ] Profil prêt à l'emploi pour le MiniLab 3
-- [ ] Sauvegarde et chargement de plusieurs configurations
-- [ ] Séparation claire pads (drums) / touches (mélodie), sans chevauchement de notes (problème déjà rencontré dans Live avec la touche Ré)
+- [x] Permettre à l'utilisateur d'assigner chaque touche, pad, knob et fader à une fonction (Édition › Clavier MIDI…, bouton « Apprendre » ; validé sur Mac avec le MiniLab le 28/10/2026). Pas encore : assigner un instrument à une commande
+- [x] Compatibilité avec n'importe quel clavier MIDI : tous les claviers sont écoutés, profil « Générique » d'office (testé en simulation ; à tester avec un vrai autre clavier)
+- [x] Profil prêt à l'emploi pour le MiniLab 3 (« MiniLab 3 (d'origine) », choisi d'office)
+- [x] Sauvegarde et chargement de plusieurs configurations (profils perso gardés dans l'app, un profil par clavier). Pas encore : export / import en fichier
+- [x] Séparation claire pads (drums) / touches (mélodie) : une commande assignée ne joue jamais de note
 
 ### Priorité 2 — Sampleur (import et enregistrement audio)
 - [ ] Enregistrer la voix ou un son depuis le micro
@@ -134,7 +135,7 @@ Source principale : App Review Guidelines d'Apple (developer.apple.com/app-store
 - Droits RGPD et contact
 
 ### Checklist avant soumission
-- [ ] App jouable sans clavier MIDI (priorité 0)
+- [x] App jouable sans clavier MIDI (priorité 0, validée sur iPhone 11 le 28/10/2026)
 - [ ] Testée sur un vrai appareil, sans plantage
 - [ ] Texte d'autorisation du micro clair, demande faite au bon moment
 - [ ] Politique de confidentialité en ligne, liée dans App Store Connect et dans l'app
