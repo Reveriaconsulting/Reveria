@@ -1,5 +1,5 @@
 // =============================================================================
-//  RevLoop — les sons fabriqués en code : synthwave, ambient, arcade, batterie 80s
+//  Astrellia — les sons fabriqués en code : synthwave, ambient, arcade, batterie 80s
 // =============================================================================
 // Aucun fichier son ici : tout est calculé en direct avec des oscillateurs,
 // comme sur les synthés des années 80. Ces sons sont donc 100 % libres de droits.

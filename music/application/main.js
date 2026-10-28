@@ -1,5 +1,5 @@
 // =============================================================================
-//  RevLoop — l'application Mac / Windows (Electron)
+//  Astrellia — l'application Mac / Windows (Electron)
 // =============================================================================
 // Electron emballe la page web du dossier « logiciel » dans une vraie application :
 // une icône, une fenêtre, un menu Mac, un vrai « Quitter », et plus besoin de Chrome
@@ -11,6 +11,10 @@
 const { app, BrowserWindow, Menu, protocol, net, session, shell } = require('electron');
 const path = require('path');
 const { pathToFileURL } = require('url');
+
+// L'application s'appelait RevLoop : on garde son dossier de données (sessions, sons du sampleur,
+// profils de clavier), sinon le changement de nom repartirait d'une application vide
+app.setPath('userData', path.join(app.getPath('appData'), 'RevLoop'));
 
 // Où se trouve le logiciel : dans l'application une fois assemblée, sinon à côté de ce dossier
 const LOGICIEL = app.isPackaged
@@ -26,7 +30,7 @@ function creerFenetre() {
   const fenetre = new BrowserWindow({
     width: 1440, height: 900, minWidth: 800, minHeight: 500,
     backgroundColor: '#060a12',        // le bleu nuit du logiciel, pas d'éclair blanc à l'ouverture
-    title: 'RevLoop',
+    title: 'Astrellia',
     show: false,
     webPreferences: {
       // Les boucles sont cadencées par des minuteurs : ils ne doivent jamais ralentir,
@@ -47,15 +51,15 @@ function creerFenetre() {
 function menuMac() {
   Menu.setApplicationMenu(Menu.buildFromTemplate([
     {
-      label: 'RevLoop',
+      label: 'Astrellia',
       submenu: [
-        { role: 'about', label: 'À propos de RevLoop' },
+        { role: 'about', label: 'À propos d’Astrellia' },
         { type: 'separator' },
-        { role: 'hide', label: 'Masquer RevLoop' },
+        { role: 'hide', label: 'Masquer Astrellia' },
         { role: 'hideOthers', label: 'Masquer les autres' },
         { role: 'unhide', label: 'Tout afficher' },
         { type: 'separator' },
-        { role: 'quit', label: 'Quitter RevLoop' },
+        { role: 'quit', label: 'Quitter Astrellia' },
       ],
     },
     {
@@ -79,7 +83,7 @@ function menuMac() {
   ]));
 }
 
-app.setAboutPanelOptions({ applicationName: 'RevLoop', applicationVersion: app.getVersion(), copyright: 'Reveria Consulting' });
+app.setAboutPanelOptions({ applicationName: 'Astrellia', applicationVersion: app.getVersion(), copyright: 'Reveria Consulting' });
 
 app.whenReady().then(() => {
   // app://boucles/sons/piano/60.ogg → le fichier logiciel/sons/piano/60.ogg

@@ -1,5 +1,5 @@
 // =============================================================================
-//  RevLoop — les couleurs des pads du MiniLab 3
+//  Astrellia — les couleurs des pads du MiniLab 3
 // =============================================================================
 // Le MiniLab accepte un message spécial (SysEx) qui donne une couleur à un pad :
 //   F0 00 20 6B 7F 42  02 MM 16  ID  R G B  F7

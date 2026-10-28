@@ -1,8 +1,8 @@
 // =============================================================================
-//  RevLoop — le mapping : n'importe quel clavier MIDI
+//  Astrellia — le mapping : n'importe quel clavier MIDI
 // =============================================================================
 // Chaque clavier branché suit un « profil » : la liste de ses commandes (touche, pad, potard,
-// fader, molette…) et de la fonction que chacune déclenche dans RevLoop.
+// fader, molette…) et de la fonction que chacune déclenche dans Astrellia.
 //   MiniLab 3      : le profil d'origine, réglé à la main dans moteur.js (ses deux modes, Shift…).
 //                    Il est choisi d'office pour un MiniLab.
 //   Générique      : pour un clavier inconnu. Les touches jouent, les pads de batterie habituels
@@ -308,7 +308,7 @@ async function importerProfil(fichier) {
   let contenu;
   try { contenu = JSON.parse(await fichier.text()); } catch (e) { contenu = null; }
   if (!contenu || contenu.type !== 'revloop-profil' || !Array.isArray(contenu.controles)) {
-    informer('Ce fichier n’est pas un profil de clavier RevLoop.');
+    informer('Ce fichier n’est pas un profil de clavier Astrellia.');
     return;
   }
   const profil = { id: 'p' + Date.now(), nom: String(contenu.nom || 'Profil importé').slice(0, 40),

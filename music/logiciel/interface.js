@@ -1,5 +1,5 @@
 // =============================================================================
-//  RevLoop — l'écran : une copie du MiniLab
+//  Astrellia — l'écran : une copie du MiniLab
 // =============================================================================
 // L'écran montre ce qui se passe (comme un tableau de bord) et permet quelques choix au clic :
 // la famille, la boucle sélectionnée, l'instrument d'une boucle. Sans clavier MIDI, on joue

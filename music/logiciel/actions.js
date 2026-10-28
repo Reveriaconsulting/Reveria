@@ -1,5 +1,5 @@
 // =============================================================================
-//  RevLoop — les actions des pads 5 à 8
+//  Astrellia — les actions des pads 5 à 8
 // =============================================================================
 // Chaque famille a 8 actions. Les pads 5 à 8 donnent les actions 1 à 4.
 // Un clic sur le bouton central passe en « mode 8 actions » : les pads 1 à 4

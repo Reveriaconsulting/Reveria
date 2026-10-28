@@ -1,5 +1,5 @@
 // =============================================================================
-//  RevLoop — le sampleur : vos propres sons, joués au clavier
+//  Astrellia — le sampleur : vos propres sons, joués au clavier
 // =============================================================================
 // Édition › Sampleur… : on enregistre un son au micro (la voix, un objet…) ou on importe un
 // fichier (WAV, MP3…). Le son devient un instrument de la catégorie « Mes sons », proposé dans
@@ -298,7 +298,7 @@ async function commencerEnregistrement() {
   try {
     flux = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: false, noiseSuppression: false, autoGainControl: false } });
   } catch (e) {
-    montrerErreurSampleur('Le micro a été refusé. Pour l’autoriser : Réglages › RevLoop › Micro (iPhone), ou Réglages Système › Confidentialité › Micro (Mac).');
+    montrerErreurSampleur('Le micro a été refusé. Pour l’autoriser : Réglages › Astrellia › Micro (iPhone), ou Réglages Système › Confidentialité › Micro (Mac).');
     return;
   }
   // On capte les échantillons bruts, sans compression : le son est gardé tel qu'il est entré

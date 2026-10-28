@@ -1,4 +1,6 @@
-# RevLoop — Correctifs et évolutions à faire
+# Astrellia (anciennement RevLoop) — Correctifs et évolutions à faire
+
+> Le 28/10/2026, l'application RevLoop a été renommée **Astrellia**. Les fichiers et dossiers gardent le nom « revloop » (identifiants internes inchangés, données conservées).
 
 Dernière mise à jour : 28/10/2026 (priorité 0 en grande partie faite : clavier, pads, potards et faders à l'écran)
 
@@ -73,8 +75,41 @@ Point de vigilance : tant que les textes sont écrits en dur, tout changement de
 ### Droits et juridique
 - [x] Origine de tous les sons de l'app vérifiée le 28/10/2026 : voir registre-origine-des-sons.md et le dossier licences-sons/ (tout en CC0 ou domaine public, ou créé par le code). Noms de marques retirés des noms affichés. Reste à surveiller : la preuve du piano à queue
 - [x] Conditions d'utilisation rédigées le 28/10/2026 (logiciel/legal/conditions.html, aussi dans Aide › Conditions d'utilisation). Adresse et SIRET complétés ; faire relire si besoin
-- [x] Politique de confidentialité rédigée le 28/10/2026 (logiciel/legal/confidentialite.html, aussi dans Aide › Confidentialité). Adresse et SIRET complétés. En ligne le 28/10/2026 : https://reveria-consulting.fr/revloop/confidentialite/ (et /revloop/conditions/), non indexées (adresse publique pour App Store Connect)
-- [ ] Vérifier le nom : recherche « RevLoop » dans l'App Store, sur l'INPI (classes 9 et 41) et la disponibilité des pseudos TikTok, YouTube, Instagram
+- [x] Politique de confidentialité rédigée le 28/10/2026 (logiciel/legal/confidentialite.html, aussi dans Aide › Confidentialité). Adresse et SIRET complétés. En ligne le 28/10/2026 : https://reveria-consulting.fr/astrellia/confidentialite/ (et /astrellia/conditions/), non indexées (adresse publique pour App Store Connect)
+- [x] Nom vérifié le 28/10/2026 :
+  - INPI (marques en vigueur en France) : aucune marque REVLOOP
+  - États-Unis (USPTO) : REVLOOP déposée par Ubersmith en classe 42 (logiciel de facturation en ligne), pas en musique
+  - App Store : « RevLoop AI » existe déjà (Eberg Solutions, outil pour commerçants) ; plusieurs sociétés « RevLoop » dans le logiciel (facturation, avis clients, Salesforce)
+  - Domaines : revloop.com et revloop.app pris ; revloop.fr, revloopmusic.com, revloopmusic.fr, revloop-app.com libres
+  - Réseaux : YouTube @revloop pris, @revloopmusic libre ; Instagram et TikTok non vérifiables automatiquement
+  - Décision du 28/10/2026 : chercher un nom plus distinctif. Noms vérifiés le même jour :
+    - Ondeloop : aucune marque INPI, aucun usage trouvé sur le web, ondeloop.com et ondeloop.fr libres
+    - Tisseloop : aucune marque INPI, aucun usage trouvé sur le web, tisseloop.com et tisseloop.fr libres
+    - Écartés : Looperia (groupe de musique et album existants), Spiraloop (marque Yokohama), Loopora et Bouclia (.com et .fr pris)
+    - 2e tour (noms sans « loop », plus atypiques), vérifiés le 28/10/2026 :
+      - Poulpo (pieuvre : 8 bras = 8 pads, joue de tout à la fois) : marques INPI seulement en classes 16 (livres) et 35/42 (marketing, sites web), rien en 9 ni 41 ; aucune app « Poulpo » trouvée ; poulpomusic.com et .fr libres (poulpo.com pris)
+      - Zootrope (appareil du XIXe s. qui fait tourner des images en boucle) : seule marque INPI expirée (2002, classes 9, 16, 41) ; poulpo.com et zootrope.com pris
+      - Écartés : Gigogne (marque « Les Imagiers Gigognes » en classes 9 et 41), Bourdon (app d'accordeur), Millefeuille, Rémanence (apps), Ressac (groupes de musique), Grillon, Nodalia, Ostina, Stratia, Ritournelle, Ostinelle
+    - 3e tour, vérifié le 28/10/2026 :
+      - Ménure (l'oiseau-lyre, qui imite et répète tous les sons qu'il entend) : aucune marque INPI, aucune app ; seul usage trouvé : un album « L'Enfant et le Ménure » ; menure.com et .fr pris, menureapp.com et .fr libres
+      - Phalène (papillon de nuit attiré par la lumière) : 8 marques INPI, toutes expirées ; aucune app ; phalene.com et .fr pris
+      - Écartés : Noctule (jeu sur l'App Store), Manivelle (21 marques, dont « Manivell » en classe 9)
+    - 4e tour (souhait : court, percutant, international, évoquant la nuit et le rêve), vérifié le 28/10/2026 :
+      - Moonfold (la lune + « fold », les couches qu'on replie l'une sur l'autre) : aucune marque INPI ni USPTO, aucun usage trouvé sur le web ; moonfold.fr libre (.com et .app pris)
+      - Écartés : les noms de 4-5 lettres ont presque tous déjà une app (Nocta, Somni, Nyxo, Oniro, Lumo, Luno, Nyvo, Glimr, Morfi, Yume, Zorya…) ; Dusko et Lunz (déjà utilisés en musique) ; Nightloom (marque américaine gênante) ; Moonloom et Starloom (déjà utilisés)
+    - Nom préféré de l'utilisateur : Astrelle (petite étoile). Vérifié le 28/10/2026 :
+      - France (INPI) : pas de marque « Astrelle » exacte, mais des marques très proches en classe 9 (logiciels, électronique) : ASTRELL (Metronic, enregistrée, classes 9, 20, 38), ASTREL (classe 9), ASTRELIS (demande publiée, classe 9) ; Astrelis en classe 41. Risque d'opposition réel en classe 9
+      - États-Unis : 4 marques ASTRELLE, en bijoux, vêtements, bougies et art (pas en logiciel ni musique)
+      - Web : une app d'astrologie « Astrelle » existe (astrelleapp.com, astrelle.ai) ; marques de mode et de bijoux
+      - Domaines : astrelle.com/.fr/.app pris ; astrellemusic.com et .fr libres, astrelleapp.fr libre
+    - Variante choisie par l'utilisateur : Astrellia. Vérifiée le 28/10/2026 :
+      - France (INPI) : une seule marque ASTRELLIA, expirée (classe 16) ; restent des marques proches (ASTRELL, ASTREL, ASTRELIS en classe 9), mais Astrellia s'en distingue davantage qu'Astrelle (4 syllabes)
+      - États-Unis : aucune marque ASTRELLIA
+      - Web : bijouteries (Astrellia Diamonds, Astrellia Atelier), une police de caractères, des personnages de jeux ; aucune app ni projet musical
+      - Domaines : astrellia.fr libre, astrelliamusic.com et .fr libres (astrellia.com et .app pris)
+      - Conseillé avant dépôt : recherche de similarité INPI (environ 40 €) à cause des marques proches en classe 9
+    - **Décision du 28/10/2026 : Astrellia.** Renommage fait dans l'app (Mac, iPhone, textes, pages légales) ; pages légales déplacées vers reveria-consulting.fr/astrellia/. Pas de nom de domaine ni de site dédié (choix de l'utilisateur)
+    - Reste : vérifier Instagram et TikTok à la main ; recherche de similarité INPI (environ 40 €) puis dépôt à l'INPI (classes 9 et 41)
 - [ ] Activité déclarée : confirmer avec l'expert-comptable/URSSAF le rattachement des revenus de l'app à Reveria Consulting
 - [ ] Clause d'exclusivité ou d'activité annexe du contrat de travail
 
@@ -139,7 +174,7 @@ Source principale : App Review Guidelines d'Apple (developer.apple.com/app-store
 - [x] App jouable sans clavier MIDI (priorité 0, validée sur iPhone 11 le 28/10/2026)
 - [x] Testée sur un vrai appareil, sans plantage (iPhone 11, 28/10/2026)
 - [x] Texte d'autorisation du micro clair, demande faite au bon moment (au clic sur « Enregistrer »)
-- [x] Politique de confidentialité en ligne (https://reveria-consulting.fr/revloop/confidentialite/) et dans l'app (Aide › Confidentialité). Reste : coller l'adresse dans App Store Connect
+- [x] Politique de confidentialité en ligne (https://reveria-consulting.fr/astrellia/confidentialite/) et dans l'app (Aide › Confidentialité). Reste : coller l'adresse dans App Store Connect
 - [x] Preuve d'origine de tous les sons (registre-origine-des-sons.md, licences-sons/)
 - [ ] Nom, icône et captures sans marque tierce et fidèles à l'app
 - [ ] Questionnaire d'âge et « confidentialité de l'app » remplis honnêtement

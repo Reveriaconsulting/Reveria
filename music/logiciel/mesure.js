@@ -1,5 +1,5 @@
 // =============================================================================
-//  RevLoop — la jauge de mesure : où en est-on dans la boucle de référence ?
+//  Astrellia — la jauge de mesure : où en est-on dans la boucle de référence ?
 // =============================================================================
 // La « mesure », c'est la durée de la 1re boucle enregistrée (la référence).
 // La jauge la découpe en 4 quarts pour donner des repères visuels, et chaque

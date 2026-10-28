@@ -1,5 +1,5 @@
 // =============================================================================
-//  RevLoop — jouer au doigt : clavier, pads, potards et faders à l'écran
+//  Astrellia — jouer au doigt : clavier, pads, potards et faders à l'écran
 // =============================================================================
 // Sans clavier MIDI, tout se joue sur l'écran. Chaque geste fabrique le même message
 // que le MiniLab et passe par recevoir() (moteur.js) : le son, l'enregistrement des

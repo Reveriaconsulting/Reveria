@@ -1,5 +1,5 @@
 // =============================================================================
-//  RevLoop — l'arpégiateur, calé sur les boucles
+//  Astrellia — l'arpégiateur, calé sur les boucles
 // =============================================================================
 // Quand l'arpège est activé sur une famille (action de pad « Arpège »), les touches
 // tenues ne sonnent plus directement : l'arpégiateur les rejoue une par une, en rythme.

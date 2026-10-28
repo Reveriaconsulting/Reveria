@@ -1,5 +1,5 @@
 // =============================================================================
-//  RevLoop — le fond d'écran : les nœuds de Reveria
+//  Astrellia — le fond d'écran : les nœuds de Reveria
 // =============================================================================
 // Des sphères bleues et grises, comme celles du logo Reveria, dérivent lentement
 // derrière l'interface et se relient par des courbes quand elles se rapprochent.

@@ -1,6 +1,6 @@
 {
   "name": "revloop",
-  "productName": "RevLoop",
+  "productName": "Astrellia",
   "version": "1.0.0",
   "description": "Boucles MIDI en direct avec l'Arturia MiniLab 3",
   "author": "Reveria Consulting",
@@ -21,7 +21,7 @@
   },
   "build": {
     "appId": "fr.reveria-consulting.revloop",
-    "productName": "RevLoop",
+    "productName": "Astrellia",
     "copyright": "Reveria Consulting",
     "directories": {
       "output": "dist",
@@ -50,7 +50,7 @@
       "category": "public.app-category.music",
       "identity": null,
       "extendInfo": {
-        "NSMicrophoneUsageDescription": "RevLoop utilise le micro pour enregistrer vos sons et les jouer au clavier. Les enregistrements restent sur votre Mac."
+        "NSMicrophoneUsageDescription": "Astrellia utilise le micro pour enregistrer vos sons et les jouer au clavier. Les enregistrements restent sur votre Mac."
       }
     },
     "win": {

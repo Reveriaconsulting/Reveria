@@ -1,10 +1,10 @@
-# RevLoop — Registre d'origine des sons
+# Astrellia (anciennement RevLoop) — Registre d'origine des sons
 
-Vérifié le 28/10/2026, à la source de chaque projet. Ce registre est la preuve demandée par Apple (règle 5.2.1) : chaque son de l'app est soit créé pour RevLoop, soit sous une licence qui autorise l'usage commercial.
+Vérifié le 28/10/2026, à la source de chaque projet. Ce registre est la preuve demandée par Apple (règle 5.2.1) : chaque son de l'app est soit créé pour Astrellia, soit sous une licence qui autorise l'usage commercial.
 
 ## Résumé
 
-- **18 sons de synthèse** : fabriqués par le code de RevLoop (oscillateurs Web Audio, aucun enregistrement). Créés pour RevLoop par Reveria Consulting.
+- **18 sons de synthèse** : fabriqués par le code d'Astrellia (oscillateurs Web Audio, aucun enregistrement). Créés pour Astrellia par Reveria Consulting.
 - **61 instruments enregistrés** : tous issus de projets publics en **CC0 1.0** (domaine public volontaire) ou en **domaine public**. Usage commercial autorisé, modification autorisée, aucune mention d'auteur obligatoire.
 - **Sons de l'utilisateur** (sampleur) : enregistrés ou importés par l'utilisateur, gardés sur son appareil. Il en est responsable (à écrire dans les conditions d'utilisation).
 - **Preuves** : copie de chaque licence ou page source dans le dossier `licences-sons/`.
@@ -85,7 +85,7 @@ Vérifié le 28/10/2026, à la source de chaque projet. Ce registre est la preuv
 | Violons pizzicato | `violons-pizz` | VSCO-2 Community Edition (Sam Gossner) | https://github.com/sgossner/VSCO-2-CE | CC0 1.0 | `VSCO-2-CE-LICENSE.txt` |
 | Violons trémolo | `violons-tremolo` | VSCO-2 Community Edition (Sam Gossner) | https://github.com/sgossner/VSCO-2-CE | CC0 1.0 | `VSCO-2-CE-LICENSE.txt` |
 
-## Sons de synthèse (créés pour RevLoop)
+## Sons de synthèse (créés pour Astrellia)
 
 Fabriqués à chaque note par le code (fichiers `logiciel/moteur.js` et `logiciel/synthes.js`), sans aucun échantillon enregistré.
 

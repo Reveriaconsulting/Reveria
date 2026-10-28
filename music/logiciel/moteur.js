@@ -1,5 +1,5 @@
 // =============================================================================
-//  RevLoop — le moteur : sons, boucles, effets, MiniLab et sauvegarde
+//  Astrellia — le moteur : sons, boucles, effets, MiniLab et sauvegarde
 // =============================================================================
 
 let audio;               // le moteur de son de Chrome (Web Audio)
@@ -430,7 +430,7 @@ function convertirVersion1(session) {
 // alignées entre elles. Renvoie le nombre de boucles chargées.
 function appliquerSession(session) {
   if (session && session.version === 1) session = convertirVersion1(session);
-  if (!session || session.version !== 2) throw new Error('Ce fichier n’est pas une session RevLoop.');
+  if (!session || session.version !== 2) throw new Error('Ce fichier n’est pas une session Astrellia.');
   importerSonsDeSession(session.sons);   // les sons perso joints au fichier (sampleur.js), avant les boucles qui s'en servent
 
   reference = session.reference;

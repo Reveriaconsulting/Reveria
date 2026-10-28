@@ -1,5 +1,5 @@
 // =============================================================================
-//  RevLoop — l'application iPhone
+//  Astrellia (anciennement RevLoop) — l'application iPhone
 // =============================================================================
 // L'iPhone affiche le même logiciel que le Mac (le dossier « logiciel », copié dans
 // l'application) dans une vue web plein écran. Trois choses sont faites ici en natif,
@@ -218,10 +218,10 @@ final class PontMIDI: NSObject, WKScriptMessageHandler {
         guard !demarre else { return }
         demarre = true
         // Un clavier branché ou débranché pendant le jeu : on rebranche tout et on prévient la page
-        MIDIClientCreateWithBlock("RevLoop" as CFString, &client) { [weak self] _ in
+        MIDIClientCreateWithBlock("Astrellia" as CFString, &client) { [weak self] _ in
             DispatchQueue.main.async { self?.connecterSources(); self?.envoyerPorts() }
         }
-        MIDIInputPortCreateWithBlock(client, "RevLoop entrée" as CFString, &portEntree) { [weak self] liste, source in
+        MIDIInputPortCreateWithBlock(client, "Astrellia entrée" as CFString, &portEntree) { [weak self] liste, source in
             let id = Int(bitPattern: source)
             var octets: [UInt8] = []
             for paquet in liste.unsafeSequence() {
@@ -231,7 +231,7 @@ final class PontMIDI: NSObject, WKScriptMessageHandler {
                 self?.vue?.evaluateJavaScript("__revloopMIDI.recevoir(\(id), \(octets))")
             }
         }
-        MIDIOutputPortCreate(client, "RevLoop sortie" as CFString, &portSortie)
+        MIDIOutputPortCreate(client, "Astrellia sortie" as CFString, &portSortie)
         connecterSources()
     }
 

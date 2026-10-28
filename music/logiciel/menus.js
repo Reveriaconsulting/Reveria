@@ -1,5 +1,5 @@
 // =============================================================================
-//  RevLoop — la barre de menus : Fichier, Édition, Affichage, Aide
+//  Astrellia — la barre de menus : Fichier, Édition, Affichage, Aide
 // =============================================================================
 // Pour l'instant, les menus sont dessinés dans la page. Avec Electron, ces mêmes
 // actions seront branchées sur la vraie barre de menus du Mac et de Windows.
@@ -8,7 +8,7 @@ let fichierActuel = null;   // le fichier .boucles ouvert ou sauvegardé (s'il y
 let nomFichier = 'Sans titre';
 
 const TYPE_FICHIER = {
-  description: 'Session RevLoop',
+  description: 'Session Astrellia',
   accept: { 'application/json': ['.boucles'] },
 };
 
@@ -52,7 +52,7 @@ const MENUS = [
     '-',
     { libelle: 'Confidentialité', action: () => ouvrirTexteLegal('confidentialite') },
     { libelle: 'Conditions d’utilisation', action: () => ouvrirTexteLegal('conditions') },
-    { libelle: 'À propos de RevLoop', action: aPropos },
+    { libelle: 'À propos d’Astrellia', action: aPropos },
   ]},
 ];
 
@@ -173,7 +173,7 @@ function informer(texte) {
 
 function changerNom(nom) {
   nomFichier = nom.replace(/\.boucles$/, '');
-  document.title = 'RevLoop — ' + nomFichier;
+  document.title = 'Astrellia — ' + nomFichier;
   document.getElementById('nom-session').textContent = nomFichier;
 }
 
@@ -416,7 +416,7 @@ function aideMiniLab() {
 
 // Les pages légales (dossier legal/) sont les mêmes que celles publiées en ligne pour Apple :
 // on en reprend le contenu dans une fenêtre. Les liens deviennent du texte simple (dans l'app
-// iPhone, un lien ouvrirait la page à la place de RevLoop), sauf le lien d'une page à l'autre.
+// iPhone, un lien ouvrirait la page à la place d’Astrellia), sauf le lien d'une page à l'autre.
 async function ouvrirTexteLegal(nom) {
   try {
     const page = new DOMParser().parseFromString(await (await fetch('legal/' + nom + '.html')).text(), 'text/html');
@@ -437,7 +437,7 @@ async function ouvrirTexteLegal(nom) {
 
 function aPropos() {
   montrerDialogue('À propos',
-    '<p><b>RevLoop</b> : un looper simple, à jouer au doigt ou avec un clavier MIDI comme l’Arturia MiniLab 3.</p>' +
+    '<p><b>Astrellia</b> : un looper simple, à jouer au doigt ou avec un clavier MIDI comme l’Arturia MiniLab 3.</p>' +
     '<p>Construit pas à pas, pour apprendre.</p>');
 }
 

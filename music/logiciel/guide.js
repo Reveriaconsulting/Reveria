@@ -1,11 +1,11 @@
 // =============================================================================
-//  RevLoop — le guide : toutes les fonctions, chapitre par chapitre
+//  Astrellia — le guide : toutes les fonctions, chapitre par chapitre
 // =============================================================================
 // Aide › Guide… propose des chapitres (premiers pas, jeu au doigt, boucles, réglages…).
 // Pendant un chapitre, une bulle dit quoi faire, une étape à la fois, et un anneau entoure
 // l'endroit où agir. Une étape « à faire » passe toute seule dès que l'action est faite ;
 // une étape qui explique seulement a un bouton « Suivant ».
-// Le chapitre « Premiers pas » s'ouvre tout seul à la toute première ouverture de RevLoop.
+// Le chapitre « Premiers pas » s'ouvre tout seul à la toute première ouverture d’Astrellia.
 // Dans une fenêtre (Sampleur, Clavier MIDI…), la bulle se range en haut de la fenêtre et la
 // cible est soulignée en jaune (une fenêtre passe toujours au-dessus du reste de la page).
 // Avec un MiniLab 3 branché (profil d'origine), la bulle montre un petit schéma du clavier où la
@@ -173,7 +173,7 @@ const CHAPITRES = [
   ] },
 
   { titre: 'Un autre clavier MIDI', resume: 'Profils et apprentissage des commandes', etapes: [
-    { cible: () => null, texte: () => 'RevLoop fonctionne avec n’importe quel clavier MIDI. Le MiniLab 3 est reconnu tout seul ; un autre clavier prend le profil « Générique ».' },
+    { cible: () => null, texte: () => 'Astrellia fonctionne avec n’importe quel clavier MIDI. Le MiniLab 3 est reconnu tout seul ; un autre clavier prend le profil « Générique ».' },
     {
       cible: () => el('barre-menus'),
       texte: () => 'Ouvrez <b>Édition › Clavier MIDI…</b>',
@@ -219,7 +219,7 @@ function schemaMiniLab(allumees) {
 function ouvrirGuide() {
   const vus = options.chapitresVus || [];
   montrerDialogue('Guide',
-    '<p class="note">Choisissez un chapitre : une bulle vous guide pas à pas, directement dans RevLoop.</p>' +
+    '<p class="note">Choisissez un chapitre : une bulle vous guide pas à pas, directement dans Astrellia.</p>' +
     '<div class="chapitres-guide">' + CHAPITRES.map((c, i) =>
       '<button data-chapitre="' + i + '"><b>' + (vus.includes(i) ? '✓ ' : '') + (i + 1) + '. ' + c.titre + '</b><span>' + c.resume + '</span></button>').join('') +
     '</div>', [{ libelle: 'Fermer' }]);
@@ -338,4 +338,4 @@ function finirGuide(termine) {
 }
 
 window.addEventListener('resize', () => guide && placerGuide());
-if (!options.guideVu) lancerGuide(0);  // première ouverture de RevLoop
+if (!options.guideVu) lancerGuide(0);  // première ouverture d’Astrellia
