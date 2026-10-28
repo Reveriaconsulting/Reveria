@@ -993,7 +993,9 @@ function relacherPad(numero) {
 }
 
 // Une touche jouée ou relâchée : MiniLab, autre clavier MIDI (mapping.js) ou clavier à l'écran
+let notesJouees = 0;                     // compteur pour le guide de démarrage (guide.js)
 function jouerTouche(note, velocite) {
+  notesJouees++;
   jouer(note, velocite);
   allumerTouche(note, true);             // la touche du clavier à l'écran s'allume aussi (tactile.js)
   document.getElementById('note').textContent = 'Note ' + note;

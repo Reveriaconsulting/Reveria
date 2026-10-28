@@ -378,6 +378,29 @@
     .ligne-reglage-pad { display: flex; align-items: center; gap: 8px; margin: 6px 0; flex-wrap: wrap; }
     .ligne-reglage-pad span { min-width: 12rem; color: #fbbf24; }
     #dialogue select { font-size: 1rem; padding: 4px 6px; border-radius: 6px; background: #0d1626; color: var(--texte); border: 1px solid var(--bord); }
+    /* Le guide de démarrage (guide.js) : une bulle et un anneau qui montre où agir */
+    #bulle-guide { position: fixed; z-index: 50; width: min(21rem, calc(100vw - 16px)); padding: 0.9rem 1rem 0.8rem;
+                   background: rgba(16, 24, 40, 0.96); border: 1px solid var(--reveria-clair); border-radius: 12px;
+                   box-shadow: 0 16px 40px #000c, 0 0 24px rgba(143, 195, 245, 0.35); font-size: 1rem; line-height: 1.4;
+                   transition: left 0.25s, top 0.25s; }
+    #bulle-guide .etape { font-family: var(--mono); font-size: 0.75rem; color: var(--reveria-clair); letter-spacing: 0.1em; text-transform: uppercase; }
+    #bulle-guide p { margin: 0.4rem 0 0.7rem; }
+    #bulle-guide .boutons-guide { display: flex; justify-content: flex-end; }
+    #bulle-guide button { font-size: 0.85rem; font-weight: 700; padding: 0.4rem 0.9rem; border: none; border-radius: 6px; cursor: pointer;
+                          background: rgba(143, 195, 245, 0.16); touch-action: manipulation; }
+    #bulle-guide button[hidden] { display: none; }
+    #bulle-guide.dans-fenetre { position: sticky; top: 0; width: auto; margin: -0.3rem -0.6rem 0.8rem; transition: none; }
+    .cible-guide { outline: 3px solid var(--jaune) !important; outline-offset: 3px; box-shadow: 0 0 18px var(--jaune) !important; }
+    .chapitres-guide { display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: 8px; }
+    .chapitres-guide button { display: flex; flex-direction: column; gap: 0.2rem; text-align: left; padding: 0.7rem 0.9rem; cursor: pointer;
+                              border: none; border-left: 3px solid var(--reveria-clair); border-radius: 0 8px 8px 0; background: rgba(255, 255, 255, 0.05); }
+    .chapitres-guide button:hover { background: rgba(59, 125, 191, 0.4); }
+    .chapitres-guide span { font-size: 0.85rem; color: var(--texte-2); }
+    #anneau-guide { position: fixed; z-index: 49; pointer-events: none; border: 3px solid var(--jaune); border-radius: 12px;
+                    box-shadow: 0 0 0 9999px rgba(2, 5, 10, 0.35), 0 0 22px var(--jaune); animation: anneau 1.4s ease-in-out infinite;
+                    transition: left 0.25s, top 0.25s, width 0.25s, height 0.25s; }
+    #anneau-guide[hidden] { display: none; }
+    @keyframes anneau { 50% { box-shadow: 0 0 0 9999px rgba(2, 5, 10, 0.35), 0 0 4px var(--jaune); } }
     /* Édition › Clavier MIDI… (mapping.js) */
     #mapping .ligne-reglage-pad button, #sampleur .ligne-reglage-pad button, .table-mapping button { font-size: 0.85rem; font-weight: 700; padding: 0.35rem 0.8rem; border: none;
                        border-radius: 6px; background: rgba(143, 195, 245, 0.16); cursor: pointer; white-space: nowrap; }
@@ -481,7 +504,7 @@
        une ANCIENNE version en mémoire et ignorer nos modifications, même après un rechargement. -->
   <script>
     const version = Date.now();
-    for (const nom of ['moteur', 'synthes', 'actions', 'arpege', 'interface', 'menus', 'mesure', 'minilab', 'tactile', 'mapping', 'sampleur', 'fond']) {
+    for (const nom of ['moteur', 'synthes', 'actions', 'arpege', 'interface', 'menus', 'mesure', 'minilab', 'tactile', 'mapping', 'sampleur', 'guide', 'fond']) {
       document.write('<script src="' + nom + '.js?v=' + version + '"><\/script>');
     }
   </script>

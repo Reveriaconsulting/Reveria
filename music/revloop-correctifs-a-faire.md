@@ -19,7 +19,7 @@ Constat (27/10/2026) : l'app ne permet pas de jouer au toucher et n'a aucun clav
 - [x] Validé sur Mac et sur iPhone 11 le 28/10/2026 : clavier, accords, boucle enregistrée au doigt, bouton ✕ pour annuler ou effacer une boucle, plus de menu « Copier » ni de loupe sur un appui long
 - [x] MiniLab 3 sur l'iPhone validé le 28/10/2026 : branché, il prend le relais (le clavier à l'écran se range) ; débranché puis rebranché pendant le jeu, tout suit sans redémarrer
 - [x] Faible latence : le son part dès l'appui du doigt. Mesuré environ 21 ms sur Mac dans Chrome ; aucun retard ressenti sur iPhone (jugé suffisant le 28/10/2026, pas de mesure chiffrée)
-- [ ] Le guide (priorité 3) affiche l'écran tactile quand aucun clavier n'est branché, et le schéma du MiniLab 3 quand il est détecté
+- [ ] Le guide adapte ses textes au tactile ou au clavier MIDI (fait) ; reste : le schéma du MiniLab 3 quand il est détecté
 - [x] Textes de l'app : ne plus supposer qu'un MiniLab 3 est branché (fait et validé le 28/10/2026 : aide « Jouer au doigt », astuces du MiniLab affichées seulement s'il est branché, pages Arpégiateur, Réglages des pads et À propos)
 - [x] Équivalents tactiles du bouton central du MiniLab (validé sur iPhone le 28/10/2026) : bouton « 8 actions » (donc l'Arpège), flèches ‹ › pour choisir la boucle à régler sans la frapper
 - [x] Bande tactile du MiniLab réglée comme le vibrato au doigt (±½ demi-ton, validé le 28/10/2026)
@@ -45,7 +45,7 @@ Critère de validation : sur un iPhone sans aucun accessoire, on peut choisir un
 - [ ] Les sons perso restent sur l'appareil : une session .boucles ouverte ailleurs ne les contient pas
 
 ### Priorité 3 — Assistant guide
-- [ ] Version 1 : tutoriel pas à pas intégré (branchement, premier son, premier loop)
+- [x] Version 1 : guide pas à pas intégré (Aide › Guide…), validé le 28/10/2026 : 8 chapitres (premiers pas, jeu au doigt, boucles, réglages, 8 actions et arpège, sampleur, autre clavier MIDI, sessions) ; « Premiers pas » s'ouvre tout seul à la 1re ouverture
 - [ ] Version 2 (optionnelle) : assistant IA, à prévoir seulement avec un budget d'API et une politique de confidentialité adaptée
 
 #### Étape ultérieure : rendre interactives les références au MiniLab 3

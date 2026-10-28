@@ -46,6 +46,7 @@ const MENUS = [
     { libelle: 'Texte grand', action: () => changerTaille(1.25), coche: () => options.tailleTexte === 1.25 },
   ]},
   { titre: 'Aide', elements: [
+    { libelle: 'Guide…', action: () => ouvrirGuide() },
     { libelle: 'Jouer au doigt', action: aideTactile },
     { libelle: 'Commandes du MiniLab', action: aideMiniLab },
     { libelle: 'À propos de RevLoop', action: aPropos },
