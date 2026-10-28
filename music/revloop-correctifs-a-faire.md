@@ -109,7 +109,8 @@ Point de vigilance : tant que les textes sont écrits en dur, tout changement de
       - Domaines : astrellia.fr libre, astrelliamusic.com et .fr libres (astrellia.com et .app pris)
       - Conseillé avant dépôt : recherche de similarité INPI (environ 40 €) à cause des marques proches en classe 9
     - **Décision du 28/10/2026 : Astrellia.** Renommage fait dans l'app (Mac, iPhone, textes, pages légales) ; pages légales déplacées vers reveria-consulting.fr/astrellia/. Pas de nom de domaine ni de site dédié (choix de l'utilisateur)
-    - Reste : vérifier Instagram et TikTok à la main ; recherche de similarité INPI (environ 40 €) puis dépôt à l'INPI (classes 9 et 41)
+    - Décision du 28/10/2026 : pas de dépôt à l'INPI pour l'instant (payant : recherche de similarité 50 €, dépôt 230 € pour les classes 9 et 41). À reconsidérer si l'app décolle : le nom n'est pas protégé tant qu'il n'est pas déposé
+    - Reste (facultatif) : vérifier Instagram et TikTok à la main
 - [ ] Activité déclarée : confirmer avec l'expert-comptable/URSSAF le rattachement des revenus de l'app à Reveria Consulting
 - [ ] Clause d'exclusivité ou d'activité annexe du contrat de travail
 
