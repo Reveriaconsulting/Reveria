@@ -2,10 +2,47 @@
 
 > Le 28/10/2026, l'application RevLoop a été renommée **Astrellia**. Les fichiers et dossiers gardent le nom « revloop » (identifiants internes inchangés, données conservées).
 
-Dernière mise à jour : 28/10/2026 (priorité 0 en grande partie faite : clavier, pads, potards et faders à l'écran)
+Dernière mise à jour : 28/10/2026 (soir)
+
+## État au 28/10/2026
+
+**Fait et validé** (iPhone 11 et Mac, tout est sur GitHub, branche `music`, PR n°1) :
+- Priorité 0 : jeu au doigt (clavier 2 octaves, accords, glissando, pads, potards, faders, vibrato sur bande dédiée), MiniLab qui prend le relais
+- Priorité 1 : mapping de n'importe quel clavier MIDI (profils, apprentissage, raccourcis d'instrument, export / import)
+- Priorité 2 : sampleur (micro, import, découpe, note d'origine, son tenu, étirement temporel, sons joints aux sessions)
+- Priorité 3 : guide intégré en 8 chapitres, avec schéma du MiniLab
+- Nom : **Astrellia**, logo-titre façon arcade avec « IA » mis en avant
+- Origine des sons prouvée (registre-origine-des-sons.md, licences-sons/), noms sans marques
+- En ligne sur reveria-consulting.fr/astrellia/ : confidentialité, conditions d'utilisation, assistance (pages non indexées)
+- Fiche App Store prête (fiche-app-store.md) avec 5 captures (app-store/captures/)
+- Correctif : le son revient après être passé à une autre app sur iPhone
+
+**Décisions** : pas de nom de domaine ni de site dédié ; pas de dépôt INPI pour l'instant (payant) ; test avec un autre clavier MIDI mis de côté.
+
+**Reste à faire** :
+- Vérifications personnelles (pas d'action de Claude) : déclaration de l'activité de vente d'app pour Reveria Consulting ; clause d'exclusivité du contrat de travail
+- Facultatif : vérifier « astrellia » sur Instagram et TikTok
+- Vidéos de démonstration (plan de lancement), puis compte Apple Developer (99 $ par an), puis soumission
+
+## Journal du 28/10/2026
+| Étape | Fait | Commit |
+|---|---|---|
+| Copie du dossier Music sur GitHub | Branche `music`, PR n°1 | 878ec11 |
+| Priorité 0 | Clavier, pads, potards, faders à l'écran ; relais du clavier MIDI | cb16f5b, d544bf4 |
+| Priorité 0 (fin) | Bouton 8 actions, flèches ‹ ›, aide « Jouer au doigt », vibrato tactile | 8dfb346 |
+| Priorité 1 | Mapping des touches pour tout clavier MIDI | ee33924 |
+| Priorité 2 | Sampleur, vibrato sur bande dédiée | 34e24aa |
+| Priorité 3 | Guide en 8 chapitres | a501bc9 |
+| Améliorations | Étirement temporel, sons dans les sessions, schéma MiniLab, raccourcis, export de profils | 65f28a0 |
+| Droits | Registre d'origine des sons, noms sans marques | 0f968ae |
+| Juridique | Politique de confidentialité, conditions d'utilisation | 24745e4 |
+| Nom | RevLoop devient Astrellia | 4a827d9 |
+| Logo | Nom façon arcade, « IA » mis en avant | 2c9b90d |
+| App Store | Fiche, captures, page d'assistance | e2ee04d |
+| Correctif | Son coupé après une autre app (iPhone) | 27c8b9b |
 
 ## 1. Contexte
-RevLoop est une app de boucles et d'instruments (rythme, mélodie, basse, nappes) jouée avec un clavier MIDI (Arturia MiniLab 3), sur iPhone, Mac et PC.
+Astrellia (ex-RevLoop) est une app de boucles et d'instruments (rythme, mélodie, basse, nappes) jouée avec un clavier MIDI (Arturia MiniLab 3), sur iPhone, Mac et PC.
 Objectif : élargir le public au-delà du MiniLab 3, puis valider l'intérêt avec des vidéos avant de payer le compte Apple Developer.
 
 ## 2. Évolutions à développer (par ordre de priorité)
