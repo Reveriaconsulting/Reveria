@@ -82,6 +82,8 @@ function tuileBoucle(f, pad) {
     ? '<span class="duree">' + b.duree.toFixed(1).replace('.', ',') + ' s</span>' : '';
   return '<div class="pad boucle etat-' + b.etat + selection + '" style="--c:' + COULEURS_ECRAN[familleActive] + '" onclick="selectionner(' + pad + ')">' +
     '<span class="num">' + numeroPad(pad) + '</span>' +
+    // au doigt, l'appui long du MiniLab ne se devine pas : un bouton pour effacer la boucle (tactile.js)
+    (b.etat !== 'vide' ? '<button class="effacer" title="Effacer la boucle" onclick="event.stopPropagation(); effacerPad(' + pad + ')">✕</button>' : '') +
     '<span class="etat">' + ETIQUETTES_ETATS[b.etat] + '</span>' + duree +
     '<button class="instrument" onclick="event.stopPropagation(); ouvrirChoixInstrument(' + pad + ')">' +
     nomInstrument(f, b) + '</button>' +

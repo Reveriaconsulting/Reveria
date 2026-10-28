@@ -12,7 +12,8 @@
 //              à la fois (accords), on peut glisser d'une touche à l'autre
 //   force    : plus le doigt est bas sur la touche, plus la note est forte
 //              (comme sur un piano, où l'on frappe fort près du bord)
-//   pads     : frapper = le pad du MiniLab (appui long = réenregistrer, comme sur le clavier)
+//   pads     : frapper = le pad du MiniLab (appui long = réenregistrer, comme sur le clavier) ;
+//              le bouton ✕ d'un pad efface sa boucle, ou annule l'enregistrement en cours
 //   potards  : glisser vers le haut ou le bas
 //   faders   : poser le doigt à la hauteur voulue (bande de gauche = volume de la boucle)
 
@@ -78,7 +79,7 @@ function toucheSous(e) {
   if (!touche) return null;
   const cadre = touche.getBoundingClientRect();
   const hauteur = Math.max(0, Math.min(1, (e.clientY - cadre.top) / cadre.height));
-  return { note: Number(touche.dataset.note), velocite: Math.round(40 + hauteur * 87) };
+  return { note: Number(touche.dataset.note), velocite: Math.round(70 + hauteur * 57) };
 }
 
 function lacherNote(doigt) {
@@ -119,7 +120,7 @@ function preparerClavier() {
 function preparerPads() {
   const zone = document.getElementById('pads');
   zone.addEventListener('pointerdown', e => {
-    if (!audio || !modeTactileActif || e.target.closest('.instrument')) return;
+    if (!audio || !modeTactileActif || e.target.closest('.instrument, .effacer')) return;
     const pad = e.target.closest('.pad');
     if (!pad) return;
     const numero = [...zone.children].indexOf(pad);
@@ -134,6 +135,11 @@ function preparerPads() {
       doigtsSurPads.delete(e.pointerId);
     });
   }
+}
+
+// Le bouton ✕ d'un pad : la boucle redevient vide (son instrument et ses réglages sont gardés)
+function effacerPad(numero) {
+  effacerBoucle(familles[familleActive].boucles[numero], false);
 }
 
 // --- Les potards : glisser vers le haut pour monter, 3 pixels par cran ------------
@@ -211,6 +217,19 @@ function montrerClavier(visible) {
 }
 
 const clavierVisible = () => !document.getElementById('clavier').hidden;
+
+// Pas de menu contextuel (clic droit, appui long) sur l'instrument : il gênerait le jeu
+document.getElementById('app').addEventListener('contextmenu', e => e.preventDefault());
+
+// Sur iPhone, un appui long affiche la loupe d'iOS, même sans texte à sélectionner. On bloque
+// donc le geste du doigt lui-même, sauf sur les boutons, menus et fenêtres, qui ont besoin de leur clic.
+// (Les gestes de jeu passent par les « pointer events », qui continuent d'arriver.)
+document.addEventListener('touchstart', e => {
+  const cible = e.target.closest ? e.target : e.target.parentElement;
+  if (cible.closest('button, input, select, a, dialog, #barre-menus')) return;
+  if (!modeTactileActif && cible.closest('.pad')) return;   // avec un clavier MIDI, un clic sur un pad le sélectionne
+  e.preventDefault();
+}, { passive: false });
 
 preparerClavier();
 preparerPads();

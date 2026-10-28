@@ -16,6 +16,8 @@ Constat (27/10/2026) : l'app ne permet pas de jouer au toucher et n'a aucun clav
 - [x] Même écran de jeu que l'on utilise le tactile ou un clavier MIDI : le clavier physique prend le relais dès qu'il est détecté, même branché en cours de jeu (fait le 28/10/2026, testé en simulation, pas encore avec le vrai MiniLab sur iPhone)
 - [x] Jeu multi-touch : plusieurs notes en même temps (accords), et glisser d'une touche à l'autre (fait le 28/10/2026)
 - [x] Sensibilité à la vitesse (vélocité) simulée selon la position du doigt sur la touche : bas = fort (fait le 28/10/2026)
+- [x] Validé sur Mac et sur iPhone 11 le 28/10/2026 : clavier, accords, boucle enregistrée au doigt, bouton ✕ pour annuler ou effacer une boucle, plus de menu « Copier » ni de loupe sur un appui long
+- [ ] À tester : MiniLab 3 branché sur l'iPhone pendant le jeu (le clavier à l'écran doit se ranger)
 - [ ] Faible latence : le son part dès l'appui (objectif sous 20 ms). Le son part dès l'appui du doigt ; mesuré environ 21 ms sur Mac dans Chrome, à mesurer sur un vrai iPhone
 - [ ] Le guide (priorité 3) affiche l'écran tactile quand aucun clavier n'est branché, et le schéma du MiniLab 3 quand il est détecté
 - [ ] Textes de l'app : ne plus supposer qu'un MiniLab 3 est branché (fait pour la ligne d'état ; reste l'aide et les astuces)

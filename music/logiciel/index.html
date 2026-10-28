@@ -28,6 +28,10 @@
            background: radial-gradient(ellipse at 15% 0%, #14284a 0%, transparent 55%),
                        radial-gradient(ellipse at 90% 110%, #2a1748 0%, transparent 50%), var(--fond);
            display: grid; grid-template-rows: auto minmax(0, 1fr); -webkit-tap-highlight-color: transparent; }
+    /* On joue avec les doigts : un appui long (réenregistrer une boucle) ne doit pas sélectionner
+       le texte ni ouvrir le menu « Copier » d'iOS. Les champs de saisie restent sélectionnables. */
+    body { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+    input, textarea { -webkit-user-select: text; user-select: text; }
     #fond-noeuds { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
     #barre-menus, #app { position: relative; z-index: 1; }
     button { font-family: inherit; color: inherit; }
@@ -147,6 +151,12 @@
     .pad.etat-lecture .etat { color: color-mix(in srgb, var(--c) 70%, #fff); text-shadow: 0 0 12px var(--c); }
     .pad.etat-arret { --led: color-mix(in srgb, var(--c) 35%, transparent); }
     .pad.etat-arret .etat { color: var(--texte-2); }
+    /* Le bouton ✕ d'effacement, en haut à droite des pads de boucle (seulement au doigt) */
+    .pad .effacer { display: none; position: absolute; top: 0.35rem; right: 0.35rem; z-index: 3; width: max(2rem, 30px); height: max(2rem, 30px);
+                    align-items: center; justify-content: center; padding: 0; border: 1px solid rgba(255, 255, 255, 0.25); border-radius: 50%;
+                    background: rgba(0, 0, 0, 0.55); font-size: 0.95rem; font-weight: 800; cursor: pointer; touch-action: manipulation; }
+    body.tactile .pad .effacer { display: flex; }
+    .pad .effacer:active { background: var(--rec); }
     .pad.selection { outline: 2px solid var(--jaune); outline-offset: 4px; }
     .pad .avance { position: absolute; left: 0; right: 0; bottom: 0; height: 5px; z-index: 2; }
     .pad .avance span { display: block; height: 100%; width: 0; background: var(--c, var(--lecture)); box-shadow: 0 0 10px var(--c, var(--lecture)); }
@@ -224,6 +234,16 @@
                     border-radius: 0 0 4px 4px; border: 1px solid #000;
                     background: linear-gradient(180deg, #05080d, #1f2836 85%, #3a4556);
                     box-shadow: inset 0 -4px 0 #0b1018, 0 3px 4px #000a; }
+    /* Fenêtre large avec le clavier : les potards passent sur une rangée de 8 pour libérer de la hauteur,
+       puis pads et clavier se partagent ce qui reste (les pads gardent une hauteur minimale lisible) */
+    @media (min-aspect-ratio: 1/1) and (min-width: 701px) {
+      body.avec-clavier #app { grid-template-rows: auto auto auto minmax(4.5rem, 1fr) minmax(4.5rem, 0.6fr) auto; }
+      body.avec-clavier #clavier { height: auto; max-height: 11rem; min-height: 0; }
+      body.avec-clavier #potards { grid-template-columns: repeat(8, minmax(0, 1fr)); }
+      body.avec-clavier .cadran { width: min(3.6rem, 100%); }
+      body.avec-clavier #pads { align-self: stretch; }
+      body.avec-clavier #pads .pad { aspect-ratio: auto; height: 100%; max-height: none; box-sizing: border-box; padding-top: 0.9rem; }
+    }
     .touche.blanche.enfoncee { background: linear-gradient(180deg, #c9d2df, color-mix(in srgb, var(--c) 45%, #fff));
                                box-shadow: inset 0 -2px 0 #b3bccb, 0 1px 0 #04070b, 0 0 18px var(--c); transform: translateY(2px); }
     .touche.noire.enfoncee { background: linear-gradient(180deg, #05080d, var(--c)); box-shadow: 0 0 16px var(--c); }
@@ -287,7 +307,7 @@
       #ecran .instru { font-size: 1rem; display: block; white-space: nowrap; text-overflow: ellipsis; }
       #ligne-etat { display: none; }
       body.avec-clavier #app { grid-template-rows: auto auto auto minmax(0, 1fr) auto; }
-      #clavier { height: 30vh; padding: 0.35rem 0.6rem; }
+      body.avec-clavier #clavier { height: 25vh; padding: 0.35rem 0.6rem; }
       #octaves { gap: 0.25rem; }
       #octaves button { padding: 0.25rem 0; }
     }
