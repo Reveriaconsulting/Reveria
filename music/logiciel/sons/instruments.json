@@ -3016,7 +3016,7 @@
  },
  {
   "id": "basse-lately",
-  "nom": "Basse « Lately » TX81Z",
+  "nom": "Basse FM ronde",
   "categorie": "Synthwave",
   "regions": [
    {
@@ -3100,7 +3100,7 @@
  },
  {
   "id": "basse-dx7",
-  "nom": "Basse DX7",
+  "nom": "Basse FM 80s",
   "categorie": "Synthwave",
   "regions": [
    {
@@ -4041,7 +4041,7 @@
  },
  {
   "id": "piano-steinway",
-  "nom": "Piano Steinway B",
+  "nom": "Piano de concert",
   "categorie": "Claviers",
   "regions": [
    {
@@ -6430,7 +6430,7 @@
  },
  {
   "id": "piano-dx7",
-  "nom": "Piano DX7 « E. Piano 1 »",
+  "nom": "Piano électrique 80s",
   "categorie": "Synthwave",
   "regions": [
    {

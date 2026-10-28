@@ -143,8 +143,8 @@ FREEPATS = [
     ('ukulele', 'Ukulélé', 'Guitares', GH + 'ukulele1/releases/download/2026-08-11/Ukulele-SFZ+FLAC-20260811.7z', None),
     ('basse-doigts', 'Basse électrique (doigts)', 'Basses', GH + 'electric-bass-YR/releases/download/2019-09-30/FingerBassYR-SFZ+FLAC-20190930.7z', None),
     ('basse-mediator', 'Basse électrique (médiator)', 'Basses', GH + 'electric-bass-YR/releases/download/2019-09-30/PickedBassYR-SFZ+FLAC-20190930.7z', None),
-    ('basse-lately', 'Basse « Lately » TX81Z', 'Synthwave', GH + 'lately-bass/releases/download/2024-04-09/LatelyBass-SFZ+FLAC-20240409.7z', None),
-    ('basse-dx7', 'Basse DX7', 'Synthwave', GH + 'synth-bass-2/releases/download/2021-04-05/SynthBass2-SFZ+FLAC-20210405.7z', None),
+    ('basse-lately', 'Basse FM ronde', 'Synthwave', GH + 'lately-bass/releases/download/2024-04-09/LatelyBass-SFZ+FLAC-20240409.7z', None),
+    ('basse-dx7', 'Basse FM 80s', 'Synthwave', GH + 'synth-bass-2/releases/download/2021-04-05/SynthBass2-SFZ+FLAC-20210405.7z', None),
     ('piano-droit', 'Piano droit', 'Claviers', FP + 'Piano/UprightPianoKW/UprightPianoKW-small-SFZ+FLAC-20190703.7z', None),
 ]
 
@@ -193,7 +193,7 @@ VSCO = [   # (id, nom, catégorie, dossier)
     ('trompette-bouchee', 'Trompette bouchée', 'Cuivres', 'Brass/Trumpet/straightM-sus/'),
 ]
 VCSL_NOTES = [   # (id, nom, catégorie, dossier, filtre, durée gardée)
-    ('piano-steinway', 'Piano Steinway B', 'Claviers', 'Chordophones/Zithers/Grand Piano, Steinway B/', r'NoSus_Close_.*_vl3_rr1', 10),
+    ('piano-steinway', 'Piano de concert', 'Claviers', 'Chordophones/Zithers/Grand Piano, Steinway B/', r'NoSus_Close_.*_vl3_rr1', 10),
     ('harmonica', 'Harmonica', 'Vents', 'Aerophones/Free Aerophones/Harmonica-Hohner-Special20-C/', r'Normal_(?!rel)', 6),
     ('flute-a-bec', 'Flûte à bec', 'Vents', 'Aerophones/Edge-blown Aerophones/Baroque Alto Recorder/', r'(Sus|Vib)', 6),
 ]

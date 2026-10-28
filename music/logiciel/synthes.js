@@ -266,7 +266,7 @@ Object.assign(instruments, instrumentsSynthes);
 
 // Ajout à la liste des instruments (menu à l'écran et Shift + bouton central)
 SONS_DE_SYNTHESE.push(
-  { id: 'juno-pad', nom: 'Nappe Juno 80s', categorie: 'Synthwave' },
+  { id: 'juno-pad', nom: 'Nappe analogique 80s', categorie: 'Synthwave' },
   { id: 'piano-fm-80s', nom: 'Piano électrique FM', categorie: 'Synthwave' },
   { id: 'cuivres-80s', nom: 'Cuivres synthé 80s', categorie: 'Synthwave' },
   { id: 'lead-doux', nom: 'Lead doux', categorie: 'Synthwave' },

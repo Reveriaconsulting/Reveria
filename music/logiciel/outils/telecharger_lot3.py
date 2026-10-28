@@ -32,7 +32,7 @@ SYNTHES = [
     ('lead-quintes', 'Lead en quintes', 'Synthwave', GH + 'synth-fifths/releases/download/2020-05-19/SynthFifths-SFZ+FLAC-20200519.7z', 8),
     ('lead-basse', 'Lead basse + lead', 'Synthwave', GH + 'synth-bass-lead/releases/download/2020-05-22/SynthBassLead-SFZ+FLAC-20200522.7z', 8),
     ('cristal', 'Cristal', 'Ambient', GH + 'synth-crystal/releases/download/2019-08-12/SynthCrystal-SFZ+FLAC-20190812.7z', 8),
-    ('piano-dx7', 'Piano DX7 « E. Piano 1 »', 'Synthwave', GH + 'fm-piano1/releases/download/2019-09-16/FM-Piano1-SFZ+FLAC-20190916.7z', 8),
+    ('piano-dx7', 'Piano électrique 80s', 'Synthwave', GH + 'fm-piano1/releases/download/2019-09-16/FM-Piano1-SFZ+FLAC-20190916.7z', 8),
     ('basse-synthe-1', 'Basse synthé 1', 'Synthwave', GH + 'synth-bass-1/releases/download/2019-07-23/SynthBass1-SFZ+FLAC-20190723.7z', 6),
 ]
 

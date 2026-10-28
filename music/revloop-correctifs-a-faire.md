@@ -71,7 +71,7 @@ Point de vigilance : tant que les textes sont écrits en dur, tout changement de
 ## 3. Vérifications avant publication
 
 ### Droits et juridique
-- [ ] Origine de tous les sons et boucles de l'app : créés par moi ou sous licence commerciale (point bloquant n°1)
+- [x] Origine de tous les sons de l'app vérifiée le 28/10/2026 : voir registre-origine-des-sons.md et le dossier licences-sons/ (tout en CC0 ou domaine public, ou créé par le code). Noms de marques retirés des noms affichés. Reste à surveiller : la preuve du piano à queue
 - [ ] Conditions d'utilisation : l'utilisateur est responsable des fichiers qu'il importe
 - [ ] Politique de confidentialité (URL obligatoire pour Apple), précisant si les enregistrements restent sur l'appareil
 - [ ] Vérifier le nom : recherche « RevLoop » dans l'App Store, sur l'INPI (classes 9 et 41) et la disponibilité des pseudos TikTok, YouTube, Instagram
@@ -140,7 +140,7 @@ Source principale : App Review Guidelines d'Apple (developer.apple.com/app-store
 - [x] Testée sur un vrai appareil, sans plantage (iPhone 11, 28/10/2026)
 - [x] Texte d'autorisation du micro clair, demande faite au bon moment (au clic sur « Enregistrer »)
 - [ ] Politique de confidentialité en ligne, liée dans App Store Connect et dans l'app
-- [ ] Preuve d'origine de tous les sons
+- [x] Preuve d'origine de tous les sons (registre-origine-des-sons.md, licences-sons/)
 - [ ] Nom, icône et captures sans marque tierce et fidèles à l'app
 - [ ] Questionnaire d'âge et « confidentialité de l'app » remplis honnêtement
 - [ ] Achats intégrés (si prévus) créés et envoyés avec l'app, restauration disponible
