@@ -28,6 +28,10 @@ Constat (27/10/2026) : l'app ne permet pas de jouer au toucher et n'a aucun clav
 - [x] Vibrato au doigt (revu et validé le 28/10/2026) : on tient une note d'un doigt, et d'un 2e doigt on balance sur la bande « Vibrato » à gauche du clavier (±½ demi-ton, lissé) ; touche agrandie dentée avec une corde qui vibre. Glisser sur les touches = toujours un glissando
 Critère de validation : sur un iPhone sans aucun accessoire, on peut choisir un instrument, jouer une mélodie et des pads, et enregistrer une boucle.
 
+### Correctif du 28/10/2026 — son coupé après être passé à une autre app (iPhone)
+- [x] Cause : bug connu de WebKit sur iPhone, le son se dit actif alors que sa sortie vers le haut-parleur reste coupée après une interruption
+- [x] Correction : au retour dans l'app, la session audio iOS est réactivée (mode lecture) et la sortie du son est forcée à repartir (pause puis reprise) ; bandeau rouge « Son en pause » si le son reste arrêté. Validé sur iPhone 11
+
 ### Priorité 1 — Mapping des touches
 - [x] Permettre à l'utilisateur d'assigner chaque touche, pad, knob et fader à une fonction (Édition › Clavier MIDI…, bouton « Apprendre » ; validé sur Mac avec le MiniLab le 28/10/2026). Raccourcis d'instrument : une commande donne un instrument choisi à la boucle sélectionnée
 - [x] Compatibilité avec n'importe quel clavier MIDI : tous les claviers sont écoutés, profil « Générique » d'office (testé en simulation ; à tester avec un vrai autre clavier)

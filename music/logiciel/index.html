@@ -313,6 +313,10 @@
     @keyframes appel { 50% { box-shadow: 0 0 90px rgba(143, 195, 245, 0.85), inset 0 -10px 24px rgba(0, 0, 0, 0.35); } }
     @keyframes orbite { to { transform: rotate(360deg); } }
     #demarrer[hidden] { display: none; }
+    #alerte-son { position: fixed; top: calc(0.6rem + env(safe-area-inset-top)); left: 50%; transform: translateX(-50%); z-index: 45;
+                  padding: 0.6rem 1.2rem; border-radius: 10px; font-weight: 700; font-size: 0.95rem; color: #fff; white-space: nowrap;
+                  background: rgba(239, 68, 68, 0.9); box-shadow: 0 8px 24px #000a; pointer-events: none; }
+    #alerte-son[hidden] { display: none; }
 
     /* --- Téléphone en portrait (ou fenêtre étroite) : les zones s'empilent --- */
     @media (max-aspect-ratio: 1/1), (max-width: 700px) {
@@ -467,6 +471,8 @@
 
   <!-- Chrome n'autorise le son qu'après un clic de l'utilisateur -->
   <button id="demarrer">▶ Démarrer</button>
+  <!-- Le son a été mis en pause par le système (retour d'une autre app) : moteur.js le relance au toucher -->
+  <div id="alerte-son" role="status" hidden></div>
 
   <main id="app">
     <header id="tete">

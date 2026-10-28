@@ -74,6 +74,28 @@ struct VueLogiciel: UIViewRepresentable {
         weak var vue: WKWebView?
         private var fichierEnCours: URL?
 
+        // Retour dans l'app (après une autre app, un appel, l'écran verrouillé) : iOS a mis le son en pause.
+        // On réactive la session audio, puis la page relance son moteur de son (reprendreSon, moteur.js).
+        override init() {
+            super.init()
+            NotificationCenter.default.addObserver(forName: UIApplication.didBecomeActiveNotification, object: nil, queue: .main) { [weak self] _ in
+                self?.relancerSon()
+            }
+            NotificationCenter.default.addObserver(forName: AVAudioSession.interruptionNotification, object: nil, queue: .main) { [weak self] note in
+                guard let type = note.userInfo?[AVAudioSessionInterruptionTypeKey] as? UInt,
+                      type == AVAudioSession.InterruptionType.ended.rawValue else { return }
+                self?.relancerSon()
+            }
+        }
+
+        private func relancerSon() {
+            // le mode « lecture de musique » (son même en silencieux) est réappliqué : la page web peut l'avoir changé
+            try? AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+            try? AVAudioSession.sharedInstance().setActive(true)
+            // la sortie du son est forcée à repartir, même si la page la croit active (relancerSortieSon, moteur.js)
+            vue?.evaluateJavaScript("typeof relancerSortieSon === 'function' && relancerSortieSon()")
+        }
+
         func webView(_ webView: WKWebView, decidePolicyFor action: WKNavigationAction,
                      decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
             decisionHandler(action.shouldPerformDownload ? .download : .allow)

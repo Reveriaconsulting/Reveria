@@ -1095,6 +1095,9 @@ async function demarrer() {
   }
   afficher();
   setInterval(programmateur, 25);
+  // iPhone : le système coupe le son quand on passe à une autre app (ou un appel, l'écran verrouillé) ;
+  // dès qu'il le met en pause, on le relance si l'application est à l'écran
+  audio.onstatechange = () => { majAlerteSon(); if (audio.state !== 'running' && !document.hidden) setTimeout(reprendreSon, 300); };
   document.getElementById('demarrer').hidden = true;
 
   const etat = document.getElementById('etat');
@@ -1117,6 +1120,39 @@ async function demarrer() {
     etat.textContent = 'Accès MIDI refusé : ' + e.message.replace(/\.$/, '') + '. Jouez sur le clavier à l’écran.' + infoSession;
   }
 }
+
+// Retour dans l'application : le son est relancé (à l'écran revenu, à la fenêtre retrouvée, au premier toucher).
+// Appelé aussi par l'app iPhone quand elle redevient active (RevLoopApp.swift).
+// Les boucles reprennent en place : le programmateur ne rattrape pas les notes manquées.
+// Sur iPhone, un son « interrompu » ne repart parfois qu'après une mise en pause franche : on essaie les deux.
+// iOS n'accepte de relancer le son qu'au cours d'un vrai toucher (touchend, click) : on les écoute aussi.
+function reprendreSon() {
+  if (!audio || audio.state === 'running' || audio.state === 'closed') return;
+  audio.resume().catch(() => {}).finally(() => {
+    if (audio.state !== 'running') audio.suspend().then(() => audio.resume()).catch(() => {}).finally(majAlerteSon);
+    majAlerteSon();
+  });
+}
+
+// Le bandeau « Son en pause » : visible tant que le son ne joue pas (l'état entre parenthèses aide à comprendre une panne)
+function majAlerteSon() {
+  const alerte = document.getElementById('alerte-son');
+  const enPause = audio && audio.state !== 'running' && !document.hidden;
+  alerte.hidden = !enPause;
+  if (enPause) alerte.textContent = 'Son en pause : touchez l’écran pour le relancer (' + audio.state + ')';
+}
+
+// Bug connu de WebKit sur iPhone : après une interruption, le son peut se dire « running » alors que sa sortie
+// vers le haut-parleur reste coupée. Au retour dans l'app, on force donc une pause puis une reprise, même s'il se dit actif.
+function relancerSortieSon() {
+  if (!audio || audio.state === 'closed') return;
+  audio.suspend().catch(() => {}).finally(() => audio.resume().catch(() => {}).finally(majAlerteSon));
+}
+
+document.addEventListener('visibilitychange', () => { if (!document.hidden) relancerSortieSon(); majAlerteSon(); });
+window.addEventListener('pageshow', reprendreSon);
+window.addEventListener('focus', reprendreSon);
+for (const geste of ['pointerdown', 'touchend', 'click']) document.addEventListener(geste, reprendreSon, true);
 
 // Branche les claviers MIDI : au démarrage, puis chaque fois qu'un clavier est branché ou débranché.
 // Sans clavier, on joue à l'écran ; dès qu'un clavier arrive, il prend le relais (tactile.js).
