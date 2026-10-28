@@ -48,7 +48,10 @@
       "target": "dir",
       "icon": "build/icon.icns",
       "category": "public.app-category.music",
-      "identity": null
+      "identity": null,
+      "extendInfo": {
+        "NSMicrophoneUsageDescription": "RevLoop utilise le micro pour enregistrer vos sons et les jouer au clavier. Les enregistrements restent sur votre Mac."
+      }
     },
     "win": {
       "target": "nsis",

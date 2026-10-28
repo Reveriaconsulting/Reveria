@@ -34,6 +34,7 @@ const MENUS = [
     '-',
     { libelle: 'Réglages des pads…', action: ouvrirReglagesPads },
     { libelle: 'Clavier MIDI…', action: () => ouvrirMapping() },
+    { libelle: 'Sampleur (mes sons)…', action: () => ouvrirSampleur() },
     { libelle: 'Arpégiateur…', action: ouvrirReglagesArpege },
   ]},
   { titre: 'Affichage', elements: [
@@ -365,8 +366,8 @@ function aideTactile() {
     '<table>' +
     '<tr><td>Clavier</td><td>Jouer et enregistrer (son de la famille active). Plusieurs doigts = accord ; on peut glisser d’une touche à l’autre</td></tr>' +
     '<tr><td>Force</td><td>Bas de la touche = fort, haut = doux</td></tr>' +
-    '<tr><td>Vibrato</td><td>Garder le doigt immobile un instant sur une touche (elle grossit), puis le balancer à gauche et à droite : la note ondule comme une corde. Enregistré dans la boucle avec les notes</td></tr>' +
-    '<tr><td>Vibrato → glissando</td><td>Pendant le vibrato, glisser franchement vers une autre touche : la note suit le doigt. S’arrêter de nouveau = vibrato sur la nouvelle note (ex. Do → Fa en vibrato → Sol, d’un seul geste)</td></tr>' +
+    '<tr><td>Glissando</td><td>Glisser le doigt d’une touche à l’autre : chaque touche traversée joue sa note</td></tr>' +
+    '<tr><td>Vibrato</td><td>Tenir une note d’un doigt, et d’un 2e doigt posé sur la bande « Vibrato » (à gauche du clavier), balancer de haut en bas : la note ondule comme une corde. Enregistré dans la boucle avec les notes</td></tr>' +
     '<tr><td>Oct + / Oct −</td><td>Monter ou descendre le clavier d’une octave</td></tr>' +
     '<tr><td>Familles (en haut)</td><td>Toucher une famille pour la choisir</td></tr>' +
     '<tr><td>Pads 1 à 4</td><td>Boucles : toucher = prêt, la 1re note lance l’enregistrement, toucher à nouveau = lecture, puis couper / relancer</td></tr>' +

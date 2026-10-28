@@ -10,14 +10,12 @@
 //
 //   clavier  : 2 octaves (25 touches, comme le MiniLab), Octave − / +, plusieurs doigts
 //              à la fois (accords), on peut glisser d'une touche à l'autre
-//   vibrato  : un doigt IMMOBILE un instant (au début du geste ou après un glissando) verrouille sa
-//              touche, et le doigt fait onduler la note à gauche ou à droite, comme une corde
-//              qu'on fait vibrer (±½ demi-ton, doux et lissé, comme la bande tactile du MiniLab).
-//              Un doigt qui bouge fait un glissando ; s'il part loin pendant le vibrato
-//              (sur la touche voisine), le vibrato s'arrête et la note suit le doigt :
-//              Do → glisser → Fa, s'arrêter (vibrato) → glisser → Sol, d'un seul geste.
-//              Pendant le vibrato, la touche apparaît en grand (×3,5) au-dessus du clavier, bordée
-//              de dents, avec une corde qui vibre d'autant plus que le doigt bouge.
+//   glissando: un doigt qui glisse sur le clavier passe d'une touche à l'autre
+//   vibrato  : la bande « Vibrato », à gauche du clavier (comme la bande tactile du MiniLab) :
+//              on tient une note d'un doigt, et d'un 2e doigt posé sur la bande, on balance de haut
+//              en bas : la note ondule comme une corde (±½ demi-ton, doux et lissé). Pendant ce temps,
+//              la touche tenue apparaît en grand (×3,5) au-dessus du clavier, bordée de dents, avec une
+//              corde qui vibre d'autant plus que le doigt bouge ; elle suit la note si l'on glisse.
 //   force    : plus le doigt est bas sur la touche, plus la note est forte
 //              (comme sur un piano, où l'on frappe fort près du bord)
 //   pads     : frapper = le pad du MiniLab (appui long = réenregistrer, comme sur le clavier) ;
@@ -32,18 +30,15 @@ const NB_TOUCHES = 25;
 const NOIRES = [1, 3, 6, 8, 10];       // les touches noires dans l'octave (Do# Ré# Fa# Sol# La#)
 const ORDRE_POTARDS = ['filtre', 'reverb', 'chorus', 'delay', 'saturation', 'grain', 'attaque', 'mouvement'];
 const VELOCITE_PADS = 100;
-const DELAI_VIBRATO = 300;             // ms d'appui immobile avant que la touche passe en vibrato
-const TOLERANCE_IMMOBILE = 8;          // px : un doigt qui tremble un peu reste « immobile »
 const VIBRATO_MAXI = 50;               // centièmes de demi-ton : l'ondulation d'une corde, pas un « bend »
 const ZONE_MORTE_VIBRATO = 4;          // px : un léger tremblement du doigt ne fait pas onduler la note
-const AMPLEUR_VIBRATO = 0.75;          // en touches blanches : écart du doigt pour l'ondulation maximale
-const SORTIE_VIBRATO = 0.9;            // en touches blanches : au-delà, le vibrato s'arrête (glissando)
+const AMPLEUR_VIBRATO = 30;            // px : écart du doigt (sur la bande) pour l'ondulation maximale
 const LISSAGE_VIBRATO = 0.35;          // à chaque image (60 par seconde), la note fait 35 % du chemin vers le doigt
 
 let modeTactileActif = true;           // aucun clavier MIDI : on joue à l'écran
 let decalageOctave = 0;                // −3 à +3, boutons Octave − / +
 const doigtsSurTouches = new Map();    // doigt (pointerId) → note jouée
-const gestesTouches = new Map();       // doigt → { x, y, minuteur } ; une fois verrouillée en vibrato : + { touche, blanche, jeton, cible, lisse… }
+let vibrato = null;                     // le doigt posé sur la bande Vibrato : { doigt, y, cible, lisse, jeton, touche, loupe… }
 const doigtsSurPads = new Map();       // doigt → numéro du pad
 const doigtsSurPotards = new Map();    // doigt → { nom, y, reste }
 const doigtsSurFaders = new Map();     // doigt → { famille (ou -1 pour la bande), rail() }
@@ -133,7 +128,27 @@ function ouvrirLoupeVibrato(geste, touche, note) {
     '<path class="corde" vector-effect="non-scaling-stroke"/></svg>' +
     '<span>' + nomNote(note) + '</span>';
   zone.appendChild(loupe);
-  Object.assign(geste, { loupe, corde: loupe.querySelector('.corde'), phase: 0, energie: 0 });
+  touche.classList.add('vibrato');
+  Object.assign(geste, { touche, loupe, corde: loupe.querySelector('.corde') });
+}
+
+function fermerLoupeVibrato(geste) {
+  if (!geste.loupe) return;
+  geste.touche.classList.remove('vibrato');
+  geste.loupe.remove();
+  geste.touche = geste.loupe = geste.corde = null;
+}
+
+// La grande touche montre la dernière note tenue au doigt ; si l'on glisse vers une autre note,
+// elle la suit ; si l'on lâche la note, elle disparaît (le vibrato continue sur les notes suivantes)
+function placerLoupeVibrato() {
+  if (!vibrato) return;
+  const notes = [...doigtsSurTouches.values()];
+  const note = notes[notes.length - 1];
+  const touche = note === undefined ? null : document.querySelector('#touches [data-note="' + note + '"]');
+  if (vibrato.touche === touche) return;
+  fermerLoupeVibrato(vibrato);
+  if (touche) ouvrirLoupeVibrato(vibrato, touche, note);
 }
 
 // La corde vibre en onde stationnaire (fixée aux deux bouts) : son amplitude suit le mouvement
@@ -141,6 +156,7 @@ function ouvrirLoupeVibrato(geste, touche, note) {
 function dessinerCorde(geste, mouvement) {
   geste.energie = Math.max(geste.energie * 0.93, Math.min(1, Math.abs(mouvement) * 25 + Math.abs(geste.lisse) * 0.4));
   geste.phase += 0.9;
+  if (!geste.corde) return;
   const amplitude = (1 + geste.energie * 14) * Math.sin(geste.phase), decalage = geste.lisse * 8;
   let d = 'M8,' + (90 + decalage).toFixed(1);
   for (let x = 12; x <= 92; x += 4) {
@@ -148,20 +164,6 @@ function dessinerCorde(geste, mouvement) {
     d += ' L' + x + ',' + y.toFixed(1);
   }
   geste.corde.setAttribute('d', d);
-}
-
-// Vibrato : le doigt est resté immobile assez longtemps, sa touche se verrouille
-function verrouillerVibrato(doigt) {
-  const geste = gestesTouches.get(doigt);
-  const note = doigtsSurTouches.get(doigt);
-  const touche = document.querySelector('#touches [data-note="' + note + '"]');
-  if (!geste || !touche) return;
-  const blanche = document.getElementById('touches').getBoundingClientRect().width / 15;   // largeur d'une touche blanche
-  const jeton = {};                    // un verrou = un jeton : la boucle d'animation d'un ancien verrou s'arrête d'elle-même
-  Object.assign(geste, { touche, blanche, jeton, cible: 0, lisse: 0 });
-  touche.classList.add('vibrato');
-  ouvrirLoupeVibrato(geste, touche, note);
-  suivreVibrato(geste, jeton);
 }
 
 // Le décalage du doigt (de −1 à 1) devient un « pitch bend », le même message que la bande du
@@ -172,15 +174,9 @@ function plierAuDoigt(decalage) {
   recevoir({ data: [0xE0, valeur & 0x7F, valeur >> 7] });
 }
 
-// Le doigt d'une touche verrouillée a bougé : la note visera cette position (zone morte déduite)
-function vibrerAuDoigt(geste, x) {
-  const ecart = x - geste.x;
-  geste.cible = Math.sign(ecart) * Math.max(0, Math.abs(ecart) - ZONE_MORTE_VIBRATO) / (geste.blanche * AMPLEUR_VIBRATO);
-}
-
-// Tant que la touche est verrouillée, la note rejoint le doigt en douceur, comme l'inertie d'une corde
+// Tant que le doigt est sur la bande, la note rejoint le doigt en douceur, comme l'inertie d'une corde
 function suivreVibrato(geste, jeton) {
-  if (geste.jeton !== jeton) return;   // doigt levé ou vibrato quitté : on s'arrête
+  if (geste.jeton !== jeton) return;   // doigt levé : on s'arrête
   const ecart = geste.cible - geste.lisse;
   if (Math.abs(ecart) > 0.002) {
     geste.lisse += ecart * LISSAGE_VIBRATO;
@@ -190,27 +186,32 @@ function suivreVibrato(geste, jeton) {
   requestAnimationFrame(() => suivreVibrato(geste, jeton));
 }
 
-// Le vibrato s'arrête (doigt levé, ou parti vers une autre touche) : la note revient juste
-function deverrouiller(geste) {
-  if (!geste.touche) return;
-  geste.touche.classList.remove('vibrato');
-  geste.loupe.remove();
-  geste.touche = geste.jeton = null;
-  if (![...gestesTouches.values()].some(g => g.touche)) plierAuDoigt(0);
-}
-
-// Le doigt a bougé : il redevient « mobile », et le vibrato attendra qu'il s'immobilise de nouveau
-function repartirImmobilite(doigt, geste, e) {
-  clearTimeout(geste.minuteur);
-  Object.assign(geste, { x: e.clientX, y: e.clientY, minuteur: setTimeout(() => verrouillerVibrato(doigt), DELAI_VIBRATO) });
-}
-
-function finirGeste(doigt) {
-  const geste = gestesTouches.get(doigt);
-  if (!geste) return;
-  clearTimeout(geste.minuteur);
-  deverrouiller(geste);
-  gestesTouches.delete(doigt);
+// La bande Vibrato : le doigt se pose n'importe où ; c'est son déplacement vers le haut ou le bas
+// (au-delà d'une petite zone morte) qui fait onduler la note. En le levant, la note revient juste.
+function preparerBandeVibrato() {
+  const bande = document.getElementById('bande-vibrato');
+  bande.addEventListener('pointerdown', e => {
+    if (!audio || vibrato) return;
+    e.preventDefault();
+    capturer(bande, e);
+    const jeton = {};
+    vibrato = { doigt: e.pointerId, y: e.clientY, cible: 0, lisse: 0, jeton, phase: 0, energie: 0 };
+    bande.classList.add('active');
+    placerLoupeVibrato();
+    suivreVibrato(vibrato, jeton);
+  });
+  bande.addEventListener('pointermove', e => {
+    if (!vibrato || vibrato.doigt !== e.pointerId) return;
+    const ecart = vibrato.y - e.clientY;                 // vers le haut = plus aigu
+    vibrato.cible = Math.sign(ecart) * Math.max(0, Math.abs(ecart) - ZONE_MORTE_VIBRATO) / AMPLEUR_VIBRATO;
+  });
+  for (const fin of ['pointerup', 'pointercancel']) bande.addEventListener(fin, e => {
+    if (!vibrato || vibrato.doigt !== e.pointerId) return;
+    fermerLoupeVibrato(vibrato);
+    vibrato = null;
+    bande.classList.remove('active');
+    plierAuDoigt(0);
+  });
 }
 
 function preparerClavier() {
@@ -223,30 +224,23 @@ function preparerClavier() {
     capturer(zone, e);                         // le doigt peut glisser hors de la touche
     doigtsSurTouches.set(e.pointerId, t.note);
     recevoir({ data: [0x90, t.note, t.velocite] });
-    const geste = {};
-    gestesTouches.set(e.pointerId, geste);
-    repartirImmobilite(e.pointerId, geste, e);
+    placerLoupeVibrato();
   });
-  // Glisser : on passe d'une touche à la suivante (glissando), ou, touche verrouillée, on fait onduler la note
+  // Glisser : on passe d'une touche à la suivante (glissando)
   zone.addEventListener('pointermove', e => {
     if (!doigtsSurTouches.has(e.pointerId)) return;
-    const geste = gestesTouches.get(e.pointerId);
-    if (!geste) return;
-    if (geste.touche) {
-      if (Math.abs(e.clientX - geste.x) < geste.blanche * SORTIE_VIBRATO) { vibrerAuDoigt(geste, e.clientX); return; }
-      deverrouiller(geste);            // parti vers la touche voisine : glissando
-    }
-    if (Math.hypot(e.clientX - geste.x, e.clientY - geste.y) > TOLERANCE_IMMOBILE) repartirImmobilite(e.pointerId, geste, e);
     const t = toucheSous(e);
     if (!t || t.note === doigtsSurTouches.get(e.pointerId)) return;
     lacherNote(e.pointerId);
     doigtsSurTouches.set(e.pointerId, t.note);
     recevoir({ data: [0x90, t.note, t.velocite] });
+    placerLoupeVibrato();
   });
-  for (const fin of ['pointerup', 'pointercancel']) zone.addEventListener(fin, e => { finirGeste(e.pointerId); lacherNote(e.pointerId); });
+  for (const fin of ['pointerup', 'pointercancel']) zone.addEventListener(fin, e => { lacherNote(e.pointerId); placerLoupeVibrato(); });
   document.getElementById('octave-moins').onclick = () => changerOctave(-1);
   document.getElementById('octave-plus').onclick = () => changerOctave(1);
   dessinerClavier();
+  preparerBandeVibrato();
 }
 
 // --- Les pads ------------------------------------------------------------------

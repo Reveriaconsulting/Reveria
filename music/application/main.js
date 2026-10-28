@@ -93,7 +93,8 @@ app.whenReady().then(() => {
 
   // Le MiniLab : le MIDI et les messages spéciaux (SysEx) pour les couleurs des pads et l'écran.
   // fileSystem : Fichier › Sauvegarder écrit le fichier .boucles choisi dans la fenêtre « Enregistrer ».
-  const autorises = new Set(['midi', 'midiSysex', 'fileSystem']);
+  // media : le micro du sampleur (Édition › Sampleur…), demandé seulement au clic sur « Enregistrer ».
+  const autorises = new Set(['midi', 'midiSysex', 'fileSystem', 'media']);
   session.defaultSession.setPermissionRequestHandler((_, permission, repondre) => repondre(autorises.has(permission)));
   session.defaultSession.setPermissionCheckHandler((_, permission) => autorises.has(permission));
 

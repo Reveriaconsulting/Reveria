@@ -7,7 +7,8 @@
 //  1. le MIDI : Safari n'a pas le MIDI. Un « pont » relie le MiniLab (branché en USB)
 //     au logiciel, en imitant exactement l'API web que le logiciel utilise déjà ;
 //  2. le son : il doit sortir même quand l'interrupteur silencieux est enclenché ;
-//  3. la sauvegarde : le fichier .boucles est proposé dans « Enregistrer dans Fichiers ».
+//  3. la sauvegarde : le fichier .boucles est proposé dans « Enregistrer dans Fichiers » ;
+//  4. le micro du sampleur : la page le demande, iOS affiche sa propre demande d'autorisation.
 
 import SwiftUI
 import WebKit
@@ -58,6 +59,7 @@ struct VueLogiciel: UIViewRepresentable {
         vue.scrollView.bounces = false
         vue.scrollView.contentInsetAdjustmentBehavior = .never
         vue.navigationDelegate = context.coordinator
+        vue.uiDelegate = context.coordinator
         context.coordinator.pont.vue = vue
         context.coordinator.vue = vue
         vue.load(URLRequest(url: URL(string: "app://boucles/index.html")!))
@@ -67,7 +69,7 @@ struct VueLogiciel: UIViewRepresentable {
     func updateUIView(_ vue: WKWebView, context: Context) {}
 
     // Reçoit les téléchargements (Fichier › Sauvegarder) et les propose dans « Fichiers »
-    final class Coordinateur: NSObject, WKNavigationDelegate, WKDownloadDelegate {
+    final class Coordinateur: NSObject, WKNavigationDelegate, WKDownloadDelegate, WKUIDelegate {
         let pont = PontMIDI()
         weak var vue: WKWebView?
         private var fichierEnCours: URL?
@@ -75,6 +77,14 @@ struct VueLogiciel: UIViewRepresentable {
         func webView(_ webView: WKWebView, decidePolicyFor action: WKNavigationAction,
                      decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
             decisionHandler(action.shouldPerformDownload ? .download : .allow)
+        }
+
+        // Le sampleur demande le micro : on accepte pour notre page, et iOS pose sa propre question
+        // à l'utilisateur la première fois (texte de NSMicrophoneUsageDescription, Info.plist)
+        func webView(_ webView: WKWebView, requestMediaCapturePermissionFor origine: WKSecurityOrigin,
+                     initiatedByFrame cadre: WKFrameInfo, type: WKMediaCaptureType,
+                     decisionHandler: @escaping (WKPermissionDecision) -> Void) {
+            decisionHandler(type == .microphone ? .grant : .deny)
         }
 
         func webView(_ webView: WKWebView, navigationAction: WKNavigationAction, didBecome download: WKDownload) {

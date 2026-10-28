@@ -177,7 +177,8 @@ const tampons = {};                     // id → { fichier: son décodé }, une
 const prochainePrise = {};              // pour alterner les enregistrements d'une même note
 const chargements = {};                 // id → chargement en cours (pour ne pas le lancer deux fois)
 
-const tousLesInstruments = () => [...SONS_DE_SYNTHESE, ...catalogueSons];
+const sonsPerso = [];                   // vos sons enregistrés ou importés (sampleur.js), catégorie « Mes sons »
+const tousLesInstruments = () => [...SONS_DE_SYNTHESE, ...catalogueSons, ...sonsPerso];
 const infoInstrument = id => tousLesInstruments().find(i => i.id === id) || SONS_DE_SYNTHESE[0];
 
 async function chargerCatalogue() {
@@ -1082,6 +1083,7 @@ async function demarrer() {
   }
 
   await chargerCatalogue();      // la liste des vrais instruments (les sons eux-mêmes viendront à la demande)
+  await chargerSonsPerso();      // vos sons enregistrés ou importés (sampleur.js), avant de restaurer la session
 
   let restaurees = 0;
   const auto = lireSessionAuto();

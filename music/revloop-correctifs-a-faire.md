@@ -23,7 +23,7 @@ Constat (27/10/2026) : l'app ne permet pas de jouer au toucher et n'a aucun clav
 - [x] Textes de l'app : ne plus supposer qu'un MiniLab 3 est branché (fait et validé le 28/10/2026 : aide « Jouer au doigt », astuces du MiniLab affichées seulement s'il est branché, pages Arpégiateur, Réglages des pads et À propos)
 - [x] Équivalents tactiles du bouton central du MiniLab (validé sur iPhone le 28/10/2026) : bouton « 8 actions » (donc l'Arpège), flèches ‹ › pour choisir la boucle à régler sans la frapper
 - [x] Bande tactile du MiniLab réglée comme le vibrato au doigt (±½ demi-ton, validé le 28/10/2026)
-- [x] Vibrato au doigt (validé sur iPhone le 28/10/2026) : doigt immobile un instant = vibrato doux (±½ demi-ton, lissé, comme une corde), touche agrandie et dentée avec une corde qui vibre ; doigt qui part vers la touche voisine = glissando ; les deux s'enchaînent d'un seul geste (Do → Fa en vibrato → Sol)
+- [x] Vibrato au doigt (revu et validé le 28/10/2026) : on tient une note d'un doigt, et d'un 2e doigt on balance sur la bande « Vibrato » à gauche du clavier (±½ demi-ton, lissé) ; touche agrandie dentée avec une corde qui vibre. Glisser sur les touches = toujours un glissando
 Critère de validation : sur un iPhone sans aucun accessoire, on peut choisir un instrument, jouer une mélodie et des pads, et enregistrer une boucle.
 
 ### Priorité 1 — Mapping des touches
@@ -34,14 +34,15 @@ Critère de validation : sur un iPhone sans aucun accessoire, on peut choisir un
 - [x] Séparation claire pads (drums) / touches (mélodie) : une commande assignée ne joue jamais de note
 
 ### Priorité 2 — Sampleur (import et enregistrement audio)
-- [ ] Enregistrer la voix ou un son depuis le micro
-- [ ] Importer un fichier audio (WAV, MP3)
-- [ ] Réglage de la note d'origine du son
-- [ ] Découpe (début / fin) du son
-- [ ] Mode boucle pour qu'un son court dure tant que la touche est enfoncée
-- [ ] Jouer le son sur tout le clavier (changement de hauteur)
+- [x] Enregistrer la voix ou un son depuis le micro (Édition › Sampleur…, validé sur Mac et iPhone le 28/10/2026)
+- [x] Importer un fichier audio (WAV, MP3, M4A…) (fait ; pas encore testé avec un vrai fichier)
+- [x] Réglage de la note d'origine du son (détectée d'office, bouton « Détecter »)
+- [x] Découpe (début / fin) du son (silences retirés d'office)
+- [x] Le son dure tant que la touche est enfoncée (case « Tenir », cochée d'office : le milieu se répète en fondu)
+- [x] Jouer le son sur tout le clavier (changement de hauteur ; loin de la note d'origine, la voix sonne « robot », d'où l'étirement temporel prévu plus tard)
 - [ ] Plus tard : étirement temporel pour garder la durée du son
-- [ ] Autorisation micro iOS/macOS avec un texte explicatif clair
+- [x] Autorisation micro iOS/macOS avec un texte explicatif clair (demandée seulement au clic sur « Enregistrer »)
+- [ ] Les sons perso restent sur l'appareil : une session .boucles ouverte ailleurs ne les contient pas
 
 ### Priorité 3 — Assistant guide
 - [ ] Version 1 : tutoriel pas à pas intégré (branchement, premier son, premier loop)
