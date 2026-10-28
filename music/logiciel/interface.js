@@ -67,6 +67,7 @@ function afficherActions() {
   const zone = document.getElementById('pads');
   zone.classList.toggle('mode-huit', modeHuitActions);
   document.getElementById('badge-mode').hidden = !modeHuitActions;
+  document.getElementById('bouton-huit').textContent = modeHuitActions ? '← Boucles' : '8 actions';
   if (html === dernierPads) return;
   dernierPads = html;
   zone.innerHTML = html;
@@ -145,9 +146,12 @@ function afficherReglages() {
 
 // --- L'écran : ce que le MiniLab afficherait ---------------------------------------
 function afficherEcran(f, b) {
+  document.getElementById('ecran').style.setProperty('--c', COULEURS_ECRAN[familleActive]);   // couleur des flèches ‹ ›
   document.getElementById('ecran').innerHTML =
     '<span class="famille" style="color:' + COULEURS_ECRAN[familleActive] + '">' + f.nom + '</span>' +
-    '<span class="ligne">Pad <b>' + b.numero + '</b> · ' + ETIQUETTES_ETATS[b.etat] + '</span>' +
+    // ‹ › : au doigt, choisir la boucle à régler sans la frapper (tactile.js)
+    '<span class="ligne">Pad <button class="choix-pad" onclick="choisirBoucle(-1)" title="Boucle précédente">‹</button><b>' + b.numero +
+    '</b><button class="choix-pad" onclick="choisirBoucle(1)" title="Boucle suivante">›</button> · ' + ETIQUETTES_ETATS[b.etat] + '</span>' +
     '<span class="instru">' + nomInstrument(f, b) + '</span>' +
     (modeHuitActions ? '<span class="mode">Mode 8 actions</span>' : '');
 }

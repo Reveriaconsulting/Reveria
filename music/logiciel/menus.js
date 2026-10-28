@@ -44,6 +44,7 @@ const MENUS = [
     { libelle: 'Texte grand', action: () => changerTaille(1.25), coche: () => options.tailleTexte === 1.25 },
   ]},
   { titre: 'Aide', elements: [
+    { libelle: 'Jouer au doigt', action: aideTactile },
     { libelle: 'Commandes du MiniLab', action: aideMiniLab },
     { libelle: 'À propos de RevLoop', action: aPropos },
   ]},
@@ -339,7 +340,8 @@ function ouvrirChoixInstrument(numero) {
       (i.id === actuel ? '✓ ' : '') + i.nom + (i.id === f.instrument ? ' ★' : '') + '</button>'
     ).join('') + '</div>'
   ).join('') +
-  '<p class="note">★ = le son de base de la famille ' + f.nom + '. Astuce : Shift + bouton central du MiniLab fait défiler cette liste.</p>';
+  '<p class="note">★ = le son de base de la famille ' + f.nom + '.' +
+  (modeTactileActif ? '' : ' Astuce : Shift + bouton central du MiniLab fait défiler cette liste.') + '</p>';
   montrerDialogue('Instrument — ' + f.nom + ', pad ' + (numero + 1), html, [{ libelle: 'Annuler' }]);
 }
 
@@ -355,6 +357,32 @@ function changerTaille(facteur) {
 }
 
 // --- Aide ------------------------------------------------------------------
+function aideTactile() {
+  montrerDialogue('Jouer au doigt',
+    '<p>Sans clavier MIDI, tout se joue à l’écran. Dès qu’un clavier MIDI est branché, il prend le relais ' +
+    '(Affichage › Clavier à l’écran pour garder le clavier visible).</p>' +
+    '<table>' +
+    '<tr><td>Clavier</td><td>Jouer et enregistrer (son de la famille active). Plusieurs doigts = accord ; on peut glisser d’une touche à l’autre</td></tr>' +
+    '<tr><td>Force</td><td>Bas de la touche = fort, haut = doux</td></tr>' +
+    '<tr><td>Vibrato</td><td>Garder le doigt immobile un instant sur une touche (elle grossit), puis le balancer à gauche et à droite : la note ondule comme une corde. Enregistré dans la boucle avec les notes</td></tr>' +
+    '<tr><td>Vibrato → glissando</td><td>Pendant le vibrato, glisser franchement vers une autre touche : la note suit le doigt. S’arrêter de nouveau = vibrato sur la nouvelle note (ex. Do → Fa en vibrato → Sol, d’un seul geste)</td></tr>' +
+    '<tr><td>Oct + / Oct −</td><td>Monter ou descendre le clavier d’une octave</td></tr>' +
+    '<tr><td>Familles (en haut)</td><td>Toucher une famille pour la choisir</td></tr>' +
+    '<tr><td>Pads 1 à 4</td><td>Boucles : toucher = prêt, la 1re note lance l’enregistrement, toucher à nouveau = lecture, puis couper / relancer</td></tr>' +
+    '<tr><td>✕ d’une boucle</td><td>Annuler l’enregistrement ou effacer la boucle</td></tr>' +
+    '<tr><td>Pad tenu ' + options.appuiLong + ' s</td><td>Effacer la boucle et la réenregistrer</td></tr>' +
+    '<tr><td>Nom de l’instrument</td><td>Choisir l’instrument de la boucle dans la liste</td></tr>' +
+    '<tr><td>Pad ‹ › (écran)</td><td>Choisir la boucle réglée par les potards, sans la lancer ni la couper</td></tr>' +
+    '<tr><td>Potards</td><td>Glisser vers le haut ou le bas. Ils agissent sur la boucle sélectionnée (cadre jaune)</td></tr>' +
+    '<tr><td>Faders 1 à 4</td><td>Volume de chaque famille : poser le doigt à la hauteur voulue</td></tr>' +
+    '<tr><td>Bande verte (gauche)</td><td>Volume de la boucle sélectionnée</td></tr>' +
+    '<tr><td>Pads 5 à 8</td><td>Actions de la famille (Édition › Réglages des pads)</td></tr>' +
+    '<tr><td>8 actions</td><td>Les 8 pads deviennent des actions (dont l’Arpège) ; « ← Boucles » pour revenir</td></tr>' +
+    '<tr><td>Arpège</td><td>Tenez un accord, il est joué en rythme. Vitesse : Édition › Arpégiateur</td></tr>' +
+    '<tr><td>Rythme</td><td>Do = grosse caisse, Ré = caisse claire, Mi / Fa = charleston</td></tr>' +
+    '</table>');
+}
+
 function aideMiniLab() {
   montrerDialogue('Commandes du MiniLab 3',
     '<table>' +
@@ -382,7 +410,7 @@ function aideMiniLab() {
 
 function aPropos() {
   montrerDialogue('À propos',
-    '<p><b>RevLoop</b> : un looper simple, piloté par l’Arturia MiniLab 3.</p>' +
+    '<p><b>RevLoop</b> : un looper simple, à jouer au doigt ou avec un clavier MIDI comme l’Arturia MiniLab 3.</p>' +
     '<p>Construit pas à pas, pour apprendre.</p>');
 }
 

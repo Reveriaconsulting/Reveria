@@ -13,14 +13,16 @@ Constat (27/10/2026) : l'app ne permet pas de jouer au toucher et n'a aucun clav
 - [x] Clavier à l'écran : 2 octaves minimum, boutons de changement d'octave (fait le 28/10/2026 ; défilement ou zoom pas faits)
 - [x] Pads à l'écran (8 pads) pour la batterie et le lancement des boucles (fait le 28/10/2026)
 - [x] Knobs et faders tactiles pour les réglages de base : volume par famille et par boucle, 8 potards (fait le 28/10/2026 ; pas de réglage de tempo, l'app n'en a pas : la 1re boucle donne la mesure)
-- [x] Même écran de jeu que l'on utilise le tactile ou un clavier MIDI : le clavier physique prend le relais dès qu'il est détecté, même branché en cours de jeu (fait le 28/10/2026, testé en simulation, pas encore avec le vrai MiniLab sur iPhone)
+- [x] Même écran de jeu que l'on utilise le tactile ou un clavier MIDI : le clavier physique prend le relais dès qu'il est détecté, même branché en cours de jeu (fait et validé sur iPhone avec le MiniLab le 28/10/2026)
 - [x] Jeu multi-touch : plusieurs notes en même temps (accords), et glisser d'une touche à l'autre (fait le 28/10/2026)
 - [x] Sensibilité à la vitesse (vélocité) simulée selon la position du doigt sur la touche : bas = fort (fait le 28/10/2026)
 - [x] Validé sur Mac et sur iPhone 11 le 28/10/2026 : clavier, accords, boucle enregistrée au doigt, bouton ✕ pour annuler ou effacer une boucle, plus de menu « Copier » ni de loupe sur un appui long
-- [ ] À tester : MiniLab 3 branché sur l'iPhone pendant le jeu (le clavier à l'écran doit se ranger)
-- [ ] Faible latence : le son part dès l'appui (objectif sous 20 ms). Le son part dès l'appui du doigt ; mesuré environ 21 ms sur Mac dans Chrome, à mesurer sur un vrai iPhone
+- [x] MiniLab 3 sur l'iPhone validé le 28/10/2026 : branché, il prend le relais (le clavier à l'écran se range) ; débranché puis rebranché pendant le jeu, tout suit sans redémarrer
+- [x] Faible latence : le son part dès l'appui du doigt. Mesuré environ 21 ms sur Mac dans Chrome ; aucun retard ressenti sur iPhone (jugé suffisant le 28/10/2026, pas de mesure chiffrée)
 - [ ] Le guide (priorité 3) affiche l'écran tactile quand aucun clavier n'est branché, et le schéma du MiniLab 3 quand il est détecté
-- [ ] Textes de l'app : ne plus supposer qu'un MiniLab 3 est branché (fait pour la ligne d'état ; reste l'aide et les astuces)
+- [x] Textes de l'app : ne plus supposer qu'un MiniLab 3 est branché (fait et validé le 28/10/2026 : aide « Jouer au doigt », astuces du MiniLab affichées seulement s'il est branché, pages Arpégiateur, Réglages des pads et À propos)
+- [x] Équivalents tactiles du bouton central du MiniLab (validé sur iPhone le 28/10/2026) : bouton « 8 actions » (donc l'Arpège), flèches ‹ › pour choisir la boucle à régler sans la frapper
+- [x] Vibrato au doigt (validé sur iPhone le 28/10/2026) : doigt immobile un instant = vibrato doux (±½ demi-ton, lissé, comme une corde), touche agrandie et dentée avec une corde qui vibre ; doigt qui part vers la touche voisine = glissando ; les deux s'enchaînent d'un seul geste (Do → Fa en vibrato → Sol)
 Critère de validation : sur un iPhone sans aucun accessoire, on peut choisir un instrument, jouer une mélodie et des pads, et enregistrer une boucle.
 
 ### Priorité 1 — Mapping des touches

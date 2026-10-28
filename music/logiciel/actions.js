@@ -201,7 +201,7 @@ function ouvrirReglagesPads() {
   ).join('');
   montrerDialogue('Réglages des pads — ' + familles[i].nom,
     '<p>Choisissez l’action de chaque pad pour la famille <b>' + familles[i].nom + '</b>. ' +
-    'Les actions 5 à 8 s’obtiennent par un clic sur le bouton central (mode 8 actions).</p>' + lignes,
+    'Les actions 5 à 8 s’obtiennent en mode 8 actions : bouton « 8 actions » à l’écran, ou clic du bouton central du MiniLab.</p>' + lignes,
     [
       { libelle: 'Valeurs par défaut', action: () => {
         options.actionsPads[i] = JSON.parse(JSON.stringify(ACTIONS_PAR_DEFAUT[i]));

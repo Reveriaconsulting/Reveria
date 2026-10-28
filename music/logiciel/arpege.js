@@ -125,7 +125,8 @@ function ouvrirReglagesArpege() {
   montrerDialogue('Arpégiateur',
     '<p>L’arpège se met en marche avec l’action de pad <b>« Arpège »</b> (pad 4 en mode 8 actions pour Basse, Nappes et Mélodie). ' +
     'Tenez un accord : il est joué note par note, calé sur vos boucles. Une seule touche tenue est répétée en rythme. ' +
-    '<b>Pour changer la vitesse en jouant :</b> gardez les touches enfoncées et tournez le bouton central.</p>' +
+    '<b>Pour changer la vitesse en jouant :</b> avec le MiniLab, gardez les touches enfoncées et tournez le bouton central ; ' +
+    'au doigt, choisissez-la ci-dessous.</p>' +
     '<label>Sens ' + choix('arp-sens', SENS_ARPEGE, options.arpege.sens) + '</label>' +
     '<label>Vitesse ' + choix('arp-vitesse', { 4: 'Lente (4 notes par mesure)', 6: '6 (triolets)', 8: 'Moyenne (8)', 12: '12 (triolets)', 16: 'Rapide (16)', 24: '24 (triolets)', 32: 'Très rapide (32)', 48: '48 (triolets)', 64: 'Roulement (64)', 96: 'Roulement (96)', 128: 'Roulement très serré (128)' }, options.arpege.parMesure) + '</label>' +
     '<label>Étendue ' + choix('arp-octaves', { 1: '1 octave', 2: '2 octaves', 3: '3 octaves' }, options.arpege.octaves) + '</label>');
