@@ -70,6 +70,18 @@
     #tete h1 { display: flex; align-items: center; gap: 0.6rem; margin: 0; font-size: 1.45rem; font-weight: 700; white-space: nowrap;
                overflow: hidden; text-overflow: ellipsis; font-family: Georgia, 'Times New Roman', serif; letter-spacing: 0.01em; }
     #tete h1 svg { width: 3rem; height: 3rem; flex: none; filter: drop-shadow(0 0 8px rgba(74, 143, 209, 0.6)); }
+    /* Le nom « Astrellia » façon arcade (lettres en SVG : nettes partout, sans police à charger) */
+    #tete h1 svg.titre-astrellia { width: auto; height: 1.55em; overflow: visible; filter: drop-shadow(0 0 6px rgba(143, 195, 245, 0.45)); }
+    .titre-astrellia .relief { stroke: #141f36; stroke-width: 2; }
+    .titre-astrellia .lettres { stroke: url(#as-degrade); stroke-width: 2; }
+    .titre-astrellia .reflet { stroke: rgba(255, 255, 255, 0.55); stroke-width: 0.45; }
+    .titre-astrellia .lettres-ia { stroke: url(#as-ia); stroke-width: 2; }
+    .titre-astrellia .noeuds { fill: #f5ecff; }
+    .titre-astrellia .ia { filter: drop-shadow(0 0 2px rgba(168, 85, 247, 0.7)); animation: pensee 3.2s ease-in-out infinite; }
+    @keyframes pensee { 50% { filter: drop-shadow(0 0 2px rgba(192, 132, 252, 0.9)) drop-shadow(0 0 5px rgba(34, 211, 238, 0.7)); } }
+    .titre-astrellia .etoile { fill: #fff; filter: drop-shadow(0 0 2px #fff) drop-shadow(0 0 4px #8fc3f5); transform-box: fill-box; transform-origin: center;
+                               animation: scintille 2.8s ease-in-out infinite; }
+    @keyframes scintille { 0%, 100% { opacity: 0.55; scale: 0.7; } 50% { opacity: 1; scale: 1.15; rotate: 45deg; } }
     #nom-session::before { content: '· '; }
     #nom-session { color: var(--texte-2); font-weight: 400; font-family: system-ui, -apple-system, sans-serif; font-size: 1.05rem; }
     #familles { position: relative; display: flex; gap: 1.6rem; margin-left: auto; }
@@ -308,7 +320,7 @@
       #app { padding: 0.7rem; gap: 0.7rem; }
       #tete { flex-wrap: wrap; gap: 0.5rem; }
       #tete h1 { font-size: 1.25rem; }
-      #tete h1 svg { width: 2rem; height: 2rem; }
+      #tete h1 svg:not(.titre-astrellia) { width: 2rem; height: 2rem; }
       #familles { margin-left: 0; width: 100%; justify-content: space-between; gap: 0.5rem; }
       .onglet { flex: 1; font-size: 0.9rem; }
       #pads { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem 0.55rem; }
@@ -331,7 +343,7 @@
     /* Téléphone en paysage : peu de hauteur, on serre */
     @media (max-height: 500px) and (min-aspect-ratio: 1/1) {
       #app { gap: 0.45rem; padding: 0.5rem 0.8rem; }
-      #tete h1 svg { width: 1.8rem; height: 1.8rem; }
+      #tete h1 svg:not(.titre-astrellia) { width: 1.8rem; height: 1.8rem; }
       #pads { align-self: stretch; padding: 4px 0; }
       .mesure-entete { display: none; }
       #pads .pad { aspect-ratio: auto; height: 100%; max-height: none; padding: 0.45rem; }
@@ -472,7 +484,10 @@
         <circle cx="276.4" cy="648" r="34" fill="url(#rl-b)"/><circle cx="276.4" cy="376" r="38" fill="url(#rl-g)"/><circle cx="512" cy="240" r="50" fill="url(#rl-v)"/>
         <g stroke="#dbe9f8" stroke-linecap="round" fill="none"><line x1="490" y1="600" x2="490" y2="400" stroke-width="20"/><line x1="634" y1="572" x2="634" y2="372" stroke-width="20"/>
         <path d="M490,402 L634,374" stroke-width="44"/><path d="M490,456 L634,428" stroke-width="28"/></g>
-        <ellipse cx="450" cy="610" rx="56" ry="45" fill="url(#rl-h)" transform="rotate(-20 450 610)"/><ellipse cx="594" cy="582" rx="56" ry="45" fill="url(#rl-b)" transform="rotate(-20 594 582)"/></svg>Astrellia <span id="nom-session"></span></h1>
+        <ellipse cx="450" cy="610" rx="56" ry="45" fill="url(#rl-h)" transform="rotate(-20 450 610)"/><ellipse cx="594" cy="582" rx="56" ry="45" fill="url(#rl-b)" transform="rotate(-20 594 582)"/></svg>
+        <!-- le nom, dessiné comme un logo d'arcade : lettres à coins coupés (comme les boutons biseautés), relief, dégradé de la nuit Reveria ;
+             « IA » (l'intelligence artificielle) ressort : violet électrique, nœuds de réseau lumineux, lueur qui respire ; l'étoile d'Astrellia scintille au-dessus -->
+        <svg class="titre-astrellia" viewBox="-1.5 -4 86.1 16" role="img" aria-label="Astrellia"><defs><linearGradient id="as-degrade" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="10"><stop offset="0" stop-color="#cfe6fb"/><stop offset=".35" stop-color="#8fc3f5"/><stop offset=".7" stop-color="#4a8fd1"/><stop offset="1" stop-color="#7c5cf0"/></linearGradient><linearGradient id="as-ia" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="10"><stop offset="0" stop-color="#e3c4ff"/><stop offset=".25" stop-color="#c084fc"/><stop offset=".65" stop-color="#9333ea"/><stop offset="1" stop-color="#06b6d4"/></linearGradient><g id="as-nom" fill="none" stroke-linejoin="bevel" stroke-linecap="butt"><path transform="translate(0 0)" d="M1,10 V4 L4,1 L7,4 V10 M1,6.2 H7"/><path transform="translate(9.7 0)" d="M7.2,1 H2.5 L1,2.5 V3.6 L2.5,5 H5.5 L7,6.4 V7.5 L5.5,9 H0.8"/><path transform="translate(19.4 0)" d="M0,1 H8 M4,1 V10"/><path transform="translate(29.1 0)" d="M1,10 V1 H5.5 L7,2.5 V3.9 L5.5,5.4 H1 M4.6,5.4 L7,8 V10"/><path transform="translate(38.8 0)" d="M7.4,1 H2.5 L1,2.5 V7.5 L2.5,9 H7.4 M1,5 H5.6"/><path transform="translate(48.5 0)" d="M1,0 V7.5 L2.5,9 H7.4"/><path transform="translate(58.2 0)" d="M1,0 V7.5 L2.5,9 H7.4"/></g><g id="as-lettres-ia" fill="none" stroke-linejoin="bevel" stroke-linecap="butt"><path transform="translate(67.9 0)" d="M1,0 V10"/><path transform="translate(71.6 0)" d="M1,10 V4 L4,1 L7,4 V10 M1,6.2 H7"/></g></defs><g transform="skewX(-9)"><use href="#as-nom" class="relief" transform="translate(0.9 1.1)"/><use href="#as-lettres-ia" class="relief" transform="translate(0.9 1.1)"/><use href="#as-nom" class="lettres"/><g class="ia"><use href="#as-lettres-ia" class="lettres-ia"/><g class="noeuds"><circle cx="68.9" cy="0" r="0.85"/><circle cx="68.9" cy="10" r="0.85"/><circle cx="75.6" cy="1" r="0.85"/><circle cx="72.6" cy="10" r="0.85"/><circle cx="78.6" cy="10" r="0.85"/></g></g><use href="#as-nom" class="reflet" transform="translate(-0.25 -0.35)"/><use href="#as-lettres-ia" class="reflet" transform="translate(-0.25 -0.35)"/></g><g transform="translate(82 -1.8)"><path class="etoile" d="M0,-2.6 L.55,-.55 L2.6,0 L.55,.55 L0,2.6 L-.55,.55 L-2.6,0 L-.55,-.55Z"/></g></svg> <span id="nom-session"></span></h1>
       <span id="badge-mode" hidden>Mode 8 actions</span>
       <button id="bouton-huit" onclick="basculerHuitActions()" title="Les 8 pads deviennent des actions (comme le clic du bouton central du MiniLab)">8 actions</button>
       <div id="familles"></div>
