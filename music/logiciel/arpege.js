@@ -88,7 +88,7 @@ function jouerNoteArpege(note, velocite, quand, duree) {
       afficher();
     }
     if (boucle.etat === 'enregistrement') {
-      boucle.notes.push({ quand: quand - boucle.debut, duree, note, velocite });
+      boucle.notes.push({ quand: Math.max(0, quand - boucle.debut), duree, note, velocite });
     }
   }
 }

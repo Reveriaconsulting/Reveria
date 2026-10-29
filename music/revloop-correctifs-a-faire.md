@@ -2,7 +2,7 @@
 
 > Le 28/10/2026, l'application RevLoop a été renommée **Astrellia**. Les fichiers et dossiers gardent le nom « revloop » (identifiants internes inchangés, données conservées).
 
-Dernière mise à jour : 28/10/2026 (soir)
+Dernière mise à jour : 29/10/2026
 
 ## État au 28/10/2026
 
@@ -68,6 +68,11 @@ Critère de validation : sur un iPhone sans aucun accessoire, on peut choisir un
 ### Correctif du 28/10/2026 — son coupé après être passé à une autre app (iPhone)
 - [x] Cause : bug connu de WebKit sur iPhone, le son se dit actif alors que sa sortie vers le haut-parleur reste coupée après une interruption
 - [x] Correction : au retour dans l'app, la session audio iOS est réactivée (mode lecture) et la sortie du son est forcée à repartir (pause puis reprise) ; bandeau rouge « Son en pause » si le son reste arrêté. Validé sur iPhone 11
+
+### Correctif du 29/10/2026 — synchronisation des boucles
+- [x] Problème : la 2e boucle ne restait pas en rythme avec la 1re
+- [x] Essai rejeté : calage du départ sur le « 1 » et durée arrondie au ¼ ou ½ de mesure (les mesures ne tombaient pas juste)
+- [x] Règle retenue : la boucle commence à la 1re note et s'arrête quand on refrappe le pad. Si une autre boucle joue, sa durée est arrondie au nombre entier de mesures le plus proche (1 à 8, arrêt seul à 8). Si rien ne joue (y compris après la reprise d'une session), elle dure exactement ce qui a été joué et fixe une nouvelle mesure. Validé sur iPhone 11
 
 ### Priorité 1 — Mapping des touches
 - [x] Permettre à l'utilisateur d'assigner chaque touche, pad, knob et fader à une fonction (Édition › Clavier MIDI…, bouton « Apprendre » ; validé sur Mac avec le MiniLab le 28/10/2026). Raccourcis d'instrument : une commande donne un instrument choisi à la boucle sélectionnée

@@ -791,31 +791,41 @@ function rejouerCourbe(b, voix, quand, fin, depart, longueur) {
 function noterFin(b, note, fin) {
   const debut = b.enAttente[note];
   if (!debut) return;
-  b.notes.push({ quand: debut.quand, duree: fin - debut.quand, note, velocite: debut.velocite });
+  // une note jouée juste avant le « 1 » (début négatif) est placée sur le « 1 », en gardant la durée tenue
+  b.notes.push({ quand: Math.max(0, debut.quand), duree: Math.max(0.05, fin - debut.quand), note, velocite: debut.velocite });
   delete b.enAttente[note];
 }
 
 // --- Les boucles ---------------------------------------------------------
-// Arrondit une durée au multiple de la référence le plus proche (×¼, ×½, ×1, ×2…).
-// C'est ce qui garde toutes les boucles alignées, même si le pad est frappé un peu tôt ou tard.
-// Comme une pédale loop : n'importe quel nombre entier de fois la 1re boucle (×1, ×2, ×3, ×5…),
-// le plus proche de ce qui a été joué. Pour une boucle plus courte que la 1re : ×½ ou ×¼.
 // Calcule le début du tour de boucle en cours, à partir du « zéro » de la boucle.
 // Ainsi, une boucle relancée reprend toujours en place, alignée sur les autres.
 function tourEnCours(b, maintenant) {
   return b.debut + Math.floor((maintenant - b.debut) / b.duree) * b.duree;
 }
 
+// --- Des mesures entières (règle de l'utilisateur, 2026-10-29) ----------------------
+// La 1re boucle fixe la mesure. Chaque boucle suivante commence à sa 1re note et dure un nombre entier de
+// mesures : celui le plus proche de ce qui a été joué (1, 2, 3…, jusqu'à MESURES_MAXI, où elle s'arrête
+// seule). Arrêtée un peu avant la fin d'une mesure, le reste est un silence ; un peu après, les notes en trop
+// reviennent au début. Comme toutes les durées sont des multiples de la mesure, les boucles restent en rythme.
+// Si aucune autre boucle ne joue (rien enregistré, ou tout à l'arrêt, par ex. après la reprise d'une session),
+// la boucle repart de zéro : elle dure exactement ce qui a été joué et fixe une nouvelle mesure.
+const MESURES_MAXI = 8;
+
+function mesureImposee(b) {
+  return reference > 0 && toutesLesBoucles().some(({ b: autre }) => autre !== b && autre.etat === 'lecture');
+}
+// (Remplace la règle du 2026-10-26, « durée exacte, sans arrondi », qui laissait les boucles se décaler.)
+
 function terminerEnregistrement(b, maintenant) {
   const brute = maintenant - b.debut;
-  if (reference === 0) {                    // la toute 1re boucle devient la référence
+  const premiere = !mesureImposee(b);
+  if (premiere) {                           // elle devient la référence
     reference = brute;
     origineReference = b.debut;
     calerDelay();
   }
-  // Règle de l'utilisateur (2026-10-26) : une boucle garde exactement la durée jouée, sans
-  // arrondi ; la seule limite est de ne pas dépasser la 1re boucle (voir arretAutomatique).
-  b.duree = Math.min(brute, reference);
+  b.duree = premiere ? brute : reference * Math.min(MESURES_MAXI, Math.max(1, Math.round(brute / reference)));
   for (const note in b.enAttente) noterFin(b, Number(note), b.duree);
   // Par sécurité, une note qui dépasserait la fin est ramenée au début (comme sur une pédale loop).
   for (const n of b.notes) {
@@ -932,8 +942,8 @@ const AVANCE = 0.1;
 // et se met aussitôt à tourner.
 function arretAutomatique(maintenant) {
   for (const { b } of toutesLesBoucles()) {
-    if (b.etat === 'enregistrement' && reference > 0 && maintenant - b.debut >= reference) {
-      terminerEnregistrement(b, b.debut + reference);
+    if (b.etat === 'enregistrement' && mesureImposee(b) && maintenant - b.debut >= reference * MESURES_MAXI) {
+      terminerEnregistrement(b, b.debut + reference * MESURES_MAXI);
       annoncerSurMiniLab('Boucle P' + b.numero, 'duree maxi');
       afficher();
     }
