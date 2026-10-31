@@ -176,6 +176,7 @@ let catalogueSons = [];                 // rempli au démarrage depuis sons/inst
 const tampons = {};                     // id → { fichier: son décodé }, une fois chargé
 const prochainePrise = {};              // pour alterner les enregistrements d'une même note
 const chargements = {};                 // id → chargement en cours (pour ne pas le lancer deux fois)
+const echecs = {};                      // id → instant du dernier chargement raté (pour réessayer plus tard)
 
 const tousLesInstruments = () => [...SONS_DE_SYNTHESE, ...catalogueSons];
 const infoInstrument = id => tousLesInstruments().find(i => i.id === id) || SONS_DE_SYNTHESE[0];
@@ -189,18 +190,44 @@ async function chargerCatalogue() {
   }
 }
 
+// Si un son ne se charge pas (fichier absent, format illisible…), on le signale au lieu de
+// rester muet, et on réessaie à la prochaine note jouée, au plus une fois toutes les 5 s.
 function chargerInstrument(id) {
   const inst = catalogueSons.find(i => i.id === id);
   if (!inst || chargements[id]) return chargements[id];
-  chargements[id] = Promise.all(inst.regions.map(async r => {
-    const octets = await (await fetch('sons/' + r.fichier)).arrayBuffer();
-    return [r.fichier, await audio.decodeAudioData(octets)];
+  if (echecs[id] && performance.now() - echecs[id] < 5000) return;
+  const chargement = chargements[id] = Promise.all(inst.regions.map(async r => {
+    const reponse = await fetch('sons/' + r.fichier);
+    if (!reponse.ok) throw new Error(r.fichier + ' introuvable (' + reponse.status + ')');
+    return [r.fichier, await audio.decodeAudioData(await reponse.arrayBuffer())];
   })).then(paires => {
+    if (chargements[id] !== chargement) return;   // libéré entre-temps (voir libererInstruments) : on ne garde rien
     tampons[id] = Object.fromEntries(paires);
+    delete echecs[id];
     afficher();                         // retire la mention « chargement… »
+  }, erreur => {
+    if (chargements[id] !== chargement) return;
+    delete chargements[id];
+    echecs[id] = performance.now();
+    console.warn('Son « ' + inst.nom + ' » impossible à charger :', erreur);
+    informer('Le son « ' + inst.nom + ' » n’a pas pu être chargé. Rejouez une note ou rechoisissez-le pour réessayer.');
+    afficher();
   });
   afficher();
-  return chargements[id];
+  return chargement;
+}
+
+// Libère la mémoire des vrais instruments qu'aucune boucle n'utilise plus. Une fois décodé,
+// un instrument prend beaucoup de place (155 Mo pour le piano à queue, 1,9 Go pour les 61) :
+// sur iPhone, les garder tous finirait par faire arrêter la page par le système, et le son avec.
+// Une note qui sonne encore garde son propre son jusqu'à la fin : rien n'est coupé.
+function libererInstruments() {
+  const utiles = new Set(toutesLesBoucles().map(({ f, b }) => instrumentDe(f, b)));
+  for (const id of new Set([...Object.keys(tampons), ...Object.keys(chargements)])) {
+    if (utiles.has(id)) continue;
+    delete tampons[id];
+    delete chargements[id];
+  }
 }
 
 function choisirRegion(inst, note, vel) {
@@ -322,11 +349,17 @@ const sonsDeLaFamille = f => tousLesInstruments().filter(i =>
 const existe = id => !!instruments[id] || catalogueSons.some(i => i.id === id);
 const instrumentDe = (f, b) => (b.instrument && existe(b.instrument) ? b.instrument : f.instrument);
 
-// Change l'instrument de la boucle sélectionnée (liste à l'écran ou Shift + bouton central)
-function choisirInstrument(id) {
+// Change l'instrument de la boucle sélectionnée (liste à l'écran ou Shift + bouton central).
+// differer : en faisant défiler la liste, on ne charge que l'instrument sur lequel on
+// s'arrête (0,4 s sans tourner) ; charger chaque instrument traversé remplirait la mémoire.
+let minuteurChargement;
+function choisirInstrument(id, differer) {
   const b = boucleSelectionnee();
   b.instrument = id === familles[familleActive].instrument ? null : id;
-  chargerInstrument(id);
+  libererInstruments();                // l'ancien instrument, s'il ne sert plus ailleurs
+  clearTimeout(minuteurChargement);
+  if (differer) minuteurChargement = setTimeout(() => chargerInstrument(id), 400);
+  else chargerInstrument(id);
   afficher();
 }
 
@@ -334,7 +367,7 @@ function choisirInstrument(id) {
 function defilerInstrument(sens) {
   const liste = sonsDeLaFamille(familles[familleActive]);
   const actuel = liste.findIndex(i => i.id === instrumentDe(familles[familleActive], boucleSelectionnee()));
-  choisirInstrument(liste[(actuel + sens + liste.length) % liste.length].id);
+  choisirInstrument(liste[(actuel + sens + liste.length) % liste.length].id, true);
 }
 
 const familles = [
@@ -465,6 +498,7 @@ function appliquerSession(session) {
       nombre++;
     });
   });
+  libererInstruments();                  // ceux de la session précédente
   afficher();
   return nombre;
 }
@@ -878,6 +912,7 @@ function effacerBoucle(b, aussiLesReglages) {
     Object.assign(b, { instrument: null, transpo: 0, vitesse: 1, muet: false });
     b.reglages = { ...REGLAGES_NEUFS };
     for (const nom in b.reglages) appliquerReglage(b, nom);
+    libererInstruments();
   }
   if (toutesLesBoucles().every(({ b: autre }) => autre.etat === 'vide')) reference = origineReference = 0;
   afficher();

@@ -78,6 +78,13 @@ struct VueLogiciel: UIViewRepresentable {
         weak var vue: WKWebView?
         private var fichierEnCours: URL?
 
+        // iOS arrête la page quand elle prend trop de mémoire : l'écran resterait figé et
+        // muet jusqu'à la fermeture de l'application. On la recharge aussitôt ; la session
+        // sauvegardée revient (boucles à l'arrêt), il suffit de toucher « Démarrer ».
+        func webViewWebContentProcessDidTerminate(_ webView: WKWebView) {
+            webView.reload()
+        }
+
         func webView(_ webView: WKWebView, decidePolicyFor action: WKNavigationAction,
                      decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
             decisionHandler(action.shouldPerformDownload ? .download : .allow)

@@ -139,7 +139,7 @@ Disposé **comme le MiniLab** (d'après la photo) : menus en haut, onglets des f
   - ❌ Mode guitare essayé (grattage, ampli, haut-parleur) : pas convaincant → guitares électriques supprimées. Le **grattage** est gardé pour la guitare classique et le ukulélé.
 
 Instruments enregistrés : (piano, clavecin, orgue, piano FM 80s, clavisynth, flûte, clarinette, saxophone, ocarina, violons, violoncelles, contrebasse, harpe, trompette, cor, vibraphone, marimba, glockenspiel, kalimba, cloches).
-Seulement des sons **CC0 ou du domaine public** (sans citer d'auteur), dans `logiciel/sons/` (93 Mo). Hauteurs vérifiées une à une. Détail : `palette-instruments.md`.
+Seulement des sons **CC0 ou du domaine public** (sans citer d'auteur), dans `logiciel/sons/` (117 Mo, tous en AAC `.m4a` depuis le 2026-10-31 : les 14 instruments en `.ogg` ont été convertis, l'iPhone ne lisant pas l'Ogg sur toutes les versions d'iOS). Hauteurs vérifiées une à une. Détail : `palette-instruments.md`.
 
 ## Sauvegarde ✅
 - **Automatique** dans Chrome, 0,5 s après chaque changement. À l'ouverture, les boucles reviennent à l'arrêt.
@@ -148,6 +148,13 @@ Seulement des sons **CC0 ou du domaine public** (sans citer d'auteur), dans `log
 ## À corriger
 1. ~~Shift + bouton central ne change plus l'instrument~~ : cause trouvée le 2026-10-26. Avec Shift, le clavier envoie le CC 29 au lieu du 28. C'est corrigé.
 2. ~~Couleurs des pads qui « sautent »~~ : **n'est plus observé** par l'utilisateur (2026-10-26). La cause disparue est probablement l'ancienne version que Chrome gardait en mémoire. Aucune correction n'est faite pour l'instant. Si le problème revient, la solution prévue reste de repeindre le pad 0,1 s et 0,3 s après chaque appui et chaque relâchement.
+3. 🟡 **Son coupé sur iPhone** (signalé le 2026-10-31) : audit du son, 12 défauts trouvés. Corrigés (à valider sur iPhone) :
+   - relance du son mis en pause par iOS (appel, Siri, autre application) au toucher suivant ;
+   - mémoire : un instrument qu'aucune boucle n'utilise est libéré (1,9 Go si les 61 étaient chargés) ; Shift + bouton central ne charge que l'instrument sur lequel on s'arrête ;
+   - page relancée automatiquement si iOS l'arrête (iPhone et Mac) ;
+   - un son qui ne se charge pas est signalé (« indisponible ») et réessayé ;
+   - les 14 instruments `.ogg` convertis en `.m4a`.
+   Restent à faire : notes et arpège bloqués, saturation (kalimba +5,4 dB, cloches, orgue, marimba, aucun limiteur en sortie), cymbale crash coupée à 1 s, message « Son en pause » invisible en paysage (lot B) ; performances, boucle très courte, grattage des guitares (lot C).
 
 ## Prochaines étapes (décidées le 2026-10-26)
 1. ⏳ **Publier RevLoop sur l'App Store.** À prévoir :
@@ -180,7 +187,7 @@ Audio réel (guitare, voix — idée : brancher sa vraie guitare par le Valeton 
 | `logiciel/synthes.js` | Sons fabriqués en code (synthwave, ambient, arcade) |
 | `logiciel/fond.js` | Fond d'écran animé : les nœuds Reveria |
 | `logiciel/tactile.js` | Jouer au toucher : les pads de l'écran |
-| `logiciel/sons/` | Les 61 instruments enregistrés (93 Mo) + `instruments.json` |
+| `logiciel/sons/` | Les 61 instruments enregistrés (117 Mo, `.m4a`) + `instruments.json` |
 | `logiciel/outils/` | Téléchargement des sons (lots 1, 2, 3), vérification des hauteurs |
 | `minilab3-mapping.md` | Carte MIDI mesurée du MiniLab 3 |
 | `application/` | L'application Mac (Electron) : `main.js`, icône dans `build/`, `installer-mac.sh` |

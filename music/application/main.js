@@ -37,6 +37,9 @@ function creerFenetre() {
   });
   fenetre.once('ready-to-show', () => fenetre.show());
   fenetre.loadURL('app://boucles/index.html');
+  // Si la page s'arrête (manque de mémoire…), on la recharge au lieu de laisser une fenêtre
+  // vide et muette ; la session sauvegardée revient (boucles à l'arrêt).
+  fenetre.webContents.on('render-process-gone', () => fenetre.reload());
   // Un lien vers un site externe s'ouvre dans le navigateur, pas dans l'application
   fenetre.webContents.setWindowOpenHandler(({ url }) => {
     shell.openExternal(url);

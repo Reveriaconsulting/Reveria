@@ -17,11 +17,12 @@ const ETIQUETTES_ETATS = {
 };
 let dernierPads = '';
 
-// Le nom de l'instrument d'une boucle, avec « chargement… » le temps que ses sons arrivent
+// Le nom de l'instrument d'une boucle, avec « chargement… » le temps que ses sons arrivent,
+// ou « indisponible » si le chargement a échoué (moteur.js réessaie à la note suivante)
 function nomInstrument(f, b) {
   const id = instrumentDe(f, b);
   const enAttente = !instruments[id] && !tampons[id];
-  return infoInstrument(id).nom + (enAttente ? ' (chargement…)' : '');
+  return infoInstrument(id).nom + (echecs[id] ? ' (indisponible)' : enAttente ? ' (chargement…)' : '');
 }
 
 // Tout ce qui change quand on agit : familles, pads, potards, faders

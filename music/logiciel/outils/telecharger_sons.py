@@ -1,5 +1,7 @@
 """Télécharge les instruments libres (CC0 / domaine public) et écrit logiciel/sons/instruments.json.
 
+Les sons sont convertis en AAC (.m4a) avec ffmpeg.
+
 Usage : python3 -I telecharger_sons.py <dossier sons> <dossier temporaire WAV>
 """
 import json, os, re, subprocess, sys, urllib.parse, urllib.request, wave
@@ -37,6 +39,15 @@ def telecharger(urls, chemin):
             f.write(donnees)
         return chemin
     raise SystemExit(f'Introuvable : {urls}')
+
+def telecharger_m4a(urls, sortie):
+    """Télécharge un son .ogg et le convertit en AAC (.m4a) : l'iPhone ne lit pas l'Ogg
+    sur toutes les versions d'iOS, alors que l'AAC est lu partout (converti le 2026-10-31)."""
+    if os.path.exists(sortie):
+        return
+    ogg = telecharger(urls, sortie[:-4] + '.ogg')
+    subprocess.run(['ffmpeg', '-y', '-v', 'error', '-i', ogg, '-c:a', 'aac', '-b:a', '160k', sortie], check=True)
+    os.remove(ogg)
 
 catalogue = []
 
@@ -97,11 +108,11 @@ def instrument_websfz(ident, nom, categorie, url):
     taches = []
     sortie = []
     for s, cle, vol, off, accord in gardees:
-        fichier = f'{ident}/{cle}.{fmt}'
+        fichier = f'{ident}/{cle}.m4a'
         taches.append(([base + s + '.' + fmt, parent + s + '.' + fmt], os.path.join(SONS, fichier)))
         sortie.append({'fichier': fichier, 'cle': cle, 'volume': vol, 'debut': round(off, 4), 'accord': accord})
     with ThreadPoolExecutor(8) as ex:
-        list(ex.map(lambda t: telecharger(*t), taches))
+        list(ex.map(lambda t: telecharger_m4a(*t), taches))
     return {'id': ident, 'nom': nom, 'categorie': categorie, 'regions': sortie}
 
 for args in WEBSFZ:
@@ -118,11 +129,11 @@ for x in arbre:
     m = re.fullmatch(r'audio/splendid-grand-piano/Mf-(.+)\.ogg', x['path'])
     if m:
         cle = midi(m.group(1), do_central=3)
-        fichier = f'piano/{cle}.ogg'
+        fichier = f'piano/{cle}.m4a'
         taches.append(('https://danigb.github.io/samples/splendid-grand-piano/Mf-' + m.group(1) + '.ogg', os.path.join(SONS, fichier)))
         regions.append({'fichier': fichier, 'cle': cle, 'volume': 0, 'debut': 0})
 with ThreadPoolExecutor(8) as ex:
-    list(ex.map(lambda t: telecharger(*t), taches))
+    list(ex.map(lambda t: telecharger_m4a(*t), taches))
 regions.sort(key=lambda r: r['cle'])
 catalogue.insert(0, {'id': 'piano', 'nom': 'Piano à queue', 'categorie': 'Claviers', 'regions': regions})
 print(f"{'Piano à queue':22s} {len(regions):3d} échantillons", flush=True)
