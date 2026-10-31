@@ -360,8 +360,8 @@ function aideMiniLab() {
     '<tr><td>Touches</td><td>Jouer et enregistrer (son de la famille active)</td></tr>' +
     '<tr><td>Bouton central (tourner)</td><td>Changer de famille (ou cliquer sur sa carte à l’écran)</td></tr>' +
     '<tr><td>Pads 1 à 4</td><td>Boucles de la famille : frapper = sélectionner + enregistrer, couper, relancer</td></tr>' +
-    '<tr><td>Clic sur une boucle</td><td>La sélectionner sans changer son état</td></tr>' +
-    '<tr><td>Bouton 🎹 d’une boucle</td><td>Choisir son instrument dans la liste</td></tr>' +
+    '<tr><td>Pads à l’écran</td><td>Les toucher (ou cliquer) = frapper le pad du MiniLab, appui long compris. Plusieurs doigts à la fois possibles</td></tr>' +
+    '<tr><td>Nom de l’instrument d’une boucle</td><td>La sélectionner sans changer son état, et choisir son instrument dans la liste</td></tr>' +
     '<tr><td>Shift + bouton central (tourner)</td><td>Changer l’instrument de la boucle sélectionnée</td></tr>' +
     '<tr><td>Shift + clic du bouton central</td><td>Sélectionner la boucle suivante (pad 1 → 2 → 3 → 4)</td></tr>' +
     '<tr><td>Potards</td><td>Agissent sur la boucle sélectionnée uniquement (cadre orange)</td></tr>' +

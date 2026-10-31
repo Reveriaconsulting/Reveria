@@ -1,9 +1,9 @@
 // =============================================================================
 //  RevLoop — l'écran : une copie du MiniLab
 // =============================================================================
-// Le MiniLab reste l'instrument : on joue toujours avec lui. L'écran sert à VOIR
-// ce qui se passe (comme un tableau de bord) et à faire quelques choix au clic :
-// la famille, la boucle sélectionnée, l'instrument d'une boucle.
+// L'écran montre ce qui se passe (comme un tableau de bord) et sert aussi d'instrument
+// quand aucun clavier n'est branché : ses pads se touchent comme ceux du MiniLab
+// (tactile.js). Au clic : la famille, l'instrument d'une boucle.
 //
 //   en-tête  : titre + les 4 familles en onglets de couleur
 //   mesure   : la jauge (voir mesure.js)
@@ -17,11 +17,12 @@ const ETIQUETTES_ETATS = {
 };
 let dernierPads = '';
 
-// Le nom de l'instrument d'une boucle, avec « chargement… » le temps que ses sons arrivent
+// Le nom de l'instrument d'une boucle, avec « chargement… » le temps que ses sons arrivent,
+// ou « indisponible » si le chargement a échoué (moteur.js réessaie à la note suivante)
 function nomInstrument(f, b) {
   const id = instrumentDe(f, b);
   const enAttente = !instruments[id] && !tampons[id];
-  return infoInstrument(id).nom + (enAttente ? ' (chargement…)' : '');
+  return infoInstrument(id).nom + (echecs[id] ? ' (indisponible)' : enAttente ? ' (chargement…)' : '');
 }
 
 // Tout ce qui change quand on agit : familles, pads, potards, faders
@@ -59,7 +60,8 @@ function afficherActions() {
     const sorte = !action || action.type === 'rien' ? '' : action.type === 'jouer' ? 'note' :
       genre === 'maintien' ? 'tenir' :
       genre === 'compteur' ? 'octave ' + (decalage > 0 ? '+' : '') + decalage : 'bascule';
-    return '<div class="pad action' + (actionActive(action, pad) ? ' active' : '') + '" style="--c:' + couleur + '">' +
+    return '<div class="pad action' + (actionActive(action, pad) ? ' active' : '') + (padEnfonce(pad) ? ' enfonce' : '') +
+      '" data-pad="' + pad + '" style="--c:' + couleur + '">' +
       '<span class="num">' + numeroPad(pad) + '</span>' +
       '<span class="nom">' + libelleAction(action).replace(' (tenir)', '') + '</span>' +
       '<span class="sorte">' + sorte + '</span></div>';
@@ -80,7 +82,8 @@ function tuileBoucle(f, pad) {
   // la durée jouée, en secondes (la 1re boucle est la plus longue possible)
   const duree = b.duree && (b.etat === 'lecture' || b.etat === 'arret')
     ? '<span class="duree">' + b.duree.toFixed(1).replace('.', ',') + ' s</span>' : '';
-  return '<div class="pad boucle etat-' + b.etat + selection + '" style="--c:' + COULEURS_ECRAN[familleActive] + '" onclick="selectionner(' + pad + ')">' +
+  return '<div class="pad boucle etat-' + b.etat + selection + (padEnfonce(pad) ? ' enfonce' : '') +
+    '" data-pad="' + pad + '" style="--c:' + COULEURS_ECRAN[familleActive] + '">' +
     '<span class="num">' + numeroPad(pad) + '</span>' +
     '<span class="etat">' + ETIQUETTES_ETATS[b.etat] + '</span>' + duree +
     '<button class="instrument" onclick="event.stopPropagation(); ouvrirChoixInstrument(' + pad + ')">' +

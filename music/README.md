@@ -23,7 +23,7 @@ Installer : `npm install` puis `./installer-mac.sh` (Mac) ou `npm run assembler-
 Projet `RevLoop.xcodeproj`, `RevLoop/RevLoopApp.swift` (vue web, pont MIDI CoreMIDI, son, sauvegarde dans Fichiers), `RevLoop/Info.plist`, icône dans `RevLoop/Assets.xcassets`.
 
 ## Sons (`logiciel/sons/`)
-61 instruments, 941 fichiers (94 Mo), tous référencés dans `instruments.json`. Ils peuvent aussi être recréés avec les scripts de `logiciel/outils/`, dans l'ordre : `telecharger_sons.py`, `telecharger_lot2.py`, `telecharger_lot3.py`.
+61 instruments, 941 fichiers, tous en AAC `.m4a` (117 Mo), tous référencés dans `instruments.json`. Ils peuvent aussi être recréés avec les scripts de `logiciel/outils/`, dans l'ordre : `telecharger_sons.py`, `telecharger_lot2.py`, `telecharger_lot3.py`.
 
 ## Compositions (`Reza compo/`)
 Sessions `.boucles`, à ouvrir avec Fichier › Ouvrir.
