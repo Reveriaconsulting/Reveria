@@ -23,6 +23,12 @@ struct RevLoopApp: App {
         try? AVAudioSession.sharedInstance().setActive(true)
         // L'écran ne se met pas en veille pendant qu'on joue
         UIApplication.shared.isIdleTimerDisabled = true
+        // Après un appel, Siri, une alarme… ou au retour dans l'application, iOS peut
+        // avoir coupé le son de l'application : on le réactive (la page relance ensuite
+        // son moteur de son au premier toucher, voir moteur.js).
+        let reactiver: (Notification) -> Void = { _ in try? AVAudioSession.sharedInstance().setActive(true) }
+        NotificationCenter.default.addObserver(forName: AVAudioSession.interruptionNotification, object: nil, queue: .main, using: reactiver)
+        NotificationCenter.default.addObserver(forName: UIApplication.didBecomeActiveNotification, object: nil, queue: .main, using: reactiver)
     }
 
     var body: some Scene {

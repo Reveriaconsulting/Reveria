@@ -1038,6 +1038,7 @@ function recevoir(message) {
 async function demarrer() {
   if (audio) return;
   audio = new AudioContext();
+  audio.onstatechange = signalerEtatDuSon;
   sortieGenerale = audio.createGain();
   sortieGenerale.connect(audio.destination);
   reglerVolumeGeneral(options.volumeGeneral);
@@ -1113,3 +1114,30 @@ async function demarrer() {
 }
 
 document.getElementById('demarrer').onclick = demarrer;
+
+// --- Son mis en pause par le système ------------------------------------------------
+// Sur iPhone, un appel, Siri, une alarme ou une autre application qui joue du son
+// mettent le moteur de son en pause (état « suspended » ou « interrupted »), et il
+// ne repart pas tout seul. On le relance au toucher suivant (iOS ne l'autorise
+// qu'après un geste) et au retour de l'application au premier plan.
+function reveillerSon() {
+  if (audio && audio.state !== 'running') audio.resume().catch(() => {});
+}
+for (const geste of ['pointerdown', 'touchend', 'keydown']) {
+  document.addEventListener(geste, reveillerSon, true);
+}
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible') reveillerSon();
+});
+// Tant que le son est en pause, la ligne d'état le dit (au lieu d'un silence inexpliqué)
+let messageAvantPause = null;
+function signalerEtatDuSon() {
+  const etat = document.getElementById('etat');
+  if (audio.state === 'running') {
+    if (messageAvantPause !== null) etat.textContent = messageAvantPause;
+    messageAvantPause = null;
+  } else if (messageAvantPause === null) {
+    messageAvantPause = etat.textContent;
+    etat.textContent = 'Son en pause (appel, autre application…) : touchez l’écran pour le réactiver.';
+  }
+}
