@@ -3,7 +3,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Italiana&family=Figtree:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
-/* Layout: a letterboxed cinema screen on a deep indigo ground, transport bar beneath, production prompts as a single readable column. Single dark look by design (a screening room). */
+/* Layout: letterboxed screening-room screen, chapter transport, then a shot-by-shot storyboard (lived experience | staging | prompt). Single dark look by design. */
 :root{
   --ground:#08070f;
   --panel:#110f1c;
@@ -19,143 +19,158 @@
 }
 html,body{background:var(--ground);color:var(--ink)}
 body{font-family:var(--f-body);font-size:15px;line-height:1.6;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 64px}
-.wrap{max-width:1180px;margin:0 auto;display:grid;gap:40px}
-header{display:grid;gap:6px}
+.wrap{max-width:1180px;margin:0 auto;display:grid;gap:48px}
+header{display:grid;gap:8px}
 .eyebrow{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
 h1{font-family:var(--f-display);font-weight:400;font-size:clamp(40px,7vw,76px);line-height:1;margin:0;letter-spacing:.01em;text-wrap:balance}
-.lede{color:var(--mute);max-width:64ch;margin:0}
+h2{font-family:var(--f-display);font-weight:400;font-size:clamp(28px,4vw,42px);margin:0;line-height:1.1;text-wrap:balance}
+h3{margin:0;font:600 16px/1.3 var(--f-body)}
+.lede,.sub{color:var(--mute);max-width:68ch;margin:0}
 
-/* Screen */
 .theatre{display:grid;gap:14px}
 .screen{position:relative;width:100%;aspect-ratio:2.39/1;max-width:100%;background:#000;overflow:hidden;border-radius:2px;box-shadow:0 30px 80px -30px rgba(90,70,200,.35)}
 @media (max-width:700px){.screen{aspect-ratio:16/9}}
 canvas{display:block;width:100%;height:100%}
-.cap{position:absolute;left:0;right:0;bottom:9%;text-align:center;font-family:var(--f-display);font-size:clamp(17px,2.6vw,30px);color:#fff;text-shadow:0 1px 18px rgba(0,0,0,.55);opacity:0;transition:opacity 1.2s ease;pointer-events:none;padding-inline:16px}
+.cap{position:absolute;left:0;right:0;bottom:8%;text-align:center;font-family:var(--f-display);font-size:clamp(16px,2.5vw,30px);line-height:1.25;color:#fff;text-shadow:0 1px 18px rgba(0,0,0,.6);opacity:0;transition:opacity 1.4s ease;pointer-events:none;padding-inline:24px;text-wrap:balance}
 .cap.on{opacity:1}
-.cap.dark{color:#3b2d16;text-shadow:0 0 22px rgba(255,240,210,.8)}
+.cap.dark{color:#3a2a12;text-shadow:0 0 24px rgba(255,244,220,.95)}
 .start[hidden]{display:none}
-.start{position:absolute;inset:0;display:grid;place-items:center;background:radial-gradient(ellipse at center,rgba(8,7,15,.15),rgba(8,7,15,.7));}
+.start{position:absolute;inset:0;display:grid;place-items:center;background:radial-gradient(ellipse at center,rgba(8,7,15,.1),rgba(8,7,15,.72))}
 .start-in{display:grid;gap:12px;justify-items:center;text-align:center;padding:16px}
-.btn{font:500 14px/1 var(--f-body);color:var(--ink);background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.28);padding:12px 18px;border-radius:999px;cursor:pointer;backdrop-filter:blur(6px)}
-.btn:hover{background:rgba(255,255,255,.16)}
-.btn:focus-visible,.chip:focus-visible,.icon:focus-visible,input:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
-.btn.primary{background:var(--ink);color:var(--ground);border-color:var(--ink);font-size:15px;padding:14px 22px}
-.btn.primary:hover{background:#fff}
+.btn{font:500 15px/1 var(--f-body);color:var(--ground);background:var(--ink);border:1px solid var(--ink);padding:14px 22px;border-radius:999px;cursor:pointer}
+.btn:hover{background:#fff}
 .hint{font-size:12.5px;color:#d8d3e8}
+.btn:focus-visible,.chip:focus-visible,.icon:focus-visible,.copy:focus-visible,input:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 
 .transport{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px}
 .icon{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--panel);color:var(--ink);display:grid;place-items:center;cursor:pointer;flex:none}
 .icon svg{width:16px;height:16px;fill:currentColor}
 .icon[aria-pressed="false"]{color:var(--mute)}
-.scrub{flex:1 1 260px;min-width:0;display:flex;align-items:center;gap:12px}
+.scrub{flex:1 1 300px;min-width:0;display:flex;align-items:center;gap:12px}
 input[type=range]{flex:1;min-width:0;accent-color:var(--gold)}
 .tc{font-family:var(--f-mono);font-size:12.5px;color:var(--mute);font-variant-numeric:tabular-nums;white-space:nowrap}
-.chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{font:500 12.5px/1 var(--f-body);color:var(--mute);background:transparent;border:1px solid var(--line);padding:9px 12px;border-radius:999px;cursor:pointer}
+.chips{display:flex;flex-wrap:wrap;gap:6px;width:100%}
+.chip{font:500 12.5px/1 var(--f-body);color:var(--mute);background:transparent;border:1px solid var(--line);padding:8px 11px;border-radius:999px;cursor:pointer}
 .chip .n{font-family:var(--f-mono);margin-right:6px;color:var(--indigo)}
 .chip.on{color:var(--ink);border-color:var(--indigo);background:rgba(125,116,216,.12)}
 .chip.on .n{color:var(--gold)}
 
-/* Prompts */
-section{display:grid;gap:18px}
-h2{font-family:var(--f-display);font-weight:400;font-size:clamp(28px,4vw,40px);margin:0;line-height:1.1}
-.sub{color:var(--mute);margin:0;max-width:70ch}
-.shots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-@media (max-width:900px){.shots{grid-template-columns:1fr}}
-.shot{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:18px;display:grid;gap:10px;align-content:start;min-width:0}
-.shot-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
-.shot-h h3{margin:0;font:600 15px/1.3 var(--f-body)}
+section{display:grid;gap:20px}
+.plans{display:grid;gap:14px}
+.plan{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:20px;background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:20px}
+@media (max-width:860px){.plan{grid-template-columns:1fr}}
+.plan-l{display:grid;gap:12px;align-content:start;min-width:0}
+.plan-r{display:grid;gap:10px;align-content:start;min-width:0}
+.plan-h{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.num{font-family:var(--f-mono);font-size:12px;color:var(--gold)}
 .meta{font-family:var(--f-mono);font-size:11.5px;color:var(--mute);letter-spacing:.04em}
-.swatch{height:6px;border-radius:3px}
-pre{margin:0;white-space:pre-wrap;word-break:break-word;font-family:var(--f-mono);font-size:12.5px;line-height:1.6;color:#d9d4e8;background:rgba(0,0,0,.25);border:1px solid var(--line);border-radius:4px;padding:12px;max-height:340px;overflow:auto}
+.lbl{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--indigo);margin-bottom:2px}
+.plan p{margin:0;color:#d4cfe2}
+.quote{font-family:var(--f-display);font-size:20px;line-height:1.3;color:var(--ink)}
+.swatch{height:5px;border-radius:3px}
+pre{margin:0;white-space:pre-wrap;word-break:break-word;font-family:var(--f-mono);font-size:12.5px;line-height:1.6;color:#d9d4e8;background:rgba(0,0,0,.28);border:1px solid var(--line);border-radius:4px;padding:12px;max-height:360px;overflow:auto}
 .copy{justify-self:start;font:500 12.5px/1 var(--f-body);color:var(--ink);background:transparent;border:1px solid var(--line);border-radius:4px;padding:8px 12px;cursor:pointer}
 .copy:hover{border-color:var(--indigo)}
-.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-@media (max-width:900px){.two{grid-template-columns:1fr}}
-.notes{display:grid;gap:10px;margin:0;padding:0;list-style:none;max-width:78ch}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:860px){.two{grid-template-columns:1fr}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:18px;display:grid;gap:10px;align-content:start;min-width:0}
+.tbl-wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:420px;font-size:14px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+th{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);font-weight:500}
+td.v{font-family:var(--f-mono);font-variant-numeric:tabular-nums;text-align:right;color:var(--gold);white-space:nowrap}
+.bar{height:6px;border-radius:3px;background:linear-gradient(90deg,var(--indigo),var(--gold))}
+.notes{display:grid;gap:10px;margin:0;padding:0;list-style:none;max-width:80ch}
 .notes li{padding-left:18px;position:relative;color:#cfc9df}
-.notes li::before{content:"";position:absolute;left:0;top:.7em;width:7px;height:1px;background:var(--gold)}
+.notes li::before{content:"";position:absolute;left:0;top:.72em;width:7px;height:1px;background:var(--gold)}
 .notes b{color:var(--ink);font-weight:600}
-.warn{border-left:2px solid var(--gold);padding:10px 14px;background:rgba(243,211,154,.06);color:#e6dcc6;max-width:78ch;border-radius:0 4px 4px 0}
+.warn{border-left:2px solid var(--gold);padding:12px 14px;background:rgba(243,211,154,.06);color:#e6dcc6;max-width:80ch;border-radius:0 4px 4px 0;margin:0}
 @media (prefers-reduced-motion:reduce){.cap{transition:none}}
 </style>
 
 <div class="wrap">
   <header>
-    <div class="eyebrow">Séquence cinématique · POV subjectif · 01:00 · 2.39:1</div>
+    <div class="eyebrow">Court métrage · POV subjectif · muet · 8 plans · ≈ 1 min 30</div>
     <h1>Le Passage</h1>
-    <p class="lede">Une expérience de mort imminente en trois mouvements, rendue en temps réel dans le navigateur&nbsp;: hors du corps, le tunnel, la lumière. Les prompts de production pour la version photoréaliste sont sous l’écran.</p>
+    <p class="lede">Une expérience de mort imminente vécue de l’intérieur, du décrochage jusqu’au retour dans le corps. L’écran ci-dessous est une maquette de rythme et d’ambiance calculée en direct. Les personnes réelles et le photoréalisme viennent des 8 prompts de production, à générer dans Veo, Sora, Kling ou Runway.</p>
   </header>
 
   <div class="theatre">
     <div class="screen" id="screen">
-      <canvas id="cv" aria-label="Séquence animée : vue plongeante sur une réanimation, tunnel indigo, puis lumière dorée"></canvas>
+      <canvas id="cv" aria-label="Maquette animée : plafond de réanimation, sortie du corps, vortex, lumière, retrouvailles, revue de vie, frontière, retour"></canvas>
       <div class="cap" id="cap" aria-live="polite"></div>
       <div class="start" id="start">
         <div class="start-in">
-          <button class="btn primary" id="go-sound">Lancer avec le son</button>
-          <button class="btn" id="go-mute">Lancer sans le son</button>
-          <span class="hint">Casque conseillé · 1 minute</span>
+          <button class="btn" id="go">Lancer la séquence</button>
+          <span class="hint">Muet · plein écran conseillé, lumière tamisée</span>
         </div>
       </div>
     </div>
-
     <div class="transport">
       <button class="icon" id="play" aria-label="Lecture"><svg viewBox="0 0 16 16" id="play-ico"><path d="M4 2.5v11l9-5.5z"/></svg></button>
-      <button class="icon" id="snd" aria-pressed="false" aria-label="Son"><svg viewBox="0 0 16 16"><path d="M2 6h3l4-3v10l-4-3H2z"/><path d="M11 5.2a4 4 0 0 1 0 5.6l-.8-.8a2.9 2.9 0 0 0 0-4z"/></svg></button>
-      <button class="icon" id="cc" aria-pressed="true" aria-label="Sous-titres"><svg viewBox="0 0 16 16"><path d="M1.5 3h13v10h-13zM3 4.5v7h10v-7zM4 8.6c0-1.3.8-2.1 2-2.1.7 0 1.2.3 1.5.7l-.7.5c-.2-.3-.5-.4-.8-.4-.6 0-1 .5-1 1.3s.4 1.3 1 1.3c.3 0 .6-.1.8-.4l.7.5c-.3.4-.8.7-1.5.7-1.2 0-2-.8-2-2.1zm4.6 0c0-1.3.8-2.1 2-2.1.7 0 1.2.3 1.5.7l-.7.5c-.2-.3-.5-.4-.8-.4-.6 0-1 .5-1 1.3s.4 1.3 1 1.3c.3 0 .6-.1.8-.4l.7.5c-.3.4-.8.7-1.5.7-1.2 0-2-.8-2-2.1z"/></svg></button>
+      <button class="icon" id="cc" aria-pressed="true" aria-label="Voix intérieure (sous-titres)"><svg viewBox="0 0 16 16"><path d="M1.5 3h13v10h-13zM3 4.5v7h10v-7zM4 8.6c0-1.3.8-2.1 2-2.1.7 0 1.2.3 1.5.7l-.7.5c-.2-.3-.5-.4-.8-.4-.6 0-1 .5-1 1.3s.4 1.3 1 1.3c.3 0 .6-.1.8-.4l.7.5c-.3.4-.8.7-1.5.7-1.2 0-2-.8-2-2.1zm4.6 0c0-1.3.8-2.1 2-2.1.7 0 1.2.3 1.5.7l-.7.5c-.2-.3-.5-.4-.8-.4-.6 0-1 .5-1 1.3s.4 1.3 1 1.3c.3 0 .6-.1.8-.4l.7.5c-.3.4-.8.7-1.5.7-1.2 0-2-.8-2-2.1z"/></svg></button>
+      <button class="icon" id="full" aria-label="Plein écran"><svg viewBox="0 0 16 16"><path d="M2 2h5v1.5H3.5V7H2zM9 2h5v5h-1.5V3.5H9zM2 9h1.5v3.5H7V14H2zM12.5 9H14v5H9v-1.5h3.5z"/></svg></button>
       <div class="scrub">
-        <input type="range" id="seek" min="0" max="60" step="0.05" value="9" aria-label="Position dans la séquence">
-        <span class="tc" id="tc">00:09 / 01:00</span>
+        <input type="range" id="seek" min="0" max="96" step="0.05" value="12" aria-label="Position dans la séquence">
+        <span class="tc" id="tc">00:12 / 01:36</span>
       </div>
-      <div class="chips" role="group" aria-label="Phases">
-        <button class="chip" data-t="0"><span class="n">I</span>Hors du corps</button>
-        <button class="chip" data-t="18.5"><span class="n">II</span>Le tunnel</button>
-        <button class="chip" data-t="40.5"><span class="n">III</span>La lumière</button>
-      </div>
+      <div class="chips" role="group" aria-label="Plans" id="chips"></div>
     </div>
   </div>
 
   <section>
     <div>
-      <div class="eyebrow">Version photoréaliste</div>
-      <h2>Prompts de production</h2>
+      <div class="eyebrow">Storyboard de production</div>
+      <h2>Le vécu, plan par plan</h2>
     </div>
-    <p class="sub">Les générateurs vidéo actuels (Veo, Sora, Kling, Runway) plafonnent à 8–20&nbsp;s par plan et tiennent mal un plan-séquence de trois minutes d’intention. On tourne donc trois plans, enchaînés par image de fin → image de début, puis on les fond au montage. Prompts rédigés en anglais&nbsp;: les modèles y répondent plus fidèlement.</p>
+    <p class="sub">Chaque plan part de ce que les expérienceurs décrivent, puis le traduit en mise en scène. Les prompts sont en anglais, les modèles y sont plus fidèles. Collez la fiche personnages au début de chaque prompt qui montre des personnes, pour garder les mêmes visages d’un plan à l’autre.</p>
+    <div class="plans" id="plans"></div>
+  </section>
 
-    <div class="shots">
-      <article class="shot">
-        <div class="swatch" style="background:linear-gradient(90deg,#cfdde3,#7fa6b2,#2f6f7d)"></div>
-        <div class="shot-h"><h3>Plan 1 · Hors du corps</h3><span class="meta">8–10 s</span></div>
-        <pre id="p1">Subjective first-person POV. The camera slowly floats upward from a hospital bed, rising weightlessly toward the ceiling, then gently tilts down to look straight down on a brightly lit, sterile intensive care room. Below, a medical team of four in teal and navy scrubs performs CPR on the patient on the bed: one clinician, arms straight and locked, delivers steady chest compressions on the center of the chest; a second ventilates with a bag-valve mask at the head; a third prepares a defibrillator on a red crash cart; a cardiac monitor shows a flat green line. Cool white overhead lighting, polished pale floor, clinical teal and white palette. The movement is slow, weightless, serene and detached; the room feels distant. Depth of field slowly softening, subtle halation around the lights. Photorealistic, highly detailed, 35mm anamorphic lens, cinematic lighting, fluid continuous camera drift, no cuts, 24 fps.</pre>
-        <button class="copy" data-for="p1">Copier le prompt</button>
-      </article>
-      <article class="shot">
-        <div class="swatch" style="background:linear-gradient(90deg,#120c3a,#4b2f8c,#2b3da0,#c9c2ff)"></div>
-        <div class="shot-h"><h3>Plan 2 · Le tunnel</h3><span class="meta">8–10 s</span></div>
-        <pre id="p2">Continuing from a top-down view of an intensive care room seen from the ceiling, the room softly dissolves into light and the first-person viewpoint glides smoothly forward into a vast, serene, luminous tunnel. The tunnel walls are flowing, shimmering veils of deep indigo, twilight violet and cobalt blue, with fine threads of lavender light spiraling slowly along them. A soft warm glow grows at the far end. The forward movement accelerates gently and steadily, perfectly smooth, no shake. A feeling of absolute peace and quietude. Photorealistic volumetric lighting, ethereal atmosphere, highly detailed, cinematic, immersive first-person perspective, 24 fps.</pre>
-        <button class="copy" data-for="p2">Copier le prompt</button>
-      </article>
-      <article class="shot">
-        <div class="swatch" style="background:linear-gradient(90deg,#e9b871,#f6dcae,#fff6e6)"></div>
-        <div class="shot-h"><h3>Plan 3 · La lumière</h3><span class="meta">10–12 s</span></div>
-        <pre id="p3">The first-person viewpoint emerges from the end of a deep indigo tunnel into an infinite space filled with radiant, warm, all-enveloping golden-white light. Soft volumetric rays radiate from a luminous center and turn very slowly; tiny glowing particles drift gently toward the camera; the light feels intensely alive, breathing with a slow pulse. An overwhelming sense of unconditional love, boundless compassion and timeless serenity. No figures, no objects, no horizon. The camera floats slowly forward, then comes to rest as the exposure blooms toward pure warm white. Photorealistic, highly detailed, emotional, cinematic lighting, fluid camera movement, immersive first-person perspective, 24 fps.</pre>
-        <button class="copy" data-for="p3">Copier le prompt</button>
-      </article>
-    </div>
-
+  <section>
+    <h2>Fiche personnages et réglages communs</h2>
     <div class="two">
-      <article class="shot">
-        <div class="shot-h"><h3>Prompt négatif</h3><span class="meta">tous les plans</span></div>
-        <pre id="p4">text, subtitles, watermark, logo, hospital branding, blood, gore, graphic injury, exposed nudity, distorted hands, extra fingers, extra limbs, incorrect CPR hand placement, bent elbows during compressions, camera shake, handheld jitter, fast cuts, flicker, frame stutter, horror, demonic, ominous mood, cartoon, plastic CGI look, oversaturated colors</pre>
-        <button class="copy" data-for="p4">Copier</button>
+      <article class="card">
+        <h3>Fiche personnages <span class="meta">à coller en tête des plans 0, 1, 4, 6, 7</span></h3>
+        <pre id="chars">CHARACTERS (keep identical across shots):
+PATIENT — Hélène, a woman of 52, short ash-brown hair going gray, pale skin with light freckles, thin silver chain necklace, faded blue-patterned hospital gown.
+ICU TEAM — (1) Karim, male nurse, early 30s, short dark beard, teal scrubs, black watch, doing chest compressions; (2) Dr. Anne Morel, anesthesiologist, mid-40s, navy scrubs, blue surgical cap, glasses, ventilating with a bag-valve mask; (3) Sophie, nurse, late 20s, blond hair tied back, teal scrubs, preparing the defibrillator; (4) Dr. Diallo, senior physician, 50s, white coat over navy scrubs, calm, reading the monitor.
+FATHER — Hélène’s late father, around 75, tall and slightly stooped, white hair, kind deep-set eyes, beige cardigan; appears made of soft light.
+MOTHER — her late mother, around 70, small, silver bun, gentle smile; appears made of soft light.</pre>
+        <button class="copy" data-for="chars">Copier la fiche</button>
       </article>
-      <article class="shot">
-        <div class="shot-h"><h3>Prompt audio</h3><span class="meta">Veo 3 · Sora 2</span></div>
-        <pre id="p5">Shot 1: muffled ICU ambience, a cardiac arrest monitor alarm and the rhythmic effort of chest compressions, indistinct voices of the medical team, all receding into the distance as a soft continuous tone takes over.
-Shot 2: deep, soft ambient drone, a slow airy whoosh rising gently, no percussion, no melody.
-Shot 3: warm sustained choir-like pad in A major, delicate high shimmer, slow swell, then near silence.</pre>
-        <button class="copy" data-for="p5">Copier</button>
+      <article class="card">
+        <h3>Prompt négatif <span class="meta">tous les plans</span></h3>
+        <pre id="neg">text, subtitles, watermark, logo, hospital branding, blood, gore, open wounds, graphic injury, nudity, distorted hands, extra fingers, extra limbs, merged bodies, deformed faces, incorrect CPR hand placement, bent elbows during compressions, camera shake (except shot 7), fast cuts, flicker, frame stutter, horror, demons, ominous mood, cartoon, anime, plastic CGI look, oversaturated colors, sci-fi tunnel, neon, spaceship, hyperspace stars</pre>
+        <button class="copy" data-for="neg">Copier</button>
+        <h3>Muet</h3>
+        <p class="sub">Veo 3 et Sora 2 génèrent une piste sonore par défaut. Ajoutez «&nbsp;silent, no dialogue, no music&nbsp;» si l’outil le permet, et supprimez la piste audio au montage dans tous les cas.</p>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <h2>Ce que disent les données</h2>
+    <div class="two">
+      <article class="card">
+        <h3>Fréquence des éléments rapportés</h3>
+        <p class="sub">Étude prospective de van Lommel et al., <i>The Lancet</i>, 2001&nbsp;: 344 patients réanimés après un arrêt cardiaque, dont 62 (18&nbsp;%) ont rapporté une EMI. Pourcentages parmi ces 62 personnes.</p>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>Élément</th><th></th><th style="text-align:right">%</th></tr></thead>
+            <tbody id="stats"></tbody>
+          </table>
+        </div>
+      </article>
+      <article class="card">
+        <h3>Faits et hypothèses</h3>
+        <ul class="notes">
+          <li><b>Fait.</b> Le récit d’EMI suit une structure récurrente d’une culture à l’autre (Moody, 1975&nbsp;; échelle de Greyson, 16 items, 1983). Aucune personne ne vit toutes les étapes, et l’ordre varie.</li>
+          <li><b>Fait.</b> Les effets à long terme sont documentés&nbsp;: peur de la mort fortement réduite, changement de valeurs, difficulté à en parler par crainte de ne pas être cru.</li>
+          <li><b>Hypothèses.</b> L’origine fait débat&nbsp;: explications neurophysiologiques (hypoxie, activité cérébrale terminale) ou non. Le film raconte le vécu sans trancher.</li>
+          <li><b>Minorité.</b> Une part des EMI est vécue comme angoissante. Ce film choisit la forme lumineuse, la plus fréquente.</li>
+        </ul>
+        <p class="warn">Les pourcentages sont repris de mémoire de l’article de 2001. Vérifiez-les dans la publication avant toute diffusion publique.</p>
       </article>
     </div>
   </section>
@@ -163,13 +178,13 @@ Shot 3: warm sustained choir-like pad in A major, delicate high shimmer, slow sw
   <section>
     <h2>Notes de production</h2>
     <ul class="notes">
-      <li><b>Enchaînement.</b> Exportez la dernière image du plan 1 et donnez-la comme image de départ du plan 2 (Veo «&nbsp;first and last frame&nbsp;», Kling «&nbsp;start/end frame&nbsp;», Runway Gen-4 en image-to-video). Même chose entre 2 et 3. Au montage, fondu lumineux de 12 à 18 images à chaque raccord.</li>
-      <li><b>Le plan 1 est le plus difficile.</b> Quatre personnes, des mains, un geste médical précis&nbsp;: comptez plusieurs générations. Le cadrage plongeant zénithal masque les visages et limite les erreurs anatomiques. Générer d’abord une image fixe validée (Imagen, Flux, Midjourney), puis l’animer, donne plus de contrôle.</li>
-      <li><b>Exactitude du geste.</b> RCP adulte&nbsp;: talons des mains au centre du thorax, bras tendus, 100 à 120 compressions par minute, 30 compressions pour 2 insufflations au ballon. Les modèles se trompent souvent&nbsp;; vérifiez image par image si la vidéo a une vocation pédagogique ou médicale.</li>
-      <li><b>Format.</b> 24 i/s, 2.39:1 pour le cinéma, 16:9 pour le web, 9:16 pour les réseaux (recadrer le plan 1 plutôt que le régénérer). Étalonnage&nbsp;: sarcelle froide → indigo → or chaud.</li>
-      <li><b>Musique.</b> Le prompt audio sert de maquette. Une composition originale (par exemple issue de vos sessions RevLoop) évite toute question de droits sur la bande-son générée.</li>
+      <li><b>Visages constants.</b> Générez d’abord un portrait de référence par personnage (Hélène, l’équipe, les parents), puis utilisez-les comme références d’image (Veo «&nbsp;ingredients&nbsp;», Kling «&nbsp;Elements&nbsp;», Runway «&nbsp;References&nbsp;»). C’est ce qui donne de «&nbsp;vraies personnes&nbsp;» reconnaissables d’un plan à l’autre.</li>
+      <li><b>Raccords.</b> La dernière image d’un plan devient la première du suivant (image-to-video). Au montage, fondu au blanc de 12 à 18 images entre 1→2, 3→4 et 5→6&nbsp;; coupe franche pour 6→7 (le retour doit faire mal).</li>
+      <li><b>Plans difficiles.</b> Le 1 (quatre soignants, des mains, un geste précis) et le 5 (dizaines de souvenirs) demandent le plus d’essais. Pour le 5, générez les souvenirs en images fixes, puis composez-les en 3D (DaVinci Fusion, After Effects).</li>
+      <li><b>Voix intérieure.</b> Les phrases de la maquette s’ajoutent au montage en surimpression, jamais dans le prompt&nbsp;: les modèles déforment le texte.</li>
+      <li><b>Étalonnage.</b> Blanc clinique froid → indigo profond → or chaud → retour au blanc froid, plus dur et plus contrasté qu’au début.</li>
     </ul>
-    <p class="warn"><b>Points de vigilance.</b> Usage commercial&nbsp;: vérifiez les conditions de licence de l’outil choisi et de votre formule d’abonnement. Pas de logo d’hôpital ni de personne identifiable. Le sujet (mort imminente) peut heurter&nbsp;: un avertissement en début de diffusion est recommandé. Les politiques de contenu des plateformes acceptent la scène médicale tant qu’elle reste non graphique&nbsp;; le prompt négatif va dans ce sens.</p>
+    <p class="warn"><b>Vigilance.</b> Droit à l’image (art. 9 du Code civil)&nbsp;: n’utilisez jamais la photo d’une personne réelle, y compris un expérienceur, comme référence sans son accord écrit. Si vous adaptez un témoignage réel, faites signer une cession. Pour un usage commercial, vérifiez la licence de l’outil et de votre abonnement. Pas de logo d’hôpital. Le sujet peut toucher des personnes endeuillées&nbsp;: un carton d’avertissement est recommandé.</p>
   </section>
 </div>
 
@@ -181,137 +196,185 @@ precision highp float;
 uniform vec2 R;uniform float T;uniform float G;
 #define PI 3.14159265
 float hash(vec2 p){p=fract(p*vec2(123.34,456.21));p+=dot(p,p+45.32);return fract(p.x*p.y);}
+float h1(float n){return fract(sin(n)*43758.5453);}
 float noise(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);
   return mix(mix(hash(i),hash(i+vec2(1,0)),f.x),mix(hash(i+vec2(0,1)),hash(i+vec2(1,1)),f.x),f.y);}
 float fbm(vec2 p){float v=0.,a=.5;for(int i=0;i<5;i++){v+=a*noise(p);p=p*2.03+17.1;a*=.5;}return v;}
+float n3(vec3 p){vec3 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);float n=i.x+i.y*57.+i.z*113.;
+  return mix(mix(mix(h1(n),h1(n+1.),f.x),mix(h1(n+57.),h1(n+58.),f.x),f.y),
+             mix(mix(h1(n+113.),h1(n+114.),f.x),mix(h1(n+170.),h1(n+171.),f.x),f.y),f.z);}
+float fbm3(vec3 p){float v=0.,a=.5;for(int i=0;i<4;i++){v+=a*n3(p);p=p*2.02+vec3(1.7,9.2,3.1);a*=.5;}return v;}
 mat2 rot(float a){float c=cos(a),s=sin(a);return mat2(c,-s,s,c);}
 float sdBox(vec2 p,vec2 b,float r){vec2 q=abs(p)-b+r;return length(max(q,0.))+min(max(q.x,q.y),0.)-r;}
 float sdCirc(vec2 p,float r){return length(p)-r;}
 float sdEll(vec2 p,vec2 r){return (length(p/r)-1.)*min(r.x,r.y);}
 float sdSeg(vec2 p,vec2 a,vec2 b,float r){vec2 pa=p-a,ba=b-a;float h=clamp(dot(pa,ba)/dot(ba,ba),0.,1.);return length(pa-ba*h)-r;}
+float smin(float a,float b,float k){float h=clamp(.5+.5*(b-a)/k,0.,1.);return mix(b,a,h)-k*h*(1.-h);}
 float fill(float d,float aa){return 1.-smoothstep(-aa,aa,d);}
-float shade(float d){return 1.-smoothstep(-.05,.14,d);}
+float shade(float d){return 1.-smoothstep(-.05,.16,d);}
 
+/* ---------- standing human silhouette, feet at y=0, ~1.75 tall ---------- */
+float figSd(vec2 p,float armUp){
+  float d=length(p-vec2(0.,1.6))-.115;
+  d=smin(d,sdSeg(p,vec2(0.,1.42),vec2(0.,1.52),.055),.04);
+  d=smin(d,sdEll(p-vec2(0.,1.18),vec2(.21,.27)),.08);
+  d=smin(d,sdSeg(p,vec2(0.,1.),vec2(0.,.55),.17),.06);
+  d=smin(d,sdSeg(p,vec2(-.07,.6),vec2(-.08,.04),.075),.05);
+  d=smin(d,sdSeg(p,vec2(.07,.6),vec2(.08,.04),.075),.05);
+  d=smin(d,sdSeg(p,vec2(-.19,1.36),vec2(-.26,.84),.05),.04);
+  vec2 hR=mix(vec2(.26,.84),vec2(.36,1.78),armUp);
+  vec2 eR=mix(vec2(.25,1.08),vec2(.34,1.5),armUp);
+  d=smin(d,min(sdSeg(p,vec2(.19,1.36),eR,.05),sdSeg(p,eR,hR,.045)),.04);
+  return d;
+}
+
+/* ---------- 0 & 7: ICU ceiling seen from the bed ---------- */
+vec3 ceiling(vec2 uv,float t,float blur){
+  vec2 p=uv+vec2(.012*sin(t*.7),.01*cos(t*.53));
+  vec3 c=vec3(.8,.82,.84)*(.92+.08*noise(p*30.));
+  vec2 g=abs(fract((p+.31)*2.3)-.5);
+  c*=1.-.09*smoothstep(.47-blur*3.,.5,max(g.x,g.y));
+  vec2 lp=p-vec2(.18,.06);float lr=length(lp);
+  c=mix(c,vec3(.5,.52,.56),1.-smoothstep(.31-blur,.31+blur,lr));
+  vec2 cf=fract(lp*15.)-.5;
+  float led=smoothstep(.34+blur*9.,0.,length(cf))*(1.-smoothstep(.26-blur,.27+blur,lr));
+  c+=vec3(1.,.98,.93)*led*1.6;
+  c+=vec3(1.,.97,.9)*exp(-lr*lr*10.)*(.75+blur*8.);
+  // people leaning over: backlit heads and shoulders at the frame edges
+  float d=sdEll(p-vec2(-.78,.36),vec2(.25,.31));
+  d=smin(d,sdEll(p-vec2(-1.05,-.12),vec2(.45,.36)),.1);
+  float d2=sdEll(p-vec2(.92,-.22),vec2(.27,.33));
+  d2=smin(d2,sdEll(p-vec2(1.25,.25),vec2(.45,.4)),.1);
+  float d3=sdEll(p-vec2(-.25,-.62),vec2(.34,.26));
+  float dd=min(min(d,d2),d3);
+  float soft=blur*5.+.015;
+  float k=1.-smoothstep(-soft,soft,dd);
+  vec3 sil=mix(vec3(.17,.33,.36),vec3(.16,.2,.32),step(0.,p.x));
+  sil=mix(sil,vec3(.42,.34,.3),smoothstep(.05,-.1,d3)*.6);
+  c=mix(c,sil*(.75+.25*noise(p*8.)),k*.94);
+  c+=vec3(1.,.95,.86)*.4*exp(-abs(dd)*30./(1.+blur*40.))*smoothstep(.6,1.3,length(p-vec2(.18,.06)))*(1.-k*.5);
+  // gloved hand at bottom right
+  c=mix(c,vec3(.55,.65,.88),fill(sdEll(rot(.5)*(p-vec2(.62,-.52)),vec2(.13,.08)),soft)*.85);
+  return c;
+}
+
+/* ---------- 1: the ICU seen from the ceiling ---------- */
 vec3 person(vec3 col,vec2 p,vec2 pos,float ang,vec2 hL,vec2 hR,vec3 scrub,vec3 cap,float aa,float lean){
   vec2 f=vec2(cos(ang),sin(ang)),s=vec2(-f.y,f.x);
   pos+=f*lean*.04;
-  vec2 d0=p-pos-vec2(.06,-.06);
-  col*=1.-.26*shade(sdEll(vec2(dot(d0,s),dot(d0,f)),vec2(.27,.17)));
+  vec2 d0=p-pos-vec2(.07,-.07);
+  col*=1.-.3*shade(sdEll(vec2(dot(d0,s),dot(d0,f)),vec2(.3,.19)));
   vec2 sL=pos-s*.18+f*.02,sR=pos+s*.18+f*.02;
   float da=min(sdSeg(p,sL,hL,.048),sdSeg(p,sR,hR,.048));
-  col=mix(col,scrub*.9,fill(da,aa));
-  col=mix(col,vec3(.58,.66,.9),fill(min(sdCirc(p-hL,.042),sdCirc(p-hR,.042)),aa));
+  vec3 sl=scrub*(.78+.18*noise(p*40.));
+  col=mix(col,sl,fill(da,aa));
+  col=mix(col,vec3(.6,.68,.92),fill(min(sdCirc(p-hL,.042),sdCirc(p-hR,.042)),aa));
   vec2 d=p-pos;vec2 q=vec2(dot(d,s),dot(d,f));
   float sc=1.+lean*.05;
-  col=mix(col,scrub*(.82+.3*smoothstep(-.13,.12,q.y)),fill(sdEll(q,vec2(.24,.13)*sc),aa));
+  float fold=fbm(q*14.+pos*3.);
+  col=mix(col,scrub*(.7+.35*smoothstep(-.13,.12,q.y))*(.85+.3*fold),fill(sdEll(q,vec2(.24,.13)*sc),aa));
   vec2 hq=q-vec2(0.,.035);
   float hs=1.-length(hq-vec2(-.03,.04))/.11;
-  col=mix(col,cap*(.75+.45*hs),fill(sdCirc(hq,.1*sc),aa));
+  col=mix(col,cap*(.65+.5*hs)*(.85+.25*noise(hq*60.)),fill(sdCirc(hq,.1*sc),aa));
   return col;
 }
-
 vec3 room(vec2 uv,float t,float H,float th,vec2 cam,float aa){
   vec2 sv=rot(th)*uv;vec2 o=vec2(-sv.y,sv.x);
-  vec2 p0=cam+o*H, p1=cam+o*(H-.62), p2=cam+o*(H-1.12), pc=cam+o*(H-.95), pm=cam+o*(H-1.55), pi=cam+o*(H-1.85);
-  float a0=aa*H, a1=aa*(H-.62), a2=aa*(H-1.12);
-  // CPR rhythm: 30 compressions then 2 breaths
+  vec2 p0=cam+o*H,p1=cam+o*(H-.62),p2=cam+o*(H-1.12),pc=cam+o*(H-.95),pm=cam+o*(H-1.55),pi=cam+o*(H-1.85);
+  float a0=aa*H,a1=aa*(H-.62),a2=aa*(H-1.12)+.022;
   float cyc=mod(t,19.);float br=smoothstep(16.,16.4,cyc)*(1.-smoothstep(18.6,19.,cyc));
   float comp=pow(max(0.,sin(t*PI*2.*1.83)),2.)*(1.-br);
   float bag=br*(.5+.5*sin(t*PI*2.*.55));
-  // floor
   vec3 col=vec3(.72,.78,.8);
   vec2 g=abs(fract(p0/.6)-.5);
   col*=1.-.07*smoothstep(.484,.5,max(g.x,g.y));
-  col*=.95+.05*noise(p0*13.);
+  col*=.94+.06*noise(p0*13.);
   col*=.72+.38*exp(-dot(p0*vec2(.45,.38),p0*vec2(.45,.38)));
-  // walls
+  col+=vec3(.08)*exp(-length(p0-vec2(-.3,.9))*2.);
   float wall=max(smoothstep(2.7,2.75,abs(p0.x)),smoothstep(3.3,3.35,abs(p0.y)));
   col=mix(col,vec3(.66,.74,.73)*(.85+.1*noise(p0*3.)),wall);
-  // floor debris: wrappers, cap
   col=mix(col,vec3(.95),fill(sdBox(rot(.5)*(p0-vec2(.95,.35)),vec2(.07,.04),.005),a0));
   col=mix(col,vec3(.93,.96,.98),fill(sdBox(rot(-.3)*(p0-vec2(-.9,-.55)),vec2(.05,.08),.005),a0));
-  // crash cart (red) with defibrillator
   vec2 cq=pc-vec2(1.32,-.62);
   col*=1.-.3*shade(sdBox(cq-vec2(.07,-.07),vec2(.26,.21),.03));
-  col=mix(col,vec3(.72,.12,.12),fill(sdBox(cq,vec2(.25,.2),.03),a1));
+  col=mix(col,vec3(.68,.11,.11)*(.9+.15*noise(cq*30.)),fill(sdBox(cq,vec2(.25,.2),.03),a1));
   col=mix(col,vec3(.17,.17,.19),fill(sdBox(cq-vec2(-.04,.03),vec2(.15,.11),.02),a1));
   col=mix(col,vec3(.95,.55,.1),fill(min(sdBox(cq-vec2(.16,.1),vec2(.03,.05),.01),sdBox(cq-vec2(.16,-.06),vec2(.03,.05),.01)),a1));
   col=mix(col,vec3(.2,.95,.55),fill(sdBox(cq-vec2(-.06,.06),vec2(.06,.04),.005),a1)*.8);
-  // bed
   vec2 bq=p1;
-  col*=1.-.35*shade(sdBox(bq-vec2(.1,-.1),vec2(.52,1.08),.08));
+  col*=1.-.38*shade(sdBox(bq-vec2(.1,-.1),vec2(.52,1.08),.08));
   col=mix(col,vec3(.5,.54,.58),fill(sdBox(bq,vec2(.52,1.08),.08),a1));
-  float sheet=sdBox(bq-vec2(0.,-.02),vec2(.46,1.0),.07);
-  vec3 sh=vec3(.9,.93,.96)*(.92+.08*fbm(bq*vec2(3.,9.)));
-  col=mix(col,sh,fill(sheet,a1));
+  vec3 sh=vec3(.9,.93,.96)*(.88+.12*fbm(bq*vec2(3.,9.)));
+  col=mix(col,sh,fill(sdBox(bq-vec2(0.,-.02),vec2(.46,1.),.07),a1));
   col=mix(col,vec3(.97),fill(sdBox(bq-vec2(0.,.86),vec2(.3,.13),.08),a1));
-  // legs under sheet
   float legs=min(sdEll(bq-vec2(-.1,-.5),vec2(.09,.42)),sdEll(bq-vec2(.1,-.5),vec2(.09,.42)));
-  col*=1.-.07*(1.-smoothstep(-.03,.03,legs))*smoothstep(-.09,0.,legs);
-  // patient
+  col*=1.-.08*(1.-smoothstep(-.03,.03,legs))*smoothstep(-.09,0.,legs);
   col=mix(col,vec3(.8,.62,.5),fill(min(sdSeg(bq,vec2(-.21,.56),vec2(-.27,.08),.045),sdSeg(bq,vec2(.21,.56),vec2(.27,.08),.045)),a1));
   vec2 tq=bq-vec2(0.,.4);
-  float torso=sdEll(tq,vec2(.21,.27));
   vec3 gown=vec3(.6,.72,.8)*(.9+.1*step(.5,fract((tq.x+tq.y)*18.)));
-  col=mix(col,gown,fill(torso,a1));
+  col=mix(col,gown,fill(sdEll(tq,vec2(.21,.27)),a1));
   col=mix(col,vec3(.97),fill(min(sdBox(rot(.4)*(bq-vec2(-.1,.52)),vec2(.05,.07),.01),sdBox(rot(-.2)*(bq-vec2(.12,.27)),vec2(.05,.07),.01)),a1));
   col=mix(col,vec3(.8,.63,.52),fill(sdCirc(bq-vec2(0.,.84),.1),a1));
-  col=mix(col,vec3(.24,.18,.14),fill(sdEll(bq-vec2(0.,.9),vec2(.1,.06)),a1));
-  // cables
+  col=mix(col,vec3(.45,.38,.32),fill(sdEll(bq-vec2(0.,.9),vec2(.1,.06)),a1));
   col=mix(col,vec3(.25,.27,.3),fill(sdSeg(p1,vec2(-.1,.52),vec2(-.45,.95),.005),a1)*.7);
-  // IV pole
   vec2 iq=pi-vec2(.62,1.08);
   col*=1.-.2*shade(sdCirc(iq-vec2(.1,-.1),.07));
   col=mix(col,vec3(.85,.92,.97),fill(sdBox(iq,vec2(.05,.08),.02),aa*(H-1.85))*.85);
-  // team
-  vec3 teal=vec3(.18,.52,.56),navy=vec3(.17,.22,.38),capB=vec3(.24,.38,.62),capG=vec3(.3,.5,.45);
-  col=person(col,p2,vec2(.68,.4),PI,vec2(.04,.4),vec2(.04,.45),teal,capB,a2,comp);
+  vec3 teal=vec3(.18,.5,.54),navy=vec3(.17,.22,.38),capB=vec3(.24,.38,.62);
+  col=person(col,p2,vec2(.68,.4),PI,vec2(.04,.4),vec2(.04,.45),teal,vec3(.16,.12,.1),a2,comp);
   col=mix(col,vec3(.75,.85,.95),fill(sdEll(p2-vec2(0.,.98),vec2(.07,.06)),a2)*.6);
   col=mix(col,vec3(.35,.55,.85),fill(sdEll(p2-vec2(0.,1.13),vec2(.07,.12)*(1.-.22*bag)),a2));
-  col=person(col,p2,vec2(0.,1.45),-PI*.5,vec2(-.09,1.02),vec2(.08,1.12),navy,capG,a2,bag*.4);
-  col=person(col,p2,vec2(-.8,.12),0.,vec2(-.5,.24),vec2(-.52,.02),teal,vec3(.45,.3,.22),a2,0.);
-  col=mix(col,vec3(.95),fill(sdSeg(p2,vec2(-.5,.24),vec2(-.43,.3),.012),a2));
-  col=person(col,p2,vec2(.95,-.78),.35,vec2(1.17,-.66),vec2(1.12,-.84),navy,capB,a2,0.);
-  // monitor on boom arm
+  col=person(col,p2,vec2(0.,1.45),-PI*.5,vec2(-.09,1.02),vec2(.08,1.12),navy,capB,a2,bag*.4);
+  col=person(col,p2,vec2(-.8,.12),0.,vec2(-.5,.24),vec2(-.52,.02),teal,vec3(.85,.72,.45),a2,0.);
+  col=person(col,p2,vec2(.95,-.78),.35,vec2(1.17,-.66),vec2(1.12,-.84),vec3(.92,.93,.94),vec3(.12,.1,.09),a2,0.);
   vec2 mq=pm-vec2(-.88,1.28);
   col*=1.-.3*shade(sdBox(mq-vec2(.1,-.1),vec2(.22,.15),.02));
   col=mix(col,vec3(.2,.21,.24),fill(sdBox(mq,vec2(.22,.15),.02),aa*(H-1.55)));
   if(abs(mq.x)<.19&&abs(mq.y)<.12){
     float u=mq.x/.19;
     float y=.05*sin((u*3.-t*1.83)*PI*2.)*(1.-br)+.004*sin(u*90.);
-    float ln=exp(-abs(mq.y-.03-y)*90.);
-    col=mix(vec3(.03,.05,.05),vec3(.2,1.,.5),ln);
+    col=mix(vec3(.03,.05,.05),vec3(.2,1.,.5),exp(-abs(mq.y-.03-y)*90.));
     col+=vec3(.2,.6,1.)*exp(-abs(mq.y+.06-.01*sin(u*4.-t))*120.)*.7;
   }
   return col;
 }
 
-vec3 tunnel(vec2 uv,float tt){
-  uv-=.06*vec2(sin(tt*.37),cos(tt*.29))*smoothstep(0.,5.,tt);
-  uv=rot(tt*.05)*uv;
-  float r=length(uv),a=atan(uv.y,uv.x);
-  float prog=clamp(tt/22.,0.,1.);
-  float z=.32/(r+.02)+tt*.5+tt*tt*.016;
-  vec2 ca=vec2(cos(a),sin(a));
-  float n=fbm(ca*1.8+vec2(z*.45,z*.2));
-  float n2=fbm(ca*4.+vec2(-z*.9,z*.3)+3.);
-  float fil=pow(.5+.5*sin(z*5.+n*4.+a*2.),8.);
-  vec3 indigo=vec3(.06,.04,.22),violet=vec3(.32,.18,.58),cobalt=vec3(.14,.22,.64),lav=vec3(.8,.74,1.);
-  vec3 col=mix(indigo,violet,smoothstep(.3,.75,n));
-  col=mix(col,cobalt,smoothstep(.45,.8,n2)*.6);
-  col+=lav*fil*.55*(.4+.6*n2);
-  col*=mix(.3,1.1,smoothstep(1.1,.12,r));
-  float glow=exp(-r*mix(9.,3.,prog));
-  col+=mix(vec3(.55,.55,1.),vec3(1.,.9,.72),prog)*glow*mix(.5,1.7,prog);
-  vec2 sq=vec2(a*9.549,z*3.);
-  float h=hash(floor(sq));
-  col+=lav*smoothstep(.13,0.,length(fract(sq)-.5))*step(.982,h)*smoothstep(1.2,.2,r);
-  return col;
+/* ---------- 2: volumetric vortex ---------- */
+vec3 vortex(vec2 uv,float tt){
+  float prog=clamp(tt/20.,0.,1.);
+  float travel=tt*1.1+tt*tt*.045;
+  vec3 rd=normalize(vec3(uv+.05*vec2(sin(tt*.31),cos(tt*.23)),1.05));
+  vec3 acc=vec3(0.);float tr=1.;float s=.2;
+  for(int i=0;i<40;i++){
+    vec3 p=rd*s;
+    float r=length(p.xy);
+    float z=p.z+travel;
+    vec2 xy=rot(z*.32+tt*.22)*p.xy;
+    float n=fbm3(vec3(xy*1.3,z*.42));
+    float wall=smoothstep(.3,.95,r);
+    float dens=max(0.,n-.4)*3.*wall;
+    float st=.1+s*.07;
+    if(dens>.002){
+      vec3 base=mix(vec3(.07,.04,.26),vec3(.38,.2,.68),smoothstep(.42,.7,n));
+      base=mix(base,vec3(.14,.24,.72),smoothstep(.3,.6,n3(vec3(xy*2.,z*.8)))*.45);
+      float lit=.3+1.6*exp(-s*.09)*(.4+.9*prog)*smoothstep(.2,1.,s*.2);
+      vec3 em=base*lit+vec3(.85,.78,1.)*pow(max(n-.45,0.)*2.2,3.)*1.2+vec3(1.,.88,.7)*pow(n,5.)*1.6*prog;
+      float a=1.-exp(-dens*st*1.4);
+      acc+=tr*a*em;tr*=1.-a;
+      if(tr<.03)break;
+    }
+    s+=st;
+  }
+  float r=length(uv);
+  vec3 glow=mix(vec3(.6,.6,1.),vec3(1.,.9,.72),prog)*exp(-r*mix(11.,2.8,prog))*mix(.7,2.3,prog);
+  acc+=tr*glow*1.2+glow*.25;
+  return acc;
 }
 
-vec3 light(vec2 uv,float lt){
+/* ---------- 3-5: the light, the loved ones, the life review ---------- */
+vec3 lightField(vec2 uv,float lt){
   float r=length(uv),a=atan(uv.y,uv.x);
-  float breathe=1.+.06*sin(lt*1.05);
+  float breathe=1.+.07*sin(lt*1.05);
   vec2 ca=vec2(cos(a+lt*.03),sin(a+lt*.03));
   float rays=pow(smoothstep(.35,.85,fbm(ca*2.5+vec2(lt*.04,0.))),1.4);
   float rays2=fbm(ca*6.+vec2(0.,lt*.07)+5.);
@@ -325,39 +388,155 @@ vec3 light(vec2 uv,float lt){
     float fi=float(i);float s=fract(lt*.06+fi*.25);
     vec2 q=uv*mix(9.,1.5,s)+fi*7.3;vec2 id=floor(q);
     vec2 o=vec2(hash(id+3.1),hash(id+7.7))-.5;
-    float m=smoothstep(.07,0.,length(fract(q)-.5-o*.6))*step(.55,hash(id))*sin(PI*s);
-    c+=white*m*.9;
+    c+=white*smoothstep(.07,0.,length(fract(q)-.5-o*.6))*step(.55,hash(id))*sin(PI*s)*.9;
   }
-  c=1.-exp(-c*2.4);
-  c=mix(c,vec3(1.,.985,.95),smoothstep(11.,19.,lt)*.85);
+  return 1.-exp(-c*2.4);
+}
+vec3 being(vec3 c,vec2 uv,vec2 base,float sc,float armUp,float a,float t,vec3 tint){
+  vec2 p=(uv-base)/sc;
+  float d=figSd(p,armUp);
+  d+=(fbm(p*5.+vec2(0.,-t*.5))-.5)*.09;
+  float inner=1.-smoothstep(-.03,.05,d);
+  float halo=exp(-max(d,0.)*7.);
+  c=mix(c,tint*(1.02+.08*fbm(p*9.-t*.3)),inner*a*.9);
+  c+=vec3(1.,.92,.75)*halo*a*.35;
+  return c;
+}
+vec3 memory(vec2 q,float s,float t){
+  float k=mod(s,4.);
+  vec3 skyA,skyB,gnd,sun;
+  if(k<1.){skyA=vec3(.95,.55,.35);skyB=vec3(.98,.82,.6);gnd=vec3(.2,.38,.5);sun=vec3(1.,.8,.5);}
+  else if(k<2.){skyA=vec3(.55,.75,.92);skyB=vec3(.85,.9,.92);gnd=vec3(.35,.55,.25);sun=vec3(1.,.95,.8);}
+  else if(k<3.){skyA=vec3(.55,.35,.2);skyB=vec3(.8,.55,.3);gnd=vec3(.35,.22,.14);sun=vec3(1.,.75,.4);}
+  else{skyA=vec3(.6,.66,.75);skyB=vec3(.82,.85,.9);gnd=vec3(.92,.93,.96);sun=vec3(1.,.95,.9);}
+  float hz=-.1+.25*(hash(vec2(s,9.))-.5);
+  vec3 c=mix(skyB,skyA,smoothstep(hz,.55,q.y));
+  c=mix(c,gnd*(.8+.35*fbm(q*vec2(4.,10.)+s)),smoothstep(hz+.01,hz-.01,q.y));
+  vec2 sp=vec2((hash(vec2(s,4.))-.5)*1.,hz+.18);
+  c+=sun*exp(-length(q-sp)*9.)*.8;
+  float px=(hash(vec2(s,5.))-.5)*.8;
+  float d=figSd((q-vec2(px,hz-.32))/.3,0.);
+  d=min(d,figSd((q-vec2(px+.2,hz-.3))/(.3*(.6+.4*hash(vec2(s,6.)))),.2*step(.5,hash(vec2(s,7.)))));
+  c=mix(c,c*.22,1.-smoothstep(-.02,.02,d));
+  c*=vec3(1.06,.98,.86);
+  c*=1.-.45*pow(length(q*vec2(.7,1.)),2.);
+  c+=(noise(q*200.+t)-.5)*.05;
+  return c;
+}
+vec3 lifeReview(vec3 c,vec2 uv,float lt,float a){
+  float bestZ=99.;vec3 best=vec3(0.);float bestA=0.;vec3 halo=vec3(0.);
+  for(int i=0;i<16;i++){
+    float fi=float(i);
+    float z=mix(7.,.5,fract(hash(vec2(fi,1.3))+lt*.075));
+    vec2 xy=(vec2(hash(vec2(fi,2.1)),hash(vec2(fi,3.7)))-.5)*vec2(4.,2.2);
+    vec2 sp=xy/z;float sz=.4/z;
+    vec2 q=rot((hash(vec2(fi,8.))-.5)*.25)*((uv-sp)/sz);
+    float d=sdBox(q,vec2(.75,.5),.03);
+    float fade=smoothstep(7.,5.,z)*smoothstep(.5,1.1,z);
+    halo+=vec3(1.,.9,.7)*exp(-max(d,0.)*10.)*.12*fade;
+    if(d<0.&&z<bestZ){
+      bestZ=z;
+      vec3 m=memory(q,fi,lt);
+      m=mix(m,vec3(1.,.96,.88),smoothstep(-.06,0.,d)*.8);
+      best=m;bestA=fade*(1.-smoothstep(-.012/sz,0.,d)*.0);
+    }
+  }
+  c+=halo*a;
+  return mix(c,best,bestA*a);
+}
+
+/* ---------- 6: the border ---------- */
+vec3 border(vec2 uv,float t){
+  float lt=t-80.;
+  float camZ=2.6*(1.-exp(-lt*.45));
+  float hz=.08;
+  vec3 sky=mix(vec3(1.,.86,.62),vec3(1.,.97,.92),smoothstep(hz,.55,uv.y));
+  sky+=vec3(1.,.95,.85)*exp(-length(uv-vec2(.05,hz+.04))*2.5)*.45;
+  sky*=.9+.1*fbm(uv*vec2(2.,6.)+vec2(lt*.03,0.));
+  vec3 c=sky;
+  if(uv.y<hz){
+    float dz=1.6/(hz-uv.y);float z=dz+camZ;float x=uv.x*dz;
+    float grass=fbm(vec2(x*2.5,z*1.2));float bl=noise(vec2(x*55.,z*7.));
+    vec3 gr=mix(vec3(.72,.58,.34),vec3(.97,.86,.6),grass)*(.82+.28*bl);
+    gr=mix(gr,sky,smoothstep(5.,30.,dz));
+    float rz=6.6;
+    float riv=smoothstep(rz-.5,rz+.2,z)*(1.-smoothstep(rz+.6,rz+1.3,z));
+    float flow=fbm(vec2(x*1.2-lt*.6,z*5.));
+    vec3 rc=mix(vec3(1.,.9,.7),vec3(1.,.98,.94),flow)*(.92+.2*flow);
+    c=mix(gr,rc,riv);
+    c=mix(c,mix(c,vec3(1.,.96,.88),.55),smoothstep(rz+.9,rz+1.4,z));
+  }
+  float D=9.4-camZ;
+  float up=smoothstep(3.5,5.5,lt);
+  c=being(c,uv,vec2(.62/D+.0,hz-1.6/D),1./D,up,smoothstep(.5,3.,lt),t,vec3(1.,.97,.9));
+  c=being(c,uv,vec2(1.3/D,hz-1.6/(D+.4)),.92/(D+.4),0.,smoothstep(1.5,4.,lt)*.85,t+3.,vec3(1.,.97,.9));
   return c;
 }
 
 void main(){
   vec2 uv=(gl_FragCoord.xy-.5*R)/R.y;
   float t=T;
-  vec3 roomC=vec3(0.),tunC=vec3(0.),litC=vec3(0.);
-  if(t<24.){
-    float d=smoothstep(16.5,23.,t);
+  float shake=smoothstep(86.,86.4,t)*(1.-smoothstep(87.6,89.5,t));
+  uv+=shake*.025*vec2(sin(t*91.),cos(t*77.));
+  float r=length(uv);
+  vec3 A=vec3(0.),B=vec3(0.),C=vec3(0.),L=vec3(0.),Gs=vec3(0.),H=vec3(0.);
+  if(t<7.5){
+    float bl=mix(.002,.035,smoothstep(1.,6.,t));
+    A=ceiling(uv,t,bl);
+    A=mix(A,vec3(dot(A,vec3(.3,.59,.11))),smoothstep(1.5,5.5,t)*.85);
+    float tv=mix(1.7,0.,smoothstep(1.,6.6,t));
+    A*=1.-smoothstep(tv-.4,tv,r);
+  }
+  if(t>6.5&&t<27.){
+    float d=smoothstep(21.5,26.,t);
     vec2 ur=rot(d*d*1.4)*uv*(1.-.6*d*d);
-    float rise=smoothstep(0.,17.,t);
-    float H=mix(1.95,3.7,1.-pow(1.-rise,2.))+d*1.2;
+    float rise=smoothstep(7.,22.,t);
+    float Hh=mix(1.95,3.7,1.-pow(1.-rise,2.))+d*1.2;
     float th=.35-.3*rise+.04*sin(t*.21);
     vec2 cam=vec2(.03*sin(t*.3),.48-.12*rise+.03*cos(t*.23));
-    float blur=.0022+.03*(1.-smoothstep(0.,4.,t))+.012*d;
-    roomC=room(ur,t,H,th,cam,blur);
-    roomC=mix(roomC,vec3(.97,.98,1.),.08+.08*rise+d*.7);
-    roomC+=vec3(.9,.95,1.)*.25*smoothstep(.55,1.25,length(uv))*rise;
+    float blur=.0025+.01*smoothstep(.4,1.2,r)+.012*d;
+    B=room(ur,t,Hh,th,cam,blur);
+    B=mix(B,vec3(.97,.98,1.),.06+.06*rise+d*.7);
+    B+=vec3(.9,.95,1.)*.28*smoothstep(.5,1.25,r);
+    B=mix(B,vec3(1.),1.-smoothstep(7.,10.,t));
   }
-  if(t>18.&&t<47.) tunC=tunnel(uv,t-19.);
-  if(t>40.) litC=light(uv,t-41.);
-  vec3 col=mix(roomC,tunC,smoothstep(19.5,23.,t));
-  col=mix(col,litC,smoothstep(40.,47.,t));
-  col+=vec3(.9,.92,1.)*.5*sin(PI*clamp((t-18.5)/5.,0.,1.));
-  float lw=smoothstep(40.,47.,t);
+  if(t>21.&&t<47.)C=vortex(uv,t-23.);
+  if(t>42.&&t<83.){
+    float lt=t-44.;
+    L=lightField(uv,lt);
+    float fa=smoothstep(57.,62.,t)*(1.-smoothstep(67.,70.,t));
+    float ra=smoothstep(68.,71.,t)*(1.-smoothstep(78.,80.5,t));
+    L*=1.-.32*max(fa,ra*.8);
+    if(fa>0.){
+      float ap=smoothstep(57.,69.,t);
+      L=being(L,uv,vec2(-.32-.05*ap,-.7-.2*ap),.55+.25*ap,.25*smoothstep(62.,65.,t),fa,t,vec3(1.,.98,.95));
+      L=being(L,uv,vec2(.3+.05*ap,-.62-.2*ap),.45+.2*ap,0.,fa*smoothstep(58.5,63.,t),t+5.,vec3(1.,.98,.95));
+    }
+    if(ra>0.)L=lifeReview(L,uv,t-68.,ra);
+  }
+  if(t>79.&&t<88.2){
+    float k=smoothstep(86.,88.,t);
+    Gs=border(uv*(1.+6.*k*k),t);
+    Gs*=mix(1.,exp(-r*r*40.*k),k);
+  }
+  if(t>=88.){
+    float bl=mix(.05,.004,smoothstep(88.,94.,t))+.02*smoothstep(.55,1.1,r)*(1.-smoothstep(91.,95.,t));
+    H=ceiling(uv,t,bl);
+    H=mix(H,vec3(1.,1.,1.),1.-smoothstep(88.,90.5,t));
+    H*=1.-smoothstep(94.6,96.,t);
+  }
+  vec3 col=A;
+  col=mix(col,B,smoothstep(6.7,7.3,t));
+  col=mix(col,C,smoothstep(23.5,26.5,t));
+  col=mix(col,L,smoothstep(42.,47.,t));
+  col=mix(col,Gs,smoothstep(80.5,82.5,t));
+  col=mix(col,H,step(88.,t));
+  col+=vec3(.9,.92,1.)*.5*sin(PI*clamp((t-21.5)/5.,0.,1.));
+  col+=vec3(1.,.97,.9)*.45*sin(PI*clamp((t-79.5)/3.5,0.,1.));
+  float lw=smoothstep(42.,47.,t)*(1.-step(86.,t));
   float vig=smoothstep(1.3,.2,length(uv*vec2(.72,1.)));
   col*=mix(1.,vig,.5*(1.-lw));
-  col=mix(vec3(1.,.99,.97),col,smoothstep(0.,2.8,t));
+  col=mix(vec3(1.,.99,.97),col,smoothstep(0.,2.5,t));
   col+=(hash(gl_FragCoord.xy+fract(G*7.13)*100.)-.5)*.035;
   gl_FragColor=vec4(clamp(col,0.,1.),1.);
 }
@@ -365,31 +544,100 @@ void main(){
 
 <script>
 (function(){
-  const DUR=60;
-  const cv=document.getElementById('cv');
-  const screen=document.getElementById('screen');
-  const capEl=document.getElementById('cap');
-  const seek=document.getElementById('seek');
-  const tc=document.getElementById('tc');
-  const playBtn=document.getElementById('play');
-  const playIco=document.getElementById('play-ico');
-  const sndBtn=document.getElementById('snd');
-  const ccBtn=document.getElementById('cc');
-  const startEl=document.getElementById('start');
-  const chips=[...document.querySelectorAll('.chip')];
-  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const DUR=96;
+  const PLANS=[
+    {t:0,end:7,name:'Le décrochage',dur:'6 s',sw:'linear-gradient(90deg,#e8ecef,#9aa6ad,#111)',
+     quote:'« Le bip s’éloigne. Puis plus rien. Plus de douleur. »',
+     felt:'La douleur cesse d’un coup. Les sons s’éloignent comme sous l’eau, la vision se rétrécit, puis un glissement ou un « déclic ». Beaucoup parlent d’un calme immédiat, sans panique.',
+     stage:'Vue depuis les yeux d’Hélène, allongée. Visages flous penchés sur elle, scialytique qui éblouit. L’image perd ses couleurs, se resserre en tunnel, puis noir. Aucun mouvement brusque&nbsp;: tout ralentit.',
+     prompt:'[Paste CHARACTERS]\nExtreme close first-person POV of Hélène lying on her back on an ICU bed, looking straight up at a round LED surgical light in the white ceiling. At the edges of the frame, Karim and Dr. Anne Morel lean over her, out of focus and backlit, their lips moving silently, a gloved hand on her shoulder. The image slowly drains of color and contrast, the edges darken into a closing tunnel of vision, the light flares and blooms softly, focus breathes in and out once, then everything fades gently to black. Calm, slow, intimate. Photorealistic, shot on ARRI Alexa 35, 40mm anamorphic lens, very shallow depth of field, natural skin texture, 24 fps, silent.'},
+    {t:7,end:24,name:'Hors du corps',dur:'10–12 s',sw:'linear-gradient(90deg,#f4f8fa,#cfdde3,#2f6f7d)',
+     quote:'« Je me vois, en bas. Je n’ai plus mal. Je voudrais leur dire que tout va bien. »',
+     felt:'Une perception au-dessus du corps, souvent près du plafond. Une netteté et une lucidité supérieures à la normale, la sensation de voir dans toutes les directions à la fois. Le corps paraît étranger, presque indifférent. Certains tentent de toucher un soignant ou de lui parler, sans être perçus.',
+     stage:'Lumière haute et froide, image très nette, presque trop. La caméra s’élève lentement, s’approche du visage d’un soignant qui ne réagit pas, puis redescend un instant vers le visage paisible d’Hélène avant de remonter. Pas de musique, pas de tension&nbsp;: un regard calme sur l’agitation.',
+     prompt:'[Paste CHARACTERS]\nSubjective first-person POV, weightless. The viewpoint slowly rises from Hélène\'s body on the ICU bed up to the ceiling, then looks straight down. Below, the real ICU team works on her in a brightly lit, sterile room: Karim, arms straight and locked, gives steady chest compressions to the center of her chest; Dr. Anne Morel squeezes a bag-valve mask over her face; Sophie charges the defibrillator on a red crash cart; Dr. Diallo watches the monitor showing a flat line. Their faces are focused and tense, sweat on Karim\'s forehead. The viewpoint drifts down very close to Sophie\'s face, a few centimeters away; she does not notice. It then glides over Hélène\'s own face, peaceful and pale, and rises again. The image is unusually crisp and clear, as if seen with heightened lucidity. Cool white overhead light, polished floor, teal and white palette. Slow, serene, detached. Photorealistic, highly detailed real people, natural skin, 35mm anamorphic, fluid continuous movement, no cuts, 24 fps, silent.'},
+    {t:24,end:44,name:'Le vortex',dur:'10 s',sw:'linear-gradient(90deg,#0a0620,#3a2380,#2b3da0,#c9c2ff)',
+     quote:'« Je suis aspirée. Une vitesse immense, sans un souffle d’air. Aucune peur. »',
+     felt:'Un passage dans une obscurité ou un tunnel, avec un mouvement très rapide mais sans effort ni vent. Le temps semble suspendu. Au bout, un point de lumière qui attire. La peur est généralement absente.',
+     stage:'Un vrai volume de nuages et de voiles, pas un tunnel de science-fiction. Rotation lente autour de l’axe, profondeur immense, accélération douce et continue. Le point de lumière grossit sans jamais éblouir.',
+     prompt:'The ICU dissolves into soft white light and the first-person viewpoint is drawn forward into a colossal swirling vortex of deep indigo, violet and cobalt clouds, seen from inside, like the eye of a slow storm. Layered translucent veils of mist rotate gently around the axis of travel, with soft depth and real volumetric light scattering; fine threads of pale lavender light spiral along them. Far ahead, a small point of warm golden-white light grows steadily. The movement is immensely fast yet perfectly smooth, effortless, with no turbulence. Profound peace, no fear. Photorealistic volumetric clouds, like ink diffusing in water filmed in macro and IMAX astrophotography, natural film grain, 24 fps, silent.'},
+    {t:44,end:57,name:'La lumière',dur:'10 s',sw:'linear-gradient(90deg,#e9b871,#f6dcae,#fff6e6)',
+     quote:'« Une lumière plus forte que le soleil. Elle ne brûle pas les yeux. Elle m’aime, entièrement. »',
+     felt:'Une lumière d’une intensité extrême qui ne fait pas mal. Elle est souvent ressentie comme une présence vivante. Amour inconditionnel, impression d’être enfin « chez soi », compréhension totale et immédiate. Beaucoup disent que les mots manquent.',
+     stage:'Sortie du vortex dans un espace infini. La lumière respire lentement. Des particules dérivent vers la caméra. On donne l’émotion par la lumière seule, sans aucun symbole religieux.',
+     prompt:'The first-person viewpoint emerges from the end of the indigo vortex into an infinite space of radiant, warm, golden-white light. The light is brighter than the sun yet soft and painless to look at; it feels alive, breathing with a slow pulse, as if it were a presence. Soft volumetric rays radiate from a luminous center and turn very slowly; tiny glowing motes drift gently toward the viewer. Overwhelming unconditional love, compassion, timeless serenity, the feeling of coming home. No figures, no objects, no religious symbols. The camera floats slowly forward, then becomes still. Photorealistic, highly detailed, emotional, cinematic lighting, 24 fps, silent.'},
+    {t:57,end:68,name:'Les retrouvailles',dur:'10 s',sw:'linear-gradient(90deg,#f6dcae,#fff6e6,#ffe9c9)',
+     quote:'« Papa. Je le reconnais sans voir son visage. Personne ne parle, et pourtant tout est dit. »',
+     felt:'Rencontre de proches décédés, parfois inconnus mais reconnus. Ils paraissent en bonne santé, plus jeunes ou lumineux. La communication passe sans paroles, de pensée à pensée. Sentiment d’accueil, joie intense.',
+     stage:'Deux silhouettes de lumière se forment dans l’or et s’approchent. Les visages ne sont qu’à moitié définis, mais les postures sont reconnaissables. Le père tend la main. Un léger voile de larmes trouble l’image.',
+     prompt:'[Paste CHARACTERS]\nFirst-person POV inside the warm golden-white light. Two human figures slowly take shape, made of soft luminous light: Hélène\'s late father and mother, walking calmly toward the viewer. Their features are gentle and only partly defined, yet unmistakable by their posture and silhouette; the father\'s white hair and cardigan, the mother\'s silver bun. They smile with deep tenderness. The father slowly extends his hand toward the viewer. No one speaks; recognition and love pass without words. A faint blur of tears softens the edges of the frame. Photorealistic, ethereal light-made figures, soft diffusion filter, shallow depth of field, slow, deeply emotional, 24 fps, silent.'},
+    {t:68,end:80,name:'La revue de vie',dur:'12 s',sw:'linear-gradient(90deg,#f0a36e,#86b3d6,#6a8d4a,#c9a06a)',
+     quote:'« Toute ma vie, en un instant. Je ressens ce que j’ai fait ressentir aux autres. Rien n’est jugé. »',
+     felt:'Une revue panoramique et simultanée de sa vie, en très peu de temps. Les scènes sont revécues aussi du point de vue des autres&nbsp;: on ressent leur joie ou leur peine. Pas de juge extérieur, plutôt une compréhension bienveillante.',
+     stage:'Des dizaines de fragments lumineux, comme des photos vivantes, flottent et traversent le champ. Enfance, mariage, naissance, une dispute vue depuis l’autre, un parent âgé. Tons chauds de pellicule, grain argentique.',
+     prompt:'[Paste CHARACTERS]\nFirst-person POV floating slowly through hundreds of luminous floating panes of light, each one a living photographic memory from Hélène\'s life, all playing at the same time: a little girl running on a beach at sunset with her father; a 1980s birthday party in a family kitchen; Hélène in her twenties dancing at her wedding; holding her newborn son in a hospital bed; a heated argument in a kitchen seen from her husband\'s side, his hurt expression visible; walking with her elderly mother in a hospital garden; a snowy winter morning. The panes drift past and around the viewer in depth, glowing at the edges. Nostalgic, tender, bittersweet. Warm Kodak Portra 400 tones, natural film grain, real people, photorealistic, 24 fps, silent.'},
+    {t:80,end:86,name:'La limite',dur:'8 s',sw:'linear-gradient(90deg,#f6d9a0,#fff4e0,#d9b77a)',
+     quote:'« Si je traverse, je ne reviendrai pas. Il lève la main. Pas encore. »',
+     felt:'Une frontière (rivière, porte, barrière, ligne de lumière) dont on sait qu’elle marque un point de non-retour. Un proche ou la présence signifie que «&nbsp;ce n’est pas le moment&nbsp;», ou la personne choisit de revenir, souvent pour ses enfants.',
+     stage:'Une prairie dorée sous un ciel de lumière, une rivière lumineuse qui coupe le champ. Le père sur l’autre rive lève la main, paume ouverte. La caméra avance puis s’arrête net au bord.',
+     prompt:'[Paste CHARACTERS]\nFirst-person POV walking slowly across a vast meadow of pale golden grass under a sky made of soft white-gold light. Ahead, a gentle river of flowing light crosses the whole landscape from left to right. On the far bank stand the luminous figures of Hélène\'s father and mother. The father slowly raises his hand, palm open toward the viewer, with a loving, calm expression meaning "not yet". The viewpoint stops right at the edge of the river and does not cross. Longing, peace, acceptance. Photorealistic landscape, soft atmospheric haze, backlit grass, light-made figures, 24 fps, silent.'},
+    {t:86,end:96,name:'Le retour',dur:'8 s',sw:'linear-gradient(90deg,#fff,#000,#cfd6da)',
+     quote:'« Le poids. Le froid. La douleur. Je suis revenue. Je n’ai plus jamais eu peur de la mort. »',
+     felt:'Le retour est souvent brutal&nbsp;: aspiration en arrière, réintégration dans un corps lourd et douloureux. Certains ressentent du regret ou de la colère d’être revenus. Dans les mois qui suivent, la peur de la mort disparaît et les priorités de vie changent.',
+     stage:'La lumière s’effondre en un point, secousse violente, coupe franche sur le plafond de réanimation. Lumière dure, visages des soignants qui se penchent, mise au point lente à travers les larmes. L’image est plus froide et plus contrastée qu’au début.',
+     prompt:'[Paste CHARACTERS]\nThe golden light suddenly collapses into a single point as the viewpoint is violently pulled backward; the frame jolts. Hard cut: first-person POV of Hélène lying on the ICU bed, gasping awake, looking up at the harsh white surgical light. Karim, exhausted, and Dr. Anne Morel lean over her, relief in their eyes; Sophie\'s gloved hand rests on her shoulder. The image is overexposed at first, then slowly comes into focus through blurry tears at the edges of the frame, a slight heave of the camera as if breathing in deeply. Cold, high-contrast clinical light. Photorealistic, real people, natural skin, handheld micro-movement, 40mm anamorphic, 24 fps, silent.'}
+  ];
+  const STATS=[['Émotions positives',56],['Conscience d’être mort',50],['Rencontre de personnes décédées',32],['Passage dans un tunnel',31],['Paysage « céleste »',29],['Expérience hors du corps',24],['Communication avec la lumière',23],['Perception de couleurs',23],['Revue de vie',13],['Présence d’une frontière',8]];
+  const CAPS=[
+    [1.5,5.5,'Le bip s’éloigne. Puis plus rien. Plus de douleur.'],
+    [9,14,'Je flotte. Je vois tout, en même temps, avec une netteté que je n’ai jamais eue.'],
+    [15.5,21.5,'C’est mon corps, en bas. Ils s’acharnent sur lui. Je voudrais leur dire que tout va bien.'],
+    [27,32.5,'Je suis aspirée. Une vitesse immense, sans un souffle d’air.'],
+    [35,41,'Aucune peur. Au bout, quelque chose m’attend.'],
+    [46.5,51,'Une lumière plus forte que le soleil. Elle ne brûle pas les yeux.'],
+    [52,56.5,'Elle m’aime. Entièrement. Sans rien me demander.'],
+    [60,66.5,'Papa. Je le reconnais sans voir son visage.'],
+    [70,74.5,'Toute ma vie, en un instant. Je ressens ce que j’ai fait ressentir aux autres.'],
+    [75.5,79.5,'Rien n’est jugé. Tout est compris.'],
+    [82,86,'Si je traverse, je ne reviendrai pas. Pas encore.'],
+    [89.5,93,'Le poids. Le froid. La douleur. Je suis revenue.'],
+    [93.3,96.1,'Je n’ai plus jamais eu peur de la mort.']
+  ];
 
-  let T=9, playing=false, dirty=true, last=performance.now(), captions=true, lastBeat=-1;
+  // ---------- Storyboard + stats ----------
+  const plansEl=document.getElementById('plans');
+  PLANS.forEach((p,i)=>{
+    const a=document.createElement('article');a.className='plan';
+    a.innerHTML=`<div class="plan-l">
+        <div class="swatch" style="background:${p.sw}"></div>
+        <div class="plan-h"><span class="num">PLAN ${i}</span><h3>${p.name}</h3><span class="meta">${p.dur}</span></div>
+        <p class="quote">${p.quote}</p>
+        <div><div class="lbl">Ce que décrivent les expérienceurs</div><p>${p.felt}</p></div>
+        <div><div class="lbl">Mise en scène</div><p>${p.stage}</p></div>
+      </div>
+      <div class="plan-r"><div class="lbl">Prompt</div><pre id="pr${i}"></pre><button class="copy" data-for="pr${i}">Copier le prompt</button></div>`;
+    a.querySelector('pre').textContent=p.prompt;
+    plansEl.appendChild(a);
+  });
+  const st=document.getElementById('stats');
+  STATS.forEach(([k,v])=>{const tr=document.createElement('tr');tr.innerHTML=`<td>${k}</td><td style="width:40%"><div class="bar" style="width:${v/56*100}%"></div></td><td class="v">${v}</td>`;st.appendChild(tr);});
+
+  // ---------- Elements ----------
+  const cv=document.getElementById('cv'),screen=document.getElementById('screen'),capEl=document.getElementById('cap');
+  const seek=document.getElementById('seek'),tc=document.getElementById('tc');
+  const playBtn=document.getElementById('play'),playIco=document.getElementById('play-ico'),ccBtn=document.getElementById('cc');
+  const startEl=document.getElementById('start'),chipsEl=document.getElementById('chips');
+  PLANS.forEach((p,i)=>{const b=document.createElement('button');b.className='chip';b.dataset.t=p.t;b.innerHTML=`<span class="n">${i}</span>${p.name}`;chipsEl.appendChild(b);});
+  const chips=[...chipsEl.children];
+  let T=12,playing=false,dirty=true,last=performance.now(),captions=true;
 
   // ---------- WebGL ----------
   const gl=cv.getContext('webgl',{antialias:false,preserveDrawingBuffer:true});
-  let prog,uR,uT,uG;
-  if(!gl){
-    screen.insertAdjacentHTML('beforeend','<div class="start"><p class="hint">WebGL est indisponible sur cet appareil : la séquence ne peut pas être rendue.</p></div>');
-  }else{
-    const sh=(type,src)=>{const s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);
-      if(!gl.getShaderParameter(s,gl.COMPILE_STATUS))console.error(gl.getShaderInfoLog(s));return s;};
-    prog=gl.createProgram();
+  let uR,uT,uG;
+  if(!gl){screen.insertAdjacentHTML('beforeend','<div class="start"><p class="hint">WebGL est indisponible sur cet appareil : la maquette ne peut pas être rendue.</p></div>');}
+  else{
+    const sh=(type,src)=>{const s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);if(!gl.getShaderParameter(s,gl.COMPILE_STATUS))console.error(gl.getShaderInfoLog(s));return s;};
+    const prog=gl.createProgram();
     gl.attachShader(prog,sh(gl.VERTEX_SHADER,document.getElementById('vs').textContent));
     gl.attachShader(prog,sh(gl.FRAGMENT_SHADER,document.getElementById('fs').textContent));
     gl.linkProgram(prog);gl.useProgram(prog);
@@ -398,14 +646,22 @@ void main(){
     const loc=gl.getAttribLocation(prog,'a');gl.enableVertexAttribArray(loc);gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
     uR=gl.getUniformLocation(prog,'R');uT=gl.getUniformLocation(prog,'T');uG=gl.getUniformLocation(prog,'G');
   }
+  // adaptive resolution: keeps the volumetric vortex fluid on modest GPUs
+  let scale=1,ftAvg=16,lastAdj=0;
   function resize(){
     const r=cv.getBoundingClientRect();
-    const dpr=Math.min(window.devicePixelRatio||1,1.5);
-    let w=Math.round(r.width*dpr),h=Math.round(r.height*dpr);
-    const k=Math.min(1,1700/w);w=Math.round(w*k);h=Math.round(h*k);
+    const dpr=Math.min(window.devicePixelRatio||1,1.25)*scale;
+    let w=Math.max(160,Math.round(r.width*dpr)),h=Math.max(68,Math.round(r.height*dpr));
+    const k=Math.min(1,1500/w);w=Math.round(w*k);h=Math.round(h*k);
     if(cv.width!==w||cv.height!==h){cv.width=w;cv.height=h;dirty=true;}
   }
   new ResizeObserver(resize).observe(cv);resize();
+  function adapt(dt,now){
+    ftAvg=ftAvg*.9+dt*1000*.1;
+    if(now-lastAdj<800)return;
+    if(ftAvg>30&&scale>.4){scale=Math.max(.4,scale*.8);lastAdj=now;resize();}
+    else if(ftAvg<17&&scale<1){scale=Math.min(1,scale*1.1);lastAdj=now;resize();}
+  }
   function render(now){
     if(!gl)return;
     gl.viewport(0,0,cv.width,cv.height);
@@ -413,131 +669,48 @@ void main(){
     gl.drawArrays(gl.TRIANGLES,0,3);
   }
 
-  // ---------- Captions ----------
-  const CAPS=[
-    [3.5,8,'Les voix s’éloignent.'],
-    [9.5,15,'Je me vois, en bas. Je n’ai plus mal.'],
-    [24,30,'La pièce s’efface.'],
-    [32,38.5,'Tout est calme. Je ne tombe pas, j’avance.'],
-    [47,53,'La lumière.'],
-    [54,59.5,'Elle me connaît.']
-  ];
+  // ---------- Captions / transport ----------
   function updateCaption(){
     const c=captions?CAPS.find(c=>T>=c[0]&&T<c[1]):null;
-    if(c){capEl.textContent=c[2];capEl.classList.add('on');}else capEl.classList.remove('on');
-    capEl.classList.toggle('dark',T>46);
+    if(c){if(capEl.textContent!==c[2])capEl.textContent=c[2];capEl.classList.add('on');}else capEl.classList.remove('on');
+    capEl.classList.toggle('dark',T>46&&T<86);
   }
-
-  // ---------- Audio ----------
-  let ac=null,A={},soundOn=false;
-  function noiseBuf(){const n=ac.sampleRate*2,b=ac.createBuffer(1,n,ac.sampleRate),d=b.getChannelData(0);for(let i=0;i<n;i++)d[i]=Math.random()*2-1;return b;}
-  function initAudio(){
-    if(ac)return;
-    try{ac=new (window.AudioContext||window.webkitAudioContext)();}catch(e){return;}
-    const master=ac.createGain();master.gain.value=.85;master.connect(ac.destination);
-    const conv=ac.createConvolver();
-    const len=ac.sampleRate*4,ir=ac.createBuffer(2,len,ac.sampleRate);
-    for(let ch=0;ch<2;ch++){const d=ir.getChannelData(ch);for(let i=0;i<len;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/len,2.6);}
-    conv.buffer=ir;const wet=ac.createGain();wet.gain.value=.5;conv.connect(wet);wet.connect(master);
-    // world bus: ICU sounds, muffled as we rise
-    const worldLP=ac.createBiquadFilter();worldLP.type='lowpass';worldLP.frequency.value=6000;
-    const worldG=ac.createGain();worldLP.connect(worldG);worldG.connect(master);worldG.connect(conv);
-    const nb=noiseBuf();
-    const room=ac.createBufferSource();room.buffer=nb;room.loop=true;
-    const roomF=ac.createBiquadFilter();roomF.type='lowpass';roomF.frequency.value=500;
-    const roomG=ac.createGain();roomG.gain.value=0;room.connect(roomF);roomF.connect(roomG);roomG.connect(worldLP);room.start();
-    const flat=ac.createOscillator();flat.frequency.value=880;const flatG=ac.createGain();flatG.gain.value=0;flat.connect(flatG);flatG.connect(worldLP);flat.start();
-    const alarmBus=ac.createGain();alarmBus.gain.value=.0;alarmBus.connect(worldLP);
-    // drone (tunnel)
-    const droneF=ac.createBiquadFilter();droneF.type='lowpass';droneF.frequency.value=300;droneF.Q.value=4;
-    const droneG=ac.createGain();droneG.gain.value=0;droneF.connect(droneG);droneG.connect(master);droneG.connect(conv);
-    [55,82.41,110,110.6].forEach((f,i)=>{const o=ac.createOscillator();o.type=i<2?'sawtooth':'triangle';o.frequency.value=f;const g=ac.createGain();g.gain.value=i<2?.18:.3;o.connect(g);g.connect(droneF);o.start();});
-    const lfo=ac.createOscillator();lfo.frequency.value=.07;const lfoG=ac.createGain();lfoG.gain.value=160;lfo.connect(lfoG);lfoG.connect(droneF.frequency);lfo.start();
-    const wh=ac.createBufferSource();wh.buffer=nb;wh.loop=true;const whF=ac.createBiquadFilter();whF.type='bandpass';whF.Q.value=1.4;whF.frequency.value=300;
-    const whG=ac.createGain();whG.gain.value=0;wh.connect(whF);whF.connect(whG);whG.connect(master);whG.connect(conv);wh.start();
-    // light chord (A major) + shimmer
-    const litG=ac.createGain();litG.gain.value=0;litG.connect(master);litG.connect(conv);
-    [220,277.18,329.63,440,554.37,659.25].forEach((f,i)=>{[0,4].forEach(dt=>{const o=ac.createOscillator();o.type='sine';o.frequency.value=f;o.detune.value=dt-2;const g=ac.createGain();g.gain.value=.08/(1+i*.25);o.connect(g);g.connect(litG);o.start();});});
-    const shim=ac.createOscillator();shim.frequency.value=1318.5;const shimG=ac.createGain();shimG.gain.value=0;
-    const trem=ac.createOscillator();trem.frequency.value=.35;const tremG=ac.createGain();tremG.gain.value=.012;trem.connect(tremG);tremG.connect(shimG.gain);
-    shim.connect(shimG);shimG.connect(litG);shim.start();trem.start();
-    A={master,worldLP,worldG,roomG,flatG,alarmBus,droneF,droneG,whF,whG,litG};
-  }
-  const ss=(a,b,x)=>{const t=Math.min(1,Math.max(0,(x-a)/(b-a)));return t*t*(3-2*t);};
-  function setP(p,v){p.setTargetAtTime(v,ac.currentTime,.12);}
-  function alarm(vol){
-    // cardiac-arrest alarm: three descending chirps
-    [0,.16,.32].forEach((d,i)=>{const o=ac.createOscillator();o.type='triangle';o.frequency.value=[988,880,784][i];
-      const g=ac.createGain();const t0=ac.currentTime+d;g.gain.setValueAtTime(0,t0);g.gain.linearRampToValueAtTime(vol,t0+.01);g.gain.exponentialRampToValueAtTime(.0001,t0+.14);
-      o.connect(g);g.connect(A.alarmBus);o.start(t0);o.stop(t0+.16);});
-  }
-  function updateAudio(){
-    if(!ac)return;
-    const on=soundOn&&playing;
-    setP(A.master.gain,on?.85:0);
-    if(!on)return;
-    setP(A.worldLP.frequency,Math.max(250,6000*Math.pow(1-ss(3,20,T),2)+250));
-    setP(A.worldG.gain,1-ss(16,24,T));
-    setP(A.roomG.gain,.22*(1-ss(10,21,T)));
-    setP(A.flatG.gain,.035*ss(11,15,T)*(1-ss(19,25,T)));
-    setP(A.alarmBus.gain,1);
-    setP(A.droneG.gain,.16*ss(17,25,T)*(1-ss(43,51,T)));
-    setP(A.droneF.frequency,260+Math.max(0,T-19)*26);
-    setP(A.whG.gain,.35*ss(19,26,T)*(1-ss(40,46,T)));
-    setP(A.whF.frequency,180+Math.max(0,T-19)*55);
-    setP(A.litG.gain,.32*ss(40,49,T)*(1-ss(58,60,T)));
-    if(T<13){const beat=Math.floor(T/1.6);if(beat!==lastBeat){lastBeat=beat;alarm(.07*(1-ss(4,13,T))+.008);}}
-  }
-
-  // ---------- Transport ----------
   const fmt=s=>{s=Math.floor(s);return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');};
   function updateUI(){
-    seek.value=T.toFixed(2);
-    tc.textContent=fmt(T)+' / '+fmt(DUR);
+    seek.value=T.toFixed(2);tc.textContent=fmt(T)+' / '+fmt(DUR);
     playIco.innerHTML=playing?'<path d="M4 2.5h3v11H4zM9 2.5h3v11H9z"/>':'<path d="M4 2.5v11l9-5.5z"/>';
     playBtn.setAttribute('aria-label',playing?'Pause':(T>=DUR?'Revoir':'Lecture'));
-    const ph=T<20?0:T<42?1:2;chips.forEach((c,i)=>c.classList.toggle('on',i===ph));
-    sndBtn.setAttribute('aria-pressed',String(soundOn));
+    let ph=0;PLANS.forEach((p,i)=>{if(T>=p.t)ph=i;});chips.forEach((c,i)=>c.classList.toggle('on',i===ph));
     ccBtn.setAttribute('aria-pressed',String(captions));
   }
-  function play(){
-    if(T>=DUR)T=0;
-    playing=true;startEl.hidden=true;lastBeat=-1;
-    if(soundOn){initAudio();if(ac&&ac.state==='suspended')ac.resume();}
-    updateUI();
-  }
-  function pause(){playing=false;updateUI();updateAudio();}
-  function jump(t){T=Math.max(0,Math.min(DUR,t));lastBeat=Math.floor(T/1.6);dirty=true;updateUI();updateCaption();}
-  document.getElementById('go-sound').onclick=()=>{soundOn=true;jump(0);play();};
-  document.getElementById('go-mute').onclick=()=>{soundOn=false;jump(0);play();};
+  function play(){if(T>=DUR)T=0;playing=true;startEl.hidden=true;updateUI();}
+  function pause(){playing=false;updateUI();}
+  function jump(t){T=Math.max(0,Math.min(DUR,t));dirty=true;updateUI();updateCaption();}
+  document.getElementById('go').onclick=()=>{jump(0);play();};
   playBtn.onclick=()=>playing?pause():play();
-  sndBtn.onclick=()=>{soundOn=!soundOn;if(soundOn){initAudio();if(ac&&ac.state==='suspended')ac.resume();}updateUI();updateAudio();};
   ccBtn.onclick=()=>{captions=!captions;updateUI();updateCaption();};
+  document.getElementById("full").onclick=()=>{try{const p=screen.requestFullscreen?screen.requestFullscreen():null;if(p&&p.catch)p.catch(()=>{});}catch(e){}};
   seek.oninput=()=>{jump(parseFloat(seek.value));startEl.hidden=true;};
   chips.forEach(c=>c.onclick=()=>{jump(parseFloat(c.dataset.t));startEl.hidden=true;if(!playing)play();});
   document.addEventListener('keydown',e=>{if(e.code==='Space'&&!/INPUT|TEXTAREA|BUTTON/.test(document.activeElement.tagName)){e.preventDefault();playing?pause():play();}});
 
-  // ---------- Copy ----------
-  document.querySelectorAll('.copy').forEach(b=>b.onclick=()=>{
-    const el=document.getElementById(b.dataset.for);const txt=el.textContent;
-    const done=()=>{const o=b.textContent;b.textContent='Copié';setTimeout(()=>b.textContent=o,1500);};
-    const sel=()=>{const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Texte sélectionné';setTimeout(()=>b.textContent='Copier',1800);};
-    try{navigator.clipboard.writeText(txt).then(done,sel);}catch(e){sel();}
+  document.addEventListener('click',e=>{
+    const b=e.target.closest('.copy');if(!b)return;
+    const el=document.getElementById(b.dataset.for);const txt=el.textContent;const o=b.textContent;
+    const done=()=>{b.textContent='Copié';setTimeout(()=>b.textContent=o,1500);};
+    const sel=()=>{const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Texte sélectionné';setTimeout(()=>b.textContent=o,1800);};
+    try{navigator.clipboard.writeText(txt).then(done,sel);}catch(err){sel();}
   });
 
-  // ---------- Loop ----------
   function frame(now){
     const dt=Math.min(.1,(now-last)/1000);last=now;
     if(playing){
-      T+=dt;
-      if(T>=DUR){T=DUR;playing=false;}
-      updateUI();updateCaption();updateAudio();
-      render(now);
+      T+=dt;if(T>=DUR){T=DUR;playing=false;}
+      adapt(dt,now);updateUI();updateCaption();render(now);
     }else if(dirty){render(now);dirty=false;}
     requestAnimationFrame(frame);
   }
   updateUI();
   requestAnimationFrame(t=>{last=t;render(t);frame(t);});
-  if(reduce)captions=true;
 })();
 </script>
